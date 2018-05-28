@@ -1,0 +1,46 @@
+
+<div class="entry">
+<p class="content-header">
+	In praise of repetitive code
+<p>
+  <div class="date">Sep 13, 2014</div>
+<p class="content-body">
+	It is well known that programmers should avoid repeating themselves.
+This is simply because when you need to change code, you would then
+need to update each of the repetitions, with an increasing chance of
+adding bugs with each change made.  Thus, mnenomics like <em>DRY</em>
+or Don't Repeat Yourself.
+</p>
+
+<p class="content-body">
+	However, what I often see is a reaction to that which goes too far
+in the opposite direction.  I would call it premature optimization but
+it's not really performance that's at stake.  It's more a premature
+unification of code, and it prevents finding the best way to organize
+the solution.
+</p>
+
+<p class="content-body">
+	In my own practice, I strive for simplicity, clarity, and
+transparency.  So when I am building something new or refactoring, I
+write code as simple and repetitive as possible.  This benefits me in
+multiple ways:
+<ul class="content-body">
+	<li>	I don't spend as much time worrying about the right
+	way to do it, I just get it done.
+	</li>
+	<li>	
+	The code is simpler because I am not aiming for any cleverness.
+</li>
+<li>	
+	best of all, the patterns pop out at me by the repetition.
+</li>
+</ul>
+</p>
+<p class="content-body">
+	Afterwards, I can use the obvious patterns to fold the repetitions
+together into a single, non-repeating thing which handles all edge
+cases properly.
+</p>
+</div>
+

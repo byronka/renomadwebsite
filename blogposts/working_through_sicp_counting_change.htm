@@ -1,0 +1,135 @@
+<div class="entry">
+  <p class="content-header">
+   Working through the SICP (Structured Interpretation of Computer
+Programs): Counting change
+	</p>
+  <div class="date">April 17, 2016</div>
+  <p class="content-body">
+		I've read the beginnings of SICP many times.  I never seem to get
+too far - usually I'm diverted by some change of view or a new interest.
+	Maybe I'll never get to the end - it's hard to say.  
+</p>
+<p class="content-body">
+In any case,
+I'm working through it again right now and this time, I'm not allowing
+myself to go one iota past anything that confuses me.  That is, if I
+feel even the <em>least</em> bit confused on a topic, example, or
+problem, I will work on it until it is crystal clear.  In fact, I
+think this issue is one of the major problems with self-study from written 
+works - they
+don't always give a good indication of how much difficulty they ought
+to be for the average reader.  And that can be intimidating and
+demoralizing for students. I mean, is it expected to have to spend a
+week on a single problem for it to become clear? 
+</p>
+<p class="content-body"> For better or worse,
+I count myself amongst the middle of the bell curve when it comes to
+understanding new things.  I've seen other people who seem to
+understand things right away.  Sometimes it's because they've been
+exposed to that information before, or something very similar.
+Rarely, it's because they're just that quick.  More commonly, they'll
+pretend to understand, just to keep face.  But me, I like to truly
+understand things at the gut level, or have a sense of why that's not
+possible.
+	</p>
+  <p class="content-body">
+I bring this up because I've recently gotten stuck for the past week
+on the "Counting Change" section of chapter 1.2.2 - the tree recursion
+chapter. It starts like this:
+</p>
+
+<pre>
+  It takes only a bit of cleverness to come up with the iterative
+  Fibonacci algorithm.  In contrast, consider the following problem: How
+  many different ways can we make change of $ 1.00, given half-dollars,
+  quarters, dimes, nickels, and pennies?  More generally, can we write a
+  procedure to compute the number of ways to change any given amount of
+  money?
+
+  	 This problem has a simple solution as a recursive procedure.
+  Suppose we think of the types of coins available as arranged in some
+  order.  Then the following relation holds...
+</pre>
+  <p class="content-body">
+I read this section and saw words like "simple" and "easily" and felt
+it like a slap to the face.  But I'm persistent, stupid, and angry, so
+I stuck to this problem for the past week until I took it apart.  Here
+is the break down:
+</p>
+<pre>
+<code>
+Example: Making change on a total of 30 cents, using dimes, 
+nickels, and pennies
+
+
+          +------- Notice this column has all the same value
+          |
+          |
+          |              +----- Only this section changes
+          V              V
+Count#
+
+ 1)  ( 1 dime ) +  (  2 dimes  +  0 nickels  +  0 pennies  )
+ 2)  ( 1 dime ) +  (  1 dime   +  2 nickels  +  0 pennies  )
+ 3)  ( 1 dime ) +  (  1 dime   +  1 nickel   +  5 pennies  )
+ 4)  ( 1 dime ) +  (  1 dime   +  0 nickels  + 10 pennies  )
+ 5)  ( 1 dime ) +  (  0 dimes  +  0 nickels  +  0 pennies  )
+ 6)  ( 1 dime ) +  (  0 dimes  +  4 nickels  +  0 pennies  )  <--+
+ 7)  ( 1 dime ) +  (  0 dimes  +  3 nickels  +  5 pennies  )     |
+ 8)  ( 1 dime ) +  (  0 dimes  +  2 nickels  + 10 pennies  )     |
+ 9)  ( 1 dime ) +  (  0 dimes  +  1 nickels  + 15 pennies  )     |
+10)  ( 1 dime ) +  (  0 dimes  +  0 nickels  + 20 pennies  )     |
+                                                                |
+      10 cents        +          20 cents                      |
+                                                               |
+     -----------------------------------                       |
+                                                               |
+ 1)                             6 nickels  +  0 pennies        |
+ 2)                             5 nickels  +  5 pennies        |
+ 3)                             4 nickels  + 10 pennies        |
+ 4)                             3 nickels  + 15 pennies  <--+  |
+ 5)                             2 nickels  + 20 pennies     |  |
+ 6)                             1 nickels  + 25 pennies     |  |
+ 7)                             0 nickels  + 30 pennies     |  |
+                                                            |  |
+                                     30 cents               |  |
+ TOTAL: 17 ways                                             |  |
+                                                            |  |
+               none of first demonination used -------------+  |
+                   (number of ways on 30 cents)                |
+                                                               |
+                          plus                                 |
+                                                               |
+            at least one of first denomination used -----------+
+              ( number of ways on 20 cents)
+
+</code>
+</pre>
+  <p class="content-body">
+Per SICP, 
+   The number of ways to change amount A using N kinds of coins equals
+<br>  
+	 * the number of ways to change amount A using 
+     all but the first kind of coin (7 ways in the example here) 
+<br>  
+     plus
+<br>  
+   * the number of ways to change amount A - D using 
+     all N kinds of coins, where D is the denomination 
+     of the first kind of coin. (10 ways here)
+</p>
+  <p class="content-body">
+I suppose what drives me nuts about this section is this:  The
+recursive relation is not, at all, obvious.  A person might initially
+think so - it's certainly implied - it seems like maybe the reader
+just isn't up to the task or something.  But as you can see above,
+where I break it down entirely, this is not transparently plain.  Only
+when I made things concrete and regimented did the rationale behind
+things pop forward.
+</p>
+  <p class="content-body">
+Especially in the case of a book where self-study is expected,
+situations like this need to be more heavily documented, using
+illustrations where necessary, to avoid causing stumbling blocks.
+</p>
+</div>

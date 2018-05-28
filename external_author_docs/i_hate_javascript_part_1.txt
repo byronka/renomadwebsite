@@ -1,0 +1,60 @@
+dynamic languages make for harder to maintain large codebases
+Caveat: I have not watched the presentation.
+
+I have been on the design committees for JavaScript (a very dynamic language), C# (a mostly static language) and Visual Basic (which is both static and dynamic), so I have a number of thoughts on this subject; too many to easily fit into an answer here.
+
+Let me begin by saying that it is hard to maintain a large codebase, period. Big code is hard to write no matter what tools you have at your disposal. Your question does not imply that maintaining a large codebase in a statically-typed language is "easy"; rather the question presupposes merely that it is an even harder problem to maintain a large codebase in a dynamic language than in a static language. That said, there are reasons why the effort expended in maintaining a large codebase in a dynamic language is somewhat larger than the effort expended for statically typed languages. I'll explore a few of those in this post.
+
+But we are getting ahead of ourselves. We should clearly define what we mean by a "dynamic" language; by "dynamic" language I mean the opposite of a "static" language.
+
+A "statically-typed" language is a language designed to facilitate automatic correctness checking by a tool that has access to only the source code, not the running state of the program. The facts that are deduced by the tool are called "types". The language designers produce a set of rules about what makes a program "type safe", and the tool seeks to prove that the program follows those rules; if it does not then it produces a type error.
+
+A "dynamically-typed" language by contrast is one not designed to facilitate this kind of checking. The meaning of the data stored in any particular location can only be easily determined by inspection while the program is running.
+
+(We could also make a distinction between dynamically scoped and lexically scoped languages, but let's not go there for the purposes of this discussion. A dynamically typed language need not be dynamically scoped and a statically typed language need not be lexically scoped, but there is often a correlation between the two.)
+
+So now that we have our terms straight let's talk about large codebases. Large codebases tend to have some common characteristics:
+
+They are too large for any one person to understand every detail.
+They are often worked on by large teams whose personnel changes over time.
+They are often worked on for a long time, with multiple versions.
+All these characteristics present impediments to understanding the code, and therefore present impediments to correctly changing the code. In short: time is money; making correct changes to a large codebase is expensive due to the nature of these impediments to understanding.
+
+Since budgets are finite and we want to do as much as we can with the resources we have, the maintainers of large codebases seek to lower the cost of making correct changes by mitigating these impediments. Some of the ways that large teams mitigate these impediments are:
+
+Modularization: Code is factored into "modules" of some sort where each module has a clear responsibility. The action of the code can be documented and understood without a user having to understand its implementation details.
+Encapsulation: Modules make a distinction between their "public" surface area and their "private" implementation details so that the latter can be improved without affecting the correctness of the program as a whole.
+Re-use: When a problem is solved correctly once, it is solved for all time; the solution can be re-used in the creation of new solutions. Techniques such as making a library of utility functions, or making functionality in a base class that can be extended by a derived class, or architectures that encourage composition, are all techniques for code re-use. Again, the point is to lower costs.
+Annotation: Code is annotated to describe the valid values that might go into a variable, for instance.
+Automatic detection of errors: A team working on a large program is wise to build a device which determines early when a programming error has been made and tells you about it so that it can be fixed quickly, before the error is compounded with more errors. Techniques such as writing a test suite, or running a static analyzer fall into this category.
+A statically typed language is an example of the latter; you get in the compiler itself a device which looks for type errors and informs you of them before you check the broken code change into the repository. A manifestly typed language requires that storage locations be annotated with facts about what can go into them.
+
+So for that reason alone, dynamically typed languages make it harder to maintain a large codebase, because the work that is done by the compiler "for free" is now work that you must do in the form of writing test suites. If you want to annotate the meaning of your variables, you must come up with a system for doing so, and if a new team member accidentally violates it, that must be caught in code review, not by the compiler.
+
+Now here is the key point I have been building up to: there is a strong correlation between a language being dynamically typed and a language also lacking all the other facilities that make lowering the cost of maintaining a large codebase easier, and that is the key reason why it is more difficult to maintain a large codebase in a dynamic language. And similarly there is a correlation between a language being statically typed and having facilities that make programming in the larger easier.
+
+Let's take JavaScript for example. (I worked on the original versions of JScript at Microsoft from 1996 through 2001.) The by-design purpose of JavaScript was to make the monkey dance when you moused over it. Scripts were often a single line. We considered ten line scripts to be pretty normal, hundred line scripts to be huge, and thousand line scripts were unheard of. The language was absolutely not designed for programming in the large, and our implementation decisions, performance targets, and so on, were based on that assumption.
+
+Since JavaScript was specifically designed for programs where one person could see the whole thing on a single page, JavaScript is not only dynamically typed, but it also lacks a great many other facilities that are commonly used when programming in the large:
+
+There is no modularization system; there are no classes, interfaces, or even namespaces. These elements are in other languages to help organize large codebases.
+The inheritance system -- prototype inheritance -- is both weak and poorly understood. It is by no means obvious how to correctly build prototypes for deep hierarchies (a captain is a kind of pirate, a pirate is a kind of person, a person is a kind of thing...) in out-of-the-box JavaScript.
+There is no encapsulation whatsoever; every property of every object is yielded up to the for-in construct, and is modifiable at will by any part of the program.
+There is no way to annotate any restriction on storage; any variable may hold any value.
+But it's not just the lack of facilities that make programming in the large easier. There are also features that make it harder.
+
+JavaScript's error management system is designed with the assumption that the script is running on a web page, that failure is likely, that the cost of failure is low, and that the user who sees the failure is the person least able to fix it: the browser user, not the code's author. Therefore as many errors as possible fail silently and the program keeps trying to muddle on through. This is a reasonable characteristic given the goals of the language, but it surely makes programming in the larger harder because it increases the difficulty of writing test cases. If nothing ever fails it is harder to write tests that detect failure!
+
+Code can modify itself based on user input via facilities such as eval or adding new script blocks to the browser DOM dynamically. Any static analysis tool might not even know what code makes up the program!
+
+And so on.
+
+Clearly it is possible to overcome these impediments and build a large program in JavaScript; many multiple-million-line JavaScript programs now exist. But the large teams who build those programs use tools and have discipline to overcome the impediments that JavaScript throws in your way:
+
+They write test cases for every identifier ever used in the program. In a world where misspellings are silently ignored, this is necessary. This is a cost.
+They write code in type-checked languages and compile that to JavaScript, such as TypeScript.
+They use frameworks that encourage programming in a style more amenable to analysis, more amenable to modularization, and less likely to produce common errors.
+They have good discipline about naming conventions, about division of responsibilities, about what the public surface of a given object is, and so on. Again, this is a cost; those tasks would be performed by a compiler in a typical statically-typed language.
+In conclusion, it is not merely the dynamic nature of typing that increases the cost of maintaining a large codebase. That alone does increase costs, but that is far from the whole story. I could design you a language that was dynamically typed but also had namespaces, modules, inheritance, libraries, private members, and so on -- in fact, C# 4 is such a language -- and such a language would be both dynamic and highly suited for programming in the large.
+
+Rather it is also everything else that is frequently missing from a dynamic language that increases costs in a large codebase. Dynamic languages which also include facilities for good testing, for modularization, reuse, encapsulation, and so on, can indeed decrease costs when programming in the large, but many frequently-used dynamic languages do not have these facilities built in. Someone has to build them, and that adds cost.

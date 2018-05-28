@@ -1,0 +1,163 @@
+<div class="entry">
+  <p class="content-header">
+   Working through the SICP (Structured Interpretation of Computer
+Programs): iterative fast-exponent
+	</p>
+  <div class="date">June 5, 2016</div>
+  <p class="content-body">
+  I'm no genius.  In fact, I'm not even sure which side of
+  average I am.  But whatever, I don't let that hang me up!  I have
+  gotten to exercise 1.16 in the SICP and it took me a while to get
+  the answer, though in retrospect it seemed so easy and obvious, that
+  perhaps any normal person would be embarassed to admit the time
+  spent.
+	</p>
+  <p class="content-body">
+  Well, not me, sorry.  I own my human condition.  And that is, it
+  took me days to figure this out.  <em>Days</em>.  Now I'm not saying I spent
+  *all* day working on this, rather 30 minutes here, an hour there -
+  but still.  This probably took a total of 5+ hours to answer.  The
+  majority of that time was in going down dead ends and my own poor
+  ability to think clearly.
+  </p>
+  <p class="content-body">
+  Here is the question from the book:
+	</p>
+<pre>Exercise 1.16.  Design a procedure that evolves an iterative
+exponentiation process that uses successive squaring and uses a
+logarithmic number of steps, as does fast-expt. (Hint: Using the
+observation that (bn/2)2 = (b2)n/2, keep, along with the exponent n
+and the base b, an additional state variable a, and define the state
+transformation in such a way that the product a bn is unchanged from
+state to state. At the beginning of the process a is taken to be 1,
+and the answer is given by the value of a at the end of the process.
+In general, the technique of defining an invariant quantity that
+remains unchanged from state to state is a powerful way to think about
+the design of iterative algorithms.)
+</pre>
+  <p class="content-body">
+  I bounced around different ideas and techniques to crack this,
+  finally settling on one of my tried-and-true classics: write a
+  concrete and expanded list of steps.  This is what eventually led to
+  success.  
+	</p>
+  <p class="content-body">
+  Towards that end, I wrote out the anticipated series of steps to do
+  fast-exponent for 2 to the eighth power:
+  </p>
+  <pre>1 * 2^8 = 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2
+1 * 4^4 = (2^2)^4 = 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2
+1 * 16^2  = ((2^2)^2)^2 = 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2
+1 * 256 = 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2
+  </pre>
+  <p class="content-body">
+  And of course, seeing that in front of me, I realized I was on the
+  right track.
+  </p>
+  <pre>THE ANSWER!
+starting point: 1   2^8 = 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2
+step 1:         2^2  * (2^2)^3 = (2^2)^4 = 2 * 2 * 2 * 2 * 2 * 2 * 2 * 2
+(this is gotten by 2^2 * 2^6.  we can easily crunch 2^2, and 2^6 becomes (2^2)^6/2, or (2^2)^3)
+
+renders to:     4 *  4^3
+step 2:         4 * 4 * (4^2)
+(for odd powers, it's b * b^n-1.  In this case, that's 4 * 4^2)
+
+renders to:     16 * 4^2
+step 3:         16 * 16
+
+renders to:     256
+
+again, as scheme:
+starting point:  (* 1 (exp 2 8))
+step 1:          (* 4 (exp 4 (/(-8 2) 2)))
+renders to:      (* 4 (exp 4 3))
+step 2:          (* (* 4 4) (exp 4 2))
+renders to:      (* 16 (exp 4 2))
+step 3:          (* 16 16)
+renders to:      256
+
+And again...
+(blah 1 2 7)
+(blah 2 2 6)
+(blah 2 4 3)
+(blah 8 4 3)
+128
+  </pre>
+  <p class="content-body">
+  At this point, I just had to convert the patterns into a
+  clear-headed if-statement.  It was this: if we have an odd n, then
+  subtract 1 from n and multiply a and b together and assign to a.
+  Otherwise, if we have an even n, divide n by 2 and square b.  If we
+  have n of 0, that means we are done, so just return a:
+  </p>
+  <pre>
+
+(define (superexp a b n)
+(if (= n 0)
+    a
+    (if (odd? n)
+        (superexp (* a b) b (- n 1))
+        (superexp a (square b) (/ n 2)))))
+
+(define (exp b n)
+  (superexp 1 b n))      
+  </pre>
+  <p class="content-body">
+  Now that we see the patterns clearly, answering exercises 1.17 and 1.18
+  are a cinch:
+  </p>
+  <pre>
+     
+Exercise 1.17.
+--------------
+
+  The exponentiation algorithms in this section are based on
+performing exponentiation by means of repeated multiplication. In a
+similar way, one can perform integer multiplication by means of
+repeated addition. The following multiplication procedure (in which it
+is assumed that our language can only add, not multiply) is analogous
+to the expt procedure:
+
+(define (* a b)
+  (if (= b 0)
+      0
+      (+ a (* a (- b 1)))))
+
+This algorithm takes a number of steps that is linear in b. Now
+suppose we include, together with addition, operations double, which
+doubles an integer, and halve, which divides an (even) integer by 2.
+Using these, design a multiplication procedure analogous to fast-expt
+that uses a logarithmic number of steps.
+
+ANSWER:
+
+(define (double a) (+ a a))
+(define (halve a) (/ a 2))
+  
+(define (fast-mult b n)
+  (cond ((= n 0) 0)
+        ((even? n) (double (fast-mult b (halve n))))
+        (else (+ b (fast-mult b (- n 1))))))
+    
+    
+exercise 1.18
+-------------
+Using the results of exercises 1.16 and 1.17, devise a procedure that
+generates an iterative process for multiplying two integers in terms
+of adding, doubling, and halving and uses a logarithmic number of
+steps.
+
+ANSWER:
+
+  (define (* b n)
+  (auxmult 0 b n))
+ (define (auxmult a b n)
+  (if (= n 0)
+      a
+      (if (odd? n)
+          (auxmult (+ a b) b (- n 1))
+          (auxmult a (double b) (halve n)))))
+  </pre>
+</div>
+

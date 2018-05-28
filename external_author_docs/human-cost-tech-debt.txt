@@ -1,0 +1,303 @@
+    #alternate alternate
+
+DaedTech
+
+   Stories about Software
+     * Home
+     * Products
+     * Services
+     * Resources
+     * About
+
+   [-- Main Menu --]
+
+   Jul
+   31
+
+   By Erik Dietrich
+
+The Human Cost of Tech Debt
+
+   Category: The Life of a Programmer Tags: Metaphors for Software, Technical Debt | 29 Comments
+
+   Editorial Note: I originally wrote this post for the Infragistics blog.  Head over to their site and check out the original.  While you’re there, have a look at the other
+   blog authors and their product offering.
+
+   If you’re not already familiar with the concept of technical debt, it’s worth becoming familiar with it.  I say this not only because it is a common industry term, but
+   because it is an important concept.
+
+   Coined by Ward Cunningham, the term introduces the idea that taking shortcuts in your software today not only means paying the price eventually — it means paying that price
+   with interest.  In other words, introducing that global variable today and saving half a day’s work ahead of shipping means that you’re going to pay for it with more than
+   half a day’s labor down the line.
+
+   Man holding heavy chest
+
+The Power of the Metaphor
+
+   I’ve spent significant time doing IT management consulting in recent years, after spending years and years writing code.  And I can tell you that this metaphor for shortcuts
+   in the codebase is a powerful one when it comes to communication between the business and the software development group.  When you explain software decisions to managers and
+   MBAs using the language of economics, they get it.
+
+   Because of the metaphor’s power and subsequent effectiveness for business concerns, it is often used to describe the health of projects, particularly vis a vis deadlines and
+   milestones.  The developers may communicate that an aggressive deadline will result in technical debt, making features in the future take longer to ship.  Analysts and
+   project managers might account for technical debt when discussing slipped deadlines.  IT upper management might ask for an assessment of the amount of technical in an
+   application when making a strategic, replace/retire/rewrite decision.
+
+   The problem of technical debt is for most people, in essence, a problem of time to market.
+
+   But I’d like to talk today about the human side of the problem.  And, make no mistake — in business, all human problems are also business problems,viewed with a wide enough
+   lens.  Unhappy humans are unhappy workers, and unhappy workers are less productive.  Yes, this angle of technical debt is seldom discussed, in my experience.
+
+Unpleasant Work
+
+   For a manager, a code base high in technical debt means that feature delivery slows to a crawl, which creates a lot of frustration and awkward moments in conversation about
+   business capability.  For a developer, this frustration is even more acute.   Nobody likes working with a significant handicap and being unproductive day after day, and that
+   is exactly what this sort of codebase means for developers.
+
+   Each day they go to the office knowing that it’s going to take the better part of a day to do something simple like add a checkbox to a form.  They know that they’re going to
+   have to manufacture endless explanations for why seemingly simple things take them a long time.  When new developers are hired or consultants brought in, they know that
+   they’re going to have to face confused looks, followed by those newbies trying to hide mild contempt.
+
+   To tie this back to the tech debt metaphor, think of someone with mountains of debt trying to explain being harassed by creditors.  It’s embarrassing, which is, in
+   turn, demoralizing.
+
+Team Infighting
+
+   Not surprisingly, this kind of situation tends to lead to bickering among the team.  Again, the metaphor holds as one would expect this kind of behavior from a married couple
+   with crippling debt.  Teams draw battle lines.
+
+   It might be the aforementioned newbies against the tenured staff upon whom they blame the problem.  It might be the maintenance programmers versus the developers or the
+   people on the green field project versus the people responsible for the legacy beast in which the tech debt resides.
+
+   Whatever those lines may be, they become real and they become problematic.  They add acrimony on top of the frustration and embarrassment of the problem itself.
+
+Atrophied Skills
+
+   As embarrassment mounts and the blame game is played more vigorously, team members can feel their professional relevance slipping away.  After all, tech debt creates
+   substantial drag not only on feature development, but on the general evolution of a codebase.
+
+   In these sorts of codebases, everything becomes difficult.  Teams postpone upgrading to the latest version of the language.  They resist incorporating modern architectural
+   and design practices.  They fear to replace outdated third party add-ins with modern ones.  Generally speaking, they want to touch things as little as humanly possible,
+   because doing so further impairs their already lethargic process.  It’s too slow and it’s too risky.
+
+   But even as they make these decisions (or at least live with them when others make them), they understand that their market value is waning with each passing day.  It is not
+   lost on them that while the wide development world embraces the newest javascript frameworks and domain driven design approaches, they’re struggling to add features to a
+   wheezy, CRUD-based, Winforms application.
+
+The Hidden Business Cost: Turnover and Attrition
+
+   Hopefully it should be obvious to management that unhappy developers is a business problem and a serious one at that.  In the current IT market climate, developers have
+   options — even ones stuck on a legacy codebase with crippling tech debt.
+
+   Coming to work each day to work in a tortured code base, with disgruntled people, and with a mounting sense of irrelevance creates a team full of people that are going to be
+   open to other options.  And, sooner or later, they’re going to start leaving, and the ones leading the charge will be the ones the organization can least afford to lose.  It
+   will become harder and harder to hire into the group and it will take longer and longer for those who do come in to be productive.
+
+   So when you think of tech debt, don’t think only in terms of the business problem of delayed features and rising defect counts.  Think of the human cost, and the much more
+   serious, much longer term business problem that results.
+
+
+   Pin It Submit to reddit Submit to StumbleUpon Share on Tumblr Share
+     * Noam
+       Well written and very interesting.
+     * Erik Dietrich
+       Thanks for the feedback!
+     * Przemek
+       Nice one. That’s exactlly what comes to my mind when I hear managers saying they can’t afford spending half of a realease/few weeks/days for upgrading a framework, tool
+       which is essential for the project because it has no business value. It does! But an implicit one. Not mentioning the fact that old versions get abandoned at some point 😉
+     * Erik Dietrich
+       I’ve been doing a lot of IT/Dev management consulting over the last few years, and I find that I spend a lot of time trying to surface things like this. So many companies
+       overlook this type of concern and then are mystified when their average developer turnover is a year or why they can’t get people to come work for them.
+     * MaxArt
+       Sadly, I’ve been there, part of machine that I wasn’t allowed to have any control over. In that case, sheer incompetence about modern development ways paved the path of
+       technical debt. The symptoms were so clear.
+       Lesson learned. Now that I’ve moved to much greener pastures, I’m continuously watching over the risk of technical debt.
+     * Amused Norn
+       I’m weird. I kind of enjoy grovelling over old stuff and bringing it in line with current standards and practices, finding the literals that should be variables, and the
+       variables that should be constants. I should probably figure out how to put that in the CV…
+     * Rajesh Rao
+       Great article Erik. Although I loved that you are talking about a very bold topic, but it would have been great if you could explain how teams & organizations can solve
+       this technical debt. From my experience, I have worked in team & know customers who know their code base is old and developers are not happy maintaining it but nobody has
+       an immediate solution to it. How do you get out of such situation?
+       My second point is that, many a times people are unaware while they are adding to technical debt. Agile & Scrum play a big portion in adding to technical debt because
+       there is someone keeping a check on you on how much amount of time you are taking for a particular technical task. Everyone wants to quickly finish their task and impress
+       the management. The main focus is on how quickly we rolled out a project/release rather than quality. Nobody cares what technical debt is added and how much future mess
+       it will create for the maintainers. All everyone cares is to just get the job done.
+     * MichaelOChurch
+       This is all true, and I think it’s also worth pointing out that technical “debt” is a bad metaphor. Debt has a known interest rate that might be on the order of 5 percent
+       per year. Technical debt’s interest rate is unpredictable and extremely high. Credit card debt isn’t the best kind to have, but it doesn’t randomly blow your face off
+       either.
+     * caente
+       > Analysts and project managers might account for technical debt when discussing slipped deadlines.
+       No they won’t, you cannot quantify technical debt, it’s a *metaphor*.
+       I completely agree with the rest of the post. But “technical debt” is not a cause, nor a valid metaphor to share with management. Other bad metaphors are: “building” and
+       “architecture”. We are not building anything, we are only writing algorithms that computers will follow. When we write down those algorithms, we are also encoding the
+       inner workings of the company. The true knowledge of how a company works is not only in their papers or in the heads of their employees, it’s also in its automated
+       processes.
+       The automated processes are the reason why a company can be competitive nowadays. People need to be able to understand those processes, those algorithms, *from the code*,
+       documentation is never enough, and is never up to date. The code is the primary source of information. If it’s not legible, if it becomes arcane knowledge, a black magic
+       that only a consultant can “fix”, then the company grinds to a halt, it withers and is crushed by competitors.
+       Be careless about the code quality is not about the suffering of the developers, it means that you are burying vital knowledge of your company, and eventually no
+       employee, nor consultant, will be able to dig it out.
+       If we are trying to figure out how to deal with managers who don’t care about the company, but only about absurd deadlines that their managers gave them, then we need to
+       start pushing back, start saying NO. Politics are unavoidable, and often necessary, not all decisions can be made because technical reasons, but we need to start imposing
+       the reality of the code, you cannot rush it, our you are killing yourself.
+     * Dom Barker
+       Great article. I think the situations described here result when teams default on their technical debt. I’d argue that not all technical debt is bad, and even then, it’s
+       not always possible to avoid it anyway. Here’s some more detail: https://medium.com/@MostlyHarmlessD/on-technical-debt-7bac65edf349
+     * Andy Henry
+       Great comments. Even if you explain these concepts to managers it doesn’t change things because getting things done quickly is usually the primary driver for code
+       releases and they will happily kick the can down the road while they don’t feel the pain, and often blame engineering when it finally does come home to roost and
+       development slows.
+       What’s needed is strong engineering leadership that supports fundamental core quality and knows when to let the developers have the time they need.
+       It’s not a one-sided issue though, developers often struggle to settle for ‘good enough’ and prefer to keep fiddling without seeing the business perspective. It really
+       requires strong team leadership and great communication so that quality is respected but focus and timeliness are valued.
+       There are times when poor code is OK to quickly test an idea which may be thrown away once feedback comes, but the scope to do the job properly later must be there before
+       a house is built on that sandy foundation.
+     * datguy
+       Refactoring can be pleasant yes. The pain mostly comes from being pushed to ship features with no time for refactoring.
+       Even then you might decide at some point “oh I’ll just refactor this small thing” while building a new feature but you realize after a few hours in that this small
+       refactor ends up needing much more work to get back in a working state and meanwhile you think about the task you had estimated that you are not getting done.
+     * johnstrickler
+       Technical debt relates closer to debt acquired by your local loan shark. Of course it has a steep interest rate but it can be called in for full payment at any time.
+     * Tracy Singleton
+       Great article and spot on!
+     * Erik Dietrich
+       I’ve often thought about this in the context of the unknown interest rate. I can recall explaining to someone, that technical debt would be akin to a deal where you incur
+       a credit card debt, but with no payoff schedule and an interest rate that is opaque to you and varies between 0 and hundreds of percent each day.
+     * Erik Dietrich
+       I can totally relate, and it seems that a lot of others can as well. For organizations, the risk of attrition is a serious one with developers in such high demand.
+     * Erik Dietrich
+       I think there’s a surprising number of people who feel this way (me being one of them). There’s a sense of putting order to an disordered situation that satisfies.
+     * Erik Dietrich
+       Wow, “how to fix it” and “what creates it” are two extremely deep topics that I’d like to delve into. I keep a backlog of questions that readers submit, and I’m going to
+       add both of these to that backlog. Stay tuned to the blog if you’d like to see my take in a future post.
+       And, thanks for the comment — it’s always nice to get ideas for interesting topics.
+     * Erik Dietrich
+       I’m inclined to agree with you on the count of the building metaphor (and I’ve ranted about this more than once in years past on this blog:
+       http://www.daedtech.com/a-metaphor-to-help-you-suck-at-writing-software/ )
+       But I’d argue that “technical debt” is a better metaphor than building construction in the sense that it does less harm with false parallels. True, it is not a perfect
+       metaphor by any stretch (e.g. Michael O. Church’s point about unknowable interest rates), but I personally think it is a helpful one whereas the building metaphor is so
+       flawed as to do more harm than good.
+       I’m not sure I understand the idea that tech debt as a metaphor prevents people from understanding the underlying concept and accounting for it in planning. For instance,
+       I frequently do codebase assessments as part of my consulting practice. I might tell a manager or executive that moving to a new UI platform is not feasible because the
+       codebase is hopelessly inter-tangled enough to look like a ball of spaghetti (i.e. the ubiquitous spaghetti code metaphor). Even though their code is not literally made
+       of pasta, they can still plan/budget for the condition of not being able to do an easy migration.
+       I see technical debt the same way. “If we do this now, you’re going to pay it back with interest later.”
+     * Erik Dietrich
+       Thanks! I’m glad you liked it.
+     * Erik Dietrich
+       Thanks! I’ve seen people in the past draw the distinction between deliberate and accidental technical debt, the latter of which could be argued generally to be bad. The
+       former, though, could certainly be positioned as simply a business decision with pros and cons.
+       In your post you mention a technical credit score. Have you ever put a score to the amount of tech debt in a codebase (or used a tool that did)?
+     * caente
+       > I see technical debt the same way. “If we do this now, you’re going to pay it back with interest later.”
+       yes but that metaphor lacks a very important “detail” associated with debt: How much?
+       There are debts that you would take because the amount is not too dangerous. How can management know when it’s OK to take the debt? They need to trust eng, and if they
+       trust eng, then why do we need the metaphor?
+       If there is not enough trust, you’ll end up depending on the ability of the eng to scare management versus the capacity of management for wishful thinking. Which in my
+       opinion, also makes the metaphor useless.
+       I’m not flat out against it, I just don’t think it should be a primary argument for anything, at most, a supporting one.
+     * Erik Dietrich
+       Oh, I see what I was misunderstanding about your point.
+       In my original post, when I was talking about management accounting for technical debt, I wasn’t meaning that they could essentially do so with some kind of tool or
+       pseudo-analytical equation about the code. I meant in a qualitative sense. They could account for it in their planning or post mortems, meaning that if the developers
+       told them that tech debt was making a deadline unlikely, they could change the business’s plan, cut scope, or whatever.
+       I could not agree more about management needing to trust the developers (i.e. the experts) to assess this and report on it themselves. I think any healthy conversation
+       involving this metaphor is one where the developers are using it to explain things like, “do you remember when we told you that there was a better way to do it that would
+       take longer, and you passed on it? Well, now the interest on that decision is due. You’re going to have to wait a few weeks.”
+       If the organization can’t have conversations like that, then even a flawless metaphor isn’t going to help them.
+     * Bharat Meda
+       This perspective is probably the most ignored… great insight!
+     * caente
+       hehehe, basically an “I told you so” tool? I like it!
+     * Grant Winney
+       As usual, great article Erik! I worked somewhere where I liked the team, but the project was a decade old and parts of it were buried under a mountain of technical debt.
+       So much in this piece resonated with me. Embarrassment at how long simple things took to implement, and the part I played in it. Frustration at those who came before me,
+       or who came after, wrote a quick piece of code destined for debt, and then left. Ultimately, the realization I was working in a legacy app with a legacy codebase and
+       little chance of digging out unless I made a drastic change.
+       If anyone doubts what you’ve written, they’ve never worked on a project suffering from technical debt.
+     * indyk
+       > Yes, this angle of technical debt is seldom discussed, in my experience.
+       can not shake the feeling that “Yes” should have been “Yet”
+     * Bud Goode
+       “Analysts and project managers might account for technical debt when discussing slipped deadlines.”
+       The operative word there is “might”. Unfortunately, most don’t account for technical debt when dealing with deadlines (after all, how do you think the technical debt got
+       there in the first place?)
+       The business problem here is a much wider one. It’s simply a case of “the now” trumping “the future”. Most companies don’t measure (for example) performance on how things
+       could be in 1 or 2 years time, they’ll measure those managers on their performance for *this quarter*, hence no one will care about how crippling the technical debt will
+       be to the team in a few years time (and the manager himself may also be long gone – promoted or in a different company) but they very much do care about making the *very
+       next* shipping deadline on time – often requiring the accrual of even more technical debt.
+       So, the way to fix the issue of mounting technical debt in software is to fix the issue of how companies “reward” or appraise their managers. You have to make sure that
+       “the future” trumps (or has at least parity with) “the now”. That said, this is such a systemic problem in all business (for example, companies revenue targets very much
+       favour “the now” or at least the very immediate future with little concern, save for wild estimates, of the longer term future) that I don’t believe it’ll ever be solved.
+     * Scott Lynch
+       Thanks for writing this article. People (especially management) often overlook the impact bad code has on an organization from a employee satisfaction perspective. I’m
+       living this currently (and for the past 2 years) on a code base that is over a decade old. I’ve been developing software for a long time (25 years) and this code base is
+       the worst I’ve ever worked on. Refactoring is one of my strengths, however this code is so laden with debt as to be untouchable without serious ramifications (more bugs
+       and lost revenue). Sadly the culture here has devolved into one of “touch as little as possible” due to the nearly non-deterministic nature of the code behavior. If the
+       code weren’t making so much money, I’d happily take it out back and shoot it in the head. Toxic code produces toxic coding cultures.
+
+About Me
+
+   I am Erik Dietrich, founder of DaedTech LLC, programmer, architect, IT management consultant, blogger, and technologist.
+   Facebook twitter google_plus linkedin rss youtube mail
+   Buy me a beer
+
+Developer Hegemony
+
+   [DeveloperHegemony.png]
+
+                                                    Pre-order through Leanpub at a discount and follow along as I'm writing it.
+
+My Published Books
+
+Subscribe to the Mailing List
+
+   Email address: ____________________
+
+   Sign up to receive occasional updates about DaedTech.
+
+   Sign up
+   ____________________
+
+Popular on DaedTech
+
+     * How Developers Stop Learning: Rise of the Expert Beginner
+     * The Beggar CEO and Sucker Culture
+     * How To Keep Your Best Programmers
+     * The Best Way to Hire Developers
+     * The Human Cost of Tech Debt
+     * Hiring is Broken… And It Isn’t Worth Fixing
+     * The Myth of the Software Rewrite
+     * Why Social Situations Exhaust Introverts: A Programmer’s Take
+     * What Is a Best Practice in Software Development?
+     * Carnival Cash: The Cult of Seniority
+
+Sponsored By:
+
+   [Aspose.gif]
+
+Search the Site
+
+   Search for: ____________________ Search
+
+Post Archives By Month
+
+   Post Archives By Month
+   [Select Month..]
+
+Ask Me a Question
+
+   Do you have something you'd like to ask? Send your question and, time permitting, I'll answer you with an email, blog post, or video.
+   If you are a human and are seeing this field, please leave it blank. ____________________
+   Your Question
+
+   ____________________________________________________________
+   ____________________________________________________________
+   ____________________________________________________________
+   ____________________________________________________________
+   Your Email Address ____________________
+   Sign up for mailing list? [_]
+   Ask The Question
+   Processing

@@ -1,0 +1,477 @@
+
+Gregor Ulm
+Skip to content
+
+    HomeAboutIndexProjects
+
+An Example of the Beauty of Haskell
+24 Replies	
+
+In the last six months I’ve been programming mostly in Haskell, which is a language I thoroughly enjoy working with. The other day, though, a visitor on my blog asked a question about one of my Java solutions of the Coding Bat exercises. Here it is:
+
+seriesUp:
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+	
+public int[] seriesUp(int n) {
+    int[] result = new int[n * (n + 1) / 2];
+    int pos = 0;
+    int i = 1;
+    while (i <= n + 1) {
+        for (int j = 1; j < i; j++) result[pos++] = j;
+        i++;
+    }
+    return result;
+}
+
+When looking at this code, my first thought was that this would be so much nicer to write in Haskell, and that it would probably require just one line of code. We’ll be getting there in this article.
+
+It’s probably not immediately clear what this Java function does. Indeed, even after reading the problem description on the Coding Bat website, and knowing that the result is supposed to be an array with a pattern like {1, 1,2, 1,2,3, …, 1,2,3,..,n} for n >= 0, you might have to read the Java code line by line to check whether this really is what the function is doing. To further complicate matters, there is some “magic” thrown in with regards to the length of the resulting array. This could be figured out with some knowledge of series, commonly taught in Discrete Mathematics or Calculus II. But the formula was given in the original problem description. Without it, surely some Java programmers would have felt tempted to initialize either a very large array, or an array list.
+
+In a functional programming language the code would be infinitely more readable. Even as a relative Haskell novice you could write more maintainable code. As you gradually gain more experience, you will write even cleaner code. I will illustrate this idea by repeatedly transforming a piece of Haskell code until the result is an aesthetically pleasing and easily understandable one-liner.
+
+Let’s say you’re just starting out, but you’ve grasped the idea of recursion already. Then, you might come up with something like the following.
+1
+2
+3
+4
+5
+6
+	
+seriesUp :: Int -> [Int]
+seriesUp n = seriesUp' 0 n
+ 
+seriesUp' :: Int -> Int -> [Int]
+seriesUp' i n | i > n     = []
+              | otherwise = [1..i] ++ seriesUp' (i+1) n 
+
+(Note: the syntax highlighting plugin of WordPress does not support Haskell. In a proper editor, this would look quite a bit nicer.)
+
+Some remarks about the syntax are in order. The “pipe” (|) represents so-called guards, which are conditions that are tested sequentially. The second guard, “otherwise”, is merely syntactic sugar. It is internally defined as the boolean value “True”. The “++” stands for list concatenation. Lastly, an expression like [1..n] is a shorthand for a list. For instance, [1..5] is equivalent to [1,2,3,4,5]. If you are wondering about the first line of the function definition: this is an optional type signature. Those are quite handy, and will allow the compiler to catch many errors for you.
+
+The big difference between this first attempt in Haskell and the original Java solution is that it is immediately obvious what the code does, provided you’ve gotten used to the syntax. The code is easier to understand, faster to write and also much more fun to write.
+
+The fun doesn’t end here, though, as the following simplifications show:
+1
+2
+3
+4
+	
+seriesUp :: Int -> [Int]
+seriesUp = seriesUp' 0
+    where seriesUp' i n | i <= n       = [1..i] ++ seriesUp' (i+1) n 
+                        | otherwise    = []
+
+This looks quite a bit nicer already! Three changes were made. First, I removed the argument “n” from the initial function call. The concept is called “eta reduction”, and it is one example of the removal of superfluous variables in the lambda calculus. It’s probably clear from looking at the code how it works.
+
+Second, the helper function ‘seriesUp” was put as a local definition into a where-clause. It’s similar to let-expressions, but a bit more concise. Keeping seriesUp’ as a locally defined function makes sense since this function isn’t used anywhere else in the program. Lastly, the order of the guards was switched. Putting the base case of the recursive call at the bottom leads to a performance improvement — not that it would matter in this toy example — since the guards are checked in order from top to bottom.
+
+This isn’t all that can be done. Assume you make it a bit further in your functional programming text book and discover higher-order functions. The relevant higher-order function in this example is map, which applies a function to every element of a list. For instance, type “map sqrt [1..5]” into the Haskell REPL, and you’ll end up with a list of square roots of the integers 1 to 5.
+
+Instead of calling in-build functions like sqrt for taking the square root of a number, you can also call any other function. This turns the previous piece of code turns into:
+1
+2
+3
+	
+seriesUp :: Int -> [Int]
+seriesUp n = map oneToN [1..n]
+    where oneToN n = [1..n]
+
+This is a significant improvement, but there is an error in it. If you run this code in the REPL, the compiler will notify you that the type signature doesn’t match the function body. To see what is wrong, just comment out the signature and run the example again. It turns out that the result isn’t a list but a list of lists:
+1
+2
+	
+*Main> seriesUp 3
+[[1],[1,2],[1,2,3]]
+
+This isn’t quite what we want. However, this error can be corrected easily by calling the in-built function concat for concatenating lists.
+1
+2
+3
+	
+seriesUp :: Int -> [Int]
+seriesUp n = concat (map oneToN [1..n])
+    where oneToN n = [1..n]
+
+This leads to the expected result again:
+1
+2
+	
+*Main> seriesUp 3
+[1,1,2,1,2,3]
+
+At this point the Haskell code is already very concise, clean and highly readable. I’d say it is much superior to the initial version that uses explicit recursion.
+
+The position of the function in map can also be taken by a so-called anonymous function, also referred to as a lambda function. On a side note, James Iry made the humorous remark that Java made lambda expressions popular by not having them. Lambdas are tremendously powerful, and once you’ve gotten used to them, you may find programming in a language that does not have them painful. This might remind you of Paul Graham’s essay Beating the Averages:
+
+    As long as our hypothetical Blub programmer is looking down the power continuum, he knows he’s looking down. Languages less powerful than Blub are obviously less powerful, because they’re missing some feature he’s used to. But when our hypothetical Blub programmer looks in the other direction, up the power continuum, he doesn’t realize he’s looking up. What he sees are merely weird languages. He probably considers them about equivalent in power to Blub, but with all this other hairy stuff thrown in as well. Blub is good enough for him, because he thinks in Blub.
+
+    When we switch to the point of view of a programmer using any of the languages higher up the power continuum, however, we find that he in turn looks down upon Blub. How can you get anything done in Blub? It doesn’t even have y.
+
+    By induction, the only programmers in a position to see all the differences in power between the various languages are those who understand the most powerful one. (This is probably what Eric Raymond meant about Lisp making you a better programmer.) You can’t trust the opinions of the others, because of the Blub paradox: they’re satisfied with whatever language they happen to use, because it dictates the way they think about programs.
+
+Quite recently, though, lambda expressions have finally gained a foothold in the mainstream, with Visual Basic 9.0 (2007), C# 3.0 (2007), C++11 (2011) and Java 8 (2014) supporting them.
+
+After this diversion, let’s see how lambdas can be used in our code. Here’s a first attempt:
+1
+2
+	
+seriesUp :: Int -> [Int]
+seriesUp n = concat (map (\x -> [1..x]) [1..n])
+
+This is not bad at all! But if this piece of code doesn’t look nice enough yet, you can trade the parentheses for some syntactic sugar.
+1
+2
+	
+seriesUp :: Int -> [Int]
+seriesUp n = concat $ map (\x -> [1..x]) [1..n]
+
+The dollar sign might look strange at first, but it is common in Haskell programs. The result is one one less non-whitespace character in your code, so this tends to be seen as being more aesthetically pleasing. In many cases it also makes the code easier to read since you will perceive the code to the right of the dollar sign as one block. On the other hand, to many parentheses can easily look messy.
+
+We’re still not done yet. A common theme in functional languages is abstraction. Many frequent operations don’t have to be explicitly programmed. Instead, there is often a standard function that can take care of it. This is true for concatenating the lists that result from our call to ‘map’ as well. That function is called ‘concatMap’.
+1
+2
+	
+seriesUp :: Int -> [Int]
+seriesUp n = concatMap (\x -> [1..x]) [1..n]
+
+If you’re a seasoned Haskell programmer, then this would probably be the first and last version you write, thus turning the somewhat tedious Java exercise into something rather trivial. Just look at it! Isn’t it beautiful?
+
+With this cute one-liner this series of transformations of the original Haskell solution ends. The purpose of starting with explicit recursion and then successively moving on to ever-higher levels of abstraction was also to illustrate how the code you write will change as you gain more familiarity with functional programming. When starting out, recursion is difficult enough to understand for many people, but this is merely the beginning.
+
+Let’s now have another look at the piece of Java code we started out with. Of course, it is missing the declaration of the main method and its class, which would add a few more lines of boilerplate to the code fragment.
+1
+2
+3
+4
+5
+6
+7
+8
+9
+	
+public int[] seriesUp(int n) {
+    int[] result = new int[n * (n + 1) / 2];
+    int pos = 0;
+    int i = 1;
+    while (i <= n + 1) {
+        for (int j = 1; j < i; j++) result[pos++] = j;
+        i++;
+    }
+    return result;
+
+Putting the Haskell and Java version right next to each other it is probably obvious why, given the choice, one might prefer to program in a language that allows for higher levels of abstraction. Indeed, I find it peculiar when people call functional programming languages “scary” or complain about their allegedly “weird” syntax. Curly-brackets programmers used to ridicule Lisp for its parentheses, which is an objection I can somewhat understand, even though Lisp code still looks a lot nicer than Java or C. Yet, I’m utterly baffled when Haskell syntax is called “weird” since it is so incredibly clean. Compared to the Haskell one-liner we ended up with, I’m tempted to say that the original Java version is the scary one.
+This entry was posted in Programming on February 27, 2014.
+Post navigation
+← Installing Linux via USB Implementing the game 2048 in less than 90 lines of Haskell →
+24 thoughts on “An Example of the Beauty of Haskell”
+
+    lmm
+    February 27, 2014 at 5:04 pm
+
+    (Repeating my comment from HN)
+    This isn’t a language difference, it’s a coding style difference. There’s nothing to stop you writing it in java as
+    public int[] seriesUp(int n) {
+    return range(1, n).concatMap( x -> range(1, x));
+    }
+
+    (assuming a suitable range function and concatMap method, which is a library question rather than a language issue)
+
+    Java won’t allow the special [1..n] syntax, and method application is a lot more explicit, with a more rigid argument order than Haskell. But to my mind both these differences are places where Java is the more consistent, readable, and yes, beautiful language.
+    Reply ↓	
+        Gregor Ulm Post author
+        February 27, 2014 at 5:51 pm
+
+        Thanks for the comment!
+
+        Given that someone would have to implement a suitable range and concatMap function for Java, it is again a language issue. You could have written the Haskell one-liner two decades ago, while your solution would require a substantial amount of supplementary work. Once Java 8 is out, I’ll have a look at what’s possible out of the box. Unfortunately, in Java 7 your solution is a close to being a pipe dream.
+
+        Further, in typical introductory programming courses, which all-too-often teach OOP in Java, the kind of imperative code I highlighted at the beginning of the article is common. I strongly doubt that instructors will switch to a more functional style once this is possible in Java 8 and beyond. This is a cultural issue, though. I do think that lambdas are a big win for Java. I’ve looked at examples where people tried to implement functions like map or map/reduce in Java 6 or 7. It wasn’t pretty.
+        Reply ↓	
+    Schell
+    March 3, 2014 at 7:58 am
+
+    You could also use a list comprehension. It looks almost identical while being more succinct and I’m fairly certain there’s no comparison in most imperative languages.
+
+
+    seriesUp :: Int -> [Int]
+    seriesUp n = concat [ [1..x] | x <- [1..n] ]
+    Reply ↓	
+        Gregor Ulm Post author
+        March 3, 2014 at 4:01 pm
+
+        Of course, list comprehensions work as well. I tend not to use them for simple list traversal, though, since it takes slightly longer to mentally parse them when reading code. The one-liner with concatMap you can read from left to right, while with the list comprehension you’d have to jump to the end of the line and then backtrack. This might just be an overcomplicated explanation for my subjective preference, so take it with a grain of salt.
+
+        Speaking of language features that are absent in many imperative languages, I’d say that pattern matching is worth mentioning. Something silly like the following would be painful to write in Java:
+
+        seriesUp :: Int -> [Int]
+        seriesUp n = foldl (++) [] [ [1..x] | x < - [1..n] ]
+
+        seriesTuple :: [(String, Int)] -> [Int]
+        seriesTuple t = concat [ seriesUp x | (_, x) < - t ]
+
+        > seriesTuple [("foo", 3), ("bar", 4), ("baz", 5)]
+        > [1,1,2,1,2,3,1,1,2,1,2,3,1,2,3,4,1,1,2,1,2,3,1,2,3,4,1,2,3,4,5]
+        Reply ↓	
+            Schell
+            March 3, 2014 at 5:47 pm
+
+            I like comprehensions because they read like math. The above seriesUp comp can be read as “the list of lists from one to x as x varies from one to n.” It’s fairly left to right and takes no knowledge of higher order functions like concatMap. But I like comprehensions because of how they read and how they’re about as bare metal Haskell as you can get. They have a distilled feeling about them. :)
+            Reply ↓	
+    Ingo W.
+    May 13, 2014 at 12:13 pm
+
+    Enjoyed this post!
+
+    I take he liberty to point out that there is a language that tries to bring the spirit of Haskell to the JVM. It is https://github.com/Frege/frege
+
+    For example, the Haskell snippets of this post would also work well in the Frege Online REPL (try.frege-lang.org).
+
+    Just in case you happen to think “I’d love to write X in Haskell, but I need Java library Y.” some day, give Frege a try.
+    Reply ↓	
+        Gregor Ulm Post author
+        June 10, 2014 at 8:10 am
+
+        I know about Frege, and think it’s a very nice language. You can be proud of your work, Ingo! I hope Frege will catch on. It’s sad to see languages like Scala or Clojure gaining popularity, when more expressive or elegant alternatives for targeting the JVM exist.
+        Reply ↓	
+            Ingo W.
+            June 11, 2014 at 7:02 pm
+
+            For Frege to catch up it would need a bigger community, or at least more people who know about its existence. Commenting on blog posts is one way to make a step in this direction.
+            Reply ↓	
+                Gregor Ulm Post author
+                June 12, 2014 at 2:33 pm
+
+                At the very least there is awareness of the Frege language. I saw it being mentioned on Hackernews several times — I’m not a frequent visitor —, and the Haskell reddit. The problem I see, though, is that the intersection between a) people who are interested in programming languages and b) Java programmers doesn’t seem to be very large.
+
+                Java programmers can be reached, though. I dimly remember having read articles that compare Java and Scala, to demonstrate the benefits of the latter. It might help to write a similar article, Frege vs Java, or maybe even Frege vs Scala vs Java, to make more people curious about it. I’m tempted to say that such an article would be like catnip for the Hackernews crowd.
+                Reply ↓	
+                Matthew Arcus
+                June 14, 2014 at 6:14 am
+
+                First I’d heard of Frege (the language anyway, I knew about the mathematician – how about a programming language based on his Begriffsschrift notation?). Sounds good anyway, I’ll be spreading the word.
+                Reply ↓	
+                    Gregor Ulm Post author
+                    November 2, 2014 at 11:49 am
+
+                    On a related note, Frege is one of the languages one can choose for the labs in Erik Meijer’s EdX course Functional Programming, which is currently running. The other languages are Haskell, F#, Groovy, Java, and Scala. I’d say that’s quite an endorsement of Frege.
+    Matthew Arcus
+    May 16, 2014 at 8:27 pm
+
+    Hi Gregor, Nice blog, a bit late to the party, but how about going one step further with:
+
+
+    f = concatMap r . r where r n = [1..n]
+    Reply ↓	
+        Gregor Ulm Post author
+        June 13, 2014 at 7:56 pm
+
+        Thanks for your remark, Matthew!
+
+        I tend to avoid pointfree style, with the exception of straightforward function composition. Let’s say you’ve got two functions ‘foo’ and ‘bar’, and want to apply them one after the other. In that case, I would define fooBar = foo . bar. It boils down to a matter of personal preference, though. On a related note, I always put where-clauses on a separate line, which would turn your solution into a two-liner.
+        Reply ↓	
+            Matthew Arcus
+            June 14, 2014 at 6:19 am
+
+            Suit yourself, but I thought that one pleasures of the functional programming was going higher order (and isn’t going point free just eta reduction, as you do right at the start of your transformation?).
+            Reply ↓	
+    Joey
+    June 9, 2014 at 2:44 am
+
+    At a quick glance I’d guess you want:
+
+
+    public int[] seriesUp(int n)
+    {
+    int[] result = new int[n * (n + 1) / 2];
+    int pos = 0;
+
+    for(int i = 0; i < n; i++)
+    for (int j = 0; j <= i; j++)
+    result[pos++] = j + 1;
+
+    return result;
+    }
+
+    There is nothing stopping you using a recursive function instead. I see little benefit to compacting it.
+    Reply ↓	
+        Gregor Ulm Post author
+        September 14, 2014 at 7:32 pm
+
+        I don’t see much of a difference between this version, and the one I wrote. After all, while-loops can trivially be converted into for-loops, and vice versa.
+        Reply ↓	
+    Patrick Herrmann
+    September 14, 2014 at 7:25 am
+
+    You can also replace your lambda with (enumFromTo 1) to show off partially applied functions.
+
+    You can also use it for both ranges to make a nice composition:
+    seriesUp = concatMap (enumFromTo 1) . (enumFromTo 1)
+
+    Or you can use the list monad instead of concatMap:
+    seriesUp n = [1..n] >>= (enumFromTo 1)
+
+    So many elegant ways compared to the java version
+    Reply ↓	
+    Wasif Baig
+    September 18, 2014 at 4:16 pm
+
+    It was a very nice read. I have always been curious about functional paradigm and recently started seriously learning Haskell. I think succinctness and readability is a matter of personal familiarity with the language. I find the following version more readable
+
+    seriesUp :: Int -> [Int]
+    seriesUp 1 = [1]
+    seriesUp x = seriesUp (x - 1) ++ [1 .. x]
+    Reply ↓	
+        Gregor Ulm Post author
+        September 20, 2014 at 11:27 am
+
+        I would write code similar to this in Erlang, since it doesn’t have pattern guards. Please note that you’ll get into trouble if you call your version of seriesUp with the argument 0.
+        Reply ↓	
+    Kevin Adistambha
+    October 17, 2014 at 12:36 pm
+
+    You described very nicely the advantages of functional languages. Getting used to the functional way of doing things took some time after a lifetime of imperative programming, but once you get it you’ll never look back. Here’s my take of the seriesUp function:
+
+    import Data.List
+    seriesUp :: (Enum a, Num a) => a -> [a]
+    seriesUp n = concat $ inits [1..n]
+    Reply ↓	
+    Noah J McNallie
+    October 27, 2014 at 8:35 am
+
+    Thanks for the information. I am currently debating between Haskell and Java for a higher level language than ASM or C and yet able to perform well and be powerful!
+    Reply ↓	
+    Hillrich
+    March 17, 2015 at 11:35 pm
+
+    def seriesUp(n) { def x= []; 1.upto(3) { x+= [*1..it] }; x }
+
+    Groovy makes Java greater!
+    Reply ↓	
+    Hillrich
+    March 17, 2015 at 11:49 pm
+
+    def seriesUp(n) { x=[]; 1.upto(n) { x+= [*1..it] }; x }
+
+    Corrected version
+    Reply ↓	
+        Gregor Ulm Post author
+        March 18, 2015 at 12:28 pm
+
+        I presume you meant something like this (tabs/spaces are not rendered properly, though):
+
+
+        def seriesUp(n) {
+        x=[];
+        1.upto(n) {
+        x+= [*1..it]
+        };
+        x }
+
+        I’m sorry, but I don’t see the benefit. You’re simply ignoring basic formatting rules for curly-bracket languages. Just because you can write a Java program on one line if you eliminate newline characters doesn’t mean that this automatically makes code more elegant.
+        Reply ↓	
+
+Leave a Reply
+
+Your email address will not be published. Required fields are marked *
+
+Name *
+
+Email *
+
+Website
+
+Spammer prevention; the answer is an integer: *
+
++ 1 = nine
+
+Comment
+
+You may use these HTML tags and attributes: <a href="" title=""> <abbr title=""> <acronym title=""> <b> <blockquote cite=""> <cite> <code> <del datetime=""> <em> <i> <q cite=""> <s> <strike> <strong>
+
+Notify me of follow-up comments by email.
+
+Notify me of new posts by email.
+Search for:
+Recent Posts
+
+    Compiling Agda to System Fω in Theory
+    An FFT (Cooley–Tukey) for a synchronous dataflow extension to Feldspar
+    Computer Science Resources for Autodidacts
+    Gödel’s System T in Agda
+    The higher-order function ‘fold’
+
+Recent Comments
+
+    Gregor Ulm on CodingBat: Java. Array-2, Part II
+    Henrik on CodingBat: Java. Array-2, Part II
+    Brian M. on CodingBat: Java. Array-2, Part III
+    Clover Ernest on CodingBat: Java. Warmup-1, Part I
+    Gregor Ulm on CodingBat: Java. String-3, Part I
+
+Archives
+
+    June 2015 (1)
+    March 2015 (1)
+    February 2015 (1)
+    January 2015 (1)
+    December 2014 (2)
+    November 2014 (1)
+    October 2014 (1)
+    September 2014 (2)
+    August 2014 (1)
+    July 2014 (2)
+    June 2014 (2)
+    February 2014 (1)
+    January 2014 (1)
+    December 2013 (1)
+    November 2013 (1)
+    October 2013 (1)
+    August 2013 (9)
+    June 2013 (2)
+    May 2013 (2)
+    April 2013 (13)
+    March 2013 (16)
+    February 2013 (8)
+    January 2013 (13)
+    December 2012 (1)
+    October 2012 (4)
+    September 2012 (1)
+
+I Like
+
+    /r/programming
+    Angry Math
+    c0de517e
+    Fabien Sanglard
+    Geeks for Geeks
+    Hacker News
+    HackerRank
+    ideone
+    Khan Academy
+    Lambda the Ultimate
+    Math ∩ Programming
+    Michael O. Church
+    Prigoginic Leap
+    Programming in the 21st Century
+    repl.it
+    Rock Paper Shotgun
+    Steve Yegge
+    The Baffler
+    The Daily WTF
+    The Last Psychiatrist
+    The Reinvigorated Programmer
+    Trystan's Blog
+    Zachary Ernst
+    Zero Hedge
+
+Proudly powered by WordPress
+

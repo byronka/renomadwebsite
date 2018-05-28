@@ -1,0 +1,43 @@
+<div class="entry">
+  <p class="content-header">
+    What is a flyweight?
+  </p>
+  <div class="date">July 21, 2014</div>
+  <p class="content-body">
+    Took me a while to get this one.  At first I understood it to mean
+    the following:
+  </p>
+  <p class="content-body">
+    We have a fat object.  It has lots of sub-objects, strings in it, lots
+    of data, and so on.  Maybe we want to skinny it up, especially if we
+    are using that object a lot (we would find ourselves using a lot of
+    memory).
+  </p>
+
+  <p class="content-body">
+    So my initial understanding was that Flyweight pattern is simply
+    skinnying up an object.  Take the repeated common parts out of it,
+    and make them references. 
+  </p>
+  <p class="content-body">
+    By the way, flyweight historically meant the class of boxer that is
+    very light-weight, under 112 lbs.
+  </p>
+
+  <p class="content-body">
+    That initial understanding was 80% of the way there.  The only
+    thing left is to understand that with flyweight objects, it is
+    just a cache of those repeated common parts.  Let's say one of the
+    properties of an object is a string for its name.  We won't allow
+    each object created to have its name bound along with the object,
+    using all that memory.  Instead, we will use a method to access
+    and store to the cache for that value.  To make this more
+    concrete, see here:
+  </p>
+<pre><code class="language-c" >lookupName(name) {
+    if name does not exist,
+        store it in the cache,
+    return the object containing name from cache
+}</code></pre>
+</div>
+

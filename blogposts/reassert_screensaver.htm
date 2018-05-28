@@ -1,0 +1,75 @@
+<div class="entry">
+  <p class="content-header">
+    Overriding Group Policy on Windows with AD.  Screensaver.
+  </p>
+  <div class="date">July 28, 2016</div>
+<p class="content-body">
+Say you work somewhere that asserts a certain screensaver by group
+policy. Why on Earth would I want to keep their screensaver instead of
+my own?  Well let's just fix that.  First, put the following code in a
+file on the desktop, call it "reassert_screensaver.ps1".  It's a
+PowersShell script.
+</p>
+  <p class="content-body">
+
+<pre><code class="language-powershell">$signature = @"
+[DllImport("user32.dll")]
+public static extern bool SystemParametersInfo(int uAction, int uParam, ref int lpvParam, int flags );
+"@
+ 
+$systemParamInfo = Add-Type -memberDefinition  $signature -Name ScreenSaver -passThru
+ 
+
+$seconds = 5 * 60
+[Int32]$nullVar = 0
+$systemParamInfo::SystemParametersInfo(15, $seconds, [REF]$nullVar, 2)
+
+$regkeypath = "HKCU:\Control Panel\Desktop"
+
+#Let's get the current hour, and if it's even, do dream aquraium, and odd, nintendo
+$date = Get-Date
+if ($date.Hour % 2 -eq 0) {
+  Set-ItemProperty -Path $regkeypath -Name "SCRNSAVE.EXE" -Value Dream_Aquarium.scr
+} Else {
+  Set-ItemProperty -Path $regkeypath -Name "SCRNSAVE.EXE" -Value Nintendo_Saver.scr
+}
+</code>
+</pre>
+</p>
+<p class="content-body">
+Replace the screensaver names with the name of the screensaver you
+want, look in C:\Windows\System32 for options.  But don't add the
+whole path, just the name of the screensaver.
+</p>
+<p class="content-body">
+Let's add a task that regularly runs this.  Open the task
+scheduler, and on the right, click on "Create Task..."
+</p>
+<p class="content-body">
+Enter this information: in the General tab, in Security options,
+click the radio button for "run whether user is logged on or not".
+Doing this will hide the window that would have shown up each time it
+ran.  Give it a name and a description if you want.  Click on
+Triggers.
+</p>
+<p class="content-body">
+In Triggers, click New and give a few triggers, depending on how your
+group policy works.  You might only set it to run at log on, or you
+might have it run every five minutes.  Change as needed.  You can add
+a few triggers.
+</p>
+<p class="content-body">
+In the Actions tab, click New and set the Program/Script field to
+"PowerShell", and in the "Add arguments" field, enter the full path to
+the script, which is something like this if you followed my directions
+about putting it in the desktop:
+C:\Users\someone\Desktop\reassert_screensaver.ps1
+</p>
+<p class="content-body">
+Click OK below.  It will request your password, enter that.
+You're done!  try running the task manually from the task manager to
+see it work.  Change the screensaver, close the window, run the task
+script, and go back to see that it changed properly.
+</p>
+
+</div>

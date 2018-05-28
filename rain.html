@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello there!</title>
+  </head>
+  <body>
+    <div id="drop1" style="position: fixed; top: 200px; left: 200px;"> hello friends!</div>
+    <div id="drop2" style="position: fixed; top: 200px; left: 200px;"> hello friends!</div>
+    <div id="drop3" style="position: fixed; top: 200px; left: 200px;"> hello friends!</div>
+    <div id="drop4" style="position: fixed; top: 200px; left: 200px;"> hello friends!</div>
+  </body>
+</html>
+<script type="text/javascript">
+
+var drawdrop = function(size, node) {
+
+    //set the origin of things
+    var leftorigin = Math.ceil(Math.random() * 1000); 
+    var toporigin = Math.ceil(Math.random() * 1000); 
+   
+   var calc = function(size, node) {
+   if (size > 20) {
+        node.innerHTML = "";
+        return null;
+    }
+
+    var x_intercept = 60 + size;
+    var y_intercept = 4 + size/2;
+    
+    var x_int_root = Math.sqrt(x_intercept);
+    var y_int_root = Math.sqrt(y_intercept);
+
+    elements_to_write = "";
+    for (x = -x_intercept; x <= x_intercept; x += 6) {
+        var y = (y_int_root/x_int_root) * Math.sqrt(Math.pow(x_intercept,2) - Math.pow(x,2));
+        y = Math.ceil(y);
+        var TOP = toporigin + y;
+        var NEGATIVETOP = toporigin - y;
+       // console.log('negativetop is ' + NEGATIVETOP);
+                                // console.log('top is ' + TOP);
+        var LEFT = leftorigin + x;
+        elements_to_write += "<div style='font-weight: bolder; position: fixed; top: "+TOP+"px; left: "+LEFT+"px'>.</div>";      
+        elements_to_write += "<div style='font-weight: bolder; position: fixed; top: "+NEGATIVETOP+"px; left: "+LEFT+"px'>.</div>";      
+      //set  console.log('x is ' + x + ' and y is ' + y);
+      } 
+    node.innerHTML = elements_to_write;
+    setTimeout(calc, 40, size + 2, node);
+    }
+    
+    calc(size, node);                                
+};
+                                
+var mydrop1 = document.getElementById("drop1");
+var mydrop2 = document.getElementById("drop2");
+var mydrop3 = document.getElementById("drop3");
+var mydrop4 = document.getElementById("drop4");
+                                
+var runme = function() {                                
+ setTimeout(drawdrop, 20, 2, mydrop1); 
+ setTimeout(drawdrop, 60, 2, mydrop2); 
+ setTimeout(drawdrop, 90, 2, mydrop3); 
+ setTimeout(drawdrop, 120, 2, mydrop4); 
+ setTimeout(runme, 200);                               
+}
+
+runme();
+
+                                
+// the equation for an ellipse is x^2/(x-intercept)^2    +     y^2/(y-intercept)^2 = 1
+// or even better,
+// 
+// y = +- (sqrt(y-intercept))/(sqrt(x-intercept)) * sqrt((x-intercept - x^2))
+// 
+// so, for example, y-intercept = 4 and x-intercept = 9
+//  y = +- (2/3) * sqrt(9 - x^2)
+// 
+// we would handle this by calculating the top, and the bottom is just the mirror image.  so
+// if we get (2, 1.5), then the other side is (2, -1.5)
+// where  -x-intercept < x < x-intercept
+</script>
+

@@ -1,0 +1,63 @@
+<div class="entry">
+  <p class="content-header">
+    I was recently asked what a left join was.  If you use SQL with
+    any regularity, this is a handy concept to have in your toolset.
+  </p>
+  <div class="date">May 31, 2014</div>
+  <p class="content-body">
+    Venn diagrams and mathematics are clear to some, but following is
+    the way I think about these joins.
+  </p>
+  <p class="content-body">
+    To explain Left Join best, I will start with the standard Join, the
+    Inner Join.
+  </p>
+
+  <div class="content-subheader">Inner Join (a regular join)</div>
+  <p class="content-body">
+    Link up the tables on each match.  Anything that doesn't match,
+    don't include.  Note the following gotcha, given as a concrete example:
+    if you are joining on a column in table A having three rows with
+    the number 5 in them, against a column in table B having two rows
+    with the number 5, you will get a resultant table with six rows (3
+    times 2).
+  </p>
+
+  <div class="content-subheader">Left Join</div>
+  <p class="content-body">
+    To understand this best, just realize it is a regular Inner Join
+    like already mentioned, except that it will also include any rows
+    from the left table that were excluded from the Join.  The left
+    table just means the table you are starting with.  That is, in
+  </p>
+
+  <br />
+  <pre><code class=" language-sql content-body">SELECT * FROM t1
+JOIN t2 
+ON t1.a = t2.a
+</code></pre>
+  <br />
+
+  <p class="content-body">
+    t1 is the left table (you are starting with that one.)
+  </p>
+
+  <div class="content-subheader">Right Join</div>
+  <p class="content-body">
+    Same as Left Join, just the right side.
+  </p>
+
+  <div class="content-subheader">Full Join</div>
+  <p class="content-body">
+    Same as Left and Right Join, just do both this time.
+  </p>
+
+  <div class="content-subheader">Cross Join</div>
+  <p class="content-body">
+    For every row in table 1, join it to every row
+    in table 2.  If there are 5 rows in table 1 and 4 in table 2, you will
+    get 20 rows. You do not need to indicate columns with this Join.
+  </p>
+</div>
+
+

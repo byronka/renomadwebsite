@@ -1,0 +1,57 @@
+;; When running in Windows, we want to use an alternate shell so we
+;; can be more unixy.
+;(setq shell-file-name "C:\cygwin/bin/bash")
+;(setq explicit-shell-file-name shell-file-name)
+;(setenv "PATH"
+;    (concat "~/bin:/usr/local/bin:/usr/bin:"
+;        (replace-regexp-in-string " " "\\\\ "
+;            (replace-regexp-in-string "\\\\" "/"
+;                (replace-regexp-in-string "\\([A-Za-z]\\):" "/\\1"
+;                    (getenv "PATH"))))))
+
+(menu-bar-mode -1)
+
+;; I hate tabs!
+(setq-default indent-tabs-mode nil)
+;;don't clutter up directories with buffers
+;;; backup/autosave
+
+(savehist-mode 1)
+
+(defvar backup-dir (expand-file-name "~/.emacs.d/backup/"))
+(defvar autosave-dir (expand-file-name "~/.emacs.d/autosave/"))
+
+(setq backup-directory-alist (list (cons ".*" backup-dir)))
+(setq auto-save-list-file-prefix autosave-dir)
+(setq auto-save-file-name-transforms `((".*" ,autosave-dir t)))
+
+(eval-after-load "cc-mode"
+  '(define-key c-mode-base-map (kbd "C-c C-f") 'compile))
+
+(eval-after-load "mail-mode" 'turn-on-auto-fill)
+
+;using global for source navigation
+(setq load-path (cons "/home/owner/global" load-path))
+(autoload 'gtags-mode "gtags" "" t)
+
+(setq evil-want-C-i-jump nil) 
+;this has to be set before requiring evil, so I can indent using the tab key
+(add-to-list 'load-path "~/.emacs.d/")
+(add-to-list 'load-path "~/.emacs.d/evil")
+(require 'evil)
+(evil-mode 1)
+(load "highlight-symbol.el")
+(require 'highlight-symbol)
+
+
+(global-set-key [(control f3)] 'highlight-symbol-at-point)
+(global-set-key [f3] 'highlight-symbol-next)
+(global-set-key [(shift f3)] 'highlight-symbol-prev)
+(global-set-key [(meta f3)] 'highlight-symbol-query-replace)
+
+(show-paren-mode)
+
+(setq c-mode-hook
+      '(lambda ()
+         (gtags-mode 1)
+         ))

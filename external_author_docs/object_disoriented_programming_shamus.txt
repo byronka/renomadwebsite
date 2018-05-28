@@ -1,0 +1,63 @@
+Object-Disoriented Programming
+	By Shamus
+on Sep 27, 2010	Filed under:
+Programming	
+180 comments
+
+Lingua Programmatica
+ 	
+Comic Press
+
+I program in C++ for a living. I loved doing it in my late 20’s and early 30’s, but over the past few years I’ve gotten fed up with this language and its cryptic aggravating bullshit.
+
+One of the strengths of the language is the way that you can use libraries written by someone else. The language is 31 years old at this point, and odds are good that if there’s something you need your program to do, someone else has already come across the problem, solved it, and put the thing out there for people to use. For example, if you need a really fast algorithm for sorting a big wad ‘o data, or generating high quality pseudo-random numbers, then you don’t need to knock yourself out. Just use what’s already been written. There’s no reason to do it yourself unless you see some flaw in the existing solution and you think you can do better.
+
+Things get tricky when you have a solution that incorporates another solution which incorporates another, and so on. You go and grab a chunk of code for (say) calculating the shortest distance between any two wombats. You think you’re done, but when you try to use it you find out it depends on other files you don’t have. It turns out the shortest-distance stuff incorporated someone else’s code, which was a program designed to differentiate between wombats and hamsters, which in turn used some guy’s 1988 C code to rate things according to how furry they are. Suddenly you’re performing some sort of archaeological data mining, looking for fragments of code written by a teenage Bjarne Stroustrup in 1965 and trying to translate his comments from the original Danish.
+
+When someone shares their solution with the world, they can do it in one of two ways: The first way is that they can compile their stuff into a library. This is a binary file that you can hand to just about anyone and it will (in theory) be fairly easy for them to plug it into their own program. The downside is that every platform will need its own library. Linux? PC? Mac? 64 bit? 32 bit? It will be frustrating if a Linux developer shows up and you only have the PC version of your library available. And you can’t compile for a platform unless you have access to it. So if you don’t own a Mac then Mac users can’t use your stuff, thus limiting the reach of your work.
+
+The other solution is that you can throw the source files out there and let everyone compile it themselves, which requires little effort on your part and lots of effort on theirs. The directions to compile someone else’s project go something like this:
+
+1) Download all the source code. Now go and download a program to open the archive because they’re not using the archive format native to your operating system. (Windows has .zip, Linux has .gzip, Macs have .iforget.)
+
+2) Follow the directions in the readme.nfo, which is a text file with no line breaks. This will explain how to arrange your project directories so that it will be able to find the needed files. If you’d like to see the directions in English, you can get them at the following dead link.
+
+3) If you’re compiling on an IBM z800 then the source should be fine. For all other platforms, go through all the files and replace all the double backslashes in the header file paths with single pairs of reverse-backslashes. You may need to precede this with a period. Consult with an older programmer who is like a mentor to you. He probably knows about this kind of stuff.
+
+4) Don’t do the previous step if your filesystem is case-sensitive.
+
+5) You’ll need the source for the RaymondSort algorithm. Yes, there are dozens of popular sorting systems out there but RaymondSort is proven to be 0.1% faster in single-threaded environments where the computer has less than 100MB of memory to work with.
+
+6) Go to the back room of Uncle Raymonds Bar in Pineville, WV on a Wednesday night. (The password is “Bob-o sent me.” They only change the backroom password when a new version of Windows comes out, so this password will be good until Windows XP launches.)
+
+7) Ask Uncle Raymond for the source to RaymondSort. Don’t be offended if he tries to goad you into a knife fight. He’s like that.
+
+8) RaymondSort files are written in ANSI C and a profane variant of Esperanto. You may need to make a few hundred perfectly trivial edits to them to get a clean compile. In particular, Ray’s favorite variable names were bool, class, new, and delete.
+
+9) That’s it! When it fails to compile feel free to email me at the address I haven’t used since the Clinton administration and I’ll be happy to send you back curt replies admonishing you to RTFM.
+
+10) Do a Google search and discover a three year old forum thread where a half dozen people all had the exact same problem you’re having now, which nobody ever answered. The last post is someone saying, “Nevermind, I figured it out myself” without elaborating further.
+
+This weekend I was looking for something that would let me “easily” create standard interface widgets (text boxes, buttons, scrollbars, and all the other doodads we’re used to seeing in a modern user interface) within an OpenGL window. Basically, put various controls over a 3D rendering window. Designing interface controls takes an enormous volume of code, and I was sure someone else had done all that legwork for me.
+
+I did a search and found about a half dozen that seemed interesting. So then it was time to evaluate them according to various criteria:
+
+1) Is it cross-platform? The rest of my project is (in theory) compatible with PC, Linux, and Mac. Will using this package exclude any of those?
+
+2) Is it neat and easy to use? Or do I need to #include a dozen different files everywhere in my project and write ten lines of code every time I want to create a new button?
+
+3) Is it well-documented? A feature-rich system is no good if I don’t know what the features are or how to use them.
+
+4) Does it actually do what I need? Will I get the thing running and discover that it (say) can only show a single control at a time or that the controls always look like Windows 98? Or that the controls actually float in a separate window and aren’t actually superimposed onto the 3D scene. Does it actually work at all?
+
+5) Is it sufficiently humble? It’s a bit hard to describe this in non-programming terms, but different packages have different ideas about just how important they are. Some behave like small power tools. They’ll plug into the power strip next to all your other power tools and you can use them as much or as little as you need. Others act like they’re the whole workshop and expect you to plug everything else into them. In programmers terms, sometimes a package will insist on running the show. You instance a class and interact with everything else through that class. It calls member functions when it pleases, and you don’t get to control the program flow yourself. The package imposes a certain structure on your application. The fun begins when you have more than one of these jackass systems and you need to figure out how to make them work together. Also, it’s a bitch to debug applications that are built this way because trashing the heap will often cause the program to crash somewhere in the bowels of this overlord library and you can’t actually tell what the hell it was doing before things went pear-shaped. And asking for help will always get you helpful suggestion like “don’t trash the heap”.
+
+It becomes a tremendous time-sink to try out a dozen different systems like this, because getting them to compile and integrating them with your project is such an enormous chore. I wouldn’t mind doing the work if I knew it was what I wanted, but this is like assembling a car before you can test-drive it. It’s entirely possible to blow a couple of hours on something and find out it’s not at all what you need. And when you’re working on it you have no idea how much more time it will take before you can see it work. You solve a problem to find another problem, on and on, never knowing if you’re anywhere near the finish line.
+
+I lost a whole day to this over the weekend, and I have nothing to show for my effort. Everything I tried managed to fail multiple items on the list above. Most of them failed 3 out of 5. I don’t mind that I couldn’t find what I was looking for. (Well, I mind, but that’s not what’s really bugging me.) What bothers me is just how long it took me to run through the list. Every package I tried was a bundle of inscrutable errors. So much time is lost laboring over compile-time vagaries and linker misadventures. Nothing ever “just works” out of the box. Some of this is because this stuff is all thrown together by people who would rather waste your time than theirs. But some of it is because there are just so many things that can go wrong.
+
+I didn’t used to have this much trouble. Maybe I’m just getting older and have less patience for it. Maybe the mass proliferation of homebrew libraries has flooded the world with wobbly projects made of tape and popsicle sticks. Maybe this is due to the chaos arising from the halting attempts at cross-platform development. (In the old days, almost everything I worked with was 100% Windows based. Now a lot of stuff is striving to be multi-platform. That’s good in the long run, but the resulting development anarchy is treacherous to navigate.)
+
+Still, it’s really common these days. I can’t remember the last time I grabbed some code or a library and just had it work without needing to fix it first.
+
+

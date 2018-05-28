@@ -1,0 +1,90 @@
+" Setting some decent VIM settings for programming
+
+" tags stuff
+set tags=tags; " this will look into parent dirs for a tags file
+:set cscopetag
+:set cscopetagorder=1
+
+set nocompatible                " vi compatible is LAME
+if has('gui_running')
+        colorscheme torte
+        set guifont=Lucida_Console:h11:cANSI
+endif
+
+" Use case insensitive search, except when using capital letters
+set ignorecase
+set smartcase
+
+runtime ftplugin/man.vim                "nice to be able to see man pages in another window.
+
+" we want to see the horizontal slider if we turn off wrapping
+nnoremap   ':set wrap! go'.'-+'[&wrap]."=b\r"
+
+"nice to see the line we are on.
+set cursorline
+highlight CursorLine  cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+
+" Copy to 'clipboard registry'
+vmap <C-c> "*y
+
+" easily add timestamps
+nnoremap <F5> "=strftime("%c")<CR>P
+inoremap <F5> <C-R>=strftime("%c")<CR>
+
+" Select all text
+nmap <C-a> ggVG
+
+set guioptions+=b               " horizontal scrollbar on bottom 
+
+set autochdir                                   " set the current working directory to active file
+set number                      " I like to see the numbers!
+set nohlsearch
+set backupdir=~/.vim/backup//
+set undodir=$HOME/.vim/undodir
+set directory=~/.vim/swap//
+set virtualedit=all
+set showmatch                   " automatically show matching brackets. works   like it does in bbedit.
+set shiftwidth=2
+set tabstop=2
+filetype indent on
+set showmatch                   " automatically show matching brackets. works like it does in bbedit.
+set ruler                       " show the cursor position all the time
+set laststatus=2                " make the last line where the status is two lines deep so you can see status always
+set backspace=indent,eol,start  " make that backspace key work the way it should
+set background=dark             " Use colours that work well on a dark background (Console is usually black)
+set showmode                    " show the current mode
+set expandtab                   " use spaces instead of tabs
+set relativenumber              " show numbers by distance from current line
+syntax on                       " turn syntax highlighting on by default
+highlight MatchParen cterm=bold ctermbg=none ctermfg=blue
+
+" Show EOL type and last modified timestamp, right after the filename
+set statusline=%<%F%h%m%r\ [%{&ff}]\ (%{strftime(\"%H:%M\ %d/%m/%Y\",getftime(expand(\"%:p\")))})%=%l,%c%V\ %P
+
+set linebreak "don't chop words halfway through
+"do we *really* need to see those @ symbols at beginning of line?
+set display+=lastline
+
+"====[ Make the 81st column stand out ]====================
+
+    " OR ELSE just the 81st column of wide lines...
+    highlight ColorColumn ctermbg=magenta
+    call matchadd('ColorColumn', '\%81v', 100)
+
+"====[ Make tabs, trailing whitespace, and non-breaking spaces visible ]======
+
+    exec "set listchars=tab:>-,trail:~,extends:>,precedes:<"
+        highlight NonText ctermfg=DarkGray guifg=DarkGray
+        highlight SpecialKey ctermfg=DarkGray guifg=DarkGray
+
+
+"====[ Swap : and ; to make colon commands easier to type ]======
+
+    nnoremap  ;  :
+    nnoremap  :  ;
+
+
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif 
+

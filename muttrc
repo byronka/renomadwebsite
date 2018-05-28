@@ -1,0 +1,92 @@
+#set pager_index_lines=8
+set smtp_url="SMTP_URL_GOES_HERE"
+set smtp_pass="PASSWORD_GOES_HERE"
+set hostname=""
+set allow_8bit  # Don't do any Quoted-Printable encoding on 8-bit data!
+set copy=yes    # Ask me if I want to save a copy of my outgoing messages.
+set delete=yes
+set noaskcc
+set nomark_old
+set reverse_alias
+set reverse_name
+set reply_to
+set realname="Byron Katz"
+set attribution="On %M %N, %f wrote:"
+set editor="emacsclient +8:0"
+set print=ask-no
+set mbox_type=Maildir
+set folder="~/Maildir/"
+set mask="!^\\.[^.]"
+set mbox="+inbox"
+set record="+inbox"
+set postponed="+drafts"
+set edit_hdrs           # let me edit those headers!
+set nosave_empty
+set sort=threads
+set read_inc=10
+set write_inc=10
+#set pager=emacsclient
+set noprompt_after
+#my_hdr From: 
+#set status_format="---%h:%f [%?M of ?%m msgs, %?n new, ?%?t tagged, ?%l bytes]---(%s)%|-"
+set status_format="%r %v [%?M?%M/?%m] %?n?%n new, ?%?p?%p postponed, ?%?t?%t +tagged, ?%?d?%d deleted, ?(%h:%f) %?b?%b more to go.?%> %r"
+
+set alias_file="~/.aliases"
+# set quote_regexp="^ *[-=]*[>:|][>:|]*[        A-Za-z0-9]"
+set quote_regexp="^([A-Za-z ]+>|[]>:|}-][]>:|}-]*)"
+set include
+# set pop_host="pop.gmail.com"
+# set pop_delete
+set hdr_format="%4C %Z %{%b %d} %-15.15n (%4l) %s"
+set nomove
+set tilde
+macro index c "<change-folder>?<toggle-mailboxes>" "open a different folder"
+macro pager c "<change-folder>?<toggle-mailboxes>" "open a different folder"
+macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
+macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
+macro compose A "<attach-message>?<toggle-mailboxes>" "attach message(s) to this message"
+set noautoedit
+set pager_context=1
+set pager_stop
+set pgp_replyencrypt
+set pgp_replysign
+#set pgp_autosign
+set pipe_decode
+set postponed="+postponed"
+set to_chars="b .c>"
+auto_view text/html
+set fast_reply
+
+color header yellow black Subject:
+color header brightcyan black .
+color body brightyellow black [_a-z\.\$A-Z0-9-]+@[a-zA-Z0-9\./\-]+
+color body yellow black (http|ftp)://[_a-zA-Z0-9\./~\-]+
+color quoted green black
+color signature brightblue black
+# color indicator yellow blue
+color attachment yellow black
+color tree red black
+color indicator black cyan
+color status yellow blue
+color tilde blue black
+color normal default default
+
+bind pager 'w' previous-page
+bind pager 'j' next-line
+bind pager 'k' previous-line
+bind index '#' tag-entry
+bind index '{' previous-thread
+bind index '}' next-thread
+
+
+mailboxes ! + `\
+for file in ~/Maildir/.*; do \
+  box=$(basename "$file"); \
+  if [ ! "$box" = '.' -a ! "$box" = '..' -a ! "$box" = '.customflags' \
+      -a ! "$box" = '.subscriptions' ]; then \
+    echo -n "\"+$box\" "; \
+  fi; \
+done`
+
+source ~/.aliases
+unset markers

@@ -1,0 +1,31 @@
+Simple Is Not the Opposite of Complex
+Complex is Easy, Simple is Hard
+My college life was all about education. Mathematics, arts, and sciences were thrown at high speed for high credits. Yet some of the longest lasting lessons didn’t come from the classroom — at least not the ones I was paying for. One lesson in particular informed the way I would look at software development and user experience for the rest of my life. It came from pool.
+
+(Life) Lessons in Billiards
+I was a commuter in college, and hung out in the ‘commuter lounge’. It wasn’t very fancy — there were some lockers, a TV, tables and sofas. But the centerpiece of the inner half of the room was the pool table, and it drew me to the place every day.
+
+I fell hard for the game, playing constantly (for better or worse in regards to my GPA). A graduate student saw my love of it, took pity on me, and offered to train me. He was good. Very good. I accepted, and learned a ton.
+
+One day we were watching two students battling in a game full of tough shots. A crowd had formed, cheering as each student holed a particularly difficult bank shot, or combo, or even the occasional felt-ripping masse.
+
+As one student waved his arms, celebrating his hard-fought victory, I mentioned how good the two students were. My billiards mentor said something to me that I’ll never forget:
+
+“The guy that makes hard shot after hard shot isn’t the one you have to worry about; the guy making easy shot after easy shot is. The guy who always has easy shots knows how to leave the cue ball where he wants — the guy who has to keep making hard shots has no control.”
+It was so obvious once he said it. The victorious student celebrating in front of me morphed from the best player in the room to the most pitiable. Later, I reduced the thought to:
+
+The best make the problem look easy to solve. The rest celebrate solving the problems they create.
+I see this truth again and again, especially in the realm of software. It manifests in software requirements, software architecture, and user experience design. Let’s talk about how.
+
+Requirements: What You Need, Not What You Want
+How many features does your software need? If you ask anyone who has to pay for software: ‘should it do X’, the answer is almost always ‘Yes’. Ask someone who has to use the software on a daily basis, and the answer may be quite different. Why?
+
+Because those using software (employees) generally are more aware of what is needed, and those paying for software (managers, bosses, owners) are generally more aware of what they want.
+
+Does that mean managers/bosses/owners don’t know their companies? At a high level of course they do — but building software highlights the kinds of tiny details that the day-to-day users develop habits to cope with.
+
+I find the best project and product managers help to define software requirements based on needs as seen through existing habit, not wants as seen through RFQs. Users tend to fill holes in process through their own habits. Define how users are already working around a process, and you’ll define truly helpful software.
+
+Yet there is such an emotional pull to the idea of just adding features. Giving the number of features priority makes you feel like you’re adding value, but really may show that you don’t understand the needs. If you truly understand a business or process, you can express its simplest form via the software supporting it.
+
+Deeply understanding the process you intend to digitize is far more valuable than inventing new features. If you understand you can prune away the excess feature wants and get to the heart of habitual feature needs — improving process and filling holes no one but a few on the ground knew was there.

@@ -1,0 +1,77 @@
+I'm a phony. Are you?
+
+August 17, '11 Comments [125] Posted in Musings
+Sponsored By
+
+pho·ny also pho·ney (fō'nē) adj. pho·ni·er, pho·ni·est 
+1. 
+  a. Not genuine or real; counterfeit: a phony credit card. 
+  b. False; spurious: a phony name. 
+2. Not honest or truthful; deceptive: a phony excuse. 
+3. 
+  a. Insincere or hypocritical. 
+  b. Giving a false impression of truth or authenticity; specious.[0]
+
+Along with my regular job at Microsoft I also mentor a number of developers and program managers. I spoke to a young man recently who is extremely thoughtful and talented and he confessed he was having a crisis of confidence. He was getting stuck on things he didn't think he should be getting stuck on, not moving projects forward, and it was starting to seep into his regular life.
+
+He said:
+
+"Deep down know I’m ok. Programming since 13, graduated top of CS degree, got into Microsoft – but [I feel like I'm] an imposter."
+I told him, straight up, You Are Not Alone.
+
+For example, I've got 30 domains and I've only done something awesome with 3 of them. Sometimes when I log into my DNS manager I just see 27 failures. I think to myself, there's 27 potential businesses, 27 potential cool open source projects just languishing. If you knew anything you'd have made those happen. What a phony.
+
+I hit Zero Email a week ago, now I'm at 122 today in my Inbox and it's stressing me out. And I teach people how to manage their inboxes. What a phony.
+
+When I was 21 I was untouchable. I thought I was a gift to the world and you couldn't tell me anything. The older I get the more I realize that I'm just never going to get it all, and I don't think as fast as I used to. What a phony.
+
+I try to learn a new language each year and be a Polyglot Programmer but I can feel F# leaking out of my head as I type this and I still can't get my head around really poetic idiomatic Ruby. What a phony.
+
+I used to speak Spanish really well and I still study Zulu with my wife but I spoke to a native Spanish speaker today and realize I'm lucky if I can order a burrito. I've all but forgotten my years of Amharic. My Arabic, Hindi and Chinese have atrophied into catch phrases at this point. What a phony. (Clarification: This one is not intended as a humblebrag. I was a linguist and languages were part of my identity and I'm losing that and it makes me sad.)
+
+But here's the thing. We all feel like phonies sometimes. We are all phonies. That's how we grow. We get into situations that are just a little more than we can handle, or we get in a little over our heads. Then we can handle them, and we aren't phonies, and we move on to the next challenge.
+
+The idea of the Imposter Syndrome is not a new one.
+
+Despite external evidence of their competence, those with the syndrome remain convinced that they are frauds and do not deserve the success they have achieved. Proof of success is dismissed as luck, timing, or as a result of deceiving others into thinking they are more intelligent and competent than they believe themselves to be.
+The opposite of this is even more interesting, the Dunning-Kruger effect. You may have had a manager or two with this issue. ;)
+
+The Dunning–Kruger effect is a cognitive bias in which unskilled people make poor decisions and reach erroneous conclusions, but their incompetence denies them the metacognitive ability to recognize their mistakes.
+It's a great read for a Wikipedia article, but here's the best line and the one you should remember.
+
+...people with true ability tended to underestimate their relative competence.
+I got an email from a podcast listener a few years ago. I remembered it when writing this post, found it in the archives and I'm including some of it here with emphasis mine.
+
+I am a regular listener to your podcast and have great respect for you.  With that in mind, I was quite shocked to hear you say on a recent podcast, "Everyone is lucky to have a job" and apply that you include yourself in this sentiment.
+
+I have heard developers much lesser than your stature indicate a much more healthy (and accurate) attitude that they feel they are good enough that they can get a job whenever they want and so it's not worth letting their current job cause them stress.  Do you seriously think that you would have a hard time getting a job or for that matter starting your own business?  If you do, you have a self-image problem that you should seriously get help with. 
+
+But it's actually not you I'm really concerned about... it's your influence on your listeners.  If they hear that you are worried about their job, they may be influenced to feel that surely they should be worried. 
+I really appreciated what this listener said and emailed him so. Perhaps my attitude is a Western Cultural thing, or a uniquely American one. I'd be interested in what you think, Dear Non-US Reader. I maintain that most of us feel this way sometimes. Perhaps we're unable to admit it. When I see programmers with blog titles like "I'm a freaking ninja" or "bad ass world's greatest programmer" I honestly wonder if they are delusional or psychotic. Maybe they just aren't very humble.
+
+I stand by my original statement that I feel like a phony sometimes. Sometimes I joke, "Hey, it's a good day, my badge still works" or I answer "How are you?" with "I'm still working." I do that because it's true. I'm happy to have a job, while I could certainly work somewhere else. Do I need to work at Microsoft? Of course not. I could probably work anywhere if I put my mind to it, even the IT department at Little Debbie Snack Cakes. I use insecurity as a motivator to achieve and continue teaching.
+
+I asked some friends if they felt this way and here's some of what they said.
+
+Totally! Not. I've worked hard to develop and hone my craft, I try to be innovative, and deliver results. 
+Plenty of times! Most recently I started a new job where I've been doing a lot of work in a language I'm rusty in and all the "Woot I've been doing 10 years worth of X language" doesn't mean jack. Very eye opening, very humbling, very refreshing 
+Quite often actually, especially on sites like stack overflow. It can be pretty intimidating and demotivating at times. Getting started in open source as well. I usually get over it and just tell myself that I just haven't encountered a particular topic before so I'm not an expert at it yet. I then dive in and learn all I can about it. 
+I always feel like a phony just biding my time until I'm found out. It definitely motivates me to excel further, hoping to outrun that sensation that I'm going to be called out for something I can't do 
+Phony? I don't. If anything, I wish I was doing more stuff on a grander scale. But I'm content with where I am now (entrepreneurship and teaching). 
+I think you are only a phony when you reflect your past work and don't feel comfortable about your own efforts and achievements. 
+Hell, no. I work my ass off. I own up to what I don't know, admit my mistakes, give credit freely to other when it's due and spend a lot of time always trying to learn more. I never feel like a phony. 
+Quite often. I don't truly think I'm a phony, but certainly there are crises of confidence that happen... particularly when I get stuck on something and start thrashing.
+There are some folks who totally have self-confidence. Of the comment sample above, there are three "I don't feel like a phony" comments. But check this out: two of those folks aren't in IT. Perhaps IT people are more likely to have low self-confidence?
+
+The important thing is to recognize this: If you are reading this or any blog, writing a blog of your own, or working in IT, you are probably in the top 1% of the wealth in the world. It may not feel like it, but you are very fortunate and likely very skilled. There are a thousand reasons why you are where you are and your self-confidence and ability are just one factor. It's OK to feel like a phony sometimes. It's healthy if it's moves you forward.
+
+I'll leave you with this wonderful comment from Dave Ward:
+
+I think the more you know, the more you realize just how much you don't know. So paradoxically, the deeper down the rabbit hole you go, the more you might tend to fixate on the growing collection of unlearned peripheral concepts that you become conscious of along the way.
+
+That can manifest itself as feelings of fraudulence when people are calling you a "guru" or "expert" while you're internally overwhelmed by the ever-expanding volumes of things you're learning that you don't know.
+
+However, I think it's important to tamp those insecurities down and continue on with confidence enough to continue learning. After all, you've got the advantage of having this long list of things you know you don't know, whereas most people haven't even taken the time to uncover that treasure map yet. What's more, no one else has it all figured out either. We're all just fumbling around in the adjacent possible, grasping at whatever good ideas and understanding we can manage to wrap our heads around.
+Tell me your stories in the comments.
+
+And remember, "Fake it til' you make it."

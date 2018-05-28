@@ -1,0 +1,95 @@
+<html>
+<style>
+.Hello {
+color: white;
+position: fixed; 
+left: 400px; 
+top: 200px; 
+display: inline-block;
+}
+
+.Regular {
+font-size: 20px;
+color: white;
+display: block;
+position: fixed;
+}
+</style>
+<body style="background-color: black">
+	<div id="hello" class="Hello">&nbsp;</div>
+	<div id="hello" class="Regular" style="top: 700px" >&nbsp;</div>
+	<div id="hello" class="Regular" style="top: 50px"  >&nbsp;</div>
+	<div id="hello" class="Regular" style="top: 100px" >&nbsp;</div>
+	<div id="hello" class="Regular" style="top: 150px" >&nbsp;</div>
+	<div id="hello" class="Regular" style="top: 200px" >&nbsp;</div>
+	<div id="hello" class="Regular" style="top: 250px" >&nbsp;</div>
+	<div id="hello" class="Regular" style="top: 300px" >&nbsp;</div>
+	<div id="hello" class="Regular" style="top: 350px" >&nbsp;</div>
+	<div id="hello" class="Regular" style="top: 400px" >&nbsp;</div>
+	<div id="hello" class="Regular" style="top: 450px" >&nbsp;</div>
+	<div id="hello" class="Regular" style="top: 900px" >&nbsp;</div>
+	<div id="hello" class="Regular" style="top: 120px" >&nbsp;</div>
+	<div id="hello" class="Regular" style="top: 130px" >&nbsp;</div>
+	<div id="hello" class="Regular" style="top: 140px" >&nbsp;</div>
+	<div id="hello" class="Regular" style="top: 150px" >&nbsp;</div>
+	<div id="hello" class="Regular" style="top: 160px" >&nbsp;</div>
+</body>
+</html>
+<script type="text/javascript">
+
+var myapp = {};
+
+//you can override the text here.
+myapp.thetext = "Happy Mother's Day!! From Cameron, David, Corey, and Byron";
+
+myapp.toggle = true;
+
+myapp.jitterbugtext = myapp.thetext;
+document.getElementById('hello').textContent = myapp.jitterbugtext;
+myapp.racertext = myapp.thetext;
+var racers = document.getElementsByClassName('Regular');
+for(var i=0; i<racers.length; i++) {
+	racers[i].textContent = myapp.racertext;
+}
+myapp.color = ['red', 'blue', 'green'];
+myapp.colorindex = 0;
+myapp.jitterbug = function(i) {
+    var theStyle = document.getElementById('hello').style;
+    theStyle.fontSize = i
+	theStyle.color = myapp.color[myapp.colorindex];
+    theStyle.MozTransform = "rotate("+i+"deg)"
+	var currenttop = +theStyle.top.replace("px","")
+	var currentleft = +theStyle.left.replace("px","")
+	theStyle.top = currenttop + ((Math.random() * 40) - 20);
+	theStyle.left = currentleft + ((Math.random() * 40) - 20);
+    if (i > 360) { // big terminus
+        myapp.toggle  = !myapp.toggle ;
+    }
+	if (i < 1) { //small terminus
+        myapp.toggle  = !myapp.toggle ;
+		theStyle.top = (Math.random() * 800);
+		theStyle.left = (Math.random() * 800);
+    }
+	if (i % 20 == 0) { //we don't want flashing.
+		var overflow = myapp.colorindex + 1 > myapp.color.length;
+		myapp.colorindex =  overflow? 0 : myapp.colorindex + 1;
+		
+	}
+    setTimeout(myapp.jitterbug, 50, myapp.toggle ? i+1 : i - 1);
+}
+
+myapp.racing = function(i) {
+	var racers = document.getElementsByClassName('Regular');
+	for(var i=0; i<racers.length; i++) {
+		var myTop = +racers[i].style.top.replace("px","")
+		var myleft = +racers[i].style.left.replace("px","")
+		racers[i].style.left = myleft >  window.innerWidth ? 0 : myleft + ((Math.random() * 10));
+		racers[i].style.top = myTop + (((Math.random() * 2) -1));
+	}
+	setTimeout(myapp.racing, 50);
+}
+
+//kick them off
+myapp.jitterbug(1);
+myapp.racing(1);
+</script>
