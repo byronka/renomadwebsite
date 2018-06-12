@@ -34,10 +34,13 @@ body {
 }
 
 pre {
+  border: 4px dashed white;
+  padding: 5px 5px 10px 10px;
+  background-color: #153536;
 	font-size: 10pt;
   overflow-x: auto;
   overflow-y: auto;
-  max-height: 300px;
+  max-height: 400px;
 }
 
 .content-body {
@@ -58,7 +61,7 @@ pre {
     background-color: #31424B;
     border:  double lightgrey;
     box-shadow: 15px 15px black;
-    max-width: 650px;
+    max-width: 690px;
     min-width: 300px;
 }
 
@@ -122,5 +125,5 @@ div.banner h2.titleheader a:visited {
 
 @font-face {
   font-family: "dos";
-  src: url("fonts/perfect_dos_vga_437.ttf")
+  src: url("fonts/ibm_vga8.woff2")
 }
