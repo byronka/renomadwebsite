@@ -57,8 +57,7 @@ pre {
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
-    border:  double lightgrey;
-    box-shadow: 15px 15px gray;
+    border:  double gray;
     max-width: 690px;
     min-width: 300px;
 }
