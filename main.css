@@ -17,6 +17,7 @@ hr {
 body {
     font-family: "serif";
     font-size: larger;
+    background-color: #f7f7f8;
 }
 
 .content-interior {
@@ -60,6 +61,7 @@ pre {
     border:  double gray;
     max-width: 690px;
     min-width: 300px;
+    background-color: white;
 }
 
 li.menu_item {
