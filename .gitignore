@@ -1,0 +1,2 @@
+# don't store the output from running server-side include scripts
+output/
