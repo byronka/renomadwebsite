@@ -7,9 +7,7 @@ rm -fr output
 rm output/ssi*
 rm output/readme.md
 rm output/send_to_output.sh
-
-# delete the contents of the /var/www/html directory
-sudo rm -fr /var/www/html/*
+rm output/README.txt
 
 # dereference symbolic links and recursively copy
 sudo cp --recursive --dereference output/* /var/www/html
