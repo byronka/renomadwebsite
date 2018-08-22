@@ -10,6 +10,7 @@ rm output/ssi*
 rm output/readme.md
 rm output/send_to_output.sh
 rm output/README.txt
+rm output/h2o.conf
 
 # delete the contents of the /var/www/html directory
 sudo rm -fr /var/www/html/*
