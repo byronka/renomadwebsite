@@ -1,0 +1,72 @@
+<!--#include virtual="header.html" -->
+<div class="entry">
+<p class="content-header">
+	Using <b>this</b> in JavaScript - reasons not to use it.
+</p>
+  <div class="date">Aug 4, 2014</div>
+
+<p class="content-body">
+<ol class="content-body">
+<li> when outside a function, "this" means the global object.</li>
+
+<li> inside a function [not attached to an object, that is, f2() rather than bob.f2() ]:
+<ul>
+	<li>normal mode:
+		it has to be set to something by the call, but if not, it will default to Window.
+		</li>
+	<li>strict mode:
+		if you run "use strict" in the function, it will remain undefined if you don't set it.
+		However, some browsers don't implement strict mode correctly - here is the chart: http://kangax.github.io/compat-table/es5/#Strict_mode
+		</li>
+		</ul>
+		
+<li> as a method [ attached to an object, like bob.f2() rather than f2() ]:
+<ul>
+<li>
+	"this" gets set to the object that the method is attached to.
+</li>
+<li>
+	beware: this behavior happens merely by calling the method off an object.  You may have declared it independently or not.
+</li>
+<li>
+	beware: "this" will be the most immediate object.  Parent objects won't matter.</li>
+</li>
+</ul>
+
+<li> on the object's prototype chain:
+	just like as a method, it will set "this" to whatever object it gets called off.  which means that if you expected
+	"this" to be bob, it may not be.
+  <pre><code class="language-javascript">
+	bob = {};
+	bob.runme = function () { return this };
+	
+	bobson = Object.create(bob);
+	bobson.name = "Hi I am Bob's son!";
+	bobson.runme();
+	
+	</code></pre>
+	</li>
+<li> on a constructor:
+	"this" is the new object being constructed.
+	if you return a new object at the end of the constructor, *that* object gets returned instead of the object being constructed.
+		therefore, after new'ing up the object, you stand the possibility of not seeing what you expect:
+		<pre><code class="language-javascript">function C2() {this.a = 26;return {b:15};}
+>undefined
+var o = new C2();
+>undefined
+o.a
+>undefined
+o.b
+>15
+</code></pre>
+</li>
+<li> in "call" and "apply": you can set what "this" should be.</li>
+
+<li> as an event handler: "this" will be set to the element the event fired from, (though some browsers vary if not using addEventListener)</li>
+
+<li> in-line event handler:
+	"this" is set to the DOM element, but only if it's not inside a function.  If inside a function, it will get set to Window.</li>
+	</ol></p>
+
+
+<!--#include virtual="footer.html" -->

@@ -1,0 +1,66 @@
+<!--#include virtual="header.html" -->
+<div class="entry">
+	<p class="content-header" id="simple_file_renaming_script">
+	  Simple file renaming script
+  </p>
+  <div class="date">November 20, 2017</div>
+
+  <p class="content-body">
+  Just a reminder to myself of a simple approach to renaming some media
+  files I was working with.  My first attempt ended up creating a long
+  and unwieldy single-line script.  This was too difficult for the human
+  mind to parse.  A few minutes later I tried again and came up with the
+  following which I much prefer.
+  </p>
+
+  <p class="content-body">
+	<pre><code class="language-bash"
+>#!/bin/bash
+COUNTER=1
+SUFFIX=""
+#loop over the files with certain suffixes ( .MTS, .JPG, .MP4)
+for f in $(ls|grep -E "MTS$|JPG$|MP4$") 
+  do
+    # get the suffix of this file to append later.
+    SUFFIX=${f#*.} 
+    printf "mv "
+    printf $f
+    printf " "
+    #get the modified date with dashes replaced by underscores
+    printf $(stat --printf %y "$f" | cut -d" " -f1 | tr '-' '_') 
+    printf "_calif_"
+    printf $COUNTER
+    printf "."
+    printf $SUFFIX
+    let COUNTER=COUNTER+1
+  #add a carriage return
+  echo ""
+  done
+  </code></pre>
+  </p>
+  <p class="content-body">
+  This outputs text like the following:
+  </p>
+  <p class="content-body">
+	<pre><code class="language-bash"
+>mv 00003.MTS 2017_04_12_calif_1.MTS
+mv 00004.MTS 2017_04_12_calif_2.MTS
+mv P1010781.JPG 2017_04_11_calif_3.JPG
+mv P1010782.JPG 2017_04_11_calif_4.JPG
+mv P1010783.JPG 2017_04_11_calif_5.JPG
+...
+...
+  </code></pre>
+  </p>
+  <p class="content-body">
+  Which we can pipe into a file and review before running.  As I 
+  have made plain before, I often prefer the simple and naive way of
+  doing things for the benefit of later comprehension.  If you put
+  together some complex arrangement of commands on a single line, it
+  may be impressive but also difficult to maintain.
+  </p>
+</div>
+
+<p class="content-body">
+
+<!--#include virtual="footer.html" -->

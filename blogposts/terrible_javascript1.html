@@ -1,0 +1,37 @@
+<!--#include virtual="header.html" -->
+<div class="entry">
+  <p class="content-header">
+    Building a case for why JavaScript needs to die. Part 1.
+  </p>
+  <div class="date">June 16, 2016</div>
+  <p class="content-body">
+  as we all know, JavaScript looks like C-based languages with its 
+  use of brackets.  It seems to follow C convention - 
+<pre><code class="language-javascript">for() {
+
+}
+
+while() {
+
+}
+</code></pre>
+  </p>
+  <p class="content-body">
+But of course, those in the know are aware that it's a lie.  Anything
+in those brackets is simply in the same scope as whatever surrounds
+them.  And that is the *only* reason for suggesting to use
+functional-style methods like forEach() or map().  Because by using
+those, you pop in a function (aka lambda, aka callback) as a
+parameter, and that causes the scope to be contained.  
+</p>
+
+  <p class="content-body">
+But the fact that you have to use a user-created function to have any
+semblance of the proper way of doing things is a totally contrary
+thing to have.  It's absurd.  It's like we're using some half-baked
+intentionally shit language just so we can show off how masochistic we
+are.
+</p>
+</div>
+
+<!--#include virtual="footer.html" -->

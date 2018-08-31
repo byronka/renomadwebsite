@@ -1,0 +1,88 @@
+<!--#include virtual="header.html" -->
+<div class="entry">
+  <p class="content-header">
+    Everyone likes to personalize their environment a little bit.
+  </p>
+  <div class="date">July 6, 2014</div>
+  <p class="content-body">
+    I prefer a sparse environment for my command line.  Testing the
+    experience of having no prompt, I had no idea when the system
+    finished a command.  I could run the time(1) command every time,
+    but being on a variety of systems as different users, in different
+    directories, there is too much boilerplate.  The command prompt
+    suits this purpose nicely.
+  </p>
+  <p class="content-body">
+    I wanted a simplistic way to show everything at once.  The only
+    problem was that all the parts were not available.  Oh well, I can
+    build my own pieces.
+  </p>
+  <p class="content-body">
+    Nearly everything I wanted was available as part of Bash.  The only piece
+    missing was some code to show the current directory smarter. You 
+    can either see the current working directory (for example, "byron"), or
+    you can see the entire directory from the root ("/home/byron").  That
+    is fine most of the time, but occasionally you will encounter something
+    monstrous like "/usr/local/share/etc/rc.d/wow/this/is/a/long/directory".
+    That will take up the entirety of the command line.  
+  </p>
+  <p class="content-body">
+    I wrote the following python script to make the directory more terse; if
+    the full path is below a certain number of characters, it will just
+    show the path.  If longer, it will show only the first character of
+    each directory before the current directory.
+  <p>
+<pre style="min-height: 450px"><code class="language-python" >
+#!/usr/local/bin/python
+import sys
+
+current_dir=sys.argv[1]
+max_size_unaltered=25
+
+#First, we define our functions...
+def getfirstletter(a):
+    return a[:1]
+
+def print_unaltered_dir(dir):
+    print dir
+
+def print_terse_dir(dir):
+    split_dir=current_dir.split('/')
+    #remove first element - a blank - just throw it away
+    split_dir.pop(0) 
+    #store the last element - the immediate directory
+    immediate_dir=split_dir.pop() 
+    print "/" + \
+        "/".join(map(getfirstletter, split_dir)) + \
+        "/" + immediate_dir
+
+    
+#This is where the rubber hits the road.
+current_dir_length = len(current_dir)
+if current_dir_length < max_size_unaltered:
+    print_unaltered_dir(current_dir)
+else:
+    print_terse_dir(current_dir)
+</code></pre>
+<p class="content-body">
+  Once that is somewhere (maybe in your ~/bin directory) you can use it as 
+  part of your prompt, aka your PS1 variable.  I added the following to my
+  bashrc script:
+</p>
+<pre><code class="language-bash">PS1="\n\d \@ \n\u@\h:\$(~/bin/concat_dir.py \w) \$ "</code></pre>
+<p class="content-body">
+  This gives me a command prompt like the following, if in a shallow path:
+</p>
+<pre><code class="language-bash">Sun Jul 06 08:24 PM 
+byron@laser:/home/byron $ </code></pre>
+<p class="content-body">
+  Or the following if you are in a very deep path, or a path with large words:
+</p>
+<pre><code class="language-bash">Sun Jul 06 08:30 PM 
+byron@laser:/u/l/s/d/d/website $ pwd
+/usr/local/share/doc/docbook-xsl/website
+</code></pre>
+
+</div>
+
+<!--#include virtual="footer.html" -->

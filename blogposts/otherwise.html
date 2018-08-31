@@ -1,0 +1,80 @@
+<!--#include virtual="header.html" -->
+</div>
+<div class="entry">
+  <p class="content-header">
+    Otherwise
+  </p>
+  <div class="date">July 21, 2014</div>
+  <p class="content-body">
+
+		I was thinking of a a new syntactic sugar:  "Otherwise".  It would
+allow this situation: In a method, we want to run through some lines
+of code, testing predicates and running code as we go, with the
+stipulation that it should be possible that one or more of the
+predicates are valid, and the code should be able to run any of the
+valid branches.  This can't be done with if-else's, since in those
+cases only one of the branches get run.  And switch() won't work
+because it isn't built to allow one *or more* of the branches to be
+followed. At the end of the method, we want to run some code if the
+preceeding stuff never ran, that is, if all the preceeding predicates
+were false. 
+
+  </p>
+
+	<p class="content-body">
+For example, if A is true, run the A command, if B is true, run the B
+command, if C is true, run the C command, if none of those were true,
+run the D command.
+	</p>
+
+	<pre><code class="language-c"
+>method () {             method () {
+  temp_flag=false        <
+  if A:                     if A:
+    temp_flag=true       <   
+    A_command()                 A_command()
+  if B:                     if B:
+    temp_flag=true       <   
+    B_command()                B_command()
+  if C:                     if C:
+    temp_flag=true       <   
+    C_command()                C_command()
+  if (temp_flag=false):  |   otherwise:
+    D_command()                  D_command()
+}                           }</code></pre>
+<p class="content-body">
+  We carry along information on whether all of the
+	previous "if" statements were false.  If they were, we
+	can go into the "otherwise" statement.
+</p>
+<p class="content-body">
+we can use short-cicuit evaluation to benefit here.  What that means
+is that as soon as some particular piece of logic is definite and
+further evaluation is redundant, the computer stops processing it.
+</p>
+<p class="content-body">
+For our situation, the following code would suffice, although it is not as
+expressive. We want short-circuiting, so we want the first part (the
+part containing the first three functions) to cause us to skip
+"otherwise".  In an AND operator, if the first element is false then
+we can skip evaluation of subsequent logic.  So we have to figure out
+how to make the first part evaluate to false if any one of the first
+three functions returns true.
+</p>
+	<pre><code class="language-c"
+>!(A() || B() || C()) 
+	&& otherwise()
+</code></pre>
+<p class="content-body">
+	Given a method definition like:
+	<pre><code class="language-c"
+>A() {
+	if a_makes_sense:
+		go_on_a_walk();
+		return true;
+	else
+		return false;
+}
+</code></pre>
+
+<!--#include virtual="footer.html" -->

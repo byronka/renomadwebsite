@@ -1,0 +1,70 @@
+<!--#include virtual="header.html" -->
+
+<div class="entry">
+  <p class="content-header">
+  Without doubt, the most complex shell one-liner I have done
+  </p>
+  <div class="date">August 25, 2018</div>
+  <p class="content-body">
+  I was putting some photos on my website and created this insanely
+  complex one-liner without even really intending to.  It's an aspect
+  of the Unix shell philosophy to incrementally build up greater and
+  greater complexity on a line until it does what you want.  Often,
+  that consists of incrementally building a string that will be run or
+  added to a file.  In this particular case, I wanted to add photos to
+  my website, and I wanted to automate the generation of html.  So
+  what did I do?  I looped through all the photo files, adding the
+  name of each one into a script that generated the necessary html
+  text, and then added those lines to my webpage, in this case
+  "photos.html"
+  </p>
+  <p class="content-body">
+<pre class="language-bash"
+>for i in /var/www/photos/1/*; do echo "&lt;p&gt;&lt;a href=\"$(echo $i|sed 's:/var/www/::g')\"&gt;$(echo $i|sed 's:/var/www/photos/1/::g')&lt;/a&gt;" &gt;&gt; ../renomadwebsite/photos.html; echo "&lt;p&gt;$(identify -verbose $i|grep ImageDescription|sed 's/^.*exif:ImageDescription: //g')&lt;/p&gt;" &gt;&gt; ../renomadwebsite/photos.html; done 
+</pre>
+  </p>
+  <p class="content-body">
+  Let's step through this. First, I'll break it down a little - a for
+  loop with two lines.  At this point we can see that we loop through
+  all the files in a directory, and run two commands on them.  To help
+  you better understand, the first line creates html to refer to a
+  photo, and the second line uses a command from ImageMagick called
+  "Identify" to pull out text information from the photo.
+  </p>
+<pre
+>for i in /var/www/photos/1/*
+  do 
+    echo "&lt;p&gt;&lt;a href=\"$(echo $i|sed 's:/var/www/::g')\"&gt;$(echo $i|sed 's:/var/www/photos/1/::g')&lt;/a&gt;" &gt;&gt; ../renomadwebsite/photos.html
+    echo "&lt;p&gt;$(identify -verbose $i|grep ImageDescription|sed 's/^.*exif:ImageDescription: //g')&lt;/p&gt;" &gt;&gt; ../renomadwebsite/photos.html
+  done 
+</pre>
+  <p class="content-body">
+  Let's take apart the first line.  The one unusual thing going on is
+  that I have nested commands using the $() shell operator.  You can
+  see that I am setting up a hyperlink starting at <em>href=</em>.
+  But then you see I have some commands inside the parentheses.  What
+  I am doing there is using the <em>sed</em> command to replace the
+  path information on the file with an empty string, so it has the
+  exactly correct syntax.  I do a very similar thing a little further
+  on, where I remove the entire path and leave only the file name.  At
+  the end of the line, I append the output to the photos.html file.
+  Getting ahead a little bit, I do a very similar thing in the next
+  line.
+  </p>
+<pre
+>echo "&lt;p&gt;&lt;a href=\"$(echo $i|sed 's:/var/www/::g')\"&gt;$(echo $i|sed 's:/var/www/photos/1/::g')&lt;/a&gt;" &gt;&gt; ../renomadwebsite/photos.html
+</pre>
+  <p class="content-body">
+  I should emphasize that this isn't meant to represent a finished and
+  general program.  It's a one-off artifact that gets thrown away at
+  the end.  In Unix, you use the tools available to build the things
+  you need.  Certainly, it's possible to build this out into something
+  more generally usable, but then you lose flexibility.  It's like the
+  difference between having a workshop full of tools and a
+  do-it-all-machine.  When you know how to use the tools, you can do
+  anything.  The do-it-all-machine, on the other hand, is wonky and
+  doesn't always do it just how you wanted, and is hard to fathom and
+  fix.
+  <p>
+</div>
+<!--#include virtual="footer.html" -->

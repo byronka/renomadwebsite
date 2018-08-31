@@ -1,0 +1,23 @@
+<!--#include virtual="header.html" -->
+
+<div class="entry">
+  <p class="content-header">
+    Modify what gets run when pressing the calculator key
+  </p>
+  <div class="date">July 27, 2018</div>
+  <div class="content-body">
+  Copied from <a href="https://superuser.com/a/194102/334856">StackOverflow</a>:
+  <p>
+  Edit this registry key:
+  </p>
+
+
+  <pre><code>HKLM/software/microsoft/windows/currentversion/explorer/appkey/18/ShellExecute</code></pre>
+
+  <p>
+  If it does not exist, create a String Value with name ShellExecute and as value the path to your program.
+  </div>
+</div>
+
+
+<!--#include virtual="footer.html" -->

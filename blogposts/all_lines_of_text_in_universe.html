@@ -1,0 +1,233 @@
+<!--#include virtual="header.html" -->
+<div class="entry">
+  
+  <p class="content-header">
+    I was thinking about one of my first algorithms, one to write all
+    the lines of text that will ever be written in this universe.
+  </p>
+    <div class="date">June 6, 2014</div>
+  <p class="content-body">
+    Books typically contain pages, having lines of text.  Each line is around,
+    let's say, 60 characters.  We can print out every permutation of 
+    symbols (letters, numbers, and so on) for each character on the line,
+    resulting in every possible line that will ever be written.
+  </p>
+  <p class="content-body">
+    The result will look something like this:
+  </p>
+  <br />
+  <pre class="language-"
+>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaac
+
+... (billions and billions of lines later) ...
+
+ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
+</pre>
+  <br />
+  <p class="content-body">
+    To go through 72 characters (all the lowercase, the uppercase, the
+    digits, common symbols and whitespace) for 60 elements in a row,
+    is 72^60, or approx. 2.75e+111.  
+  </p>
+  <p class="content-body">
+    To give you a sense of how big that is, if we were to distribute this task amongst 
+    every atom in the universe, each printing 
+    a billion lines a second since the beginning of the universe, we would now
+    be at a thousandth of the way done.
+  </p>
+  <p class="content-subheader">Python for-loop approach</p>
+  <p class="content-body">
+    The first time I wrote this, I did it the most naive way; I just
+    created a huge nested set of <em>for</em> loops, in Python.  
+  </p>
+  <p class="content-body">
+    It was about 60 lines long and the indentation made it hard to read,
+    but it worked:
+  </p>
+  <br />
+<pre><code style="height: 400px" class="language-python">
+# all the characters we need are from 0x20 to 0x7a
+a = range(0x20,0x7a)
+for a1 in a:
+    for a2 in a:
+        for a3 in a:
+
+            #... (57 lines later) ...
+
+            for a60 in a:
+                print chr(a1) + chr(a2) + ... + chr(a60)
+#^--------------^
+  #60 x 4 = 240 spaces!
+</code></pre>
+  <br />
+  <p class="content-subheader">C# Object-oriented approach</p>
+  <p class="content-body">
+    More recently I looked at simplifying and shortening the code.
+    Following uses basic object-oriented principles to create an element
+    within the line that rotates itself, and then rotates its neighbor
+    when it resets.
+  </p>
+  <br />
+<pre><code class="language-csharp">
+using System;
+
+public class UniversalAuthor {
+
+  public static void Main(string[] args) { 
+
+    string[] characters = {
+          "a","b","c","d","e","f","g","h"
+          ,"i","j","k","l","m","n","o","p"
+          ,"q","r","s","t","u","v","w","x",
+          ,"y","z","A","B","C","D","E","F"
+          ,"G","H","I","J","K" ,"L","M","N"
+          ,"O","P","Q","R","S","T","U","V"
+          ,"W","X","Y","Z","1","2","3","4"
+          ,"5","6","7","8","9","0"," ","!"
+          ,"$","%","&","(",")","\""
+      };
+
+        Slot[] slots = new Slot[60]; //60 letters long
+
+        //imagine that as slot indexes increase, they go right.
+        //initialize the first separately, then all the rest.
+        slots[0] = new Slot(characters, null);
+        for (int i = 1; i &lt; slots.Length; i++)
+          {
+            slots[i] = new Slot(characters, slots[i-1]);
+          }
+
+// we use a try because we treat hitting the end as an exception.
+        try 
+          {
+            ulong count = 0;
+            for (;;)
+              {
+                count++;
+                //we only show status every 10 million.
+                if (count % 10000000 == 0) 
+                  {
+                    Console.Write(count++ + " ");
+                    for (int i = 0; i &lt; slots.Length; i++)
+                      {
+                        Console.Write(slots[i].ToString());
+                      }
+                    Console.WriteLine();
+                  }
+                slots[slots.Length-1].Rotate();
+              }
+          }
+        catch (Exception e)
+          {
+            //and here, we finally end, at the end of the universe!
+            Console.WriteLine(e.Message);
+          }
+
+  }
+  
+
+  //This will be one of the characters on our line.
+  internal class Slot
+  {
+
+    //each object holds its own state, 
+    //and knows about the slot to the left.
+    //that way each can rotate the one immediately left.
+    private string[] _characters;
+    private int _current_char_index;
+    private Slot _slot_to_left;
+    
+    public Slot(string[] characters, Slot left_slot)
+    {
+      //clone, because, you know, immutable. Or whatever.
+      _characters = (string[])characters.Clone();
+      _slot_to_left = left_slot;
+    }
+
+    public void Rotate()
+    {
+      _current_char_index++;
+      if (_current_char_index == _characters.Length)
+        {
+          if (_slot_to_left != null)
+            {
+              _slot_to_left.Rotate();
+              _current_char_index = 0;
+            }
+          else
+            {
+              throw new Exception("we're done!");
+            }
+        }
+
+    }
+    
+    //Overriding ToString is cool.  I guess.  Again, whatever.
+    public override string ToString()
+    {
+      return _characters[_current_char_index];
+    }
+
+  }
+  
+}
+</code></pre>
+  <br />
+  <p class="content-body">
+    To develop a more elegant solution, I turned to our modern Lisp...
+    JavaScript.  The implementation below works, but should be converted
+    to C to handle its memory footprint.  It uses nesting to avoid the
+    multiple nested for loops.
+  </p>
+<pre ><code class="language-javascript">
+var universalAuthor = function(A, n, s) {
+   for (A[n] = 0; A[n] &lt; s; A[n]++) { //rotate between chars
+       if (n &gt; 0) {
+          universalAuthor(A, n-1, s); //nest deeper
+       } else { //if we are at the deepest nesting
+          var a = "";
+            //make a string in reverse order.
+          for (i = s-1; i &gt;= 0; i--) { 
+            a += String.fromCharCode((A[i])+32);
+          }
+          console.log(a);
+       }
+    }
+}
+
+//from 32 to 125 is the ascii set we want.  
+universalAuthor([],64,93);
+</code></pre>
+<br />
+  <p class="content-body">
+    Here it is in C:
+  </p>
+  <pre><code class="language-c">
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+void universalAuthor(char* A, int n) {
+  for( A[n] = 32; A[n] &lt; 127; A[n]++) {
+    if (n &gt; 0) {
+      universalAuthor(A, n-1);
+    } else {
+      printf("%s\n",A);
+    }
+  }
+}
+
+int main(int argc, char** argv) {
+  char* myString = malloc(65);
+  memset(myString, 32, 64);
+  myString[64] = '\0';
+  universalAuthor(myString, strlen(myString)-2);
+}
+  </code></pre>
+
+
+</div>
+
+<!--#include virtual="footer.html" -->
