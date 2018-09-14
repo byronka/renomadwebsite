@@ -128,6 +128,14 @@ print (re.match("^[^.]+", (sys.argv[1][::-1])).group(0))[::-1]
   to include IFS=$'\n' so my loop would only break on newlines rather than
   whitespace when processing.
   </p>
+
+  <p class="content-body">
+  To make videos smaller using ffmpeg, this command line will do the
+  trick:
+  </p>
+  <pre><code>ffmpeg -i INPUT_FILE -c:v libx264 -s 320x240 -preset veryfast OUTPUT_FILE.mp4</code></pre>
+
+
 </div>
 
 <!--#include virtual="footer.html" -->
