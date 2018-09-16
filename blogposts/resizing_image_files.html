@@ -131,9 +131,17 @@ print (re.match("^[^.]+", (sys.argv[1][::-1])).group(0))[::-1]
 
   <p class="content-body">
   To make videos smaller using ffmpeg, this command line will do the
-  trick:
+  trick.  It uses lib264, which has good video compression, and makes the 
+  video smaller but doesn't ruin its aspect ratio.
   </p>
   <pre><code>ffmpeg -i INPUT_FILE -c:v libx264 -s 320x240 -preset veryfast OUTPUT_FILE.mp4</code></pre>
+
+  <p class="content-body">
+  To create tiny-sized thumbnails, where the priority is smallest size with just
+  a sense of the content of the photo.  It uses only 4 colors in the output photo
+  and removes all metadata, highly compresses the file, and makes it 100x100 in size.
+  <p>
+  <pre><code>convert $i -strip -thumbnail "100x100" -dither FloydSteinberg -colors 4 t/$i.png</code></pre>
 
 
 </div>
