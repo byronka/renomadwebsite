@@ -1,0 +1,32 @@
+<!--#include virtual="header.html" -->
+<div class="entry">
+  <p class="content-header">
+  Reviewing random files
+  </p>
+  <div class="date">September 20, 2018</div>
+  <p class="content-body">
+  I have Cygwin and Git Bash installed on my Windows machine.  The following
+  technique only works if you have both those installed.
+	</p>
+  <p class="content-body">
+  If you want to randomly select files for review (maybe for, say,
+  adding photos to a website), you can use this technique to sort
+  through some random selections.
+	</p>
+
+  <p class="content-body">
+  Step 1: list all the files (and not the folders)
+	</p>
+<pre><code>find . -type f &gt; all_files.txt</code></pre>
+
+  <p class="content-body">
+  Step 2: 
+  <br>
+  run this in Git Bash to have Windows choose the program
+  to review the file for you.  The quotation marks are important.
+	</p>
+<pre><code>explorer "$(cygpath -wa "$(shuf -n1 all_files.txt )")"</code></pre>
+
+</div>
+
+<!--#include virtual="footer.html" -->
