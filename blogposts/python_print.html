@@ -1,0 +1,35 @@
+<!--#include virtual="header.html" -->
+</div>
+<div class="entry">
+  <p class="content-header">
+    Using Python's string manipulation in Bash scripts
+  </p>
+  <div class="date">April 21, 2019</div>
+  <p class="content-body">
+  If you want to use Python's string manipulation for your bash
+  scripts, it's easy.  Step one is to play with strings in the Python
+  interpreter, then put what you figured out in a line like the
+  following:
+  </p>
+
+  <pre><code class="language-bash"># use python to create each line of text.
+# the syntax where we have [:-3] removes the three letters of the
+# suffix from the right side
+for i in *; do echo "print 'ffmpeg -i $i $i'[:-3]+'mp4'"|python &gt;&gt; convert_script; done
+
+# check the output
+vim convert_script
+
+# make it runnable
+chmod u+x convert_script
+
+# run it
+./convert_script
+</code></pre>
+  <p class="content-body">
+  As another example, here is using python to rename files where we replace the word "_new" with nothing - in effect, removing that text.  The script adds the "mv" commands to a script called "rename.sh", which we then check to make sure it's good.  Later, we make that script executable and run it.
+  </p>
+  <pre><code class="language-bash">for i in *; do echo "print 'mv $i ' + '$i'.replace('_new','')"|python &gt;&gt; rename.sh; done
+</code></pre>
+
+<!--#include virtual="footer.html" -->
