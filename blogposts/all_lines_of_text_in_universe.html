@@ -209,20 +209,47 @@ universalAuthor([],64,93);
 #include &lt;stdlib.h&gt;
 #include &lt;string.h&gt;
 
+char myString[65];
+long count;
+
+/* 
+  basically what we do here is we recursively call this just to have 
+  a mechanism to control moving along the string.
+
+  Essentially, when universalAuthor gets called, it will keep calling
+  itself until n is 0, the left-most part of the string, at which point 
+  we go through the for-loop on all the characters in the ASCII table 
+  from 32 to 127 for the first (0) character in the array.
+
+  Once we have hit the last character (127), we step out one level of nesting
+  in the recursion, make it one character higher, and then dip back down to 
+  the first index (0) in the string and update that in a fast loop.
+
+  so to repeat, we are using the nesting of recursion as the mechanism that
+  controls what part of the string we are looking at.  Then we are using the 
+  for loop to loop through characters at a given point.
+*/
 void universalAuthor(char* A, int n) {
   for( A[n] = 32; A[n] &lt; 127; A[n]++) {
     if (n &gt; 0) {
       universalAuthor(A, n-1);
     } else {
-      printf("%s\n",A);
+      count++;
+      if (count &gt; 1000000000) {
+        printf("%s\n",A);
+        count = 0;
+      }
     }
   }
 }
 
 int main(int argc, char** argv) {
-  char* myString = malloc(65);
+  /* set all the values in the array to spaces (" ") */
   memset(myString, 32, 64);
+
+  /* set the last value to be a null value so it's interpreted as a string */
   myString[64] = '\0';
+
   universalAuthor(myString, strlen(myString)-2);
 }
   </code></pre>

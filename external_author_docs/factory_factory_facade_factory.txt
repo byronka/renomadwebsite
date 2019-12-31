@@ -1,4 +1,4 @@
-http://discuss.joelonsoftware.com/default.asp?joel.3.219431.12&
+originally found at http://discuss.joelonsoftware.com/default.asp?joel.3.219431.12&
 
 Why I Hate Frameworks
 I'm currently in the planning stages of building a hosted Java web application (yes, it has to be Java, for a variety of reasons that I don't feel like going into right now). In the process, I'm evaluating a bunch of J2EE portlet-enabled JSR-compliant MVC role-based CMS web service application container frameworks.
