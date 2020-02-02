@@ -128,3 +128,18 @@ div.banner h2.titleheader a:visited {
     text-decoration: none;
 }
 
+ @media all and (max-width: 500px) {
+
+   body {
+     margin: 0;
+   }
+
+    .prime {
+        margin-top: 0;
+        border:  none;
+    }
+
+    .secondary {
+        margin: 0;
+    }
+ }
