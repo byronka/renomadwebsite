@@ -1,0 +1,55 @@
+All Programming Is Language Design
+“All programming is language design.”
+
+I’m surprised there aren’t ten dozen solid Google hits for that sentence.
+
+What follows is a collection of early thoughts about this idea. I do intend to follow up with some more specific and explicit examples, which I’ll be posting soon.
+
+I came across the phrase “language-oriented programming” a couple days ago. Forth and Lisp advocates have been talking about this idea for decades. I’m no expert on LOP as a paradigm, and clear explanations of it seem pretty thin on the ground. But having been exposed extensively to the Lisp and Forth communities, and having read a good few of the foundational texts of those communities (Brodie, Hoyt, Graham, SICP), I feel I have a pretty good idea what LOP advocates are talking about. It means extending your implementation language to build a domain-specific language in which expressing the solution to your problem is straightforward. You’re not (or not necessarily) building interpreters or compilers; rather, the main focus of LOP involves extending the base language to encompass the domain of interest. The clearest example of this that I can think of is Leo Brodie’s high-level control structure for a clothes washer’s Forth firmware (from Starting Forth):
+
+: CYCLE   WASH SPIN RINSE SPIN ;
+which defines the word CYCLE to execute the words (subroutines) WASH, SPIN, RINSE, and SPIN, in that order. Those words invoke others that, ultimately, poke at the hardware necessary to make the washer behave in the manner that is self-evident from the high-level code. There would most likely be additional high-level Forth words defined to adjust global parameters of the washer behavior, such as water temperature and agitation intensity, and those words, like WASH and SPIN, would have self-evident meanings in the domain of washing-machine control.
+
+It seems to me that all programming can and should be approached in this manner. You can do this even if your implementation language isn’t among the ones LOP advocates… um, advocate.
+
+Don’t Repeat Yourself is almost the same idea looked at from a different point of view: if you see an operation being repeated more than once, factor it out – that is, write a function or class or template that cleanly encapsulates that operation. In most languages in popular use today, such a refactoring makes the operation a primitive, indistinguishable syntactically from the contents of the language’s standard library. In languages like Haskell that heavily reward composability, perspicacious factoring can result in remarkably compact and clear code. (Or remarkably dense and hard-to-understand code, depending on your point of view and level of experience. In the specific case of Haskell I’m in the second camp at present – I know just enough to be dangerous. Confused and dangerous.)
+
+LOP seems something akin to anticipatory DRY, or top-down factor-finding. Rather than simply noticing code that can be factored out, the programmer begins by deciding what vocabulary would be most useful. But most of us just call that “design”.
+
+One thing that can be done fairly easily in Lisp and (to some extent) Forth but which is not so easy in most mainstream languages is to embed completely different programming paradigms within your implementation. For example, it’s pretty straightforward to build a unification engine in Lisp that can be applied directly to s-expressions, and then build logic programming facilities a la Prolog on that foundation. You’d end up with a first-order-predicate-logic theorem prover that could be applied directly to Lisp objects from within normal Lisp code. Or you could use Lisp’s macro facility to embed idiomatic Prolog syntax in your Lisp code and capture the results as normal Lisp objects (atoms, lists). This is so because Lisp gives you direct access to the AST and the compiler from user code. (Homoiconicity helps a lot.) To do something similar in C++, you would basically have to implement a complete Prolog interpreter, and once you’d done so you wouldn’t be able to use it directly from your C++ code. Instead, you’d need to define an API by which C++ entities that represent Prolog terms get passed to and from the Prolog engine. There is a fine line here – most Lisp programmers, I suspect, would not go as far as embedding syntactic Prolog within Lisp code, because they probably prefer Lisp syntax (which anyway isn’t that different from Prolog); and a sufficiently motivated and knowledgeable C++ programmer could probably figure out how to do it in C++. I’m just saying that in Lisp it’s natural to build such facilities, ones that change the basic nature of programming, and that’s not so true in C++ and other mainstream languages. The point is that Lisp allows you to leverage a form of “language-orientation” that is qualitatively different than what most mainstream languages permit. Opinions differ (amazingly!) on whether this is a Good Thing.
+
+Notwithstanding the previous paragraph, both high level design and low level refactoring are language design acts, no matter what the implementation language and no matter how conscious the programmer is of this process. Their goal is to make the code more able to concisely express ideas in the problem domain. Really good code reads like statements in or about the domain – in other words
+
+salesBonusWinner = highestNetSalesPerson(salesPersons);  // Block A
+is preferable to
+
+// Block B
+salesPersons.sort(x,y => compare(y.getNetSales(),x.getNetSales());
+p = salesPersons[0];
+because ten years from now, a maintainer reading Block A does not have to think for even one millisecond in order to understand what it is doing. Wrapping block B in a function that allows you to write block A is a good thing because it makes the code more understandable.
+
+It might also be a bad thing, from a different point of view. You’ve introduced the overhead of an additional function call, so performance might suffer. If highestNetSales isn’t called a few times in the code base, you may have more rather than less code to maintain. Personally, at this point in my 20-plus-year career I’m inclined to factor meaningful function names out of any code whose purpose isn’t obvious at a glance, even if those functions only end up getting used once. Making code understandable is far, far more important, from a human-labor perspective, than eking out every iota of performance from constantly-speedier hardware, or minimizing the absolute size of a code base as measured in lines of code.
+
+Of course this assumes that function and method names reflect their behavior. But if you’re not prioritizing function names that allow readers to understand behavior, you’re headed for trouble and you are going to get what you deserve. That means, in particular, that if your code relies pervasively on side effects that are difficult to make evident in reasonably brief function names, you are likely to have a hard time factoring your code in a “language oriented” manner. Or, turning that upside down, the idea of LOP seems to implicitly emphasize minimization and segregation of side effects, which is a good principle in general.
+
+(Side note: Javascript has some features that make LOP easier, notably functions that are both first-class and higher-order. But the very business of Javascript is manipulation of the DOM, which is essentially a giant stateful blackboard whose primary reason for existence is to reify side effects. That means great care is needed to write JS that isolates those side effects and provides meaningful names to the code that implements them.)
+
+Maybe the point of LOP is to make name selection an obvious priority. This is really all about getting programmers to pay attention to factoring and naming. Software engineering luminaries talk constantly about the importance of naming. The LOP advocate responds, “Well, sure. You’re designing a language. On what planet would the words that make up that language not be an important consideration?”
+
+And furthermore, you’re not just designing a language: you’re designing a language whose audience will be composed largely of foreign language speakers. (Personally, I’m crap at human languages – I’m too introverted to actually enjoy the process of not being good at communication, of trying to understand and figure out whether I’m being understood given limited proficiency. So this metaphor may be worth what you pay for it. But anyway…) Hardly anyone is going to sit down in front of your code for the first time and be an expert on both the implementation technology and the target domain. From a maintenance perspective, selecting names that allow that gap to be bridged is super-duper important. Even if Joe Maintainer is highly experienced in the implementation technology or the domain or even both, they need roadmarks that allow them to locate domain concepts in the code. If the code is just a ball-of-implementation with no obvious relationships to the domain, Joe is going to hate you. If you can’t think of an obviously good name for a function, that’s a pretty good clue that it’s doing too much or not carving the domain at the joints, and you need to think further about the language you’re designing.
+
+None of this should be taken to mean that I think good naming will solve every problem. We need to remember and apply the basic principles of program design, SOLID and DRY and all the rest. We need to use the facilities of our implementation language idiomatically so that others will be able to read and understand our code at that level easily. No amount of name shuffling will save you from a tangled and deeply nested class hierarchy. Sometimes you need to apply major refactoring to get to the point where viewing your code as a domain-centric language even makes sense. But you are always building a language, either well or poorly, when you write code.
+
+All of the above is just a long-winded way of saying that the statement “All programming is language design” is, in my view, obviously true. Designers and programmers should always be thinking about the structure and vocabulary of the language they are designing and how it makes the relationship between code and domain more or less transparent. “Always be thinking about”, not just “think about” – it’s inevitably an ongoing process, not something you can do once at design time or whatever. And we shouldn’t think that doing “language-oriented programming” requires any particular language or technology. We’re doing language design all the time, whether we like it or not, so we should learn to do it well. If we don’t, we’ll do it badly and reap the consequences.
+
+References
+
+All the material below is available to read on-line. Of course, you can always choose to support the authors by buying a physical copy.
+
+Language-Oriented Programming on Wikipedia
+Starting Forth by Leo Brodie
+Thinking Forth by Leo Brodie
+ANSI Common Lisp by Paul Graham
+Paul Graham’s web site
+Let Over Lambda by Doug Hoyt
+Structure and Interpretation of Computer Programs by Abelson and Sussman
