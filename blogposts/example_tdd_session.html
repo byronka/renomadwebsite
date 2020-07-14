@@ -1,0 +1,295 @@
+<!--#include virtual="header.html" -->
+
+<div class="entry">
+  <p class="content-header">
+  An example TDD session
+  </p>
+  <div class="date">January 22, 2019</div>
+  <p class="content-body">
+I’ve arrived at work and gotten myself a coffee. I’m feeling pretty wakeful and eager to get started for the day. I walk over to the corkboard to check what work is needed to be done. I am sort of feeling in the mood to do something on the smaller side, so I look for a card that has a lower points estimate. I find the perfect card, so I remove its push pin and take it to my desk.
+  </p>
+
+  <p class="content-body">
+I say hello to my colleague, Maria, as she comes into the office. She gets herself a coffee and sits down at an adjacent chair to pair program with me. I show her the card I chose to implement today.
+  </p>
+
+  <p class="content-body">
+The card is a task – “create message generator”.
+  </p>
+
+  <p class="content-body">
+It is a subset of a story. The story goes:
+  </p>
+
+  <pre><code>
+  Send email notifications on important events
+        --------------------------------------------
+  As a administrator of the system
+  I want to be notified of important events through email
+  So that I am immediately aware of them and can take timely actions
+  </code></pre>
+
+  <p class="content-body">
+One of the scenarios for the story goes:
+  </p>
+
+  <pre><code>
+  Given that I have registered to know about important events
+  When someone turns on super-user mode
+  Then a notification like the following will be sent:
+    
+    Subject: super-user mode turned on
+    
+    The following action has taken place at 5:01pm on Friday, November 30: 
+    
+    The super-user mode has been turned on.
+    user who carried out the action: "bob"
+  </code></pre>
+
+  <p class="content-body">
+“Looks like we need to create an message generator for email, Maria”
+  </p>
+
+  <p class="content-body">
+“Sounds good”
+  </p>
+
+  <p class="content-body">
+I pull down the latest copy of the code and run the unit tests to make sure everything is sane. The entire set of 3000 unit tests run in about 30 seconds. I won’t run the whole set again from here on out. Instead, I will be running just the new tests I create.
+  </p>
+
+  <p class="content-body">
+I start on my first test. The simplest and most immediate first thing I can think of to implement is the method to generate a message.
+  </p>
+
+  <p class="content-body">
+I write the following:
+  </p>
+
+  <pre><code>
+/**
+  * This test asserts a successful message generation
+  */
+@Test
+public void test_ShouldCreateMessage() {
+    String result = notifier.createMessage("hi");
+    assertEquals("OK", result);
+}
+  </code></pre>
+
+  <p class="content-body">
+“Ok, your turn Maria.”
+  </p>
+
+  <p class="content-body">
+Maria has been watching silently as I’ve written my test, taking notes on a pad of paper. I appreciate how she keeps a quiet and calm demeanor while we code, only bringing up issues at suitable pause points. I push the keyboard and mouse her way. She starts writing code.
+  </p>
+
+  <p class="content-body">
+She notes that the code in the test doesn’t exist and therefore the test code won’t even compile, much less pass. To solve both problems, she writes the following code:
+  </p>
+
+  <pre><code>
+public class Notifier {
+     
+    public String createMessage(String message) {
+        return "OK";
+    }
+     
+}
+  </code></pre>
+
+  <p class="content-body">
+She then modifies the test a slight bit by adding a constructor, so it looks like this:
+  </p>
+
+  <pre><code>
+/**
+  * This test asserts a successful message generation
+  */
+@Test
+public void test_ShouldCreateMessage() {
+    Notifier notifier = new Notifier();
+    String result = notifier.createMessage("hi");
+    assertEquals("OK", result);
+}
+  </code></pre>
+
+  <p class="content-body">
+She then compiles the code and runs the test, which takes about 3 seconds. “Your turn”, she says, and passes the keyboard and mouse back to me.
+  </p>
+
+  <p class="content-body">
+We have some code now, but it’s not doing anything of value. One of the techniques in TDD is to write the simplest thing that could possibly work. But there’s nuance at play also – you don’t want the code to simply parrot back whatever the test demands. In this initial test, the code only knows how to respond with “OK”, but that’s fine as a start. We’ll very quickly move into more sophistication.
+  </p>
+
+  <p class="content-body">
+I want to express greater functionality. Just for now, I am going to pretend that we already have an “emailer” capability – the part I am working on is specific to creating a message. While I am using email as the vehicle of the notification, the actual capability of sending an email is a separate, later concern.
+  </p>
+
+  <p class="content-body">
+Thus, I am going to revise my initial test a bit, based on what I want the interface to my code to be, and based on my experience of what would be needed to satisfy business needs and technical constraints.
+  </p>
+
+  <p class="content-body">
+As the developer, I want the simplest-possible, cleanest interface. I consider for a moment to myself: what are the minimal things that a program would need to generate a message, given my understanding of this feature.
+  </p>
+
+  <p class="content-body">
+Something I’ll mention: Agile is messy. It’s ok to be imperfect – in fact, it’s completely anticipated. Don’t worry about doing it perfectly, but instead simply build something, then use the working software or test runs to discover what needs improvement.
+  </p>
+
+  <p class="content-body">
+As long as you are operating from a quality orientation, you will always find new perspectives and approaches as you go. Since you’ve added the least possible amount of work, it’s not difficult to go back and make corrections. Because you have unit tests, you can refactor regularly and confidently.
+  </p>
+
+  <p class="content-body">
+Given all that, I come up with the following:
+  </p>
+
+  <p class="content-body">
+It would need
+  </p>
+
+  <p class="content-body">
+<ul>
+<li>An email (so we know where to send this)</li>
+<li>The name of the user who did the important action</li>
+<li>The description of the important action</li>
+<li>The date and time of the important action</li>
+<li>Other niceties come to mind, like having a field for notes. But that’s not explicitly stated in the scenario, so we won’t do it.</li>
+</ul>
+  </p>
+
+  <p class="content-body">
+I’m also thinking that I would like the notification to appear in some sort of persistent output data structure when it’s done being made. Perhaps later on I will add some functionality so that an email system can automatically pull the correct next notification to send. I’m not going to worry about it right now.
+  </p>
+
+  <p class="content-body">
+Right now I just want to create a program that generates the text of the notification.
+  </p>
+
+  <pre><code>
+/**
+  * Assert that a notification message is generated per specs.
+  */
+@Test
+public void test_ShouldGenerateNotificationMessage() {
+    //arrange
+    String email = "alice@test.com";
+    String actionUser = "bob";
+    String actionDesc = "The super-user mode has been turned on.";
+    Date actionDateTime = DateUtil.dateFrom("11/30/2018 5:01pm");
+    Notifier notifier = new Notifier();
+     
+    //act
+    String result = notifier.createMessage(email, actionUser, actionDesc, actionDateTime);
+     
+    //assert
+    String expected = 
+        'Subject: super-user mode turned on
+         
+        The following action has taken place at 5:01pm on Friday, November 30: 
+         
+        The super-user mode has been turned on.
+        user who carried out the action: "bob"
+        ';
+    assertEquals(expected, result);
+}
+  </code></pre>
+
+  <p class="content-body">
+I’ve given Maria quite a bit more to work with. I pass over the mouse and keyboard. This is what she writes in response:
+  </p>
+
+  <pre><code>
+public class Notifier {
+     
+    public String createMessage(String email, String actionUser, String actionDesc, Date actionDateTime) {
+        String template =  
+        'Subject: {ACTION_DESCRIPTION}
+         
+        The following action has taken place at {DATE_STRING}: 
+         
+        {ACTION_DESCRIPTION}.
+        user who carried out the action: "{ACTION_USER}"
+        ';
+        return template
+            .replace("{ACTION_DESCRIPTION}", ActionDesc)
+            .replace("{DATE_STRING}", DateUtils.toLongString(actionDateTime)
+            .replace("{ACTION_USER}", ActionUser)
+    }
+     
+}
+  </code></pre>
+
+  <p class="content-body">
+While watching her write this, it occurs to me that we never use the email string that we prepared in the unit test. Also, that the subject should also be outside the message text. Perhaps it would make more sense to have the result as a new message type that has the email, subject, and the message string as separate components.
+  </p>
+
+  <p class="content-body">
+She finishes writing her code and runs the test. It passes, but now I am thinking I want to adjust things to incorporate the email address.
+  </p>
+
+  <p class="content-body">
+She passes the keyboard and mouse back over. I make some small adjustments to my unit test: The createMessage method now returns a NotificationMessage (rather than a String), and I adjusted the assert code to match that. It looks like this:
+  </p>
+
+  <pre><code>
+/**
+  * Assert that a notification message is generated per specs.
+  */
+@Test
+public void test_ShouldGenerateNotificationMessage() {
+    //arrange
+    String email = "alice@test.com";
+    String actionUser = "bob";
+    String actionDesc = "The super-user mode has been turned on.";
+    Date actionDateTime = DateUtil.dateFrom("11/30/2018 5:01pm");
+    Notifier notifier = new Notifier();
+     
+    //act
+    NotificationMessage result = notifier.createMessage(email, actionUser, actionDesc, actionDateTime);
+     
+    //assert
+    String expectedMessage = 
+        '
+        The following action has taken place at 5:01pm on Friday, November 30: 
+         
+        The super-user mode has been turned on.
+        user who carried out the action: "bob"
+        ';
+    NotificationMessage expected = new NotificationMessage(email, expectedMessage) 
+    assertEquals(expected, result);
+}
+  </code></pre>
+
+  <p class="content-body">
+I pass the keyboard and mouse back to Alice with an amused smile. This was an easy change for me, but she’ll have a lot more work to do. Now, she’ll need to write a new class, NotificationMessage, with several components – the subject, the message, and the email to send it to. She’ll need to write it so we can determine equality of objects properly. She’ll have to adjust the template and the replacement text to suit.
+  </p>
+
+  <p class="content-body">
+None of those items is particularly onerous. She finishes coding in about 5 minutes, and runs the test again. Three seconds later, the test has passed.
+  </p>
+
+  <p class="content-body">
+As we continue down this path, we run into a variety of decision points. Sometimes we hit a deadend and have to backtrack. Sometimes we have to discuss design decisions with the product owner. Always, we keep things as simple as possible. We also try to write unit tests for some of the edge cases:
+  </p>
+
+  <pre><code>
+@Test
+public void test_ShouldThrowException_MissingEmail()
+ 
+@Test
+public void test_ShouldThrowException_MissingSubject()
+ 
+...
+(and so on)
+  </code></pre>
+
+  <p class="content-body">
+At the end of the day, we have used tests as a tool to concentrate our thinking about the technical objectives. We may have tried different strategies, paradigms, and technical frameworks. Our initial approach may have been wrong. We may have come to a wholly different conclusion. It is often the case that Test-Driven-Development (TDD) leads to unforeseen conclusions, which is part of its merit – it is the very nature of innovation to seek out new ideas. It is not uncommon for this process to lead to questioning and improving the underlying concepts and architecture, which in my experience has led to dramatic improvements for the customer.
+  </p>
+</div>
+
+<!--#include virtual="footer.html" -->
