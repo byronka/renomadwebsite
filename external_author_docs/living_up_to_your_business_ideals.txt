@@ -1,0 +1,84 @@
+Found at https://alistapart.com/article/living-up-to-your-business-ideals/
+
+Living up to Your (Business) Ideals
+
+by Geoff DiMasi
+June 03, 2014
+
+Published in Brand Identity, Business, Career, Project Management
+
+I believe that most people are good. Most people really want to live up to their ideals. So why do companies fall short on living up to their missions, credos, mantras, or ideals?
+
+For example, why does a company that says it supports local businesses jump at the chance to work with Walmart just to get a “big name” client on its roster? I have started to believe it is because they haven’t taken the time to clearly articulate company values and, more importantly, establish routines and practices that intentionally frame their decisions to factor in their values.
+
+At our design firm, P’unk Ave, we decided to change that by developing a model for evaluating potential clients, giving us a practical, standardized way to make decisions that stay truer to our values. While it may seem like being picky about who we work with is bad for business, we’ve found the opposite to be true: the more we’ve stuck to our ideals, the stronger our business has become. In this article, I’ll show you how it worked for us—with the hope you can learn from it and do the same for your business.
+
+Establishing your values
+You can’t live up to your ideals until you have a clear grasp of them. If you have been in business for some time, you might be surprised to realize that they already exist and are just waiting for you to be more intentional about identifying and writing them down.
+
+SET A TIMER
+My partner and I began our process with some borrowed time on a layover heading back from a conference. We took out our journals, set a timer for 10 minutes, and began writing down our core values. The ideas took form quickly because they had already been part of our DNA. This allowed us to make a rough list of values that resonated with decisions we had made in the past—values like “innovation,” “trust,” and “responsibility.” We’ve since refined these somewhat general ideas using an exploratory process that includes all members of the team, but setting a timer during this early phase forced us not to overthink things, and helped us to get started with ideas that came more from the gut than from the brain.
+
+TAKE INVENTORY
+Then we did a whiteboard audit of our current and past clients to look for trends and to test how our values applied (or not). We paid particular attention to those clients we were most excited about. Through this process we identified a pattern of partnerships with people who work to strengthen our cities (urban planning, local food, bicycle advocacy, waterfront improvement), create knowledge (universities, education initiatives), improve people’s health (advocacy, research), and enhance our quality of life through arts and culture (museums, photography collectives, arts organizations).
+
+GET OUTSIDE PERSPECTIVE
+We followed this up with a workshop led by a friend, which allowed us to further explore our values, strengths, and goals. This led us to create a series of active phrases about our work, including we are part of a community and we dream. These phrases now form the basis of the P’unk Guide, which includes our shared values and principles to run the business we all want to work in. As part of our ongoing reflection, we have also evolved the guide to include “guiding metaphors.” One of those metaphors is based on the notion of sailing upwind: “The shortest distance is not always the quickest.”
+
+Building a framework
+Becoming more aware of our values helped us make more intentional choices with prospective projects, but it didn’t necessarily provide us with a framework for quickly evaluating potential projects and relationships. That came when we read the book Drive, by Daniel Pink.
+
+In Drive, Pink talks about the principles of autonomy, mastery, and purpose as powerful motivational elements for modern workers. For Pink, jobs that require deep thinking and applied analytical skills are not easily simplified to an assembly line process, and measuring productivity within a certain time limit isn’t an effective way to track their success. Rather, people who have the freedom to work in the way they see fit (autonomy), who are constantly honing their skills (mastery), and who understand the intention of their work (purpose) perform best in these positions.
+
+There was no turning back. We used Pink’s principles as a starting point to create our own framework for evaluating potential relationships with partners and clients: the AMP scoring system. Evaluating projects through our new lens of autonomy, mastery, and purpose helped us ask whether or not that relationship would motivate us to do good work and help us live up to our ideals of trust, innovation, and impact.
+
+The AMP score
+In considering a new project, we take the time to get to know the client, with the goal of determining whether we will we be truly pumped (or “AMPed”) if the project is a success—not because the project is done, but because of the impact it has on something we care about. Then we score it, using a series of questions in each of the three categories. Each category then gets a score from 1 to 5, and we total up the results at the end.
+
+AUTONOMY
+Will this client respect us?
+Will they seek our counsel?
+Will they give us the space to bring our experience and knowledge to impact the project positively?
+Do they trust us?
+Basically, will they let us do what we do best in service to their project?
+It is always a good sign when a potential client is genuinely interested in understanding how you work. If they take the time to ask you about how and why you make decisions, they’re telling you that they respect your experience, and are seeking a partnership that is productive and valuable. It is an especially good sign—usually a 4 or 5 on the AMP scale—if they listen carefully and ask thoughtful follow-up questions, since it indicates that they are genuinely interested in working towards a relationship built on understanding and trust.
+
+MASTERY
+Is there space to practice our skills and grow as craftspeople?
+Is there time to do the project well?
+Does the client value a job done well?
+For example, if a client emphasizes how simple a project is by saying something like, “All we need is to code this page. It is simple. How long will that take? A week?” or “Do we have to do the research? Couldn’t we just copy the design of this website?” then they may not respect the work we do—especially if this perspective persists after we explain the value of a thoughtful and measured approach. In this scenario, we would rate the mastery score a 1 or 2, since they seem more interested in rushing than in allowing us the time to do thoughtful and considered work.
+
+PURPOSE
+Do we understand the purpose of their project?
+Equally important, do they understand the purpose of their project?
+What kind of impact will this project make?
+Do we feel aligned with that impact?
+For example, sometimes a webmaster at a larger organization contacts us, but is only interested in technology. This is common when an organization puts the management of their website solely in the hands of their technical or IT team, instead of seeing it as a communication tool for the entire organization. When this happens, we try to bring leadership into the process and educate them before signing an agreement—but if that cannot be done, the project would score low on the purpose scale. It is particularly difficult to walk away from an organization that is doing work we find interesting and aligns well with our values, but we have learned that when leadership isn’t involved, the project is not likely to be a success.
+
+What does all this actually look like? Practically speaking, we post a message with details about all potential projects in Basecamp, and each member of the team has the opportunity to respond with their thoughts and personal AMP score for the project. Once everyone has weighed in, we compare scores, looking for a total of 12 or higher. We will consider lower scores, but not below 10.
+
+This system creates a paradigm where we are asking ourselves if there is a compelling reason we should work with a client, rather than just looking for a reason not to work with them. That distinction may seem subtle, but it has powerful implications, supporting a proactive versus reactive culture.
+
+Intentional projects are successful projects
+This may seem one-sided and only to our benefit, and maybe an unsustainable business practice. However, being thoughtful and intentional in this way has turned out to be a great thing for our clients as well. Once we commit to a project, we are truly committed. We even share how this benefits them in our project proposals:
+
+Most projects will hit bumps in the road that will require persistence and dedication to see it to a successful completion. With that in mind, our philosophy is to only work on projects where there is a strong alignment of values. We truly care and you can see the difference in that approach.
+
+They get that. It resonates with them because anyone that has some business experience knows that unanticipated problems will inevitably rear their head at some point. Because we took the time to evaluate the project using the AMP score, we’ve already decided that we are committed to the success of the project, and any bumps in the road will be tackled with gusto and passion. This knowledge gives our clients greater confidence in working with us.
+
+What’s good for the goose…
+As a consultancy, much of our “everyday” revolves around clients and projects. This is the lifeblood of our company and sets the tone for our interactions. If we are not in sync with our clients, our lives can turn miserable pretty quickly.
+
+We always cared about our work and had good relationships with our clients before, but intentionally pursuing projects that align with our business values has brought a higher level of investment and internal motivation from all members of our team. We have become true partners in the success of our clients’ projects.
+
+A lucrative project that doesn’t align well with your values is like the siren’s call to start your day with a sugary doughnut. Of course, getting sidetracked is easy. Using a framework to evaluate potential business has become a way to stay on course—a way to make healthier choices.
+
+When we made compromises in the past, it never resulted in great work and often had other unintended consequences, like burning out our team. The attitudes you develop working on a project you don’t care about can carry over into all of your work. Our framework has helped us stick to our guns and not work on even a single project where we don’t see an alignment of values.
+
+Ideals are good for business, too
+The AMP system has had a positive ripple effect throughout our company. Everyone knows that we make decisions based on our shared and agreed upon values. We have chosen not to pursue work that does not garner a high AMP score, and we have even stopped working with clients when they turn out not to allow us to live up to our ideals. In the short term, we may have turned down some potential business, but in the long term we have increased our revenue while working with clients we respect. That growth comes from our participatory culture, where everyone is invested in and focused on their projects—leading to happier clients and a lot more word-of-mouth referrals and opportunities.
+
+This is not something that can happen overnight. If you want to live up to your business ideals, you have to take the time to authentically identify your values, the things you care about. You also have to commit to the ongoing tending and cultivation of those values in your organization. It is not a “set it and forget it” scenario. At P’unk Ave, we think about this regularly, and especially during our quarterly “State of P’unk” and twice-yearly retreats. Building in those rituals, as well as creating tools like the AMP score, helps us stay on track in creating the kind of company we want for ourselves.
+
+But the commitment is worth it. Once you have a framework for evaluating the kinds of people you want to work with, you have power: the power to say “no”—and the power to do the work you know matters.
