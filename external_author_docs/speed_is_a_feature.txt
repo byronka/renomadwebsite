@@ -1,0 +1,128 @@
+from: https://www.enchant.com/speed-is-a-feature
+
+Speed Is a Feature
+
+
+I heavily depend on Gmail.
+
+For me this means multiple accounts, across multiple domains, accessed from my laptop and my phone. It's been like this all day long for more than the last decade.
+
+So when Gmail launched a design refresh in 2018, I was both excited and nervous. Excited that there was active effort being put to improve an app I used every day. Nervous that they'll change something that's important to me.
+
+There hadn't been significant changes to Gmail in years. I just assumed that Google felt the app was complete and didn't need to put more effort on it. It's not like they had any real (i.e. significantly better) competition.
+
+When I finally got a chance to try it out, I found the changes weren't all for the better. I mean, yes, it looked nicer. And there were some nifty new features.
+
+But they dropped the ball on the most important thing.
+
+EVERYTHING felt slow.
+
+Like really really slow.
+
+Opening the Gmail website took 10+ seconds on a high end laptop.
+
+Deleting an email took 5 seconds.
+
+Ohh, and let's say you wanted to delete 10 emails. You know, in this situation you would use the checkbox beside the emails to check them all off and then delete them together. In the old gmail, this process was limited only by the speed at which you could click.
+
+In the new Gmail, after clicking one checkbox, you had to wait a second or so before you could even click the next one. Any clicks sent before it was ready for you would just be ignored.
+
+Using the new Gmail was really frustrating!
+
+I never understood how something like this was ever allowed to be released to the public. I mean, this was 2018. Gmail wasn't just some free email app anymore. It was sold as part of GSuite, a set of applications that businesses pay good money for. Yet it was somehow deemed acceptable to release such sub-par software to paying customers. It's as if Google didn't have any kind of internal quality control processes.
+
+But I depended on Gmail and needed it to be fast to get my work done.
+
+So I sent feedback through all the channels I could. I even reached out to someone I knew who worked with the Gmail team.
+
+Then I went looking for a workaround.
+
+Luckily they had a "Go back to classic Gmail" button available in the settings menu, which allowed me to defer the "upgrade" for a while.
+
+In the following weeks I saw reports of the pain all over the internet. The message that they screwed up was loud and clear.
+
+My friend on the Gmail team also confirmed that they were working on it. So it was just a matter of time.
+
+Google eventually forced me to upgrade to the new interface.
+
+They also eventually solved the performance issues. It took them about a year.
+
+But I hope, most importantly, the team learned from the public outcry and internalized the importance of "speed" in user interfaces.
+
+The importance of speed
+No customer has ever asked to make an app slower. That's not going to change in the next 10 years. Or 20 years.
+
+But take away the speed you gave your customers, and they'll be yelling at the top of their lungs. Guaranteed.
+
+
+
+When the speed of an app is just mediocre (not quite slow, but also not quite fast), customers aren't going to be complaining. Your support team isn't going to hear about it. Your development team isn't going to be planning ways to solve the problem.
+
+But that doesn't mean that you don't have a problem!
+
+See, speed is about human perception.
+
+When an app is really fast, you'll feel like you're in direct control. The app will be an extension of you. You'll get stuff done faster. You will be in the zone. You'll love the app even if you don't fully understand why.
+
+And when it's not fast enough, you'll be waiting for the computer to do things for you. Your train of thought may be thrown off. Either you'll feel frustrated at the inconveniences or you'll leave looking for something better.
+
+The bottom line is: the users of your app need the speed.
+
+But unless you've really messed up, nobody will be asking for it.
+
+Speed is a feature. Not a very marketable one. Not one that many will ask about or understand. But perhaps one of the most important features.
+
+What does speed even mean?
+Let's quantify this stuff. What I call speed is the amount of delay between your action on a user interface and its response. Based on research by Nielsen Norman Group:
+
+Fast: If the delay is small enough (< 0.1) second, the interface will feel instantaneous. Like you're directly manipulating it.
+
+Mediocre: If the delay is longer (0.1s - 1s), it'll be like the computer is reacting to you rather than you directly manipulating the interface. You'll still feel like you're in control, so not all is lost.
+
+Slow: If it's even longer (1.1s or longer), then your conscious thought process will be interrupted. Here, the interface should really provide some kind of feedback indicator.
+
+
+
+The most important take away here is the target: 0.1 second. Or 100 milliseconds.
+
+To keep your users in the zone, you need to aim to keep interface interactions within 0.1 seconds.
+
+The web hasn't been getting any faster
+Take a look at this chart, it compares desktop page load times with Internet connection speeds (source):
+
+
+
+This is a little troubling: Connection speeds have been trending upwards, but the Internet isn't getting any faster.
+
+Now let's look at the same data, but for mobile devices:
+
+
+
+Oh boy! This puts into numbers what I've felt on my phone for the last few years.
+
+There are many factors at play here. For example:
+
+We demand more of the web, so webapps and websites have gotten more complicated.
+Devices are getting thinner and lighter, but CPUs haven't been getting much faster.
+The technologies we're using to build on the web are optimizing for developer efficiency over device efficiency.
+Speed as a competitive advantage
+One of the core features of Enchant from day one has been speed.
+
+It's not listed on our website. It's also not something we really mention to customers.
+
+But it's definitely something we take very seriously.
+
+Fast by design: Since we have tight internal performance targets, speed can't be an afterthought. For important functionality (the kind that gets used by customers all day long), speed is very much part of the initial planning and experimentation efforts. We don't roll out anything to customers that isn't fast.
+
+When does all of that effort start to pay dividends?
+
+Enchant is a self-service solution. People check out our website, go through a free trial and then sign up on their own.
+
+While speed isn't something we talk about, it's definitely something that users feel... and then they talk to us about it!
+
+Since the Internet hasn't gotten much faster in recent years, our focus on speed has actually become a competitive advantage.
+
+Take Aways
+The Internet hasn't gotten much faster in recent years.
+Speed is very much a feature, even if your users and marketing team aren't asking for it.
+The magic number is 0.1 seconds. This is your target delay between a user interface action and it's response.
