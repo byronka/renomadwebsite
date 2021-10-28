@@ -1,0 +1,178 @@
+Driving engineers to an arbitrary date is a value destroying mistake 
+Gandalf Hudlow @GandalfHudlow bio
+2020/05/01
+ 
+Email
+In this article we'll be concentrating on high value software projects and why driving engineers to create detailed estimates for these projects, and then pressuring them to complete the software according to those estimates, is a value destroying mistake.
+
+ 
+
+Most of us in the software industry have been asked over and over to participate in predictive planning for software projects. Predictive planning is the flawed idea that software projects lend themselves to being planned out like a construction project, using a tool like a Gantt chart. While it is true that a narrow set of low value software projects are tamable with a Gantt chart, high value software projects that fill previously unmet needs do not lend themselves to being tamable by predictive scheduling techniques.
+
+Note: This next set of sections is a familiar software project disaster story. You can get the gist of it by skimming titles and reading call-outs like this one. Or if you love disaster stories, read in detail! Skip to the end for a superior approach to empowering competent dev teams to create new, high value software.
+
+Let's make something New! But first, let's Estimate!
+You are Joe, a competent software engineer. You know the ins and outs of your tool chain (Java+Spring) and when you write code you make sure it is right. You use unit tests, integration tests and you also know to load test your stuff. You come highly recommended and have just joined the engineering team at Always on Time, Inc. You were hired to create the best shared shopping list app in existence. Always on Time's existing business model is to market for major brands by mailing physical coupons. The new app will be used to market via offering digital coupons. Their workflow has always been very plan driven, bonuses are handed out based on people's ability to make a plan and meet their dates. They didn't just pick 'Always on Time' as a company name by accident!
+
+ 
+
+Your manager, Jeff, is a long time Always on Time employee who handles the IT department. The team is 4 coders and 2 testers. Their initial strategy is to knock off existing grocery list apps in the market, the classic "Make it like these other guys" approach. You also have a product manager, who shows up with the list of features they think the app should have and asks the devs to create detailed estimates for each feature.
+
+Estimates are for Extraction Mode →
+
+Jeff decides to split the estimation work up four ways amongst the devs. You start asking questions like which mobile platforms should be targeted. After some back and forth it is decided that you should use an "off the shelf" framework to target all mobile platforms with one set of source code. Sadly nobody on the team has experience with the framework, so you will have to "hit the ground running" as Jeff loves to say.
+
+ 
+
+This is an exciting time with lots of learning opportunities for you and the rest of the team. There is some drudgery to be done first though; those estimates need to be created! So you start by trying to put some hours on each of the features you were asked to estimate. But there is a problem; you don't know the platform at all. The solution is to just bump those estimates up to deal with the fact that you will need to do some discovery work. You tell the other 3 devs what you are doing, and they agree as they lack the same experience. Jeff takes everyone's estimates and plugs them into a Gantt chart, coming up with a date. Phew, all done you think! Or are you?...
+
+The "Estimates Are Too High", a Two-Step dance
+A couple days later Jeff calls the team in for an unscheduled meeting and tells you that the estimates are just too high, the date is too far out and the team is being asked to go over the estimates and see if anything can be done to pull those dates in. Your Spidey sense tingles, but you ignore it because for the last couple of days after turning in those estimates, you have been having a ball getting to know the new platform. Ok, so the estimates are too large, makes sense really, maybe we put too much extra time. So you and the rest of the team go through and squash the estimates some, Sadly, you also add some more work based on what you discovered about the platform, so the total doesn't get squashed that much. Phew, all done you think! Or are you?...
+
+ 
+
+Next day, Jeff comes back with his boss, the Big Boss. The Big Boss is a pressure kind of guy, he believes that people work best when they are under pressure and if pressure isn't applied, they waste a lot of time on unnecessary things. He brings the pressure right away and wants assurances that the team is not just sitting around waiting for the estimates to be done, but actually working on creating the product. You all eagerly start to tell him about how you are getting to know the new platform, but he interrupts right away and wants to know what kind of "real progress" you have made. Sadly you aren't able to convince him and he goes away thinking what he already knew, that engineering is just screwing around instead of getting the project done. Jeff leaves a bit shaken and, on his way out, tells the team to work on those estimates some more.
+
+Follow the Big Boss? →
+
+You and the rest of the team really go to work on squashing those estimates. Jeff happens to know that the desired date is 6 months away, so the team reduces the estimates until they fit, making a number of compromises along the way. Phew, all done you think! Or are you?...
+
+Note: Whether it takes 2 rounds or 10 rounds of estimate squashing, most teams eventually capitulate and figure out what date is politically acceptable. They do this so they can go back to work and stop trying to predict the future with insufficient information.
+
+The honeymoon
+You have a good couple of months, getting your development environment working with a couple of devices, writing some prototype quality code to see how things work, and the team even has a demo where everyone is pretty happy about finally seeing something on a device. However your Spidey sense is still tingling, because you know that code is prototype quality, error checking is sparse non-existent, and the happy path is barely covered and unreliable. The testers keep running into situations where things don't seem to be right, luckily your product manager is happy to defer most issues raised unless it is a real "show stopper," as Jeff loves to exclaim. It is clearly more important to Jeff to get the whole list of features implemented on schedule.
+
+ 
+
+Jeff wanders in one day and tells you that the Big Boss wants people in the company to start using the app on their phones, so you show him how to deploy the app. He eventually puts it everywhere; even the Big Boss installs it. So far, so good, you think! Or is it?...
+
+ 
+
+Jeff starts trying to figure out if the project is going to be done on time. He simply looks at the list of features he can sort of see in the app and reports that the team is on time, maybe even ahead of schedule! Now, a few of the people who managed to get the app to do anything on their phone have given some feedback to the product manager, but that feedback was helpfully Deferred™ in favor of getting the rest of the features done.
+
+Note: Ignoring feedback on bad UI design, illogical functionality, intermittent errors is a classic symptom of a Date™ driven, high value software attempt. The team responds to pressure by being hyper-focused on delivering Something™ by the Date™. The Something™ delivered is invariably low on value and high on chaos and features nobody needs.
+Downside: Customers usually don't use or pay money for things they don't need or like!
+
+Project Execution kills new products →
+
+Trouble in paradise, or what kind of monster did I marry???
+Four months in, the test group raises a huge pile of defects throughout the application, it seems that in a lot of screens they perform an action and nothing happens. Everyone gets really worried and wonders what changed. But luckily, it just turns out that their Wi-Fi was having intermittent problems and, as you patiently explain, the app does need a reliable connection in order to function correctly. Phew, all done you think! Or are you?...
+
+Note: Ignoring signs that the solution design doesn't match the problem set is another classic symptom of Date™ driven high value software attempts. Hitting the Date™ with Something™ is priority #1! And if you are tempted to blame Joe here, go easy on the guy, he is in a pressure cooker!
+
+At 5 months the team has happy path coded the entire feature list, the screens are ugly and non-intuitive, but they do work most of the time, as long as the Wi-Fi is solid. Luckily anyone who talks about how the app should support disconnected workflow gets hand-waved with "we'll do that in a later version." Someone asks how many users can use the app at the same time, you helpfully point to the database engine specification, which indicates that it can handle a lot of users.
+
+ 
+
+A husband and wife team in the company has started trying to use it, and they report that sometimes items disappear off the list, they aren't really sure why...and neither are you. Luckily, the product manager defers the issue saying "well, if it happens every once in a while, that's not a big deal" Phew, all good you think! Or is it?...
+
+Note: Intermittent issues are some of the easiest to Defer™ issues in pressurized teams. This is because the team is really lined up to deliver Something™ by the Date™, and hey, it only happens every once in a while right?
+
+Pressurized Teams Skip This... →
+
+Just get it done!
+The due date for the project is fast approaching and the Big Boss wants you guys to get started on deploying this app to the app stores. Jeff is a big help here because the app needs to have a database server exposed to the outside world, luckily he knows how to work with the company's ISP to get that done, and he even handles all of the networking stuff since he also runs IT. One of the network guys is surprised that a DB server is being exposed to the internet, but he goes along with it. You update the app to connect to db.alwaysontimegrocery.com and start working on figuring out how to deploy to the Android and Apple app stores. Android looks like it will be quick and easy, but the Apple app store seems like it will take a while as they have some sort of a review process, no biggie, you tell your manager that the iOS version will take a little longer and get back to work fixing bugs.
+
+ 
+
+Final week! The testers are finding bugs everywhere! You and the rest of the team are hyper-productive, fixing bugs right and left. The only person possibly more productive is your product manager, as for every one bug the dev team fixes, he defers three!
+
+Do users like chaos filled apps? Let's find out!
+The approval shows up on the Android app store just in time for the release date. The Apple app store is lagging, but that's ok. Apple did send some email where they expressed concern about what kind of network activity the app uses and whether it is properly encrypted. But at least the Android app is live. There is a party celebrating the release. The Big Boss shows up and congratulates everyone on a release well done, there is even champagne!
+
+..and this →
+
+You haven't used the app much yourself, as you just have your groceries delivered. But you do check the Android play store from time to time to see how many downloads there are. There are 5 downloads. And there is 1 review that gives 0 stars with a comment "doesn't work, trash, uninstall". You look in the Android developer portal for the app and note that there is an error report, seems like one person tried to use it when they had bad network connectivity.
+
+ 
+
+Jeff wanders in and tells you that the marketing department is starting a mailing promotion where people who install the app will get emailed a really good coupon. That's happening next week. All good, you think. Or is it?....
+
+Can you pay users to install chaos filled apps? Let's find out!
+Mid the following week people receive the promotion. It's a pretty good promotion. 2 for 1 good brand canned chili; people sign up in droves! You check the app store and notice lots of people have downloaded the app, and there are even more reviews, all of them 1 star or less. A quick check of the android developer portal shows a wave of error reports. Some of the errors seem to indicate that queries are timing out; you suspect that people have slow or intermittent internet problems.
+
+ 
+
+Jeff calls the team together because enough people have had problems using the app that he is starting to think there might be something wrong. He asks the team what they think it might be, you and the rest of the team proceed to blame-the-network™, and dispatch him to work with the ISP to get it straightened out.
+
+What Jeff didn't know →
+
+Make it stop!
+Ok, you can stop role playing, we all know how this goes. The only people who got anything of value here is Joe and the rest of the dev team as they got a chance to learn some new technology on the company dime. This app is very likely doomed to join the rest of the valueless zombies on the various mobile app stores. Not only is the app itself full of chaos, but it is also a knockoff, replicating existing features already covered by other apps in the market. What Always on Time, Inc. was actually doing was a poorly implemented, very expensive Value Attempt. Because it is so expensive, they will probably only get to do one Value Attempt. Likely someone with power over the purse kills the product once they figure out it is failing. Sometimes companies can eke out a 2nd and 3rd really expensive Value Attempt using the same poor techniques, but eventually someone pulls the plug.
+
+So, what happens when you apply date pressure to software engineers working on high value software projects? The engineers will focus on delivering Something™ by the Date™! This fatal flaw results in delivery of a Something™ full of chaos and features that nobody really wants or needs.
+
+The impact of date pressure on code
+Applying date pressure to software engineers has real, negative consequences in the code. For example, let's compare these pressured versus reasonable care versions of payment processing logic:
+
+Code done under high pressure
+//todo check for errors
+database.recordPurchase()
+paymentGateway.startPayment()
+paymentGateway.completePayment()
+Code done with care
+try {
+    paymentGateway.startPayment()
+} catch(Exception e) {
+    log.error(e)
+    database.recordError()
+    return FailedStartPayment(e)
+}
+try {
+    paymentGateway.completePayment()
+} catch(Exception e) {
+    altPayLog.recordError()
+    log.error(e)
+    database.recordPError()
+    return FailedCompletePayment(e)
+}
+database.recordPurchase()
+Now the code done with care might not be perfect, but at a glance, wouldn't you rather run a your customer's payments through code that is at least attempting to handle error conditions, rather than some happy path code that just assumes everything works? If your devs are under pressure to hit some arbitrary date to get Something™ out, they are far less likely to cover error conditions. And that's just the tip of the iceberg on what gets left out.
+
+What gets left out →
+
+A Better Way: Cheaper and frequent Value Attempts
+So what can Always on Time, Inc. do to avoid this mess? The first thing they should do is run many, much cheaper Value Attempts in parallel. Some examples of cheaper value attempts are:
+
+Task multiple people in the company with using existing shopping list apps and report back what they liked and didn't like
+Task the development team with prototyping grocery apps in 3 or 4 different frameworks
+Brainstorm some ideas, and prototype those ideas - you might even prototype some of them using existing grocery apps, like this idea:
+If the items in the app are sorted according to where the items are in the store, is the shopping experience much better?
+Stand up a web page with some mock ups of key parts of an idea and ask people for feedback - this can also be a marketing tool for your upcoming killer grocery list app!
+Somewhere out there in the Twitterverse, there are people who are fed up with their bad grocery list app, find them and mine them!
+A good way to measure whether people want a feature or not is to ask them for their email address so you can notify them when the app is ready. If they won't even give their go-away-spammer email address, that's a pretty good indicator that the feature doesn't mean much
+Small and frequent Value Attempts help the team learn what really needs to be built and how it should be built. Software development is really expensive, and spending expensive software development hours building the wrong thing is just plain wasteful. Just like tasking engineers to create detailed estimates for a solution that isn't known is wasteful. The engineers hate it, and the company doesn't get anything of value out of the exercise.
+
+What is a Value Attempt? A value attempt is an effort, in some part, to fulfill a need. Successful attempts result in value increment, some useful portion of need fulfillment; failed attempts can often result in critical learning regarding the solution, the need, the traction model, or monetization means. Most solutions are the net result of aggregating hundreds of smaller value increments, and larger products or services often require thousands of smaller value attempts to discover the needed value increment. See value attempt for more info.
+Value Attempt →
+
+If a value attempt fails - for example, the team prototypes an idea and the market shows no evidence of interest - that is awesome news, the company just learned that nobody wants that idea! Aren't you glad you didn't spend a bunch of engineering time on implementing an idea nobody wants?
+
+Health Metrics & Representative Load Testing
+Second, the dev team needs to load test and implement health metrics in the code that reports things like average login time by hour, counts of errors by hour, and etc. Software by default is silent about poor performance and errors, this silence necessitates a system in place that metrics health. Without health metrics, you will mostly find and fix problems that are easily reproducible. Most intermittent problems, which are going to eat your lunch under production load, will slip right through because human testers can't count errors 24/7 like software can. The purpose of metrics is to provide a high level understanding of health, to answer the question "Is this thing pretty healthy, or do I need to dig in?" Much like when you take a child's temperature, a high temp is an indication of sickness, a need to dig in so you can get the child the right medicine.
+
+Representative Load: Simulators pretending to be real users exercising a production configuration. See Representative Load.
+
+If the software is running under Representative Load and there are about 30 key health metrics in place that look healthy, there is a much better chance that users will have a positive experience. The other thing Representative Load testing helps with is discovery of what the right technical solution should be, for example in the grocery list app case, maybe the app shouldn't be hitting the database server directly?
+
+It's all about accelerated learning
+Creating new, high value software products is about accelerated learning in parallel. In parallel the team needs to learn about:
+
+5-Fold Team →
+
+The real needs of customers
+The best way to price the solution
+How to package the solution
+Website?
+Mobile app?
+Both?
+The best way to make the solution
+The whole team needs to learn together, which is to say the whole team should be included on planning and building the value attempts, they should also be involved in measuring the response to the value attempts.
+
+ 
+
+Companies that undertake new, high value software projects using an approach that cloisters the development team in order to adhere to the detailed-estimate derived schedule are doomed to get Something™ by the Date™. If companies instead recognize that they actually need to work on discovering the customer's needs via smaller, more frequent value attempts that involve the entire team, they have a much better chance of creating new, high value products that fund company growth.
+
+ 
+
+In closing, may your value attempts be value rich and frequent, and lead you down the path to what your customers really need!

@@ -1,0 +1,41 @@
+We instinctively add on new features and fixes. Why don’t we subtract instead?
+‘Less is more’ is a hard insight to act on, it turns out.
+
+Xiao Kaixi, 2, rides a balance bike in Wuhan, China, on April 13, 2019. (Yan Cong for The Washington Post)
+By Benjamin A. Converse, Gabrielle S. Adams, Andrew H. Hales and Leidy E. Klotz 
+April 15, 2021 at 6:00 a.m. EDT
+
+
+
+Most adults learned to ride a bike in childhood by first plugging along on tricycles, then wobbling around on bikes with training wheels. Thanks to Ryan McFarland, our kids have it better. In 2007, McFarland found himself frustrated that the products he was using to teach his son to ride a bike were “too large, too heavy, and too complicated.” His insight was that kids would learn better not on contraptions that were like bikes with added parts — namely, extra wheels for stability — but on ones with fewer parts. After experimenting, he settled on a low-set two-wheel bike without pedals or chains. Now, many children learn the basics of balance by zipping around, Fred Flintstone-style, on one of McFarland’s Strider bikes.
+
+As parents of children who have been liberated from clunky contraptions, we are grateful for McFarland’s ingenuity. As behavioral scientists who have been studying how people think as they try to improve objects, ideas and situations, we are impressed by McFarland’s “subtractive insight.”
+
+Across a series of studies that we published this month in the journal Nature, we demonstrated that, when asked to change or improve something, people tend to overlook the option to subtract parts. We asked research participants to make changes to designs, essays, recipes, itineraries, structures and even miniature-golf holes. Our studies showed that people’s first instinct is to change things by adding. When they are able and willing to think a little longer, they are perfectly capable of finding subtractive changes. But they usually don’t think longer. They quickly identify an additive idea that is good enough, put it into action and move on.
+
+
+Overlooking a whole class of ideas is problematic. Imagine all the advantageous subtractions we might be missing. We’ve all heard reminders about this category of improvements: “omit needless words,” “less is more,” “keep it simple, stupid.” But the advice is worth little if we don’t think of it at the right time. By understanding the underlying psychology, though, you can set people up — yourself included — to consider all the options.
+
+We first provided observational evidence for our intuition that people add more readily than they subtract. In one study, for example, we presented people with patterns created by filling in portions of a 10-by-10 grid (roughly resembling a crossword puzzle). The patterns were symmetrical, except for a few extraneous squares on one side. We asked the research participants to change the squares in the grid to make the pattern symmetrical. Even though erasing boxes from the busier side took the same amount of effort as adding boxes to the emptier side, on average participants subtracted only 25 percent of the time.
+
+Analyzing hundreds of real-world suggestions for the improvement of a university, presented to an incoming president, we found that only about 8 percent of the suggested changes involved removing programs or other attributes that weren’t working well. Seventy percent involved additions, and the rest were neutral. We found similar results in other scenarios, as when most people opted to “improve” a 14-hour, 12-activity day trip to D.C. by piling on even more activities.
+
+Review: 'Thinking, Fast and Slow,' by Daniel Kahneman
+
+These observations convinced us that addition dominates a lot of behavior, but we needed experiments to reveal whether people were considering subtraction and rejecting it, or were not considering subtraction at all. Both are plausible, but we reasoned that oversight would be a more pernicious problem.
+
+
+Our experiments showed that asking “What can I add?” appears to be a cognitive default. It’s a shortcut that people use when, in the phrase popularized by the Nobel Prize-winning psychologist Daniel Kahneman, they’re “thinking fast.” When we used some tried-and-true methods to get people “thinking slow,” we found that they were more likely to ask, “What can I add or subtract?”
+
+First, it helps to give people time to generate more ideas. We did several variants on the grid experiment, including some where subtraction presented an objectively better, more efficient solution. When we gave people practice patterns before the real test, setting them up to try different approaches, they were more likely to identify the correct subtractive solution before they began. (We didn’t give feedback on their extra ideas, just prodded them to try more options.)
+
+Undivided attention also helps. To test the effects of distraction, we assigned some participants to solve the grid puzzle while monitoring a string of scrolling numbers — think of it as the “driving while texting” condition — and others to do so without distraction. The distracted participants were more likely than the focused participants to resort to the inefficient additive solution.
+
+
+Finally, external reminders can be useful; in some of our studies, we made subtraction an obvious option. In one, we asked participants to renovate a small model building made of Lego bricks. The goal of the renovation — for which successful participants would receive a $1 bonus — was to stabilize a roof deck that was supported in only one corner, much like a one-legged table. Participants could add three new legs, or they could remove the single leg and let the deck rest flush on a platform below. Before they started designing, we told all of the participants that “adding pieces costs 10 cents.” For half of them, we stated what was otherwise just implied: “but removing pieces is free.” Explicitly mentioning free subtractions was informationally superfluous but cognitively valuable: Participants who got the reminder were more likely to accomplish their renovation goal with fewer costs — and therefore went home with more of their bonus money.
+
+The psychological phenomenon that blinds Trump supporters to his racism
+
+We make use of such reminders in our own lives. Our own favorite tool is the “No-Bell” that now hangs in the common area around which our faculty offices are arranged. Every time we subtract an activity that is not helping us create or share knowledge, we ring the bell and celebrate the No-Bell Prize. Quit a dead-end research project? Ding! Cancel a time-suck meeting? Ding! One way to get more meaningful work done is to add work hours. A better way is to subtract tedious time-fillers.
+
+We hope our research helps to spread the word about one of the most basic ways to make change. After all, tricycles and training wheels were fine in their day, but balance bikes have made millions of kids mobile, and their parents joyfully jealous, through subtraction.

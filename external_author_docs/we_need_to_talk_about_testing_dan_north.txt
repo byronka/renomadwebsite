@@ -1,0 +1,183 @@
+We need to talk about testing
+26 Jul 2021agile, bdd, programming, tdd, testing
+Or how programmers and testers can work together for a happy and fulfilling life.
+
+Why don’t we just automate all the testing? Is test coverage a useful metric? What does it mean to “shift testing left”? When and where should we be testing? How much is enough testing?
+
+Over the years I have discussed these and similar questions many times, with programmers and testers and various other folks. These are important topics and they are often shrouded in confusion, misunderstanding, and tribalism. I have heard from both camps that programmers should / should not be writing tests, are / are not qualified, do / do not even understand testing, and so on.
+
+We usually end up in a better place than where we started, so in this article I want to share some of the discussions we have so that you can have them too.
+
+Much of the confusion stems from a lack of understanding of the purpose of testing, including, ironically, with many testers that I meet, so we don’t even have a shared frame of reference.
+
+To create this frame I want to look at a couple of topics, namely:
+
+What testing is and what it isn’t
+Why TDD (and BDD) is only tangentially about testing
+From here I will address each of these opening questions and discuss how testers and programmers can collaborate for a happy life. I hope this will cause you to reassess the discipline and the domain of testing, whatever your role, and to engage with it as the first-class work that it is.
+
+It is a long read, so grab a cup of tea and let’s get started.
+
+The purpose of testing ¶
+“What could possibly go wrong?” ¶
+Whenever we change software — adding a new feature, changing or replacing a feature, making “under-the-hood” changes to improve things — we incur risk. For any change, there is a non-zero likelihood that we cause a Bad Thing to happen.
+
+This is true not only of the code itself but of its build system, its path to deployment, its operating environment, its integration points, and any other direct or indirect dependencies.
+
+There are many types of Bad Things that can happen. Here are a few:
+
+Functional correctness: It doesn’t produce the results we expect.
+Reliability: It mostly shows correct answers but sometimes it doesn’t.
+Usability: Sure it works but it is inconsistent and frustrating to use.
+Accessibility: Like usability, but exclusionary and probably illegal.
+Predictability: It has random spikes in resources such as memory, I/O, or CPU usage, or occasionally hangs for a noticeable amount of time.
+Security: It works as designed but it exposes security vulnerabilities.
+Compliance: It works but it doesn’t handle personal information correctly, say.
+Observability: It mostly works, but when it doesn’t it is hard to identify why.
+For each type of Bad Thing, there is a person or role who cares about that thing, who we call a stakeholder. These people represent the different dimensions of risk, or dimensions of quality, in our endeavours.
+
+Why do we test? ¶
+With this in mind, I propose the following statement:
+
+The purpose of testing is to increase confidence for stakeholders through evidence.
+
+There are three elements to this statement:
+
+Stakeholders are anyone who is affected, directly or indirectly, through the work we do. UX specialist Marc McNeill uses the lovely phrase “people whose lives we touch”. This is broader than the customers or end users of a product or service, and stakeholders are more than one-dimensional, siloed individuals; they are collaborators who contribute from different perspectives.
+Increasing confidence, technically reducing uncertainty, is about understanding the things that the stakeholder cares about, and how the work we are doing — or are about to embark on — might impact those things. How can we help this stakeholder sleep better at night?
+Evidence is incontrovertible information or data. Stakeholders shouldn’t have to depend on your assurance or guarantee, or to rely on your reputation. They deserve cold, hard evidence.
+We can describe the process of reducing uncertainty as assurance, and the things that a stakeholder cares about as (their criteria for) quality, so we are talking about quality assurance, which is another popular term for the discipline of testing.1 In our case, we are insisting that we ground this assurance in evidence rather than in blind faith or theatrics.
+
+Consequently, there are three “superpowers” that I associate with a testing mindset:
+
+Empathy: the ability to get inside a stakeholder’s head, see the world from their perspective, understand their causes for concern.
+Scepticism: the ability to doubt the work you are doing even while you are doing it. This is especially hard for a programmer: our ego and confirmation bias are always there. This scepticism aligns with the Scientific Method, in which we try to falsify a hypothesis, not to “prove” it.
+Ingenuity: the ability and determination to do whatever it takes to give that peace of mind to your stakeholder — or to discover they were right to be sceptical in the first place! Testing is non-linear, non-obvious, and often emergent. Poking around in a database; sniffing packets on a network; injecting a service proxy to record interactions; tracking eye movements; hacking DNS; writing code that breaks other code; nothing is off limits to a good tester.
+If and only if… ¶
+From this definition, it follows that
+
+You are testing if and only if you are increasing confidence for stakeholders through evidence.
+
+Test thinking includes making architectural or design choices that prevent entire classes of defects, or replacing a hand-rolled UI with a constrained set of robust, hardened, well-documented widgets that have well-understood behavioural characteristics. These are preventative measures that negate certain types of risk: no one downstream has to check for these kinds of errors, because no stakeholders will ever get those unpleasant surprises.
+
+Test thinking means that while you are designing a new feature, you are making time to think about all the different stakeholders who might be interested in this change, and what kind of things they might worry about, and assuming they are probably right.
+
+Conversely, if you are doing work that doesn’t manifestly increase confidence for at least one class of stakeholder through tangible evidence then you are not testing, whatever else you may be doing! From a testing perspective, at best you are going over an already-trodden path, at worst you are engaging in test theatre — activities that give the illusion of testing while generating no useful information.
+
+In the context of a digital product, the most common form of surfacing this evidence is hands-on testing, either manually by interacting with the system, or through designing, writing, and running automated tests. Designing and writing good automated tests deserves its own section, but before I get into that we need to talk about TDD, because this is a primary source of confusion.
+
+Test-Driven Development - a sidebar ¶
+Test-driven development, or TDD, is a method of programming where the programmer writes small, executable code examples to guide the design of an API or code feature. This approach is a great way to take small, deliberate steps, and to focus only on what is necessary to get the example code working. It tends to produce narrow interfaces and well-structured, navigable code, as long as the programmer remembers to refactor and tidy up as each new example starts to work.
+
+The confusion arises because these code examples can be used post hoc as tests to prevent the programmer from introducing any obvious regressions as the codebase evolves, so early practitioners of this style of example-guided programming called it “test-driven development”, and this term entered the mainstream through Kent Beck’s seminal agile classic Extreme Programming Explained, and in later writing by him and others.
+
+While they give useful feedback to the programmer, these executable examples don’t necessarily make good tests — I will expand on this below — and anyway, experienced TDDers will usually write as few of these as they can get away with! As Kent Beck says, a programmer doesn’t get paid to write tests, they get paid to write code that works.
+
+This confusion was my primary motivation for creating Behaviour-Driven Development: I was coaching teams in TDD and we would get mired in all the questions at the top of this article, which it turns out have nothing to do with the practice of TDD. So I formulated a way to describe TDD without using the word “test” at all, and I found that it gave me much better traction and adoption of TDD within teams.
+
+I believe this misuse of terminology, coupled with the belief that most testing is just test theatre, has led the agile movement to inadvertently inflict enormous damage on the discipline of software testing over the last couple of decades.
+
+I appreciate this is a controversial opinion so I will elaborate below. It isn’t all negative: the world of testing has benefited enormously from the influence of automated build and deployment; running those “programmer tests” which are better than no feedback at all; working in smaller chunks to drive down delivery time and feedback delay. The culture of “testing in production” typified by emerging movements like chaos engineering are exciting too, but that is still a young discipline.
+
+But the purpose and essence of testing, and the role of its practitioners, has been diluted by the invasive species of “automated tests”. Even the infamous automation testing pyramid is usually almost entirely about functionality rather than any of the cross-cutting safety concerns like security or compliance, or about operability or observability characteristics.
+
+To summarise: TDD, BDD, ATDD, and related methods categorically do not replace testing, whatever their names may suggest. They are primarily design and development techniques.
+
+So now we know that testing is about providing evidence for stakeholders, and that even if you religiously follow TDD then you are only testing superficially at best, we can return to our opening questions.
+
+Let’s talk about testing ¶
+Why don’t we just automate all the testing? ¶
+This is where that enormous inadvertent damage I mentioned manifests itself. Before agile methods came to prominence, during the 1990s, testing was a structured activity that started with test planning, which happened at the beginning of the project, at the same time as the requirements were being written. A key activity at this stage was impact analysis: understanding what was changing and the various ways this might cause Bad Things.
+
+Now I am not advocating to returning to the Dark Ages of software delivery, but I do believe we threw the testing baby out with the big up-front bathwater.
+
+Over the next few years, a new mindset took hold which went something like this:
+
+Agile software teams are primarily made up of programmers, with an SME or analyst (later product owner) to provide domain information and set scope.
+We programmers are using TDD, or “test-first” programming or similar, so we are writing unit tests as we go along.
+By programming in this way we produce enough tests to be confident in our code.
+Our unit tests are fast, so we can run them all every time we make a change. We even have a mantra: “Run all the tests, all the time.”
+This means we don’t need to do impact analysis for each change. If any functionality is affected anywhere, we will find out as soon as we run our comprehensive unit test suites.
+We only need testers to mop up after us; to do the testing that is too expensive to automate, or which changes too often to be worth it. We will call this manual testing.
+As we get better at writing automated tests, we will need fewer and fewer manual testers.
+Testers will need to retrain as automated testers if they are smart enough — kind of second-class programmers who are only good enough to write automated tests. The others can press buttons. So the hierarchy is programmers > automated testers > manual testers.
+We can outsource most of this low-value testing and treat it as a commoditised background activity.
+Our test coverage metrics show how awesome we are at testing. We’ve got this!
+There is so much wrong with this thinking that it is worth taking some time to unpack.
+
+[Agile software teams…] Programming is only one part of the value chain of digital product development. The fact that the people in “the team” are mostly programmers masks the wider cast involved directly or indirectly in value creation.
+
+[…writing unit tests…] Programmers think they are writing unit tests. They are not; they are writing simple code examples to guide design. Typically these are single-sample tests of functionality, of what the code does, rather than any of the more subtle dimensions of security, accessibility, compliance, etc., unless the feature is specifically for one of those stakeholders, and even then all the others will be sidelined.
+
+These code examples were never designed as tests, but as guides. For instance, as a programmer I may write a “test” with a single value to check a calculation, and maybe one more to triangulate for a more complex case. Then I declare victory. With a testing mindset I will think about edge cases, small or large values, huge negative values, values close to plus/minus zero or other key transitions, missing or invalid values, calling things out of sequence, and various other devious inspections.2
+
+There is no reason a programmer can’t adopt this test thinking, but usually we have already moved on to the next thing due to delivery pressures.
+
+[…confident in our code…] A programmer’s confidence in their own code is a notoriously poor indicator of quality. The person who does the work is by definition the person most likely to be confident in it. If I didn’t think it was right, I would have written different code. All kinds of cognitive biases are at play here: confirmation bias, fundamental attribution error, Dunning-Kruger, to name a few.
+
+Navigating all this is the bare minimum for a programmer to start thinking like a tester. We are starting from a position of assumed success rather than assumed failure. My default mode is to seek evidence to “prove myself right” rather than to destroy my illusions, and when I find it, to stop.
+
+[…run them all…] This starts out true, but without diligent and disciplined attention to detail, a several-second build becomes a several-minute build becomes a half-hour build. Add the automated provisioning and tear-down of environments, sanitising and loading of test data, contention for build and deployment resources, underpowered development environments, and many other factors, and the dream of “run all the tests all the time” becomes a distant memory.
+
+At that point we have to decide which subsets of tests we run at which stage — and introduce ever more stages to try to shorten intermediate feedback loops while increasing overall lead time to production — and enter the murky world of test suite management.
+
+[…impact analysis…] Some tools can take an impact-led approach, by re-running failed tests first, or by using static analysis to figure out which tests may be most useful. But the skill and discipline of impact analysis remains both a necessary and a dying art.
+
+[…testers to mop up…] By this stage you can guess where this is going. We need testers to help us think about testing! The axis of automated vs. manual is one of the least interesting to obsess about. Understanding risk and its potential impact along multiple dimensions, and surfacing that all-important information, is a full-time discipline in its own right.
+
+[…fewer manual testers…] I tend to agree with this(!). But what an agile programmer thinks of as “writing automated tests” is nothing like the skill and discipline of writing good automated tests. This often comes as a surprise to the programmer.
+
+[retrain as automated testers] While programming skills can be useful for a tester, I don’t recognise the roles of automated tester or manual tester. Automation is one of many useful tools in a good tester’s tool belt.
+
+[…outsource…] And herein lies the rub! Recognising risk, understanding impact, getting inside stakeholders' heads — which often involves building relationships with key individuals or groups — and squirrelling around surfacing evidence, these are not activities or capabilities that it is prudent to outsource. If you have an “outsourced testing function”, even if it is to another team in the same organisation, the chances are they are engaged in testing theatre, and not doing anything to reduce risk or increase confidence.
+
+[…test coverage metrics…] I will talk about test coverage next. We are, sadly, not awesome at testing.
+
+This mindset isn’t universal, and many teams have a healthy and comprehensive approach to testing, but it is widespread, and the idea of “manual” vs. “automated” testers is near-ubiquitous, from recruiting to certification to entire career paths.
+
+So to answer the question, why don’t we automate all the testing? We should write automated tests when they can help surface evidence, especially for something we are likely to do again and again, and we should do this from a testing perspective rather than a programmer guidepost perspective. We may also write tools to help with other testing activities, for instance to retrieve test results from a database or remote service, or to preprocess test data into a usable form.
+
+A human being is doing much more than pressing buttons when they interact with a computer system, and the insights and feedback they can produce make hands-on testing a valuable ongoing activity.
+
+Is test coverage a useful metric? ¶
+No. Yes. Sometimes. It depends. “Test coverage” is shorthand for “code covered by running automated tests”. The multiple quality dimensions thing applies here too. Which stakeholders are we providing evidence for through this particular test? How does this inform their confidence? The fact that some code exercised some other code tells me that at best we gained some evidence for at least one stakeholder.
+
+For example, executing a code path to check for correctness (does it produce the right answers?) tells me nothing about security vulnerabilities, or whether it breaches regulations. And running a test that only checks the same single value every time it runs isn’t that assuring in any case.
+
+One thing test coverage can reveal is code that has no automated tests at all! A lack of coverage tells us that code is not being checked by automated tests. But even that is not necessarily a concern if we know that we are verifying the code in other ways. For instance, a user interface that developers and testers see many times each day is unlikely to have a glaring layout error on it, even though there is no automated test to confirm this.
+
+What does it mean to “shift testing left”? ¶
+I used to think shifting left meant starting all these testing activities earlier in the process, but I realise it is more than that: it means doing different things. Shifting left on testing means thinking about architecture and design differently, considering different stakeholders early and continually. Which in turn means shifting left on security, accessibility, and all the other dimensions of quality that we should care about. So shifting left on testing motivates all kinds of assurance activities, which can stop us over-investing in a solution that was never going to work. It is like TDD on steroids.
+
+As an unintended consequence, we can remove much of the traditional work that testers would have to do downstream when they only have late sight of the product. Again, we aren’t doing that work earlier, we are setting ourselves up to never need it at all!
+
+When and where should we be testing? ¶
+This is the corollary to shifting left. The obvious answer is: as early as possible and as often as is practical; wherever in the development cycle we can start surfacing evidence to give assurance. Programmers should be thinking like testers at least some of the time, and testers can help them with this.
+
+There is a fallacy that a feature should be “done” or “fully baked” before we can test it, but this is easily debunked. We can assess what data is being accessed, where from, in what way, for how long, and for what purposes. We can assess lightweight UI sketches for consistency or accessibility.
+
+From this we can have an opinion about security, privacy, compliance. How much data comes back each time? What are some worst-case scenarios for data volumes or values, or screen update times? This can give us insights into reliability, robustness, and resilience.
+
+A programmer can’t be thinking like all the stakeholders all the time or they would never get any work done! But this test thinking should be happening continually, with testers embedded in development teams and elsewhere along the value chain.
+
+How much is enough testing? ¶
+Any activity that changes a system incurs risk — the possibility of Bad Things — along many dimensions; we saw some of them earlier. Depending on the type of change and the context, the onus is on us to create suitable levels of confidence through evidence.
+
+This suggests that the “amount” of testing isn’t a linear quantity. We need to consider “enough” along those same dimensions too. What is the size of the change? What is the potential impact if something bad happens? What are the implications of this for security, usability, and so on? How could we do this differently to change the risk profile?
+
+When we think about “enough” testing, it can lead to constructive discussions about alternatives with different implications. These are almost always trade-offs; it is rare that one solution is objectively “better” along all dimensions than another. Although it is fair to say that a simpler, smaller change is usually less risky than a larger, more complicated one.
+
+Concluding thoughts ¶
+As a programmer, I have spent a good chunk of my 30-year career, probably the last two decades, thinking about how testing and testers fit into software development. I have never been comfortable with the positioning of testing and testers in agile software development, and it has taken me a long time to structure and articulate these thoughts. Early hints of this article appear in my BDDx keynote from 2016, and I decided to write it some time in late 2018.
+
+I am not a professional tester. I have written this from the perspective of an agile programmer who these days works within and across teams, and who has had the privilege of meeting and working with some amazing testers over the years.
+
+I believe the purpose and principles of testing can mesh well with agile delivery methods, and the fact that they generally don’t is more a historical quirk than a systemic inevitability. If we stay on this path, we will continue side-lining testing and testers, and miss out on the opportunity of genuine high-performing teams.
+
+We can write better quality software faster, and more sustainably, by reintroducing some of these ideas, and enjoy the rare win-win-win of “better, faster, cheaper.”
+
+Thanks to Maaike Brinkhof, Aslam Khan, Tom Roden, Anna Urbaniak for their review feedback, and to Liz Keogh and Paul Shepheard for their earlier thoughts.
+
+Purists will argue that there is a difference between quality assurance and testing. While researching this article, I read several sources that claimed to differentiate these terms, and each had narrow — and conflicting! — definitions of testing, and used the term “quality assurance” to describe what I am talking about in this article. Many testers I speak with would like to get rid of the term Quality Assurance altogether! ↩︎
+
+There is another style of automated test called a property-based or generative test, where a single test can produce thousands or millions of pseudorandom samples, but that is beyond the scope of this discussion. They are cool though! ↩︎

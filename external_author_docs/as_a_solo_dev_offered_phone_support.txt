@@ -1,0 +1,109 @@
+by plumshell | November 30, 2017
+As a solo developer, I decided to offer phone support, and this is what happened
+This year, around February, I started offering telephone support for Taxnote, which I hadn’t done up until then, because the idea made me anxious.
+
+I intended to quit if, at any time, I thought it was tough for me to do; but, so far, I have continued with it for over half a year, so I’ll update you on the things I’ve learned from doing it.
+
+I wrote my phone number in the help section of the Japanese version only, since I live in Japan and it is a JP number. I might try it in English too in the future, if I can make it work with an international calling facility like Skype.
+
+How often do I get calls?
+For the time being, my telephone number is written on the help section of the Taxnote accounting application, and the recently released text-to-speech application named Voicepaper.
+
+For example, when it comes to Taxnote, when you tap on the “Help” section on the settings screen, it shows “Inquiry by phone call” right at the top; in other words, it’s made so that people who go to the help section realize straight away that they can contact us by phone.
+
+By the way, the application doesn’t have a high number of downloads, so it’s a question of whether I’ll receive even 1 phone call per day. Once in a while, I get 2 phone calls in one day, but even that isn’t a large amount, so it’s on a level at which I don’t feel the burden very much. If they were to call me all the time, perhaps it would be more intense.
+
+Still, when you’ve been doing it for over half a year, all sorts of people call you, and I’ve really learned a lot by talking with users directly on the phone.
+
+Most users are polite
+This may be a virtue of the Japanese, but, basically, everyone who calls is civil and polite. It often goes something like: “I’m terribly sorry to bother you, but there’s something I would like to ask…” and I respond with something like “No, of course, of course…”.
+
+I think it’s probably like this because the application I work with is operated by a solo-developer, just me, and the approach is emotionally different from calling the support service of a large company. The people who call are probably being attentive.
+
+However, there is the disadvantage of people thinking along the lines of: “Is everything okay with this app? It looks like its development is going to be abandoned, so I’m anxious about continuing to use it,” as when compared to a company. I don’t really know which is better when it comes to things like this.
+
+I got sidetracked.
+
+Ah, yes, everyone is really kind, and older men and women in particular, who are unfamiliar with IT in general, let alone Taxnote, express their gratitude immensely. I thought that something like being thanked for providing a support service was just to motivate the lonely app developer when I looked at the reviews, but when someone directly says this to me on the phone, I get ten times happier.
+
+One time, an older lady passionately said, “I am a physical therapist, and compiling tax returns has been quite difficult up until now, but, thanks to this app, it has become much, much easier. I think it’s a superb app. Thank you so much.” Honestly, I teared up. I really cried.
+
+You can detect critical parts of your product
+Of course, there are times when a large problem occurs and I have to respond to angry phone calls. At those moments I earnestly apologize, but, when you have experiences like that, it really increases your determination to fix the problem.
+
+As a matter of fact, when it comes to large problems, offering phone support enables you to understand that inconveniences that occur when the app’s behaviors and messages are hard to understand are more frequent than bugs in the programming (when bugs crash the application, it’s easy to identify them through the log, and no reports are made with a phone call).
+
+At those times, what might have been: “Well, this bit right here, it might be hard to understand,” changes its priority to: “Nope, we really need to provide a clearer explanation with the message, and improve it so that something isn’t misunderstood and handled wrongly…”.
+
+In my last post, I wrote about how it’s easier to understand the problem or debug when you’re doing telephone support as opposed to messaging, since you can hear the circumstances from the client in more detail, but it’s also largely through emotions that the acuteness of the problem is expressed.
+
+For example, when you always have an endless list of things to do, like improve the app or fix bugs, it’s always important to prioritize what to start working on first. At such moments, the numbers you see from the app data (like, for example, numbers from a crash) serve as a reference, but so do inquiries from support messages.
+
+You make a decision by taking into consideration both the quantitative criteria, which you know from the numbers, and the qualitative criteria, which you know from the conversations. But, when you add telephone support, the qualitative criteria system rises up. As you might expect, purposely making a phone call takes some energy, and talking to a user helps you understand the critical points, such as, “This worries me,” or, “I don’t understand this.”
+
+You can improve your listening skills
+Listening to opinion of the users is something really hard to do skillfully, unless you’re a UX professional.
+
+First, you have carefully listen to what the user is telling you, and then you have to pick the right wording to respond with, all while analyzing in your head during the conversation to what degree the user is versed in IT or app operation.
+
+When you explain something at your own pace to a person not really acquainted with IT, you get questions like:
+
+“What is iOS?” or, “What is iTunes?”
+
+The user thinks you’re a computer fanatic wielding unintelligible terminology, so it’s not unlikely they, stressed out, might say,
+
+“Ah, I see… I understand…” (even though I didn’t understand that much…)
+
+and end the phone call.
+
+By the way, regarding the phrasing I use, I usually first ask them,
+
+“I would like to begin explaining while operating the application; can you talk over the phone with the application open as well?”
+
+If I explain the iPhone speaker function, it makes it easier for the user, as we can chat while going through the application together.
+
+However, when doing telephone support, it’s mostly people who aren’t really familiar with IT, so, despite conscientiously trying to work through their particular problem, there are times when I fail.
+
+“Oh, no, it’s fine if you don’t talk about it in such detail; can you just give me a rough explanation?”
+
+To which I might respond with,
+
+“Ah, I apologize… Well, you see…”
+
+which is how I would do it in haste.
+
+So, you first have to grasp how familiar the user is with IT and applications, and how much of it they want to have explained to them. However, since it’s impolite to ask how much a user knows about using applications, then excluding the times when they tell you voluntarily, the only option is to make an assumption.
+
+And, I tend to do it unconsciously, so I forget about it if I don’t pay attention constantly, but I can fall into the trap of talking on and on without end.
+
+For example, once, when a conversation like:
+
+“I don’t understand this part here…”
+
+began, I arbitrarily decided in my head,
+
+“Ah, right, this is a pattern I often see,”
+
+and I, all of a sudden, continued with:
+
+“First, this is like this, and, after that, you click this, and do this, so it becomes like that. And, when you do this, that becomes like this, etc., etc.,”
+
+while not understanding the user’s circumstances very much.
+
+So by the time I ended my chatter, I realized that they were in search of something else, and that is how I made a “now I’ve done it” blunder.
+
+For that reason, you have to be careful not to talk too much right at the beginning of the conversation, or it can become pretty difficult.
+
+If there’s a case where, even once I’ve asked, I still don’t understand what is troubling the user or what question they really want to ask, I try to check it one more time:
+
+“You want to do this like this and this, but you don’t understand that part well. Is my understanding correct?”
+
+If you do it like that, you can change your viewpoint and explain it more carefully and in more detail in case the user can’t convey their issue well, so I use this strategy a lot. This is something I learned when doing support by chat messaging, but I think that it’s effective when doing telephone support as well.
+
+Well, when it comes to telephone support, unlike support by messaging, where you can reply whenever it’s convenient for you, the burden of being called unexpectedly is the biggest one. Therefore, I can’t recommend it wholeheartedly, but I would like this to be a reference for people who may be interested.
+
+I think the biggest benefit is of an emotional kind.
+
+App development is something that you inevitably do while clattering away on your keyboard in front of the computer screen every day, and something which you can’t see the results of in any other way but numbers. So, when you get in touch with a user directly, it can make you feel something like: “Ah, I may be doing something for the world. It’s good to live.”
+
+
