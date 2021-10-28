@@ -16,7 +16,11 @@ rm output/h2o.conf
 #sudo rm -fr /var/www/html/*
 
 # dereference symbolic links and recursively copy
-#sudo cp --recursive --dereference output/* /var/www/html
+gcp --recursive --dereference output/* ../byronka.github.io
 
 # stop showing everything that's happening.
 set +x
+
+echo ''
+echo 'Next step:'
+echo 'now go to ../byronka.github.io and commit/push'
