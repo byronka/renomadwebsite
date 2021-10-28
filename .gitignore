@@ -1,2 +1,8 @@
 # don't store the output from running server-side include scripts
 output/
+
+# on Mac, ignore this junk
+.DS_Store
+
+# the compiled python.  Changes depending on the OS
+ssi.pyc
