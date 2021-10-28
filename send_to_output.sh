@@ -13,10 +13,10 @@ rm output/README.txt
 rm output/h2o.conf
 
 # delete the contents of the /var/www/html directory
-sudo rm -fr /var/www/html/*
+#sudo rm -fr /var/www/html/*
 
 # dereference symbolic links and recursively copy
-sudo cp --recursive --dereference output/* /var/www/html
+#sudo cp --recursive --dereference output/* /var/www/html
 
 # stop showing everything that's happening.
 set +x
