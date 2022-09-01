@@ -6,3 +6,4 @@ output/
 
 # the compiled python.  Changes depending on the OS
 ssi.pyc
+__pycache__/
