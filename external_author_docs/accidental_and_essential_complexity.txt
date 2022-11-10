@@ -1,0 +1,49 @@
+PROGRAMMING WORD OF THE DAY
+Jul 1
+Accidental and Essential Complexity
+It's 1964, Kennedy was shot, the Vietnam War is on its way, and FORTRAN is becoming a popular programming language. You are tasked with making a program to calculate a mathematical equation. You don't go for your keyboard, but instead for a pencil. You take a piece of paper, and meticulously write your code, one symbol at a time, inside little rectangles in the paper. The paper, meanwhile, doesn't report any errors. It has no debugger or breakpoints. It's a piece of paper.
+
+You take that paper, hoping there are no typos, (or rather, writeos) and start punching holes in a card, where each hole corresponds to a symbol on that piece of paper. Again hoping you didn't make a mistake, you take the punch card and you put it inside a computer. The computer reads the card, compiles the program and outputs a little printout, kind of like a receipt in a store. You take the printout, you read it, and you see that it's an error. You missed a closing brace. With a sigh, you waddle back to the piece of paper, write in the closing brace, punch in a new card and repeat.
+
+This was the iteration cycle of a program in the 1960s. Forget hot reloading, it would take you hours (sometimes days) to compile run a program! If I told you to write a "Hello world" program right now, it would probably take you around 10 seconds, depending on whether your IDE is opened in another window or not.
+
+But think of the "Hello world" program. The problem of printing out the text "Hello world" was not inherently more complex in the 1960s than now. The problem was easily understandable then as it is now, it was just harder to actually implement with the technology.
+
+Here's another example: Jon Harrop wrote about a project that took over 40 developers almost 15 years to write in C++. He managed to write the whole thing himself in about 3 months in F#. And his version worked better.
+
+Again, both pieces of software solve an equally complex problem, but the solutions differ in complexity.
+
+Fred Brooks noticed this in 1986, and wrote about it in his amazing paper No Silver Bullet. He calls this inherent complexity of a problem essential complexity.
+
+Obviously, it's much easier to write a hello world program than the next Facebook. The solution to one fits inside this sentence (print "Hello World!"), while the latter would take a book with a million pages. (I'm serious) So, Facebook is inherently more complex than a "Hello world" program.
+
+Essential complexity is how hard something is to do, regardless of how experienced you are, what tools you use or what new and flashy architecture pattern you used to solve the problem. Some things are just hard and take a long time. Essential complexity is a property of the problem you are trying to solve.
+
+So far this is pretty obvious. Not all problems are equally complex. But think of the examples above. They are solutions to the same problem (with the same essential complexity) but the difficulty of the actual soltions differs in a few orders of magnitude. Why is that?
+
+The reason is that not all complexity is essential. While some complexity is inherent to the problem, we also bring our own complexity while writing the program. This is called accidental complexity.
+
+To illustrate this, let's think of a simple task: Going to your local Starbucks. You can get from your house to a Starbucks in an infinite amount of ways. If you decide to take three walks around the bulding before entering it, it will take you longer than if you just entered it like a normal person.
+
+
+
+You can think of the distance from your place to Starbucks as the essential complexity. But the path you take there is accidental complexity. And, in theory at least, you could reduce accidental complexity to zero. Unfortunately, it's kinda hard to walk faster than the speed of light, so your essential complexity will always stay the same.
+
+By using C++ and deciding to write their own garbage collector, the company from earlier added a bunch of complexity. (If you've ever worked in a C++ codebase you will back me up on this one!) However, the problem itself was not that complex. By choosing the right tool, Jon managed to substantially reduce accidental complexity. He did this by taking a step back and looking the problem at hand.
+
+As programmers, we develop a lot of habits while working. This is good, it's what makes us more efficient. But sometimes your habits can become a trap. It's like a well-trodden path that you take because you're used to it, even if it's not the fastest route. This is why sometimes you have to stop and take a look around you.
+
+A good time to do this is when you start doing something really complex to solve your problem. If you feel like your solution is convoluted, it's probably the wrong solution. That's when it's useful to clear your head, and approach the problem like a newbie. That's also why it's important to have juniors in your team. They have no bias, so their solutions are often better than what any senior could have done.
+
+But this concept doesn't just have an impact on your work. It also explains a phenomenon in the industry as a whole. See, computers got much, much faster during the last 20 years, but programming didn't. We are still working more or less on the same languages, and our iteration cycles are maybe a bit faster, but nothing as substantial as the hardware speedups we had.
+
+The reason for this is, Brooks argues, that we reduced accidental complexity so much that all we have left is the essential one. This is why we won't see 10x improvements in the near future. This was a big deal in the 1980s, because programmers were freaking out. The majority of projects went over budget, most projects were useless and some even killed people. And there was no solution for this problem.
+
+Brooks said they were barking at the wrong tree. If we want to get better as an industry, we need to start being more systematical and thinking up front. Hoping for a silver bullet to solve all of your problems is futile.
+
+So think of these two types of complexities when solving problems. Your job is hard enough, the worst thing you can do is to manufacture more problems for yourself! Think hard about what the actual problem is, and then don't overthink the solution. :]
+
+References:
+
+No Silver Bullet - Frederick P. Brooks, Jr.
+http://worrydream.com/refs/Brooks-NoSilverBullet.pdf
