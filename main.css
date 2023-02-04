@@ -154,6 +154,10 @@ div.banner h2.titleheader a:visited {
 
  @media print {
 
+   input, label {
+    display: none;
+   }
+
    body {
      margin: 0;
      font-family: "serif";
