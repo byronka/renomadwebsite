@@ -2,6 +2,12 @@ img {
   height: 200px;
 }
 
+img#pic {
+ float: right; 
+ margin: 25px; 
+ height: 276px
+}
+
 .date {
     text-align: right;
 }
@@ -136,21 +142,25 @@ div.banner h2.titleheader a:visited {
   display: none;
 }
 
- @media all and (max-width: 500px) {
+@media all and (max-width: 500px) {
 
    body {
      margin: 0;
    }
 
-    .prime {
-        margin-top: 0;
-        border:  none;
-    }
+  .prime {
+      margin-top: 0;
+      border:  none;
+  }
 
-    .secondary {
-        margin: 0;
-    }
- }
+  .secondary {
+      margin: 0;
+  }
+
+  img#pic {
+    height: 100px;
+  }
+}
 
  @media print {
 
