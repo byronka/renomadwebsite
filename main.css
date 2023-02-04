@@ -129,14 +129,11 @@ div.banner h2.titleheader a:visited {
 }
 
 .hideable {
+  display: initial;
 }
 
 .hideable.hide {
   display: none;
-}
-
-.hideable.show {
-  display: block;;
 }
 
  @media all and (max-width: 500px) {

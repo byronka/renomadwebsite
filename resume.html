@@ -2,7 +2,11 @@
 
 
 
-<img style="float:right; margin: 25px; height: 276px" alt="Byron Katz headshot" src="byron_katz_headshot.jpg" />
+<p>
+  <input type="checkbox" id="pic_checkbox">
+  <label for="pic_checkbox">show pic</label>
+</p>
+<img id="pic" style="float:right; margin: 25px; height: 276px" alt="Byron Katz headshot" src="byron_katz_headshot.jpg" class="hideable hide"/>
 <h3>CV/Résumé for Byron Katz</h3>
 <em>
   email: byronka@msn.com<br>
@@ -10,7 +14,7 @@
 </em>
 <p>
   <input type="checkbox" id="interesting_stuff_checkbox">
-  <label for="interesting_stuff_checkbox">Show more summary...</label>
+  <label for="interesting_stuff_checkbox">Show intro</label>
 </p>
 <div id="interesting_stuff" class="hideable hide">
   <p>
@@ -171,23 +175,23 @@
   <ul>
 
     <li>
-      DevOps engineering provided at Upstack (an IT sourcing company).  Documented and refactored their infrastructure scripts and CI/CD pipeline.  AWS tech stack, scripting in Terraform, pipeline on Github Actions.
+      At Upstack, provided DevOps engineering.  AWS tech stack, scripting in Terraform, pipeline on Github Actions.
     </li>
 
     <li>
-      At Dick's Sporting Goods, developed software for scheduling customer services such as golf club fittings and golf swing analysis.  Developed greenfield project to remove pain points in custom golf club ordering. Technology stack was React and Angular front-end and a Kotlin and Java back-end. Data stored in Postgresql.  Data flow carried out in Kafka.  Infrastructure scripting using Terraform.
+      At Dick's Sporting Goods:
+      <ul>
+        <li>
+        Developed scheduler for golf club fittings and swing analysis.  Kotlin backend, React frontend, Postgresql database.
+        </li>
+        <li>
+        Developed new project for custom golf club ordering. React / Angular front-end, Kotlin / Java back-end. Postgresql database.  Data flow in Kafka.  Infrastructure scripting using Terraform.
+        </li>
+      </ul>
     </li>
 
     <li>
-      Initiated a bi-weekly discussion over issues encountered during consulting.
-    </li>
-
-    <li>
-      Contributed senior engineering perspective on multiple sales calls, providing significant support during proposals.
-    </li>
-
-    <li>
-      Regularly involved in developer interviewing
+      Initiated a recurring discussion on consulting.
     </li>
 
   </ul>
@@ -200,73 +204,49 @@
       Taught and coached in modern software development practices.  Companies included:
       <ul>
         <li>
-          Illumina - a DNA sequencing company,
-          Arvest Bank,
-          Zions Bank,
           John Deere,
           Army,
           Navy,
-          TACOM,
-          NSA,
           Southwest Airlines,
           Tax Act,
           Labster,
           Bain &amp; Company,
-          Incomm Global Payments,
           Ernst &amp; Young Global Limited,
-          NetNumber,
           Appian,
           Blue Cross Blue Shield,
           Verizon
         </li>
       </ul>
-      Topics included: 
-      <ul>
-        <li>
-        Modern agile engineering
-        </li>
-        <li>
-        Test-driven development
-        </li>
-        <li>
-        Behavior-driven development
-        </li>
-        <li>
-        Test automation and proper testing practices
-        </li>
-      </ul>
     </li>
     
     <li>
-      Developed software used as a teaching material and reference for best practices, found at https://github.com/7ep/demo and https://github.com/7ep/r3z
+      Developed demo software for training: <a href="https://github.com/7ep/demo">Demo</a> and <a href="https://github.com/7ep/r3z">R3z</a>
     </li> 
 
     <li>
-      Ran an internal teaching initiative ("The lab") to improve the abilities of the consultants in innovative software development techniques
+      Ran a teaching initiative on innovative development techniques
     </li>
 
     <li>
-      Rewrote portion of code in Healthcare.gov that generated data for reports. While doing so, took the time to become familiar with the domain, thereby discovering undefined requirements which led to greater precision from stakeholders.
+      Discovered undefined requirements which led to bugs in the code.
     </li>
     <li>
-      On multiple projects, demonstrated value of careful refactoring, addition of unit tests, and comments on legacy code. Doing so uncovered multitudes of long-standing defects.
+      Systematic refactoring and documentation.
+    </li>
+    <li>
+      Finding and correcting latent defects.
     </li>
 
     <li>
-      Involved with first development efforts on a new healthcare provider registration system for Medicare, called PECOS 2.0.
+      Development of greenfield registration system for Medicare.
       <ul>
         <li>
-   Provided considerable technical guidance and mentoring in the subject areas of team process, data modeling, code quality, and devops. 
+         Mentoring on process, data modeling, quality, and devops. 
         </li>
-      <li>
-        Refactored the data provisioning system to be independent of the main application, to allow greater versatility in different stages, as well as during the development cycle.
-      </li>
+        <li>
+          Decoupled data provisioning system.
+        </li>
       </ul>
-    </li>
-
-
-    <li>
-      Regularly involved in developer interviewing
     </li>
 
   </ul>
@@ -277,29 +257,28 @@
   </p>
   <ul>
     <li>
-    One of the pages was taking up to a minute to render using old, sluggish XML-XSLT technology. Rewrote using KnockoutJS and MVC RESTful endpoints, causing average page loads to
-    take less than a second, and for client-side sorting actions to be near instantaneous.
+      UI improvements on Property application. React and Redux.
     </li>
     <li>
-    In a series of lectures and workshops, taught Git to team.
+      Conversion of slow legacy systems to performant modern approach.
     </li>
     <li>
-    Researched techniques for rewriting our client-controlled report generator. After thoughtful vetting of many alternatives, suggested using HTML-to-PDF rendering for templated HTML.  This is now used on all new reports.
+      Provided lectures and guidance on use of Git for source control.
     </li>
     <li>
-     Assisted systems team in starting to use Red Hat Enterprise Linux.
+      Designed and implemented report generator using templated HTML.
     </li>
     <li>
-    One of the tools that we use for performance analysis indicated that there were many opportunities for improvements in our SQL queries. Two of us analyzed a variety of queries, taking them apart and rebuilding, to see where we could find optimizations for speed while maintaining correctness. We sped up the system 33%.
+      SQL Server performance improvements.
     </li>
     <li>
-    Demonstrated the benefits of adding thoughtful comments throughout the code base to illuminate the way for maintenance programmers.
+      Refactoring and documentation of existing codebase.
     </li>
   </ul>
 
 <p>
   <input type="checkbox" id="older_software_experience_checkbox">
-  <label for="older_software_experience_checkbox">Show older history...</label>
+  <label for="older_software_experience_checkbox">Show older history</label>
 </p>
   <div id="older_software_experience" class="hideable hide">
   <p>
@@ -318,47 +297,47 @@
   </p>
   <ul>
     <li>
-    Designed, implemented, revised, and refactored much of the business logic layer using pair programming, test-driven development, and other XP practices
+      Learned XP process for enterprise software, including TDD.
     </li>
     <li>
-    Realized there was a need for storing secure web account information and made the case to the product owner successfully.
+      Spearheaded design for web secret functionality.
     </li>
     <li>
-    Responsible for demonstrating products to potential customers.
+      Demonstrated products to customers.
     </li>
     <li>
-    Developed algorithm to search large encrypted text.  This was quite involved.  Since the encrypted text could be very large, the outcome was an algorithm that searched using a small window.
+      Developed search algorithms over encrypted data.
     </li>
     <li>
-    Rewrote main CSV parser - code was simplified and corrected, and only half the lines of code turned out to be necessary.
+      Improved legacy systems
     </li>
     <li>
-    Brought to the fore several previously unconsidered critical security concerns.
-    </li>
-    <li>
-    Corrected bugs in existing native applications for iPhone and Android.
+      Discovered and corrected latent security defects.
     </li>
   </ul>
 
   <p>
   <em>Ekagra Software</em> 2010-2012<br>
-  title: QA Lead, contractor to National Cancer Institute at the Center for Bio-informatics
+  title: QA Lead
   </p>
   <ul>
     <li>
-    Reported project status on weekly stakeholder meeting. Prepared monthly process reports on
-    project and QA activity. Reviewed target goals, priorities, and QA standards with stakeholders.
+    Reported project status on weekly stakeholder meeting. 
     </li>
     <li>
-    Rose to team lead after four months, due to my communication and technical skills, and my
-    passion for quality software. Became responsible for tasking 5 QA engineers.
+    Prepared monthly process reports on project and QA activity. 
     </li>
     <li>
-    Developed a variety of software tools to support work, such as one to analyze differences
-    between Java property files.
+    Reviewed target goals, priorities, and QA standards with stakeholders.
     </li>
     <li>
-    Built security-hardened Linux nodes on virtual machines for environment testing.
+    Promoted to team lead after four months.
+    </li>
+    <li>
+      Developed software tools for QA.
+    </li>
+    <li>
+    Built security-hardened Linux nodes.
     </li>
   </ul>
 </div>
@@ -366,7 +345,7 @@
 
 <p>
   <input type="checkbox" id="architecture_history_checkbox">
-  <label for="architecture_history_checkbox">Show architect experience...</label>
+  <label for="architecture_history_checkbox">Show architect experience</label>
 </p>
 <div id="architecture_history" class="hideable hide">
 
@@ -400,10 +379,10 @@
 
   <p>
   <em>Portman Architects</em> 2005-2009<br>
-  title: staff architect
+  title: architect
   </p>
   <p>
-    Architectural design and assistant project manager during design and construction of $300 million Hilton Bayfront Hotel in San Diego
+    Architectural design for Hilton Bayfront Hotel in San Diego
   </p>
   <ul>
     <li>
@@ -428,52 +407,6 @@
     Design types: 1200 room convention hotel, university library, podium levels of high rise tower.
     </li>
   </ul>
-  <p>
-  During the San Diego Hilton project, I developed an excellent rapport
-  with all consultants and the Contractor and Owner, resulting in:
-    <ol>
-        <li>
-          a greater number of successful actions between all parties
-        </li>
-        <li>
-          improved efficiency in the Request For Information (RFI) process
-        </li>
-        <li>
-          timelier responses from all parties
-        </li>
-        <li>
-          greater effort from all associated parties to assist as a team,
-          resulting in less effort and time required by the Architect.  This
-          greater efficiency led to less time required for all tasks and
-          increased quality of work.
-        </li>
-    </ol>
-  </p>
-  <p>
-  Developed unusual details, taking into account multiple avenues of
-  research and consultation.  Emphasized low-maintenance, longevity, and
-  durability in design.
-  </p>
-  <p>
-  For example, I detailed the steam room in the
-  spa.  This required intensive research in tile details, waterproofing
-  details,  and steam machine details, as well as reviewing the
-  specifications and consulting with a waterproofing consultant.  The
-  result was a set of drawings which included all necessary provisions to
-  build a steam room which would work for a long time with low
-  maintenance.  
-  </p>
-  <p>
-  In another instance, I designed an interesting "hidden" door behind the
-  front reception desk which had unusual constraints:  It was curved, was
-  on a smoke and fire barrier, had to have electronic security, and was
-  intended to conceal itself by blending in with the rest of the wall..
-  This required research and consultation with the General Contractor and
-  sub-contractors, our door consultant, security consultant, and
-  electrical consultant, as well as the Owner.  In the end, we had built a
-  door which successfully blended in with its surroundings and solved all
-  of the problems within budget
-  </p>
 
   <p>
   <em>Tunnell, Spangler, Walsh</em> 2004-2005<br>
@@ -517,7 +450,7 @@
 
 <p>
   <input type="checkbox" id="commendations_checkbox">
-  <label for="commendations_checkbox">Show commendations...</label>
+  <label for="commendations_checkbox">Show commendations</label>
 </p>
 <div id="commendations" class="hideable hide">
   <h4>Commendations</h4>
@@ -578,7 +511,7 @@
 
 <p>
   <input type="checkbox" id="certifications_checkbox">
-  <label for="certifications_checkbox">Show certifications...</label>
+  <label for="certifications_checkbox">Show certifications</label>
 </p>
 <div id="certifications" class="hideable hide">
   <h4>Certifications</h4>
@@ -600,7 +533,7 @@
 
 <p>
   <input type="checkbox" id="company_details_checkbox">
-  <label for="company_details_checkbox">Show company details...</label>
+  <label for="company_details_checkbox">Show company details</label>
 </p>
 <div id="company_details" class="hideable hide">
 <h4>Company details</h4>
@@ -675,9 +608,7 @@ function enableSectionsToExpand() {
 
       if (theClickedCheckbox.checked) {
         myBlock.classList.remove("hide")
-        myBlock.classList.add("show")
       } else {
-        myBlock.classList.remove("show")
         myBlock.classList.add("hide")
       }
 
