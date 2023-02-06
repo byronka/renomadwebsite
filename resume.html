@@ -20,9 +20,9 @@
 <div id="interesting_stuff" class="hideable hide">
 
 
-<p>
+<p class="nesting_1">
   <input type="checkbox" id="quick_summary_checkbox">
-  <label for="quick_summary_checkbox">show quick summary</label>
+  <label for="quick_summary_checkbox" >Show quick summary</label>
 </p>
 <div id="quick_summary" class="hideable hide">
   <p>
@@ -52,9 +52,9 @@
 
 </div>
 
-<p>
+<p class="nesting_1">
   <input type="checkbox" id="mission_checkbox">
-  <label for="mission_checkbox">show mission</label>
+  <label for="mission_checkbox">Show mission</label>
 </p>
 <div id="mission" class="hideable hide">
   <p>
@@ -68,9 +68,9 @@
   </p>
 </div>
 
-<p>
+<p class="nesting_1">
   <input type="checkbox" id="perspective_checkbox">
-  <label for="perspective_checkbox">show perspective</label>
+  <label for="perspective_checkbox">Show perspective</label>
 </p>
 <div id="perspective" class="hideable hide">
   <p>
@@ -98,9 +98,9 @@
 </div>
 
 
-<p>
+<p class="nesting_1">
   <input type="checkbox" id="portfolio_checkbox">
-  <label for="portfolio_checkbox">show portfolio</label>
+  <label for="portfolio_checkbox">Show portfolio</label>
 </p>
 <div id="portfolio" class="hideable hide">
   <h4>Portfolio of work</h4>
@@ -132,9 +132,9 @@
   <a href="https://youtu.be/QSh4Ble37yk">https://youtu.be/QSh4Ble37yk</a></p>
 </div>
 
-<p>
+<p class="nesting_1">
   <input type="checkbox" id="projects_checkbox">
-  <label for="projects_checkbox">show projects</label>
+  <label for="projects_checkbox">Show projects</label>
 </p>
 <div id="projects" class="hideable hide">
   <h4>Projects</h4>
@@ -173,13 +173,21 @@
   </p>
 </div>
 
-<p>
+<p class="nesting_1">
   <input type="checkbox" id="languages_checkbox">
-  <label for="languages_checkbox">show programming languages</label>
+  <label for="languages_checkbox">Show programming languages</label>
 </p>
 <div id="languages" class="hideable hide">
   <h4>Programming languages I have played with </h4>
-  <em>(in alphabetical order)</em>
+  <p><em>(in alphabetical order)</em></p>
+  <p>
+  <em>
+  Note: 
+      Zero stars means scant use or several years since last use.
+      One star indicates beginner comfort and recent use.
+      Two stars indicates professional use.
+  </em>
+  </p>
 
   <ul>
   <li>Ada *</li>
@@ -199,12 +207,6 @@
   <li>SQL (multiple flavors - TL-SQL, PostgreSQL, MySql (MariaDB)) **</li>
   </ul>
 
-  <em>
-  Note: 
-      Zero stars means scant use or several years since last use.
-      One star indicates beginner comfort and recent use.
-      Two stars indicates professional use.
-  </em>
 </div>
 
 </div>
@@ -641,29 +643,37 @@ Barcelona study-abroad program, 2001
 
 <script>
 
-function enableSectionsToExpand() {
-  let sections = document.querySelectorAll(".hideable")
-  
-  for (let i = 0; i < sections.length; i++) {
+  /* 
+  This function initializes all the blocks marked with a class
+  of "hideable", which are those blocks I want users to be
+  able to hide.
 
-    let concept = sections[i].getAttribute("id")
-    let myCheckbox = document.getElementById(concept + "_checkbox")
+  Note that the pattern is to give the block an id, and the
+  checkbox should have an id the same but appended with "checkbox"
+   */
+  function enableSectionsToExpand() {
+    let sections = document.querySelectorAll(".hideable")
+    
+    for (let i = 0; i < sections.length; i++) {
 
-    myCheckbox.addEventListener('click', function(e) {
-      let theClickedCheckbox = e.target
-      let myBlock = document.getElementById(concept)
+      let concept = sections[i].getAttribute("id")
+      let myCheckbox = document.getElementById(concept + "_checkbox")
 
-      if (theClickedCheckbox.checked) {
-        myBlock.classList.remove("hide")
-      } else {
-        myBlock.classList.add("hide")
-      }
+      myCheckbox.addEventListener('click', function(e) {
+        let theClickedCheckbox = e.target
+        let myBlock = document.getElementById(concept)
 
-    })
+        if (theClickedCheckbox.checked) {
+          myBlock.classList.remove("hide")
+        } else {
+          myBlock.classList.add("hide")
+        }
+
+      })
+    }
   }
-}
 
-enableSectionsToExpand()
+  enableSectionsToExpand()
 </script>
 
 <p>

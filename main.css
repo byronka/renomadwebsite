@@ -142,6 +142,11 @@ div.banner h2.titleheader a:visited {
   display: none;
 }
 
+.nesting_1 {
+  position: relative;
+  left: 20px;
+}
+
 @media all and (max-width: 500px) {
 
    body {
