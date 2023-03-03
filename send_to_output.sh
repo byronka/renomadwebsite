@@ -3,7 +3,7 @@
 # Show what's happening as it happens
 set -x
 rm -fr output
-./ssi_expander.py output
+python2 ./ssi_expander.py output
 
 # delete certain files from output directory
 rm output/ssi*
