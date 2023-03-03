@@ -8,6 +8,10 @@ img#pic {
  height: 276px
 }
 
+.tools-and-languages {
+  column-count: 4;
+}
+
 .date {
     text-align: right;
 }
@@ -164,6 +168,11 @@ div.banner h2.titleheader a:visited {
 
   img#pic {
     height: 100px;
+  }
+
+
+  .tools-and-languages {
+    column-count: 2;
   }
 }
 
