@@ -1,0 +1,207 @@
+The Great Gaslighting of the JavaScript Era
+The age of frontend JavaScript frameworks eating the web world didn’t happen simply because some well-meaning developers found great DX. It happened because we were fed a line.
+
+ By Jared White
+
+I’ll cut to the chase.
+
+I’m angry. Pretty damn angry.
+
+Why am I so angry?
+
+Because for every article about modern web development which comes along like this:
+
+The Market for Lemons – Alex Russell
+
+we get an article (or many articles!) like this:
+
+The case for frameworks – Laurie Voss
+
+🤦🏻‍♂️
+
+But let’s be clear. I’m not angry at Laurie Voss personally. (OK, maybe a little. 😏)
+
+I’m mad because I’ve been hearing this line of thinking for years from many different sources, and—just like Alex—I feel in the strongest possible terms that it’s “astonishingly, gobsmackingly effective bullshit.”
+
+The Future is AngularJS. Huh?! 🧐#
+The first time I remember feeling like I must be loosing my grip on reality as a professional web developer was in the mid-2010s. I had been happily delivering valuable software to clients for a number of years using the Ruby on Rails stack. Ruby was cool, browsers and open web standards were finally getting much better, helpful concepts like responsive design and progressive enhancement were en vogue, and developing for the web was really a lot of fun.
+
+And then, seemingly all of a sudden, I started hearing all this noise about AngularJS (the original one, not the total rewrite later). Unlike many view libraries I’d come across prior (Knockout.js being my personal favorite), AngularJS wasn’t being described as something you could sprinkle on a few pages so they might gain some new interactive abilities.
+
+It was a frontend framework. It was the future. You could build entire applications out of AngularJS! In fact, you could turn your server infrastructure into JSON APIs and not even need to server-render HTML anymore! Having a blank white page until JavaScript renders everything wasn’t a bug, it was a feature! (Until it wasn’t, but that was what those “prerender” services were for!)
+
+I kid you not, I was emphatically informed that my skills as a Ruby on Rails web developer were no longer relevant to “modern” developer practice. Join the AngularJS movement or become a dinosaur. I remember having a long conversation with a fellow Rails developer over the hour+ car ride from San Francisco back to my then-home in the North Bay about how I was feeling pretty resistant to the notion I’d have to become an “AngularJS developer” and ditch Rails.
+
+Do you know what I find highly ironic these many years later?
+
+My skills as a Ruby on Rails developer today are by far more valuable than any skills I would have gained pivoting to full-time AngularJS development in ~2014.
+
+(Granted, these days I do a lot more than “just” Rails development, but I consider so much of what I’m able to excel at today to stem directly from my experience working with Ruby. More on my bona fides here…)
+
+The Future Was Not, in Fact, AngularJS 🤣#
+How do you know your ability to write React apps today isn’t as much of an industry dead-end over the long arc of technological web history as was writing AngularJS apps 10 years ago? Seriously, how do you?
+
+I believe with a high degree of certainty that’s entirely possible.
+
+Which is why I’m so perturbed at the line of argumentation which goes something like this (and these are all direct quotes from Laurie Voss’ article):
+
+React saves developer time: It’s uncontroversial to claim that over time, a framework like React is going to save your developers time.
+React has already been used to solve your problem: Network effect is part of why React, regardless of its technical merits, is currently the best choice for a host of basic applications: the React ecosystem will get you 80% of the way there with pre-built solutions and well-documented boilerplate.
+You can hire people who already know React: A React developer is easier to find, a developer who already knows React requires less on-boarding, and a developer using a framework they enjoy (and they know they can use elsewhere) is happier, so React developers are easier to retain.
+Developer time is more valuable than some customers: If the website were designed to run perfectly for every single customer, in every location, on every device, then the developers would spend their entire time in optimization work and never ship anything new.
+The status quo is an equilibrium between developer and customer experience: The observed reality is that modern web development sacrifices the experience of poorer people, and the model we’ve laid out here explains why that is: X > Y, where X is “cost of developer time” and Y is “cost of customers lost”.
+You’re doing just fine: My fellow developers, don’t feel stupid. You have not had the wool pulled over your eyes by a cabal of fast talkers. You’ve been making sensible decisions in the best interests of yourself and your users in the aggregate, and you don’t need to feel like you’re a bad person for using the popular frameworks. They are popular because they are a damn good idea.
+🤦🏻‍♂️
+
+Here’s the deal: I’ve heard all of this before…ALL OF IT.
+
+And you know where I heard it?
+
+The hotshots who were peddling AngularJS 10 years ago! 🤪
+
+Yes, I’m Angry 😡#
+I’m angry because for the past decade of web development, I and so many others like me feel like we’ve been repeatedly gaslit, and that so many of the “merchants of complexity” refuse to acknowledge the harm that’s been done.
+
+The age of frontend JavaScript frameworks eating the web world—SPAs (Single-Page Applications) and all that—didn’t happen simply because some well-meaning developers found great DX and went along with it whole-heartedly (yay for the developers! amirite?).
+
+It happened because we were fed a line.
+
+We were told writing apps with an HTML-first, SSR-first, progressively enhanced mindset, using our preferred language/tech stack of choice, was outdated and bad for users.
+
+That was a lie.
+
+We were told writing apps completely using frontend-y JavaScript would make our lives easier.
+
+That also was a lie.
+
+(Real talk: the only people who enjoy writing frontend-y JavaScript for everything in the tech stack of a web application are frontend JavaScript developers…who are in fact merely one demographic among many across the entire global polyglot web. More on that in a moment!)
+
+👉 Listen, nobody is blaming individual developers or calling them stupid for choosing React. 👈
+
+(And believe me, I say that as someone who—as a freelancer—actually works on a client’s React/TypeScript/Next.js project a decent chunk of the time!)
+
+There’s a larger issue at play here. There’s a certain sort of industry-wide rot at the heart of things.
+
+There has been a small but mighty ecosystem of “influencers” peddling a sort of “pop culture developer abstractions” ethos on the web whether it’s about React, or CSS-in-JS, or Tailwind CSS, or “serverless”, or “microservices”, or (fill in the blank really)—and they’re continuing to gaslight and obfuscate the actual debates that matter.
+
+Hence this isn’t a React-vs-competitors issue or even a frameworks yes/no issue, it’s a how do you trust developer communities which have been overrun by people who are giving you false and misleading information on a regular basis issue. (See this reference post of sorts by Zach Leatherman on just how long valid React criticism has been left by the wayside. Or Tailwind CSS criticism here (by yours truly!), here, here, here, and here, to name but a few.)
+
+“Trust takes years to build, seconds to break, and forever to repair.” –Dhar Mann
+
+Stop with the Revisionist History Already!#
+Again, I hate to pick on any one person, but since this is somewhat of a rebuttal of Voss’ rebuttal, I’m going to have to pick on this comment in particular:
+
+So: there is no secret cabal of charismatic influencers destroying what would be a perfect world without them. We cannot blame anybody for the state of things. We created this world ourselves, collectively.
+
+We? Who’s we?? Here’s a list of several major web development communities who for many years have been trying to fight against the onslaught of frontend-y JavaScript FUD and NPM-based build tools run amuck:
+
+Ruby / Rails
+Python / Django
+Elixir / Phoenix
+PHP / Laravel
+SSGs like Jekyll, Hugo, Eleventy, more recently Astro, etc.
+Listen, we’re not asking you to abandon your favorite frontend library on a whim and become a Rails developer, or a Phoenix developer, or a whatever. We’re simply asking you to acknowledge that for years you’ve completely hogged and dominated the #WebDev conversation, ignored our repeated attempts to point out the potential flaws, foot guns, and fallacies with the JS/SPA approach, and in some cases even ridiculed us for our choice of technology stack/language/etc. When you say “there is no secret cabal of charismatic influencers”, I really have to wonder who you talk to on a regular basis because many of the people I talk to on a regular basis among a wide variety of projects and clients think that’s exactly what’s going on.
+
+We absolutely believe that charismatic influencers on “Tech Twitter” and elsewhere have been trying to make big coin and garner lots of social media attention by getting everyone to think Go React or go home. They’re joined by PMs in a variety of companies and corners jumping onto whatever’s hot and trendy because they think it makes them look cool or they can hit some sort of hiring quota fast. Also worth nothing: the VCs who pivoted away from so many consumer-focused apps that failed and into developer tooling because there’s real $$$ to be made here, peddling solutions based on “managing complexity” because for some reason modern web apps all have to be insanely complicated—when, in fact, they do not! 😅
+
+So I completely disagree that “we created this world ourselves, collectively.”. No, YOU—the JS-framework-stans—intentionally created a world that excluded those of us who looked askance at a JS-frontend-first world for, well, forever—and now act like it’s all just natural evolution after the fact.
+
+Like hell it is!
+
+The Web Was, Is, and Always Shall Be Polyglot#
+Let’s get back to basics for a moment.
+
+The web is polyglot. That means the languages and tools you need to know to start building a website can be any language, on any type of server, running any type of operating system, via any sort of hardware, in any corner of the globe. Because the web is built fundamentally atop protocols and standards.
+
+Yes, you need to know HTML to get started. But that HTML can be generated by anything, and it can be served up by anything as long as that anything can talk HTTP.
+
+To present that HTML with visual flair, you need to know CSS. But that CSS is highly flexible in terms of how you architect it, write it, and serve it. In the end, your HTML and CSS can literally just be some text files in some folders somewhere—or get dynamically rendered out of whatever fullstack framework you can imagine.
+
+Notice I haven’t even mentioned JavaScript yet. That’s because…get this…to get started building a website…you don’t need to know anything about JavaScript! 😱
+
+JavaScript is not required to build a simple web site. JavaScript is an “add-on” technology if you will, the third pillar of the web frontend alongside HTML and CSS. HTML, CSS, and (eventually) JavaScript. Not JavaScript, JavaScript, and JavaScript.
+
+You can be a web developer and principally know only PHP/Ruby/Java/C#/Python/Go/Rust/pick whatever you like—plus HTML & CSS—and get pretty damn far!
+
+And heck, if you want to use JavaScript as the server language too, that’s great! Fine! Wonderful!
+
+But requiring JavaScript as the only server language because you’ve built up a monster of a framework/build system/hosting infra/module ecosystem that’s JavaScript + JavaScript + JavaScript + JavaScript (and apparently now TypeScript + TypeScript + TypeScript + TypeScript) is not only a huge burden to place on the world-wide web developer industry, it’s highly exclusionary!
+
+You’re essentially saying every programmer who doesn’t know, or doesn’t want to know, much about JavaScript is excluded from modern web development!
+
+That’s outrageous and absurd! And not only that, it’s against the spirit of the web as an open technology platform. Web browsers themselves aren’t making that happen. HTTP isn’t making that happen. Servers aren’t making that happen.
+
+You are!
+
+The Burden of Proof is On You, Frontend Framework Stans, Not the Vanilla Web! 😃👋#
+Rather than the burden of proof having to fall on the proponents of an HTML-first, polyglot server, minimalist “vanilla” frontend, indie-friendly web development practice to justify why their approach should be considered the industry default and recommended best practices for most websites & apps of moderate size (which is most projects, period)—the burden of proof should fall on the frontend-frameworks-first community to justify their pet architecture!
+
+And frankly we just don’t trust you anymore! 🤨
+
+We’re sick of your decade-long campaign of gaslighting.
+
+Every time I see a JS-framework-stan in 2023 start to murmur something about “you should use SSR now for better performance”, I roll my eyes so hard because that’s literally what we were saying in 2014! 🙄
+
+Every time I see a JS-framework-stan in 2023 start to murmur something about “islands” to separate out libraries and code bundles on different pages, I roll my eyes so hard because trying to avoid loading and executing gigantic JavaScript bundles before anything on the page works (or maybe even displays at all) was literally what we were concerned about in 2014! 🙄
+
+Every time I see a JS-framework-stan in 2023 start to murmur something about “convention over configuration” and “fast load times” and “direct server access to a database” and all that groovy DX stuff, I roll my eyes so hard because we already had those features in non-JavaScript fullstack frameworks in 2014! 🙄
+
+I talk to a lot of folks in the Ruby community, and increasingly folks in the frontend world who wisely try to work with mostly-vanilla tech (plenty of web components-related work these days), and we’re all constantly just shaking our heads in dismay at how much reinventing-the-wheel has been going on for years now. “JavaScript fatigue” isn’t just a catchy meme among a small group of nerds. It’s a real, real problem!
+
+And so to hear things like (again, I hate to pick on Voss here, but, y’know!):
+
+There are tens of millions of software developers out there, all working relatively independently and in their own best interests with different priorities and resources and trade-offs. The result is the world we see, and despite it being not the best possible world depending on your own priorities, the equilibrium exists for completely rational reasons.
+
+Sorry, but I think this is sheer nonsense. I don’t believe this world exists at all. I think instead the world works like this:
+
+A shockingly self-contained group of JS-framework-stans (React in particular) think “everyone” is using React, and most of those people like it, so what’s the problem anyhow?!
+A surprisingly large group of people working in a wide variety of other stacks, languages, and application types think the “React et al.-is-eating-the-world” movement is nuts and generally bad for the web. I’ve talked to multiple junior developers who literally felt like morons when trying to learn React, finding it baffling and pointless compared to other closer-to-the-metal forms of web development, and on top of feeling like morons they felt judged by some of their peers for not “getting it”. And that goes for frontend development in general…a lot of “backend” developers hate frontend development, but when I scratch the surface, I find out they don’t necessarily hate frontend development per se, they hate all the ridiculous complexity. Complexity which by and large is unnecessary and only exists because…welp, you guessed it…JS-framework-stans make it so!
+And here’s the ultimate kicker from Voss:
+
+I’m absolutely not going to claim that JavaScript-heavy single-page apps are good for performance because they’re not. They are slow to load, slow to render, hog resources and are frequently more fragile than vanilla HTML and CSS would be. Developers of JS frameworks are, I think, pretty open about these limitations, which is part of why server-side rendering is such an important feature in modern frameworks. Most React proponents will tell you that not every website needs to be a React app. I also think developers aren’t stupid, so they know that they are making these trade-offs when they pick React.
+
+What??!!
+
+I don’t think most React developers are making any trade-offs. I don’t think most React developers have evaluated shit! 😂
+
+They use React because they’ve been told they need to use React, and so they use React.
+
+Seriously, the idea that all of these individual developers out there have spent hours, days, weeks, perhaps even months evaluating a wide variety of frontend frameworks along with other approaches to building web applications (perhaps a Ruby on Rails stack, or Elixir Phoenix, or…) and then have rationally come to the conclusion that for all of their various needs and use cases and personal preferences and whatnot, React is the absolute best tool for the job…
+
+…seems so ludicrous to me that I sincerely have a hard time believing anyone can make that claim with a straight face!
+
+Again, I see the world very, very differently. I see the world of web development as absolutely riddled with poor-quality content, much of which is demonstrably false, alongside an entire ecosystem of influencers, educators, and corporate cogs invested in shoehorning everyone into a particular sort of technology they either know is hugely problematic, or don’t—but the end result is the same anyway.
+
+No, I don’t believe for a moment that a lot of the teams using React are using React because they’ve consciously picked it over all other possible tools for a wide variety of technical reasons they can articulate well and back up with extensive research and testing and facts.
+
+It’s a popularity contest. Plain and simple.
+
+And that popularity contest can change on a dime.
+
+10 years ago, it was AngularJS.
+
+Today, it’s React.
+
+Tomorrow, it will be something else because that’s inevitable.
+
+The problem isn’t actually React.
+
+The problem isn’t Laurie Voss.
+
+The problem is an industry rife with faulty thinking that assumes (a) popular technology is popular because it’s good, and (b) the web platform itself is somehow severely lacking even in 2023, so heavily abstracted frontend frameworks remain a necessity for programmer happiness.
+
+Both assumptions are not only wrong, they’re dangerous. They’re dangerous because they’re leading thousands upon thousands of newer/younger developers down the wrong path. Rather than learning fundamentals which will last for decades to come: networking, HTTP, polyglot web servers, HTML (including custom elements), CSS (including custom properties), and—lastly—JavaScript, they’re learning React/TypeScript lol. 🫠
+
+And the users of these flaky SPAs and monstrous build tools and questionable hosting services (because basic old-school web servers can’t serve up any of this “modern” byzantine architecture) are much worse off because of it.
+
+But the unkindest cut of all?
+
+In the year 2033, I am 100% convinced my skills as a Ruby web developer will be by far more valuable than any skills gained learning React…
+
+…and rather than fill me with a nasty sort of gloating…
+
+…it fills me with dread. 😩
+
+Because maybe I’ll still be fine and alive and kicking by then—but all those bright-eyed eager newcomers getting churned out of code schools knowing only React?
+
+Those jobs will be gone. 😕
