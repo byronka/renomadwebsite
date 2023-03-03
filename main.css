@@ -182,6 +182,10 @@ div.banner h2.titleheader a:visited {
     display: none;
    }
 
+   p, .company {
+     break-inside: avoid-page; 
+   }
+
    body {
      margin: 0;
      font-family: "serif";
