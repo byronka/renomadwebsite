@@ -219,4 +219,9 @@ div.banner h2.titleheader a:visited {
     .content-body {
         line-height: initial;
     }
+
+    .content {
+        margin: 0;
+        border: none;
+    }
  }
