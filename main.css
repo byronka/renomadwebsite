@@ -189,7 +189,7 @@ div.banner h2.titleheader a:visited {
    body {
      margin: 0;
      font-family: "serif";
-     font-size: normal;
+     font-size: smaller;
      background-color: initial;
    }
 
