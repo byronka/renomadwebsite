@@ -151,7 +151,7 @@ div.banner h2.titleheader a:visited {
   left: 20px;
 }
 
-@media all and (max-width: 500px) {
+@media screen and (max-width: 500px) {
 
    body {
      margin: 0;
