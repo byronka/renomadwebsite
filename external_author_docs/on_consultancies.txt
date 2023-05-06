@@ -1,0 +1,92 @@
+..
+2023-04-11
+
+On Consultancies
+Introduction
+What to look for in a consultancy
+Life at a consultancy
+On the bench
+The problems you’ll face (that you might not care about… but you should)
+Career progression
+TL; DR
+Introduction
+There are millions of consultancies out there and more are popping left and right by the minute. Some are outsource shops or a couple of dev friends teaming up in trying to create a business, others are big multinational corporations that bid on big government or enterprise contracts. There’s a consultancy for virtually every business domain you can think of and everything in-between. They like to advertise themselves as providing digital transformation, being cloud native, engineering intuition (facepalm) and a litany of other meaningless slogans.
+
+Make no mistake, the majority of software consultancies are just sub-contracting (software) developers to the client and are skimming a pretty nice margin from the day-rate they bill you at. That’s it.
+
+What to look for in a consultancy
+Not all consultancies are created equal. Some are much better than others. Unless you’re in a sweatshop type of a consultancy (why? try to get out ASAP) you’ll most likely have nice perks as a consultant. Just like everything, pay and perks vary a lot between different shops.
+
+All good consultancies have profit sharing schemes!
+
+There are three major rules of thumb and questions you can use when looking at a consultancy and whether you’d like to go work there.
+
+The size. The smaller it is, the better. You should look at SME size or smaller. For example, in the UK that means less than 250 employees. If the market in your specific country is smaller adjust the numbers. They should be going down. Bigger consultancies are most likely going to be sweatshops.
+The clients. Consultancies live and die by their clients. The quality varies greatly. You could have the best or worst project of your life depending on the client. You should ask what will be your first potential project and client before even joining. You need to execise some due dilligence!
+Do you have access to at least a part of the financials of the company (the part that pertains to your consulting)? If yes, then that’s (usually) a good sign.
+Do you know the day-rate at which you’re being billed to the client?
+Is there profit sharing/bonus scheme involved? Is it yearly? Is it per completed project?
+Other perks that normal companies might not offer like tickets to sports events, concerts etc.
+Of course, you could inquire around other normal company things like pension, vacation days, remote working, 4 day work week, sabbatical etc.
+If most of the above is a No, I personally would pass. You’re most likely going to be getting a bad deal. Better to have a single employer and salary than to be on the whim of random clients while your consulting top brass gets the fat margin from your work.
+Depending on the projects you’re working on, there’s a real danger that you might end up as the proverbial developer that has 1 year of experience repeated 10 times, rather than having 10 years of experience. This should be an important point in your discussion with a potential consultancy.1
+
+Life at a consultancy
+Having exposure to dealing with clients, different tech stacks and everchanging requirements (even moreso than normal development) will be a daily concern of yours. There will be interesting projects that you truly believe in, there will be absolutely horrid ones. If the organisation allows you to switch between them when you’ve had enough from a client, that’s a good place to be in. The last part is not something that’s always possible, but you should know that these things can be negotiated!
+
+I’ve seen a client project that was handled by multiple consultancies in the past and each part of the system used a different tech stack. Every consultancy that had worked before on that project had left its mark. Such things are not uncommon in that world, and even though they provide good learning opportunities, they are very frustrating to deal with and they get old quick.
+
+On that note, you’ll probably work together with a client team. You’ll be thought of as being a part of their org, but you won’t be. That comes with a degree of challenges ranging from communication to decision making. Again, I have to underline the importance of the client. Some will be pleasant to work with, others… not so much.
+
+A very important point around a mistake I made earlier in my career that you should be aware of is this:
+
+In the vast majority of cases clients don’t hire consultancies to fix their own internal organisational problems.
+
+So, don’t even try. It’s a waste of your time. Better focus on trying to deliver a good solution for the problem at hand (more on that below).
+
+Clients hire consultancies when they don’t have the internal capacity to do something themselves and that can be for various reasons like:
+
+Lack of employees or specific people that left the organisation, but turns out were important.
+New architect at the client company wants to redesign everything yesterday and the organisation doesn’t have capacity right now (but it might have it in a couple of months).
+Financial reasons. It’s cheaper to hire outside help for a solution than doing it themselves internally.
+Regulatory
+The list above is not exhaustive. It doesn’t really matter. As a consultant you’ll always be considered an outside entity to the client and your suggestions (when it comes to actual business processes) will be ignored. Even if the client hired you for a very specific task - you will be ignored! It’s part of the game. Of course, you will try to guide the client to the best of your ability, but again… Your advice will most likely be ignored. Unless there’s a strong regulatory reason not to, but even then I’ve seen critical pieces being left in an unsatisfactory (to my standards at least) state.
+
+You’ve been hired to do what you’re told, not to consult. It might seem counter-productive and counter-intuitive, but that’s how it is for the vast majority of projects you’ll be doing.
+
+On the bench
+One aspect of working at a consultancy is the concept of being on the bench, which translates to you not being currently assigned to a project. It might range from a few days, to a month (or more!). Signing the contract with a client takes time, and sometimes it takes even longer than that. You’ll most likely be put on a certification/learning path or will have to do pre-sales investigations for potential clients. Some people find that part of the job enjoyable. Some don’t. It’s a nice opportunity to learn new things that you’re interested in. In my experience it sounds good on paper, but it has the tendency to make people anxious the longer you stay there. Also, being on the bench for longer might not be a good indicator, especially if you’re looking for a promotion. So beware and use that time wisely!
+
+The problems you’ll face (that you might not care about… but you should)
+If you’re a developer that wants to do the right thing, the biggest problem which you’ll face at a consultancy is that no matter what you do, the decisions being made for the project (generally) target only the point at which the client takes ownership of the solution. In fact, a lot of consultancies don’t actually see their solution being shipped to the actual users.
+
+They develop the solution for an X amount of time (which is the duration of the contract), then they offload it to the client and whatever the client does with it is not a concern of the consultancy. As far as the consultancy goes, it has done what the client wants. That’s how you end up in scenarios like the one I described above - multiple tech stacks on top of each other and nobody really understands what’s going on. The client doesn’t know and you don’t know too.
+
+It’s a constant churn and hunting for new clients and projects.
+
+For you as a developer that wants to grow, this can be bad, because it can make you very short-sighted!
+
+And to me this is a big one. You won’t see the effects of the technical and design decisions that you and your team have made in the long run. If a project takes a year to develop and release, you’ll need another year to live with it and support it in order to actually understand how the system is used. If it took longer, it’ll take you longer still.
+
+If you’re the type of developer that likes to start greenfield projects all the time while never actually seeing them go the full distance (with all that this entails), then you might feel great in such an environment. However, I’d be remiss if I didn’t say that doing this is a career killer in my book. Unless you plan to move between consultancies forever, you might want to reconsider.
+
+Most of software work outside of consulting is supporting existing systems, not greenfield projects. Your current project might be an established project that you need to extend and you might like working on it, but don’t forget that as soon as the contract with the client finishes - it’s gone.
+
+In my view that is the biggest problem of working at a consultancy, the majority of projects will be short enough (~1 year), so that you’ll never experience the effects I outlined above. This can skew your view on development in more bad ways than one. Proceed with caution!
+
+Career progression
+Career progression inside a consultancy as a developer is a weird thing. Given what I’ve outlined above, it doesn’t really matter whether you’re a developer, senior developer or a principal architect on such projects. The titles are mostly pay brackets and the further up you go, the more exposure and interfacing with the client you’ll get.
+
+You should know that principals constantly get overruled by the client, where in fact the principals might be the ones that understand the business case and needs better than the client (via pre-sales and investigation work they have done etc.). It happens all the time. This can go down to the developer level as well. It just doesn’t matter in the timeframe in which you’ll be on this project. After everything that has been said so far, this shouldn’t come to you as a surprise.
+
+What should matter to you is, if you’re happy with what you’re doing for the time being (current project) and whether you’re getting paid what you want alongside the perks.
+
+Project satisfaction will vary greatly and being stuck forever on relatively short projects is not a good career move.
+
+TL; DR
+Working at a (good) consultancy for 2-3 years could be a beneficial thing for your career and you’ll gain valuable lessons. Take whatever you can as knowledge from the client projects and your colleagues, then get out. Good consultancies are:
+
+small (less than ~250 people)
+will have open financials to consultants and/or good profit sharing schemes and/or unique perks
+reasonable clients (if that mythical beast exists…) and/or at least reasonable projects (I have seen the White Whale!)
+Just so I’m clear on this, working as a support engineer on a legacy project for anything over 2 years is not a good thing for your career either! If you’re stuck on a legacy project just supporting, without the ability to change anything (or a vertical slice of it for a refresh) because of protocol or other reasons that you might not find satisfactory, then that’s not a good outlook for you. There are critical legacy systems that shouldn’t change, but there’s also a lot of legacy software that can be refreshed relatively painlessly. Use your best judgment, but don’t try to change things for change’s sake. You need to have strong arguments with clear pros/cons around your proposal. ↩︎
