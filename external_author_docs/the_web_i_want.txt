@@ -1,0 +1,100 @@
+CHRIS JAMES' BLOG
+homeaboutarchive
+The Web I Want
+20 August 2018
+I originally posted this at Dev.to, where you can see some comments
+
+This post will very much sound like I want you all to get off my lawn - because I do.
+
+How has the web become like this?
+From this very website
+
+The other day my partner was browsing the web on her two-year-old Chromebook, it struggled to run a number of sites as they loaded ads, gifs, videos and tons of JavaScript to do absolutely nothing of value.
+
+Every day I am frustrated at my phone as it chugs along trying to display a blog post. The post is there behind a sea of JavaScript and autoplaying videos.
+
+This all sounds a bit first world problems, but it's far, far worse for those in developing nations. Do you know how bad satellite Internet is compared to what most of us have here in the west? It is awful.
+
+Graph of mobile connection speeds
+
+The World Wide Web is supposed to be a leveler, something that brings knowledge everywhere and yet developers every day are making it harder for those who need the Internet to work well the most.
+
+Let's take a look at how things have "progressed" with the Internet.
+
+20ish years ago
+I knew nothing about programming or the web, but using HTML that was returned in response to HTTP requests, I managed to build a website.
+
+It delivered as much content as most websites today. It was more accessible, ran faster and easier to develop then 90% of the stuff you'll read on websites teaching about web development. It did not need a build tool, transpilation, a framework or any of the other nonsense that is now required to build a website.
+
+10-15 years ago
+People were fed up with nested tables and spacer images. The web was losing its roots of being a content delivery platform.
+
+I was working on websites like the above in my placement year on my degree. I started reading articles on A list Apart about how we should be pushing for semantic markup, where HTML simply describes a document of content, and then it is styled using this thing called CSS.
+
+Eventually I ran into CSS Zen Garden which is a website that showcases what you could do with CSS.
+
+The idea is the markup is the same and the website has submissions from developers showing different designs purely using CSS.
+
+The HTML remains the same, the only thing that has changed is the external CSS file. Yes, really.
+
+This website had a profound impact on my attitude to web development. It clicked. HTML for content, CSS for style. No JavaScript required, no tables needed for layout, no spacer images.
+
+Just pure HTML decorated with CSS.
+
+It felt exciting to be part of a community that took real pride in delivering beautiful looking content in the leanest, simplest and most accessible way possible.
+
+Not only did this make websites more accessible and fast to run but in some ways made them easier to develop. Suddenly generating the markup from the server wasn't horrible, because you didn't worry about style, just the content and the hypermedia controls.
+
+Still things were quite difficult. CSS support wasn't amazing, and we still didn't have a lot of semantic elements with HTML4 so there were a lot of divs. Firebug had just come out which was a huge boost, but it was still hard to make a consistent experience.
+
+I seem to recall Gmail coming out around this time, and it was amazing. Suddenly the web could be actual applications. This was interesting and groundbreaking, but had a real negative impact too. Soon enough people thought that the promotional website for their local pub had to have as much JavaScript as Gmail.
+
+5 years-ish till present
+I now browse the Internet with a few tabs open and I have somehow downloaded many megabytes of data, my laptop is on fire and yet in terms of actual content delivery nothing has really changed.
+
+Here is a not exaggerated summary of today's attitudes
+
+Scores of people who just want to deliver their content and have it look somewhat nice are convinced you need every web technology under the sun to deliver text and some pictures.
+
+You're not a frontend developer unless you know Vue/React/whatever. You're mocked if you dare to just write the bare minimum JavaScript you need for your website
+
+The page refreshing is seen as a massive problem for users, and it must be avoided at all costs.
+
+For some reason people are building tons of SPAs (single page web apps). The reasons stated are for speed and ease of developer use. (I don't buy sending tons of JavaScript to a browser will ever be as fast as just some damn HTML. Also, it's not as easy as putting some HTML files on the Internets)
+
+You see these laughable posts where developers jump through dozens of hoops to make their website "fast and performant". They struggle because of the underlying technical choices, and then I'm still downloading half a megabyte of data to read 500 words. It's embarrassing.
+
+There are a few things I want you to take away from this post
+Most websites are about delivering and exploring content. HTML is amazing for this, and you don't need JavaScript.
+In fact JavaScript is actively harmful. It is poison for low power devices, horrible for people on low bandwidth and requires extra effort to keep it accessible and fast.
+So much effort poured into all this JavaScript. You seem to have to learn so much, new frameworks, new build tools, new ways of testing; and most of the time it is making the experience worse for your users. The churn is unreal too, every year it feels like there is a new framework or tool that is going to change everything.
+In practice your website would do everything it needed to with some HTML files linking to some CSS.
+So what is The Web I want?
+Semantic, accessible, HTML. This means it works for everyone, is fast to download and is less effort than writing React components.
+CSS to make it look pretty. Don't use JavaScript for visual effects.
+Small images, when needed. Enough of these hilarious 4mb GIFs.
+Most websites should be ready to read after a 10kb download.
+If I cant use your website without JavaScript being turned on then you don't know what you're doing.
+So no JavaScript, really?
+JavaScript of course still has its place and when used tastefully can improve the usability of a website. However, think carefully about the libraries and frameworks you pull in. Maybe you can accomplish what you need without bringing in JQuery, modern browsers have excellent APIs built in these days. Aim for progressive enhancement with JS. Your website should still work without JS turned on.
+
+Regarding single page apps (SPAs), I genuinely believe too many people are making them. GMail is a web application and as such deserves a framework. Your blog platform? Not so much. Remember these frameworks not only put a lot of strain on user's experience, but it's also just a lot to learn and maintain. Maybe your time could be served better.
+
+But my product owner says we need all these bells and whistles!
+As a professional, it is up to you to take a stand. You are the expert, not the customer.
+
+You should be informing them how Amazon learned that every 100ms in page load cost them a 1% of sales.
+You should be informing them that making a carousel of their product catalogue is slow and annoying and expensive to make compared to just listing them in a <ul>.
+You should let them know that if they really want their groundbreaking poetry to reach around the world that they better make sure their website works on old hardware with slow Internet connections.
+If I told the builder of my home to make it out of straw, I would hope she would convince me otherwise.
+
+Of course, circumstances are tricky and sometimes people will ignore you but when you look at the state of some popular websites today you can only conclude that people either don't know what they're doing or are just not pushing back on bad requirements enough.
+
+Wrapping up
+Take a look at the performance tab in developer tools for your website. Does it make you proud? If not, take some pride and start cutting away the cruft you thought you needed.
+
+Let's take pride in making lean, accessible, simpler to execute websites by using simple technologies that work everywhere. There are moral and technical arguments for taking this approach.
+
+Remember that the goal of most websites is delivering useful textual content, and all you really need for that is HTML.
+
+Then we might not have to buy new laptops every 2 years and people less fortunate than you have a chance of actually using the web; the way it was intended.

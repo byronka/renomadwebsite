@@ -1,0 +1,112 @@
+The Industrial Hammer Complex
+EisenbergEffect
+
+I’ve been programming for 35 years with 20 of those years as a professional in the field. I’m happy to say that I still love it just as much as when I typed those first programs into my C64 as a kid. However, what I don’t like and what has grieved me over the years is the brokenness of the software engineering profession and the industry at large.
+
+I prefer to keep my blog positive, but over the last 10 years in particular, I’ve seen a very specific set of issues consistently ruin products and sometimes permanently damage companies. I’d like to use this article to discuss one such issue, along with several current manifestations of the problem.
+
+Hammers
+Perhaps you’ve heard it said:
+
+If your only tool is a hammer, then every problem looks like a nail.
+
+I wish I could say this was merely the problem our industry has, but it’s far worse than this. What we actually have is an industrial complex bent on manufacturing only hammers, committed to convincing you that only nails exist, and motivated to sell you a lifetime hammer subscription!
+
+Do not fall for it. Beware the charming, fast-tweeting grifters, people who claim that you can use X architecture, X framework, or X service to solve all your problems. It has never been true.
+
+This Present Time
+The “I want to sell you a hammer” so “you need to believe everything is a nail” shtick has been around as long as I can remember. The specific magic bullet technologies change every few years, but the problem is the same. That said, it’s good to take a look at a few contemporary examples.
+
+Microservices
+For the last several years, there’s been a huge push to move everything to Microservices. I have heard some say that not building Microservices is tantamount to professional incompetence. Forget about what you are building, just be sure to build whatever it is as a Microservice. That’s how professionals get the job done.
+
+Uh…no.
+
+ASIDE: When I use the term “Microservice” I’m invoking the popular recommendations made by today’s “influencers”. They are a stark contrast to the folks who actually know how to build service-oriented architectures the responsible way and not plumet into the popularly promoted pit of complexity. The latter have been building services long before “Microservice” was a term. They aren’t the ones adamantly pushing Microservices for everything nor are they trying to sell you the complexity. These are completely different sets of people.
+
+We all need to think carefully about the problem we’re trying to solve and determine what architecture best suits the specifics. Sometimes Microservices will be the right answer. Sometimes they won’t.
+
+A good old monolith will do the trick for many scenarios. As it grows, you can transform it into a modular monolith. As the needs change, you can peel off pieces and extract them into independent services. Build your software in a malleable way and evolve it as you learn and as the business changes. Don’t jump to the most complicated, most expensive, most risky architecture right from the start just because it’s new, hyped, and talked about constantly on blogs or twitter. Remember, just because an architecture is old, doesn’t mean it’s not the right choice.
+
+TIP: Get to know some history. Hang out in communities that are different than those you predominantly work in. Find the practitioners who have been around for a while and spend time listening to them.
+
+But what is driving this? Why so much hype around Microservices? Why do so many on social media universally push this for every situation?
+
+There are many reasons, but one thing is for sure: complexity makes a ton of money. Not for you, of course. Don’t be silly. It makes money for the cloud vendors, the evangelists, the influencers, and the whole industry that has spun up around these things.
+
+Microservices are an infrastructure cash cow. Forget about how they may be the wrong technical choice. Just buy more infrastructure. And while you’re at it, don’t forget to buy infrastructure for your infrastructure. You’re also going need infrastructure to manage your spending on your infrastructure, because now that you have so much infrastructure, you need more tools to help you know what infrastructure you’re buying.
+
+No wonder Microservices are so popular. It’s a never-ending opportunity for vendors to lock you in and suck you dry, complete with hidden fees and all the rest.
+
+Cloud
+Let’s zoom out further than Microservices though. Because so much of this relates to “the cloud.”
+
+Here’s a crazy idea: You may not need THE CLOUD.
+
+Shocking as it may sound, there are other options. We used them for most of the history of the internet. You can rent servers, lease data-center space, host services on premises, or even build your own data centers. This last option may seem wild, but at a certain scale, it makes sense and is cheaper.
+
+The point is the same as with Microservices. We need to understand what problem we’re trying to solve and design a solution with the most appropriate architecture and infrastructure choices. We shouldn’t just automatically jump to the cloud, or anything else for that matter.
+
+Remember, the cloud is a projected trillion-dollar industry. Everyone is out there trying to secure their spot as one of the top providers or be associated with one. Don’t get caught in the crossfire of cloud salespeople trying to sell their way to the top.
+
+Please listen carefully to what I’m about to say here. Cloud vendors, especially the large ones, are most interested in selling you as much of their infrastructure as possible. Don’t assume that they are proposing what’s necessarily best for you. Their goal is to maximize sales. At some of these cloud providers, support people are actively disincentivized from helping you find the best solution, because that may mean you’ll spend less on their cloud.
+
+Thankfully, more and more people are waking up to this.
+
+SPAs
+Let’s pivot and talk about something other than backend for a bit. What about the world of frontend web development? Sadly, it’s just as broken as the server space.
+
+About ten years ago a message started to appear that “everything should be a SPA”. Then a few years later it swung back to “everything should be an MPA”. Just the other week I heard a prominent social media influencer re-assert “everything should be a SPA” again. You may have also heard “everything should be client-side rendered” or “everything should be server-side rendered.” Progressive enhancement used to be a standard approach. Then React came along and didn’t support that approach. So, folks stopped talking about that and focused entirely on JS-centric client solutions. A few years later and now folks are talking about progressive enhancement again, under the new name of “islands”.
+
+What is going on here?
+
+It turns out, it’s the same old thing. Vendors peddling their wares. When Facebook introduced React, that act transformed the font-end space into a hype-driven, cult-of-personality disaster zone where folks could profit from creating the right image and narrative. I observed that it particularly preyed on the massive influx of young web developers. Facebook had finally found the silver bullet of Web Development, or so they claimed! Just adopt our tech, no questions asked, and you too can be a rock star making six figures! We’ve been living through this mess for ten years now.
+
+ASIDE: You may wonder what Facebook had to really gain from this. I was deeply connected into the valley culture, watching what was happening from the Google side when it all started. It wasn’t money Facebook was looking for, it was talent and mindshare (i.e., power and control). The introduction of React turned out to be a powerful weapon in an all-out talent war between Google and Facebook. I’m not saying this was the original intent or even that the React team realized this. But the clear strategic reason for FB leadership continuing to fund and promote React was to gain developer mindshare and enable Facebook to pull talent away from Google and any other competitor. I kid you not, I could see the fear in Googler eyes. This was a classic play right out of the big tech engineering brand manual, and perfectly timed. How many people and businesses have been caught up in this now?
+
+So, what is the right way to build your web frontend? Like with everything else I’ve been talking about here, you have to use your judgement and try to find the best solution for the problem you are trying to solve. Sometimes that may be a SPA. Sometimes it may be an MPA. Often, it’s a hybrid solution or some combination of server and client rendering. There are many different combinations, each with their own strengths and weaknesses.
+
+Focus on understanding the real problem and know what success would look like before jumping to solutions and technologies. This will help guard you from the marketing and the hype. Once you have a clear picture of success, then you can more safely engage with the marketplace.
+
+AI
+Here’s one we just can’t avoid hearing about day in and day out. Honestly, I wish I could get a bit of rest from this topic. Because I’m already exhausted just thinking about it, I’m going to keep it short.
+
+AI, like everything else I’ve been talking about, is not going to solve all your problems. Anyone who is telling you otherwise is quite literally selling you something. Of course, the pitch for AI is strong now. Investors have been pouring hundreds of millions of dollars into it for years, the tech is now ok and at least looks convincing (don’t look too closely), and the economic situation is just right. Investors are ready for their return. Besides, they have to do something to recoup from the failure of the metaverse, don’t they?
+
+I will say this though. If your approach to software architecture is to always use the same architecture and the same technology and the same exact patterns for everything, regardless of what you are building, just like I’ve been describing. Well, I hate to break it to you, but that’s the exact kind of thing that AI can and will replace. It’s time to up your game.
+
+So Much More
+I’m only scratching the surface in this blog. Perhaps you’ve heard some of these zingers during your career:
+
+You should always use an SQL database!
+Document databases are the best solution for applications!
+All services should be RESTful!
+GraphQL should be your default service backend!
+Never bet against React!
+Oh, that last one.
+
+That’s in a category all its own. There are some very special phrases I’ve heard over the years, which we should all watch out for. “Never bet against X” is a great one, but not to be surpassed by…
+
+No one ever got fired for choosing X.
+
+Here’s a quick news bulletin for you. People frequently get fired for bad technical decision-making. I have seen VPs and CTOs, as well as lower-level tech leads, get pushed out because of systemic technical failure resulting from choosing popular technologies which weren’t the right fit for what they were building. Fill in X with whatever you want. People have been fired for choosing it. And what’s worse, products have been ruined, causing damage to companies, leading to the loss of jobs for whole teams of people. This happens plenty because somebody picked a technology using the “nobody ever got fired for” method of technical decision-making, and it backfired. Eventually, reality comes knocking.
+
+Bottom line: this is not how professionals make decisions. Many established industry vendors bank on you thinking this way though. It’s part of their marketing strategy.
+
+Don’t fall into the fear trap. Work out a philosophy and approach to technical decision-making that helps you objectively weigh options and that forces you to challenge your own bias and assumptions. Realize that as a decision-maker you are probably going to feel some anxiety or uncertainty. That is a normal part of stepping into a leadership position. Embrace it, be courageous, do your due diligence, and move forward. Measure the system and revisit decisions so you stay directed toward the outcomes you want. You aren’t going to get everything right all the time but if you outsource all your technical decisions to vendors or influencers, you are not only going to make poor choices, but you aren’t going to grow as an engineer or leader either.
+
+So, what do we do?
+We’re not going to fix this overnight, probably not ever. That’s not a cause to be disheartened though. Each person who is positioned to influence technical decisions (everyone) can and should adopt a growth posture. Each person has a tremendous opportunity to make a real difference for the people around them, their company, and its customers.
+
+The process begins by slowing down. Give yourself space to think, to explore the problem, and especially to ask probing questions. Be careful with your assumptions and avoid jumping to solutions as long as you can hold out.
+
+Remember that you are a problem solver before you are a technologist. As you explore, you may discover that the real problem doesn’t require a technology solution at all. In fact, it might be entirely soft-skills dependent. Here are a few examples of things that might be a solution, and that don’t involve code:
+
+Improvements to processes.
+Organizational change.
+Establishing protocols.
+Better communication.
+Documentation, guidance, training.
+In fact, I remember one time in particular when I was consulting with Microsoft. This was back in the mid to late 2000s. The Patterns and Practices team (P&P) was looking at a next generation implementation of what Microsoft used to call CAB (the Composite Application Block). There were a lot of representatives from big companies in the meetings. As I listened closely, I realized that most of the customers didn’t need a technology solution at all. They needed guidance on how to run their engineering organizations better, and how to better communicate across teams. They were pushing for technology as a solution to their symptoms but were missing the real underlying problem. Unfortunately, the P&P team at the time didn’t realize this. The result was that they ended up building a framework. That framework was a burden on their team for years afterward. Eventually, former leads admitted it was a mistake to build a framework to begin with. Instead, they should have produced guidance.
+
+Sometimes, you have to change the way you look at the situation to break out of your long-standing patterns and habits. Push back against your initial inclinations, the hype, the marketing, and your desire to jump to a familiar solution. This opens up the possibility of getting to the heart of the problem, which is what brings fulfillment and in the end is what you have been hired to do.
