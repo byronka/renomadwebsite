@@ -1,0 +1,33 @@
+<!--#include virtual="header.html" -->
+<div class="entry">
+	<p class="content-header">
+		An awesome .gitconfig
+	<p>
+  <div class="date">May 25, 2023</div>
+  <pre><code>
+  [user]
+  email = MY_EMAIL_HERE
+  name = FIRST LAST
+  signingkey = A_SIGNING_KEY_GOES_HERE
+
+  [commit]
+  gpgsign = true
+
+  [diff]
+  tool = vimdiff
+
+  [merge]
+  tool = vimdiff
+  conflictstyle = diff3
+
+  [alias]
+  forward = !sh -c \"git switch --detach $(git rev-list --first-parent --topo-order HEAD.."$1" | tail -1)\"  
+  </code></pre>
+  <p class="content-body">
+  The alias will let me write “git forward master” and we’ll travel down the DAG toward master, always choosing the first-parent when encountering branches.
+  </p>
+</div>
+
+<p class="content-body">
+
+<!--#include virtual="footer.html" -->
