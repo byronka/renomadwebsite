@@ -1,0 +1,135 @@
+from: https://hackaday.com/2019/03/05/good-code-documents-itself-and-other-hilarious-jokes-you-shouldnt-tell-yourself/ 
+HACKADAY
+
+“GOOD CODE DOCUMENTS ITSELF” AND OTHER HILARIOUS JOKES YOU SHOULDN’T TELL YOURSELF
+ 159 Comments
+by: Sven Gregori
+March 5, 2019    
+
+Code documentation — is there anything more exciting than spending your time writing extensive comments? If I had to guess, your answer is probably somewhere along the lines of “uhm, yes, everything is more exciting than that”. Plus, requesting to document your code is almost like an insult to your well thought out design, this beautiful creation you implemented so carefully that it just has to be obvious what is happening. Writing about it is just redundant, the code is all you need.
+
+As a result, no matter if it’s some open source side project or professional software development, code documentation usually comes in two flavors: absent and useless. The dislike for documenting ones code seems universal among programmers of any field or language, no matter where in the world they are. And it’s understandable, after all, you’re in it for the coding, implementing all the fun stuff. If you wanted to tell stories, you would have chosen a different path in life.
+
+This reluctance has even formed whole new paradigms and philosophies claiming how comments are actually harmful, and anyone trying to weasel their way out of it can now happily rehash all those claims. But, to exaggerate a bit, we’re essentially villainizing information this way. While it is true that comments can be counterproductive, it’s more the fundamental attitude towards them that causes the harm here.
+
+In the end, code documentation is a lot like error handling, we are told early on how it’s important and necessary, but we fail to understand why and instead grow to resent doing it again for that same old teacher, supervisor, or annoying teammate. But just like error handling, we are the ones who can actually benefit the most from it — if done right. But in order to do it right, we need to face some harsh truths and start admitting that there is no such thing as self-documenting code, and maybe we simply don’t understand what we’re actually doing if we can’t manage to write a few words about it.
+
+So let’s burst some bubbles!
+
+
+SELF-DOCUMENTING CODE DOESN’T EXIST
+The usual argument against commenting code is that “the code should be written so well that it won’t require any further explanation”, which is actually hard to argue against if we’re talking about what the code does. Well-written code should indeed not require any comments to describe what the objective of a variable or function is.
+
+1 // bad start:
+2 int a = 4 * OFFSET;
+3 // but don't use a comment to tell what it does:
+4 int a = 4 * OFFSET; // initial foo value
+5 // instead choose a name telling it itself:
+6 int initial_foo = 4 * OFFSET;
+
+Yes, a meaningful variable name makes the comment obsolete, but that’s really more a question of decent coding style than it is about documenting. The problem starts when this easily proven, albeit one-sided view is turned into the universal justification against any type of comments, including the ones that go beyond explaining the what, and focus on the actual interesting and helpful parts.
+
+The thing is, having self-explanatory names for your variables, methods, classes, functions, modules, etc. doesn’t automatically describe the big picture of the code, nor does is necessarily tell much about the why and in what way parts. However, having a clear and well-written implementation tends to give the illusion that there’s no need for that either. And yes, after spending hours or days wrapping your head around the issue at hand, of course that code will make perfect sense in the very moment, even more so if you pack it all neatly into a reasonably sized commit or pull request that presents your solution in a condensed and coherent manner.
+
+But how about in a month from now? Or outside the context of that self-contained commit? Or when approaching it with a slightly shifted mindset? How much details will you remember, and how much sense will it all still make then?
+
+SOFTWARE IS HARD
+Of course, one can (and will) argue that “the code is right there, just read it and you’ll know”, and again, if we’re talking about what a specific block of code does, then yes, that attitude is justified. But for anything beyond that, digging through code is an unnecessary waste of time, and is essentially like saying a book doesn’t need an index, just read the whole thing and you’ll eventually find what you’re looking for. Do you really want to mentally parse every path some data could take to find out about its valid ranges, when a single sentence that takes a minutes to write and even less to read could just tell you directly?
+
+And it’s not only about understanding other people’s code, or explaining to other people what you were thinking. How often have you caught yourself wondering what on Earth you were thinking when you revisit old code or fix a bug, or were surprised a git blame revealed your own name? Yet the very next time, it’s all forgotten, and you’ll be convinced once again that everything is oh-so-self-explanatory, and all the details are unmistakably obvious.
+
+Software just isn’t fully and universally self-documenting by itself, no matter how hard you try. And that’s neither your fault, nor me trying to be a bully and question your abilities, but it’s simply about being human, and about underestimating both the full complexity of software and the volatility of our mind. Documentation isn’t about shaming and pointing out shortcomings in your implementation, but about countering the shortcomings of the programming language itself. Even the cleanest code ever written couldn’t explain by itself what you were actually thinking when writing it. Everything might be perfect and still do the wrong thing. Comments aren’t an alternative to writing clean code, but an inherent part of it.
+
+ANATOMY OF A COMMENT
+Before we go into further details, let’s have a look at different comment styles first.
+
+1 /**
+2  * Javadoc-style documentation comment.
+3  */
+4 void foo(void) {
+5     if (bar > 10) {
+6         /* regular comment */
+7         ...
+8     }
+9 }
+
+Regular comments are just that: comments as defined by the language itself. As a rule of thumb, they should be used sparsely as they tend to explaining what the code is doing.
+
+Documentation comments on the other hand are used to describe global variables, functions, and modules (plus their object-oriented counterparts) from the outside point of view. Inside a function body, they basically turn into regular comments and tools will generally ignore them. As a good practice, if there’s something worth telling on the inside of the function, see if it could be worked into the function description itself.
+
+Documentation comments are essentially regular comments with some extra accessories, such as an additional forward slash /// doc comment, exclamation marks //! doc comment or /*! multiline doc comment */, or an additional asterisk as in Javadoc-style comments /** doc comment */. Despite its name, Javadoc as a commenting style is also supported by other languages and tools, and will be used for the examples in here.
+
+Of course, you can also just use regular comments and forget all about those funky tags, but the advantage is that documentation generators such as Doxygen or Sphinx can easily create PDFs, HTML, or man pages straight from the documentation comments, and most modern IDEs have extra support for displaying them, saving you a mental context switch to the actual implementation — provided there is some useful information available.
+
+But aside from triggering comment post-processors, the format of the comment isn’t important. What matters is what you’re saying.
+
+REDUNDANT COMMENTS FOCUS ON THE WRONG INFORMATION
+So, we have established that we shouldn’t document what the code does, but rather why and in what way it does, But what does that really mean?
+
+A common reason that people loathe things like documenting their functions is that “they just state the obvious” and are therefore redundant. And reading the average doc comment, it’s actually hard to argue against that, especially when it comes to encapsulation in object-oriented languages. The average description for some simple get_temperature() function would probably look something like this:
+
+/**
+ * Returns the temperature.
+ */
+int get_temperature(void) {
+    return temperature;
+}
+
+That comment does indeed not add much value, it essentially just repeats the function’s name and therefore only tells what it does. That’s not what we want. What we want are the details that the code doesn’t tell us.
+
+It’s easy to think that the whole function is just so simple, there is absolutely nothing useful to comment in the first place. But then again, nothing is ever really simple in software, and if you look close enough, you will find that every function has something worth writing about that isn’t instantly apparent from its name, or even the code of a simple one-liner.
+
+/**
+ * Returns the temperature in tenth degrees Celsius
+ * in range [0..1000], or -1 in case of an error.
+ *
+ * The temperature itself is set in the periodically
+ * executed read_temperature() function.
+ *
+ * Make sure to call init_adc() before calling this
+ * function here, or you will get undefined data.
+ */
+int get_temperature(void) {
+    return temperature;
+}
+
+Turns out this seemingly simple, albeit fictional function had plenty of extra information to write about after all. Not despite being simple, but because of it. None of the information could have been obvious and self-explanatory just from looking at the code, including the additional information about the internal data handling and program flow. Sure, digging deeper into the code would have eventually revealed the same information, but also wasted a lot of time along the way, not to mention the unnecessary mental gymnastics it might take.
+
+Others might say that those are implementation details that have no place in documentation. But why? Why wouldn’t you want to state those implementation-specific details that will ultimately make it easier to understand what’s going on?
+
+Adopting the mindset that every function has something to tell, that there is always at least one detail, side effect, exception, limitation, etc. worth writing about, means that you might have to look at it from different angle to actually find it. To be able to do that, you’ll inevitably have to confront yourself more and more with the hidden details of your code, possibly discovering corner cases that you haven’t even thought of before. As a result, documentation doesn’t only help future readers to understand of the code, it also helps the writer to gain better knowledge about its internal details.
+
+And if you really cannot find any useful information to add, you should probably ask yourself why the code is there in the first place. What’s the justification for having it? And that justification is exactly the information to add then. The previous example could have gone in a different direction:
+
+/**
+ * Returns the temperature.
+ *
+ * This is for testing purpose only and should
+ * never be called from a real program.
+ */
+int get_temperature(void) {
+    return temperature;
+}
+
+Note that this is still the exact same code as before, which brings us to another problem with “seemingly self-explanatory code that is too simple to comment”: it can be vague and ambiguous, leading to false assumptions and possible bugs. Pointing out these details and eliminating potential ambiguities can be vital in terms of code quality, and it can be argued that this actually makes the documentation an essential part of the code itself.
+
+Again, every function has something to tell that is not immediately obvious without looking further into the code. Naturally, some of those inconspicuous details are more relevant than the other, and not everything a function might have to tell is necessarily interesting. But is there really something like too much information? The list of cognitive biases is long, and just because something is obvious to you in this specific moment, doesn’t meant it is for the next person handling your code — including your future self.
+
+MAKE COMMENTS PART OF THE CODE
+Now is a good moment to throw in another favorite of “comments are bad” rhetoric: they get outdated when the code changes. Let’s be real though, that’s just a seriously lazy excuse, it’s not like code is usually written with a lot of consideration about ever having to touch it again in the future. Once committed and merged, the code is final and perfect, to remain as-is for all eternity.
+
+The bigger issue with code documentation is that it’s seen as something that exists beside the actual code, completely decoupled from it. But if we start seeing it as actual part of the code, a complementing entity and not some dumbed-down summary for anyone incapable of dealing with the real thing, it will become natural to simply adjust it whenever the code changes.
+
+And yes, that includes private methods and static code in C. It’s such a major misconception to claim that they contain irrelevant implementation details that require no documentation, or are anyway not exposed to the “consumers” of the code. Well, at least the latter part might be true if we consider the users of libraries, APIs, and the like, but what about the developers? After all, private functions are usually the place where all the interesting details happen, the number crunching, data juggling, all the little secrets — and with it the parts that usually require the most maintenance.
+
+Scope should have nothing to do with the relevance or existence of information, but this just shows how the general mindset towards code documentation sees it as something that is intended for anyone else but ourselves.
+
+BREAKING THE CIRCLE
+Nobody likes bad documentation, but avoiding documentation altogether cannot be the solution to it. Fixing the dysfunctional relationship between developers and comments is the only way to improve the situation, and seeing them as a fundamental part that co-exists with the code is a good first step.
+
+No doubt, it will take practice and getting used to that way of thinking, but in the long run, it can only benefit the general understanding and quality of the code.
+
+In that spirit, here’s one final, redundant comment:
+
+1
+/* You have reached the end of the article */
