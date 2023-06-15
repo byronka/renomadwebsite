@@ -1,0 +1,188 @@
+from https://hasen.substack.com/p/local-first-development
+
+HASEN JUDI
+APR 28, 2023
+Local development should be seamless. You should be able to run your code locally. You should be able to have a quick edit/run cycle. You should be able to drop to an interactive debugger.
+
+Many web shops fail to get this right. The problem is more pervasive than you would expect.
+
+In the weeks following Elon Musk’s acqusition of Twitter, he held discussions in Twitter Spaces where it was revealed that in it’s impossible for front-end developers to test changes locally. The edit/test cycle is very slow. This is why it takes a long time to ship features.
+
+The issues are not necessarily this severe everywhere. Some of the issues I’ve seen:
+
+You have to run ~five different terminal commands with very specific arguments and options before you can start
+
+You have to edit some config files but you can’t commit your changes
+
+You have to edit the config files in different ways depending on what you want to do.
+
+You have to restart all the commands after you re-edit config files.
+
+You have to wait 2~5 minutes for all the servers to startup.
+
+Configuration is confusing and brittle. It breaks often, and requires some additional time and effort to restore to working conditions.
+
+Long waiting time between saving changes to seeing results
+
+“Hot Reload” erratically reloads the page several times; could take ~30 seconds to calm down.
+
+You have multiple repositories or projects, and each requires a different set of programs and configurations, and they are all mutually exclusive: you have to keep manually changing your environment every time you switch from working on one project to another.
+
+You have to edit files across multiple repositories and wait for them to build in the correct order before you can begin to see the results.
+
+There’s no development build; you must run a full build before you can test your changes, and the build takes several minutes.
+
+Local development is flat-out impossible; you simply cannot test your code without uploading it to some server.
+
+The address of the server you need to upload your code to changes frequently and you have to get that address from somewhere before you can upload your changes to test them.
+
+The environment on said server resets periodically and you have to ssh into it to set up the environment again before you can test the changes that you have uploaded.
+
+Solving these problems after the fact is not easy. You need to have the mindset of “I want local development to be smooth” at the outset.
+
+If everything in your project(s) is centered around Webpack, you might have a lot of rewriting to do. You might have to tear things down before you can build them back up again.
+
+Now, I want to share some of the techniques I use to make local development as smooth as possible, but before that, we need to get something straight:
+
+It’s not about the tools and technology. It’s about actively wanting to make it happen. You have to start with what kind of dev experience you want.
+
+
+What most people in the web industry do is this: they look at what the common trends are, what tools everyone is using, and then they copy them. They look for tutorials about how to setup some tool or framework, and they just follow the tutorials to the letter. Whatever development exeprience they get is completely outside of their control.
+
+Instead, you should do what Steve Jobs said, but apply it to development experience. Start with the development experience that you want, and work backwards to the technology. Figure out what technology is available and how you can leverage it to achieve what you want.
+
+Another way to think about the problem is the following: the market is saturated with tools and frameworks, and they are not all condusive to a good development experience. Most of the time, what you get out of the box is slow builds, erratic hot reload and confusing configuration options.
+
+You can’t just do what everyone else is doing; you have to be selective about your tools and practices.
+
+For this to happen, you have to be very clear about what you want. You also have to be clear about what you don’t want, or what you don’t care about.
+
+If your starting point is “I want to do what everyone else is doing” then you might as well close this tab right now, because none of the ideas here would be appealing to you.
+
+Here are the things I want:
+
+As few commands to run as possible. Preferrably one.
+
+As quick a startup time as possible. Preferrably instant.
+
+As quick edit/verify cycle as possible. Preferrably instant.
+
+Static type checking
+
+Tools for debugging and visually stepping through the code.
+
+Ability to understand how big the production build size is.
+
+Ability to understand how many dependencies I have and how big they are.
+
+Notice that “hot module reloading” is not on the list. What you actually want is not hot reload. What you actually want is ability to switch from writing code to seeing its effects instantly. “HMR” could be one way to do that, but it’s not the only one. For example, it’s practically useless when it runs erratically, as is often the case.
+
+Knowing what you don’t want is equally important to knowing what you want. Empty buzzwords and platitudes about “best practices”, “state of the art” and the like should not matter to you. Some people are more concerned with impressing their peers than creating effective and sensible solutions. You should completely absolve yourself of such thoughts.
+
+Now, we are fortunate to have fast build tools like esbuild, but the point I’m making here is that even if esbuild did no exist, you still have to start with the vision.
+
+No fast build tool? No problem: arrange your development environment so that a build step is not required. It’s Javascript after all. The browser can load javascript files as-is; you don’t need a “build” step.
+
+You may initially think this is not an option because you have X or Y requirement that can’t be fulfilled without a build step. But there’s always something you can do. You just have to figure it out.
+
+For example, if you want to use packages from npm, you can build them separately (once) then add them to your project. Sure, it’s a bit cumbersome, but it’s not the end of the world. Adding dependencies is a far less frequent operation than editing and testing code. There’s no reason to prioritize “ease of adding dependencies” over “ease of running the code I just wrote”.
+
+Just use esbuild
+The core advice I can give is to use esbuild. If you haven’t already heard of it, it’s an incredibly fast bundling tool for Javascript/Typescript. Some people look down on it, but I’ve yet to see anything nearly as effective.
+
+It’s not difficult to use. You can read the API documentation for esbuild here.
+
+It doesn’t necessarily do everything out of the box, but there really isn’t anything that you can’t do with it. It does the heavy lifting for you. You can add a little bit of pre- and post-processing logic to your build script and you will get far better results than you’d get otherwise.
+
+To get the most out of it though, you should consider the following:
+
+Backend Isolation
+Can you run your backend locally? Is it fast enough for you? If yes, you can skip this section.
+
+If no, then you need to look into a way to isolate yourself from it. What this means is that on your local machine while you are developing, you will run a simple server to just serve your frontend (esbuild lets yo do this), and the backend calls will be “mocked” in your frontend code.
+
+Ideally you should want to develop against a locally running version of your backend server, but if it’s completely outside of your control, this is your second best choice.
+
+The way I’ve achieves this in the past is:
+
+Ensure all requests to backend services go through one specific module (call it something like “backend/api”)
+
+Make sure the API is very clearly defined, with typescript definitions for request and response parameters.
+
+Have a version of the backend that mocks the responses locally without making any actually http request.
+
+Use the “define” feature from esbuild to switch between the two versions of the module at build time.
+
+In the local dev version, I stub out all the functions with either something that generates fake data or something that does a naive simulation of the backend on localStorage. Either way, the “mock” must strictly adhere to the API interface.
+
+Believe it or not, the “define” feature from esbuild lets you do C-like conditional compilation, allowing you to use the mock functions when developing locally, without having them included in the production build.
+
+Realtime building
+You can setup esbuild to rebuild your code everytime you save your changes.
+
+Generally speaking this means an additional terminal window, which would be undesireable if you already have your backend server running in a terminal.
+
+The way I work around this is to embed frontend building into the backend server when running in dev-mode.
+
+This is easy to do if your backend server is in Go, because esbuild itself is written in Go, and is made available as a Go library. You can also do this if your server is in node.js, because esbuild exposes a node.js API.
+
+This is the tiny wrapper I use to invoke esbuild. It does a few things like a file system watch and error reporting. It doesn’t report dependencies and their size because I only have one dependency and I’m not worried about its size. gist.github.com/hasenj/1b06ca1d...
+
+If for whatever reason you can’t embed the frontend builder into your backend’s dev server, it’s not a big deal; you just have to live with an additional terminal window.
+
+Typechecking
+Fortunately, more and more people are waking up to the benefits of static type checking, and typescript is almost the defacto standard.
+
+One thing to keep in mind though: the Typescript compiler is rather slow, so it should not be a part of the build process, specially in development mode. I keep a long running process of `tsc` in watch mode and check its output frequently for errors.
+
+You can also use VSCode. I don’t necessarily like to use it as a generic code editor, but its Typescript integration is decent and you can F8 to jump to the next error.
+
+The only caveat is for production build: you should include type checking in the production bundling process.
+
+Production Bundling
+Depending on your dependencies and their size, you might want to control how dependencies are bundled together in the final build. While esbuild doesn’t let you explicitly control bundling, you can easily influence how dependencies are bundled by having multiple entry points and explicitly managing the “dependencies” for each entry point. For example, if a certain dependency is large and you need to make sure it gets its own “chunk” in the final output, you can achieve it this way: have an additional entry point for esbuild that depends only on that dependency. You might have to do something to disable the detection mechanism that tries to figure out whether you’re really using that dependency or not.
+
+When you do this kind of thing, you also want the production build script to report the number of chunks that were created, their sizes, and list the npm packages that went into each chunk.
+
+esbuild does not report this in human readable form out of the box, but it provides all the data necessary to generate such a report (look for “metafile” in the api docs). I don’t have a snippet to share at this point, but I might be able to share something at a later date.
+
+Debugging
+This should be obvious, but Chrome comes with a builtin debugger that can place breakpoints and step through code. The only “problem” is source mapping if you are building/bundling your code.
+
+Luckily esbuild comes with automatic generation of source maps; you just have to tell it to do so via the command line options (or configuration object, if you’re invoking it via code).
+
+The only thing to remember is not have this option set in production builds.
+
+“Live Reload”
+I don’t personally do “live reload”. It would be really nice if it works, but I’ve never seen it work properly in an actual project (demos on the webpack homepage do not count).
+
+Instead, I achieve fast edit/run cycles by having:
+
+Quick devmode builds triggered automatically.
+
+Fast page load time
+
+No file caching in dev mode.
+
+Fast backend response times.
+
+When I save code, I can just hit the refresh shortcut in Chrome and have the page reload with the new changes. It’s near instant.
+
+If I’m testing a particular state that’s not very straight forward to get into, I just inject a little bit of code (that I don’t commit) to get to the particular state I want upon page load.
+
+Additional considerations
+Unfortunately, Node.js repeated C’s mistake of not clearly defining a compilation model, leaving it instead to bundling tools.
+
+As a consequence, it’s not really possible to come up with a one-size-fits-all solution for bundling front-end code; only general guidelines.
+
+Some other concerns that may or may not affect your project:
+
+Managing multiple npm packages for multiple products
+
+Managing local forks of external npm libraries
+
+Having large dependencies whose size you need to reduce
+
+etc, etc.
+
+There’s no substitute to understanding your problem and having some breadth of knowledge about the tools available to solve them.

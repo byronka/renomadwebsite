@@ -1,0 +1,33 @@
+The Stupid Programmer Manifesto
+I'm not smart enough for modern web development, and that's ok
+
+HASEN JUDI
+JUN 15, 2023
+
+I have a confession to make: I’m a terrible programmer. My productivity is quite low. I’m not 10x. I’m not even 1x.
+
+To be able to produce anything, anything at all, I need to cut all the bullshit.
+
+Bullshit code. Bullshit tools. Bullshit frameworks. Bullshit tech.
+
+And after all that, I can barely approach being a 0.5x programmer.
+
+
+I’m not smart enough to remember which objects have which fields, so I only use statically typed languages.
+
+I’m not smart enough to figure out how to manage multiple repositories with shared code, so I put all my code in one repository.
+
+I’m not smart enough to figure out how to make microservices work, so I just run my webapp as a monolith on a single server.
+
+I’m not smart enough to figure out docker confiuration, so instead I compile my web application into a self contained statically linked binary executable file.
+
+I’m not smart enough to figure out cloud services and auto scaling groups, so I just upload my static binary file using scp to a linux server I rent from a VPS provider.
+
+
+I’m not smart enough to figure out how to setup all the databases and firewalls and load balancers, so I just embed the http server and data storage engine as libraries in my static binary.
+
+I’m not smart enough to figure out SQL queries and object-relational-mapping between relational data and programming objects, so I just store my objects in their entirety as-is on disk.
+
+I’m not smart enough to figure out all the REST and HTTP rules and verbs and best practices, so I just use “json over http” as a medium for a dead simple RPC: I always send POST requests. I put the function name in the url. I encode the parameters (and return values) as json data in the request (and response) body.
+
+I’m not smart enough to figure out how to transform data between different layers of the system, so I just don’t. I use the same representation in the UI layer and the storage layer.
