@@ -1,0 +1,50 @@
+from https://www.dancowell.com/software-engineers-hate-code/
+
+Software engineers hate code.
+Dan Cowell
+Jul 8, 2023 • 4 min read
+Software engineers hate code.
+A software engineer recoils in disgust from a screen full of code - Photo by Nubelson Fernandes / Unsplash
+This is the best-kept secret of the software engineering profession: engineers hate code. Especially code written by other people. It's why they love working on greenfield projects so much. No code, no maintenance, no headaches!
+
+Ever wondered why microservices took off in teams of all sizes? A microservice architecture is the perfect way to pretend that the code you wrote last month no longer exists! Now that it has been stuffed into a container and tucked behind a load balancer it's a service and we can forget all about it until it breaks, then we deprecate it as legacy and replace it with something new. Rolling green fields forever!
+
+Got a question about how one of your dependencies works? You could look at its implementation, or the test suite, but most engineers prefer to go to the place that everyone congregates to talk about - but not look at - code. Stack Overflow is a great resource for finding the code needed to solve your problem without having to look at a lot of code yourself!
+
+I'm sure you've been stuck for hours begging your colleagues to review your pull request. Why do you think it's taking so long? You're asking them to do the thing they hate most - look at someone else's code!
+
+Most people reading this have at one point or another approved a non-trivial pull request with a simple "LGTM." You got tagged in on a bad day and didn't have the time to take a proper look at code written by someone else. You had work to do!
+
+Only one thing can overcome engineers' hatred of code: their love of writing code.
+Software engineers will lock themselves in a room and do nothing but write code for hours. Some forget to eat, sleep or poop.
+
+Notable engineers online invest hours of time writing about their code, or about how they write code. Paradoxically, engineers love reading this stuff, even if they never read the example code attached!
+
+Meetings of all kinds, technical and user documentation, testing, post-release monitoring, refactoring - all are common sources of frustration that cut into valuable time that could otherwise be spent writing code!
+
+Engineers will spend enormous effort learning or building tools to help them write more code. In the past couple of years, we've seen an entirely new generation of tooling emerge that can actually write code by itself, turning 10x engineers into 1,000x engineers*!
+
+
+* Scientists observing engineers using AI in the wild have seen them writing 100x more SLOC/hour!
+Rarely, you will encounter engineers who have learned to temper their baser instincts and instead find a sick kind of joy in reading, understanding, modifying and even deleting other peoples' code. We call these odd folks "Senior Engineers."
+
+Senior engineers have learned through hard-won experience that writing code is the ultimate diminishing return.
+
+They know that code becomes legacy the moment the first byte is saved to disk. The rolling green fields of their youth are a happy delusion, distracting from the cold, hard truth that all code demands maintenance. They have felt the pain of an unmaintained system breaking at the worst possible time.
+
+There are a limited number of hours in the day. The more code that gets written, the more things there are to break, and more of those precious hours will be taken up by maintenance.
+
+The only logical course of action is to minimize the amount of code in production at any given time. Senior engineers' passion for writing code has been augmented with an even stronger desire to delete it.
+
+Code that doesn't exist can't hurt us, or the people we love.
+
+It demands no maintenance; it causes no downtime; it requires no testing. Senior engineers understand that unnecessary code should be eliminated at all costs, and all new code must prove its worth before being allowed to live. This is part of what drives them to pore over other peoples' code and provide meticulous review.
+
+This isn't to say that senior engineers are cynics. There's still beauty to be found in creating an elegant solution to a complex problem. The joy of creation hasn't diminished, but it has been tempered by an understanding that less is more, and that every line of code they write comes at a cost.
+
+Senior engineers hate extraneous code. They hate seeing time and effort invested in building yet another solution to an already-solved problem. They hate code that doesn't need to exist; code that isn't providing value.
+
+Be mindful of the cost that your code incurs.
+Don't write new code when you can use, improve or fix what already exists. If you must write new code, write only what you need to get the job done.
+
+Understand your tools, and the systems your code runs on. Leverage the features of those systems to minimize the code you need to write, and by extension, the cost that it imposes on you and your team.
