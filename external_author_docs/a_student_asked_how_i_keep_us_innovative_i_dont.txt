@@ -1,0 +1,64 @@
+from: https://ntietz.com/blog/forefront-of-innovation/
+
+A student asked how I keep us innovative. I don't.
+Monday, October 9, 2023
+
+Last week, I did a Q&A session for a friend's security class. One of the students asked a question that I loved. They asked something like, "As a principal engineer, how do you make sure your company stays at the forefront of innovation?"
+
+There are two reasons I love this question. The first is that it's a good and natural one, which I had early on too. The second is that it's unintentionally leading. It assumes you should be working at the leading edge of innovative technology.
+
+And that's why my answer started with "I don't. I make sure we don't." A leading question gets a snappy answer! But that's not the whole story, of course.
+
+The key is to understand why you don't want to be on the leading edge of innovation all the time, and also to understand when it's appropriate.
+
+Why we use proven technology
+Most of the time, the problems you run into while doing your work are mundane. The vast majority of your hot new startup is things that have been done before. For any new web app you're going to have users, logins, a frontend, a database.
+
+For each of these, you could use something hot and new. You could tie your users to some public blockchain (sorry). You could come up with a novel new way of logging in (please, please, no). The frontend can be built with that new framework you saw on HackerNews last week (or is that already out of date?). And of course, the database should be a NoSQL, graph, or vector database depending on which hype wave you caught.
+
+Each of these bring advantages, no doubt. There's a reason I spent years working on graph databases: they're dope technology that can solve some real problems. There's also a reason I've talked many people out of using them.
+
+When you adopt a new innovative technology, you're giving up a lot.
+
+Proven technologies are searchable and have robust documentation. Have a problem with PostgreSQL? Pop it into a search engine and you'll get an answer right away. But have a problem with a vector DB? Comb the GitHub Issues or Discord and hope that you find an answer 🙏. This can save you so much time when you inevitably run into problems.
+They often have great ecosystems around them. With proven tech, like PostgreSQL, you will usually have great packages and integrations. Your well-known DB and well-known observability provider probably get cozy and integrate well. Your favorite language has drivers for this time-tested DB. But with the new stuff? You're writing a lot of that yourself, or patching it.
+They use well-known concepts. Proven technologies have kind of by definition been around a while. This means you can (more) reasonably expect people to know the core concepts. Most software developers are probably familiar with relational DBs, but far fewer are familiar with graph DBs. Well-known concepts are accelerants: they let you converse more quickly, design more quickly, understand more quickly. New concepts are a tax which slow you down as you have to understand it and fit everything into that new model.
+There's a lot to love with the proven stuff. This isn't a new or novel opinion: there are a lot of advocates of choosing boring technology. It's a strategy that I expect technical leaders to employ, and it's a red flag if teams are eschewing tons of the boring stuff. It means they probably don't have a good technical strategy and strong leadership.
+
+That said, sometimes it is justified.
+
+When (and how) to use innovative new tech
+The reason we build software is to get something done, to solve some problem. That destination is what guides our adoption of technologies.
+
+With any given choice, the question is: does this technology fundamentally alter my chances of solving this problem? If the answer is "no", then just go with the boring choice. It doesn't make a difference, so why would you give up the benefits? If the answer is "yes, it makes us much more likely to succeed," then you get to move on.
+
+Now you have to figure out why. Committing to this should be done eyes wide open, so figure out the specific reasons that this technology is necessary. Contrast using it with using the boring choice, and try to figure out the properties that it gives you that you need. Once you've found that irreducible property that greatly aids in solving the problem, and it cannot be done with boring one? That is when you reach for the shiny new thing, and you go in eyes wide open. With the bleeding edge, you are going to get cut, but sometimes that's necessary.
+
+Use the boring things until you absolutely cannot succeed with it, and you'll get a lot further a lot faster.
+
+My framework for choosing technologies
+Part of technical leadership is being involved in technical design and choosing what to use. Here's my general approach for doing that (at work1).
+
+First, understand the problem. This is similar to how we approach debugging, because both are a form of problem solving. If you don't have a clear understanding of the problem at hand, then you cannot solve it, and you cannot pick the right tech to use. I like to test my understanding by explaining the problem to a lay person. If I can explain it in a relatively clear way, then I understand the problem well enough to proceed.
+
+Then, prove that a solution exists. This "existence proof" of a solution is always my first step, because if you cannot get anything working it doesn't matter, the problem isn't getting solved. It also allows you a lot of creative freedom. The outcome is a design document showing some valid solution to the problem. In this step I'll allow myself to use whatever technology comes to mind. Can I solve this with that shiny DB and my favorite programming language? The only point is to prove that a solution can exist.
+
+Now reduce down the solution. Now that you have a proof of a solution, you can reduce it down to its essential complexity. For each component in your design, what role does it serve, why did you include it? Go deep and determine the absolute properties that each piece provides, and question if you need those properties or can achieve them another way. Then iterate on your design, cutting out unnecessary things. Refactor pieces of the design. Add new pieces, remove old pieces, play with it, make it sleek.
+
+Evaluate your design again. Now that it's reduced down, look at it again and ask a few questions:
+
+Does it still solve the problem at hand?
+Can this possibly be done in any simpler way? Why or why not?
+Can we use more well-known technologies instead?
+Once you have those answers, you'll either repeat the process or proceed on.
+
+Socialize the design. Hopefully you've been working as a team so far up to here, but you usually can't include everyone in the early design. Now that you've reduced it as much as possible, go find some critics and socialize the design. Find people who you think will be contrarian, and have them poke holes in the design. Especially in any new technologies or innovative things.
+
+When you have convinced your critics and yourself, you can actually move on and... wait, did we finally get to use a new piece of tech? Yes! And you know that it's for the right reasons. It serves a critical role in the solution and it cannot be replaced.
+
+So, yes. As a principal engineer, I view it as my role to keep us off the bleeding edge as much as possible. That way, when we really do need to innovate, we have the capacity to do so. And when we don't need to, we can go really freaking fast.
+
+1
+This framework is only for at work. On my personal projects, I will usually go with whatever sparks joy. My personal projects are usually just about learning and having fun, so "optimal technology" is evaluated very differently.
+
+
