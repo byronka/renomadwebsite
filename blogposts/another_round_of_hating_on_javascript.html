@@ -1,0 +1,48 @@
+<!--#include virtual="header.html" -->
+<div class="entry">
+	<p class="content-header">
+		Another round of hate on JavaScript
+	<p>
+	<div class="date">January 12, 2024</div>
+	<p class="content-body">
+		Even with TypeScript, the syntax in JavaScript is so overloaded
+		and bolted-on after-the-fact, it's so easy to confuse one syntax
+		for another.  Observe.
+	</p>
+	<p class="content-body">
+<pre><code style="height: 400px" class="language-javascript"> // regular object
+a = { foo: foo }
+
+
+// property value shorthand
+a = { foo }
+
+
+// destructuring
+{ foo } = a
+[ foo ] = a
+{ foo, bar } = a
+
+
+// aliases
+{ foo : bar } = a
+
+
+// typescript typing
+{ foo } : bar = a
+foo: Foo = { a: 1, foo}
+
+
+// arranged in order to highlight confusing overlap:
+{ foo : bar } = a  // aliasing
+{ foo , bar } = a  // destructuring
+{ foo } : bar = a  // typescript typing
+{ foo } : { foo : Bar } = a // typing with anonymous object type
+func = (foo: {biz: Baz}): { foo : Bar } => {} // arrow function declaration with anoymous object type
+a = { foo : bar }  // regular object
+{ foo : baz } : { foo : bar } = a // destructuring with aliasing with an anon object type
+</code></pre>
+	</p>
+		
+</div>
+<!--#include virtual="footer.html" -->
