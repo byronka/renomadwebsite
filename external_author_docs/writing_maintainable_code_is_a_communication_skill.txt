@@ -1,0 +1,150 @@
+
+Writing Maintainable Code is a Communication Skill Subscribe to my feed
+written by Max Chernyak on 24 Nov, 21 and was discussed on Hacker News
+
+How?
+What?
+Why?
+Useful Framing
+Writing maintainable code is easy. Just keep methods and argument lists short, names and comments long, and follow a styleguide. Boom! Done. Unfortunately, as one famous journalist once wrote:
+
+“For every complex problem there is an answer that is clear, simple, and wrong.”
+— H. L. Mencken
+
+It’s not style and shape that makes code hard to maintain. It’s the lack of clarity on how the code works, what it represents, and/or why it was written (this way). I’ll refer to these questions as “how?”, “what?”, and “why?” for short. The questions are straightforward, but there’s nothing straightforward about answering them. You may feel that short method bodies help with understanding the “how?” , but sometimes they make the program hard to follow. You may think that long, descriptive names always answer the “what?”, but often they add too much noise. You may feel that “wall-of-text” comments address any “why?” concerns, but now your readers TL;DR them. Every situation is different. It’s up to you, the programmer, to find an eloquent and considerate way to address the how?, what?, and why? in each particular case.
+
+Maintainable code is code that eloquently and considerately communicates to its reader how, what, and why it implements.
+
+#How?
+“I have only made this letter longer because I have not had the time to make it shorter.”
+— Blaise Pascal
+
+“How?” refers to the degree of expressiveness with which a routine or an algorithm is written.
+
+The good news is that it’s hard to fail at answering “how?”. You’d have to write utter gibberish. The bad news is that it’s equally hard to succeed. You must break up complex algorithms into clear steps. You must seek out good metaphors that help people make sense of your abstract code. In other words, you must write code that continuously guides fellow engineers. That level of clear communication is rare, but so are great codebases. How often have you seen an algorithm expressed with such grace that it appears boringly obvious?
+
+Another component in a successful answer of “how?” is the programming language itself. A flexible language allows you to write incredibly expressive codebases. However, your level of writing skill is all that stands between a magnum opus and a major oops. Make a few wrong moves, and your codebase is a total mess. This is why some engineering teams opt to commit to a strict programming language with guardrails. A codebase written in such a language won’t win you any poetry awards, but neither will it leave you with a magical ball of mud. Well, you might still end up with a ball of mud (engineers do have a boundless capacity to shoot themselves in the foot), but at least it won’t be magical.
+
+As you can probably tell, there are practical business trade offs with both types of language. An expressive language better serves a small, experienced team, or a team with strong senior guidance. A strict language can support a larger and a less senior team. In the short term, both teams could accomplish the same amount of work. However, in the long term, a larger team will likely produce more code. That’s more code to support and maintain, which is certainly not ideal.
+
+Failing at “how?”
+
+When code fails at answering “how?”, it is often verbose, convoluted, or is again, simply utter gibberish. Much like the example below:
+
+def r(s1, s2, s3)
+  [s3.bytes, [32], s1.bytes, [10]*2, s2.bytes].map { |ba|
+    ba.flat_map(&:chr).inject { |v, a| "#{a}#{v}" }.reverse
+  }.inject(&:+)
+end
+In the above, we didn’t take the time to find a more considerate representation of the desired behavior.
+
+Succeeding at “how?”
+
+In the example below, we’ve put in the effort to make the code easy to follow. You can see that strings are being concatenated.
+
+def r(s1, s2, s3)
+  s3 + " " + s1 + "\n\n" + s2
+end
+Now, while the above code clearly answers “how?”, we still don’t know what business function it accomplishes.
+
+#What?
+“Isolating complexity in a place where it will never be seen is almost as good as eliminating the complexity entirely.”
+— John Ousterhout
+
+If you have succeeded at what? it means that a new maintainer understands the goal of every piece of your code. In order to ensure that those goals are clear, you must figure out 1) what to abstract and encapsulate and 2) what to name it.
+
+On one hand, the “what?” can be used to cover up the problems of “how?”. You can write awful code as long as your function is well isolated, well tested, and well named. Once the goal of your function is clear, nobody will ever need to look inside of it. Congrats, you saved some time now, and someone could simply swap out the whole thing later. Sounds like a win-win, but there is a catch. You better make damn sure you get the abstraction right, because the stakes are high. If you get it wrong, then someone will have to dig into your messy function and tease it apart. They will not enjoy that. The moral of the story is, if you have any doubts about your choice of abstraction, then definitely put some extra time towards a clean implementation.
+
+On the other hand, it’s possible to take “what?” too far. For example, you might feel the need to blindly fixate on consistency in naming, or include the greater context in every name, length be damned. Maintainable code is not about communicating consistently or exhaustively. It’s about communicating the right amount of information at the right time (i.e. eloquently). Long names work well in high-level interfaces that mimic business terminology. However, they can be distracting in low level code, where it’s easy to lose sight of data transformations in a forest of names.
+
+Much like a novelist’s prose, it takes years to develop good taste for eloquent and considerate naming. My advice is to get comfortable reading other people’s code. Put yourself in the shoes of your audience.
+
+Failing at “what?”
+
+Short names typically send a signal that they are contextually self-explanatory. Long names signal that we’re breaking away from current context, and we should pay special attention. Moreover, long names are harder to tell apart. Use them sparingly.
+
+In the below example, the names are too long and redundant given their context.
+
+def render_email_with_a_greeting(email_recipient_name_string_for_rendering_email, email_body_string_for_rendering_email, email_greeting_string_for_rendering_email)
+  email_greeting_string_for_rendering_email + " " + email_recipient_name_string_for_rendering_email + "\n\n" + email_body_string_for_rendernig_email
+end
+Succeeding at “what?”
+
+def render_email(recipient_name, body, greeting: 'Hello,')
+  greeting + " " + recipient_name + "\n\n" + body
+end
+Here we understand what’s being done, and begin to form some valid “why?” questions.
+
+#Why?
+“Give light and people will find the way.”
+— Ella Baker
+
+Some schools of thought consider all code comments to be failures of code expression. I tend to agree with this for “how?” and “what?”, but not “why?”. Trying to cram all business context into names of variables and functions is bound to make the code more confusing. The code already has more than enough to deal with answering the “how?” and “what?”. Let’s give it a break by answering “why?” in the comments.
+
+That said, code is the most dependable source of truth, and unfortunately comments are a distant second. They tend to lie. This means that we should not overuse them. To excel at “why?”, it’s important to learn to:
+
+Pinpoint which decisions actually need context.
+Usually, decisions that need to be explained derive from one of four circumstances: 1) there is a non-obvious business reason for your decision 2) you did a significant amount of research to arrive at a decision 3) you were on the fence about your chosen solution or 4) you were asked a question in a code review. In each of these situations, it is probably a good idea to leave a clarifying comment.
+
+Identify the level of detail needed for your audience.
+The people who will read your code comments are likely to be experienced programmers who are familiar with your company’s internal terminology and processes. Lean on your shared knowledge to communicate efficiently.
+
+Failing at “why?”
+
+# Keyword argument `greeting` has a default value.
+def render_email_to_send(recipient_name, body, greeting: 'Hello,')
+  # Emails can be plain and html, and while most email
+  # clients support html, it's a good practice to add plain
+  # text versions as a fallback.
+  greeting + " " + recipient_name + "\n\n" + body
+end
+Here we see multiple pitfalls: addressing an unlikely audience, going into arbitrary levels of detail, adding redundant information, and failing to answer likely questions. The outer comment is redundant. The inner comment neither seems relevant to the code, nor does it consider the audience it’s most likely addressing.
+
+Succeeding at “why?”
+
+def render_email(recipient_name, body, greeting: 'Hello,')
+  greeting + " " + recipient_name + "\n\n" + body
+end
+When looking at the above code we can assume familiarity with the basics and identify a couple of potential questions:
+
+Why do we need to support a custom greeting?
+Since we use \n, is this function only used for plain text emails?
+(For rubyists out there) why are we concatenating with + instead of "#{interpolation}"?
+Here’s one way to address them.
+
+# We allow custom greetings because marketing wants to be able to
+# personalize them by time of day, e.g. "Good Afternoon, Person".
+def render_plain_text_email(recipient_name, body, greeting: 'Hello,')
+  # We avoid interpolation because we want nil values to error out.
+  # Helps prevent missing content in sent emails.
+  greeting + " " + recipient_name + "\n\n" + body
+end
+There are now comments explaining why we allow custom greetings and avoid interpolation. We also clarified our use of \n by adding _plain_text_ into the method name.
+
+Alternatively, we could consider eliminating the top comment by renaming greeting to personalized_greeting as follows:
+
+def render_plain_text_email(recipient_name, body, personalized_greeting: 'Hello,')
+  # We avoid interpolation because we want nil values to error out.
+  # Helps prevent missing content in sent emails.
+  personalized_greeting + " " + recipient_name + "\n\n" + body
+end
+#Useful Framing
+“If I had an hour to solve a problem and my life depended on the solution, I would spend the first 55 minutes determining the proper question to ask for once I know the proper question, I could solve the problem in less than five minutes.”
+— Albert Einstein
+
+When we work with fellow engineers and stakeholders, we engage in three of the most difficult kinds of communication: 1) giving feedback (in code reviews) 2) negotiating (in estimations) and 3) conveying abstract concepts (in code). These conversations can be anxiety inducing and we have them multiple times a day! The “how?”, “what?” and “why?” framework can help us organize our thoughts.
+
+When conducting code reviews, you could be more specific in pointing out a problem:
+“I see what you’re doing but have trouble understanding how it works under the hood.”
+“I see how this works and why we need this, but extracting a method would make it easier to understand what this piece is doing.”
+“I see what is being accomplished, and how it’s done, but I am unclear why we made this particular choice.”
+When negotiating refactoring deadlines, you now have language that can help stakeholders understand exactly what you’re trying to achieve:
+“It’s hard to understand how this code works under the hood. We need to do a refactor before we can confidently change it.”
+“This code needs to be broken up so we can more easily follow what it’s doing.”
+“A lot of our reasons why were never written down, so we’d like to try and add some context to the codebase before we forget.”
+And finally, it provides a checklist to reflect on your own work before you share it with the team:
+“Will a reader easily understand how my code works?”
+“Do my names clearly convey what my code accomplishes?”
+“Have I given the proper amount of context to convey why I wrote the code this way?”
+It would be interesting to adopt a code quality standard along the lines of: “all new code must successfully convey how, what, and why, to at least 2 of your colleagues.” If you were to conduct such an experiment, I would love to know how it goes.
+
