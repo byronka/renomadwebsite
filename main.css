@@ -54,7 +54,6 @@ pre {
 	font-size: 10pt;
   overflow-x: auto;
   overflow-y: auto;
-  max-height: 400px;
 }
 
 .content-body {
@@ -73,7 +72,7 @@ pre {
     margin-right: auto;
     margin-top: 20px;
     border:  double gray;
-    max-width: 690px;
+    max-width: 900px;
     min-width: 300px;
     background-color: white;
 }
