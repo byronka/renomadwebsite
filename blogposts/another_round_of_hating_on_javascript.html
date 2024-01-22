@@ -38,7 +38,7 @@ foo: Foo = { a: 1, foo}
 { foo , bar } = a  // destructuring
 { foo } : bar = a  // typescript typing
 { foo } : { foo : Bar } = a // typing with anonymous object type
-func = (foo: {biz: Baz}): { foo : Bar } => {} // arrow function declaration with anoymous object type
+func = (foo: {biz: Baz}): { foo : Bar } => {} // arrow function declaration with anonymous object type
 a = { foo : bar }  // regular object
 { foo : baz } : { foo : bar } = a // destructuring with aliasing with an anon object type
 </code></pre>
