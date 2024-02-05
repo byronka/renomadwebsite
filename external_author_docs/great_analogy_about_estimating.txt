@@ -1,0 +1,19 @@
+I try to explain it to them in terms that a bright first grader would understand. Not because they are dumb, but because software is very subtle and if you can’t explain it to the first grader, then you don’t truly understand it (Feynman Rule).
+
+Pretend you are running from point A to point B, on a well paved concrete road. You can probably guesstimate how long it takes you to run from point A to point B, right?
+
+But “real” software projects aren’t like that. It’s more like, you have been dumped onto a jungle island with no light, a shitty map, and a hunting knife, and you are trying to escape. In order to figure out how long it will take to escape the island, you have to do locational grounding (“where am I on the map?), some basic survival stuff (“how can I make a light?”), simple exploration (“Is that running water? Maybe we can follow it to the sea…”), etc.
+
+Giving an estimate early on it a project is doing it at the worst possible time: when you know the least about the problem you are solving. You don’t want to go running at top speed through the jungle and bash through a bunch of poisonous flora before you go barreling off a cliff, right?
+
+As the project progresses you will become more and more confident as you hone in on your way off the island. This is the collapse of the so-called Cone of Uncertainty. You’ve built your raft, you are cruising down the river at a predictable speed and can see the moon hovering over the ocean: NOW you can make an estimate :)
+
+EDIT based on question below
+
+If feet are put to the fire, you can express your estimate as follows: “I am X percent confident that it will take between Y and Z time units.”
+
+Early in project? “I am 20 percent confident that it will take between six weeks and six months.”
+
+Finished your prototype and derisked the big technical uncertainty? “I am 80 percent confident that it will take 10 to 14 weeks.”
+
+About to finish? “I am 100 percent confident that it will be done tomorrow.” This is the so called “Cone of Uncertainty” I mentioned above — as the project advances, the cone should narrow (where the cone aperture is defined by your low and high estimates)
