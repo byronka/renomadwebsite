@@ -1,0 +1,91 @@
+<!--#include virtual="header.html" -->
+<div class="entry">
+<p class="content-header">
+What sets Minum apart?
+<p>
+<div class="date">February 11, 2024</div>
+<p class="content-body">
+To those programmers who yearn for minimalism, and think
+highly of Java, I would like to clue you in to a framework I
+am maintaining. It is called Minum, and it has everything
+necessary to build a website. It is based on a preference to
+spend extra time at the onset, to avoid common maintenance
+difficulties later.
+</p>
+
+<p class="content-body">
+What sets Minum apart?
+</p>
+
+<p class="content-body">
+A website has typical components:
+</p>
+
+<p class="content-body">
+<ol>
+	<li>A Web server: for transmitting data using correct
+		protocol.</li>
+	<li>Routing: for conveying data from the web to the business
+		code and back.</li>
+	<li>A Database: for persisting data in an organized way to disk.</li>
+	<li>Logging: to consistently generate runtime output.</li>
+	<li>Templating: Inserting data into outgoing documents, like HTML.</li>
+	<li>Testing: to test out parts of the program.</li>
+	<li>Background job processing.</li>
+</ol>
+</p>
+
+<p class="content-body">
+Minum contains all these, without having any third-party dependencies.
+</p>
+
+<p class="content-body">
+There are many Java web frameworks using adjectives like lightweight,
+micro, minimalist, and simple.  However, it is hard to find one that
+takes those ideas to their logical conclusion.  Minum was written from
+scratch, with minimalism as its north star.  There are no third-party
+dependencies other than the JDK itself!
+</p>
+
+<p class="content-body">
+For those not yet on the minimalism train, you might be wondering...
+why.  
+</p>
+
+<p class="content-body">
+When you encounter difficulty with dependencies, what is your
+likeliest course of action? Maybe reviewing the documentation (if it
+exists) or online forums.  Barring that, it may be necessary to read
+the code.  It is often difficult to achieve a confident result when
+reading the code of a project that (including dependencies) is
+hundreds of thousands of lines.
+</p>
+
+<p class="content-body">
+Imagine instead that all the code for those components was a total of
+4000 lines of code.  Now, if something misbehaves, there is a rather
+higher likelihood you can find the issue.
+</p>
+
+<p class="content-body">
+Another point: Many professional projects enter a period of high churn
+and poor quality once they get past their early days.  Just my
+opinion: a lot of the mindshare in our industry right now is on
+techniques and technologies that give high returns at the onset, for a
+high maintenance cost later.  Of course I cannot speak for everyone's
+situation, but I have seen this enough times in my career to hop on
+the minimalism bandwagon.
+</p>
+
+<p class="content-body">
+Great effort was put towards testing and documentation.  It is
+possible to verify the system for yourself upon download from Github,
+merely by running "mvn test" - it should take less than 15 seconds.
+</p>
+
+<p class="content-body">
+Minum requires Java 21.
+</p>
+
+</div>
+<!--#include virtual="footer.html" -->
