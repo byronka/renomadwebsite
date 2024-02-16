@@ -5,30 +5,35 @@ What sets Minum apart
 <p>
 <div class="date">February 11, 2024</div>
 <p class="content-body">
+<blockquote>
+Yet another minimalistic framework.  Why should people pick you...
+</blockquote>
+</p>
+<p class="content-body">
 To those programmers who yearn for minimalism, and think
-highly of Java, I would like to clue you in to a framework I
-am maintaining. It is called <a href="https://github.com/byronka/minum">Minum</a>, and it has everything
-necessary to build a website. It is based on a preference to
+well of Java, I would like to acquaint you to a framework I
+am maintaining, <a href="https://github.com/byronka/minum">Minum</a>, which has everything
+necessary to build a web application. It is based on a preference to
 spend extra time at the onset, to avoid common maintenance
 difficulties later.
 </p>
 
 <p class="content-body">
-A website has typical components:
+A web application has typical components:
 </p>
 
 <p class="content-body">
 <ol>
 	<li>A web server: for transmitting data using correct
-		protocol.</li>
+		protocol</li>
 	<li>Routing: for conveying data from the web to the business
-		code and back.</li>
-	<li>A database: for persisting data in an organized way to disk.</li>
-	<li>Logging: to consistently generate runtime output.</li>
-	<li>Templating: Inserting data into outgoing documents, like HTML.</li>
-	<li>Testing: to test out parts of the program.</li>
-	<li>Background job processing.</li>
-	<li>HTML parsing</li>
+		code and back</li>
+	<li>A database: for persisting data in an organized way to disk</li>
+	<li>Logging: to consistently generate runtime output</li>
+	<li>Templating: Inserting data into outgoing documents, like HTML</li>
+	<li>Testing: to test out parts of the program</li>
+	<li>Background job processing, for work done outside requests</li>
+	<li>HTML parsing - for testing and analyzing the HTML</li>
 </ol>
 </p>
 
@@ -37,11 +42,10 @@ Minum contains all these, <em>without any third-party dependencies.</em>
 </p>
 
 <p class="content-body">
-There are many Java web frameworks using adjectives like lightweight,
+Some Java web frameworks refer to themselves using adjectives like lightweight,
 micro, minimalist, and simple.  However, it is hard to find one that
 takes those ideas to their logical conclusion.  Minum was written from
-scratch, with minimalism as its north star.  There are no third-party
-dependencies other than the JDK itself!
+scratch, guided by minimalism.
 </p>
 
 <p class="content-body">
@@ -50,32 +54,32 @@ the value is.
 </p>
 
 <p class="content-body">
-When you encounter difficulty with dependencies, what is your
-likeliest course of action? Maybe reviewing the documentation (if it
-exists) or online forums.  Barring that, it may be necessary to read
-the code.  It is often difficult to achieve a confident result when
-reading the code of a project that (including dependencies) is
-hundreds of thousands of lines. Let me write that a different way, just
-to make sure it is clear.  Most of the so-called "minimalist" web
-frameworks are between 400,000 and 700,000 lines of code when you account
-for the lines of code of the dependencies necessary for a fully-fledged 
+A common situation when encountering difficulty with dependencies is
+to review the documentation (if it exists) or online forums.  Barring
+that, it may be necessary to read the code, but that is easier said
+than done.  It is often difficult to develop confidence when reading
+the code of a project that is hundreds of thousands of lines when you
+consider its dependencies. 
+</p>
+<p class="content-body">
+Put another way, most of the so-called "minimalist" web frameworks are
+between 400,000 and 700,000 lines of code when you account for the
+lines of code of the dependencies necessary for a fully-fledged
 outcome, and that is being conservative - databases are routinely more
-than a million lines of code. </p>
+than a million lines of code. 
+</p>
 
 <p class="content-body">
 Imagine instead that all the code for those components was a total of
-4000 lines of code.  Then, if something misbehaves, there is a much
+four thousand lines of code.  Then, if something misbehaves, there is a much
 higher likelihood you can find the issue.
 </p>
 
 <p class="content-body">
-Another point: Many professional projects enter a period of high churn
-and poor quality once they get past their early days.  Just my
-opinion: a lot of the mindshare in our industry right now is on
-techniques and technologies that give high returns at the onset, for a
-high maintenance cost later.  Of course I cannot speak for everyone's
-situation, but I have seen this enough times in my career to hop on
-the minimalism bandwagon.
+Many large projects enter a period of high churn and poor
+quality once they get past their early days.  Much of the focus
+in our industry right now is on techniques and technologies that give
+high returns at the onset, for a high maintenance cost later. 
 </p>
 
 <p class="content-body">

@@ -150,6 +150,11 @@ div.banner h2.titleheader a:visited {
   left: 20px;
 }
 
+blockquote {
+    background: lightgrey;
+    padding: 10px;
+}
+
 @media screen and (max-width: 500px) {
 
    body {
