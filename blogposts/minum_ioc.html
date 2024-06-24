@@ -1,0 +1,100 @@
+<!--#include virtual="header.html" -->
+<div class="entry">
+	<p class="content-header">
+		Where is Minum's IOC container; or not complicating things in the first place
+	<p>
+	<div class="date">June 24, 2024</div>
+	<p class="content-body">
+	I was asked the other day about <a href="https://en.wikipedia.org/wiki/Inversion_of_control">IOC container</a> use with <a href="https://github.com/byronka/minum">Minum</a>.  The answer is, it is intentionally not provided.
+	</p>
+
+	<p class="content-body">
+	Minum focuses on minimalism (hence the name), and simplicity.
+	Simplicity is an unattainable goal, but a useful guiding star.
+	Each design choice was carefully weighed for an improved ratio
+	of value to accidental complexity.  In Minum’s paradigm, IOC
+	containers were not deemed to fall into that category.
+	</p>
+
+	<p class="content-body">
+	IOC containers are a necessity in most popular frameworks,
+	like Asp.NET Web Forms or Spring. Those systems use annotations
+	(e.g. “@GetMapping”) to wire methods up and run them in a
+	complex order of events.  There is no practical way to pass
+	objects into the endpoint methods without an IOC container.
+	</p>
+
+	<p class="content-body">
+	There are claims that IOC containers are valuable on their own
+	merits, but I remain unconvinced. I have heard people describe
+	their benefits (e.g. easier swapping out of components during
+	tests), but they discount the drawbacks: complicated setup,
+	sequencing of object initialization, object lifecycle, and
+	setup for tests.  Debugging is harder, because understanding
+	the call tree and data flow are harder. Furthermore, the
+	advertised benefits are achievable without any special
+	machinery. Ordinary object-oriented practices will suffice
+	(e.g. having an interface and multiple implementations).
+	</p>
+
+	<p class="content-body">
+	I would rather declare methods that use standard calling
+	conventions throughout my code. It makes debugging and code
+	navigation greatly simplified. A TDD (test-driven development)
+	approach can help tremendously here, where difficult-to-write
+	tests provide a signal that one should reconsider their
+	approach.
+	</p>
+
+	<p class="content-body">
+	This is the basis of the design for the Minum framework
+	</p>
+
+	<p class="content-body">
+	These practices are exemplified in the <a href="https://github.com/byronka/memoria_project">Memoria project</a>.
+	Examine the
+	class <a href="https://github.com/byronka/memoria_project/blob/master/src/main/java/com/renomad/inmra/Main.java">Main.java</a>, which is the entry point to the application,
+	and <a href="https://github.com/byronka/memoria_project/blob/master/src/main/java/com/renomad/inmra/TheRegister.java">TheRegister.java</a>, where the endpoints are registered.  It
+	is just plain code, without any magic.  There is no hidden
+	machinery behind the scenes, only enough code to lower tedium.
+	</p>
+
+	<p class="content-body">
+	To wit:
+	</p>
+
+	<p class="content-body">
+	<img src="main_entry_point.png" alt="the source code of the entry point to the Memoria project" style="width: 100%; height: auto">
+	</p>
+
+	<p class="content-body">
+	<img src="declaring_object_instances.png" alt="source code where we instantiate the endpoint classes" style="width: 100%; height: auto">
+	</p>
+
+	<p class="content-body">
+	<img src="declaring_endpoints.png" alt="declaring endpoints" style="width: 100%; height: auto">
+	</p>
+
+	<p class="content-body">
+	In this case, the constructor of PersonEndpoints requires a
+	large number of objects since it consolidates some common
+	needs and then redirects requests to several
+	objects it creates.  The sub-classes are easier to test, not
+	requiring many parameters for their construction.
+	</p>
+
+	<p class="content-body">
+	<img src="sub_classes_instantiation.png" alt="instantiating subclasses" style="width: 100%; height: auto">
+	</p>
+
+	<p class="content-body">
+	I imagine many readers are scoffing at this point.  No way
+	could an approach so unsophisticated be considered!  But
+	consider how navigable this code is.  Its neat simplicity
+	makes our hardest job, debugging, so much easier.  As a highly
+	experienced developer, I prioritize maintainability over
+	everything.
+	</p>
+
+</div>
+<!--#include virtual="footer.html" -->
