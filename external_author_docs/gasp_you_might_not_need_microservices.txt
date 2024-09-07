@@ -1,0 +1,105 @@
+microservices, software design
+
+Gasp! You Might Not Need Microservices.
+Justin Etheredge
+Justin Etheredge / @JustinEtheredge / May 14, 2020
+ Follow us
+
+Gasp! You Might Not Need Microservices.
+
+I know I’m shouting into the wind here, Microservices are taking over the world. This blog post has sat half-written for about three years, but after hearing about small-and medium-sized teams struggling with Microservices for the thousandth time, I’m finally ready to hit publish. I didn’t write this post because I hate Microservices. I wrote it because I worry that Microservices are becoming the new default. “You aren’t using Microservices? Well then you’re clearly not serious about software engineering.” People aren’t making decisions anymore, they just assume that Microservices are the way to go, and I have a problem with that.
+
+It’s All About Scale
+How many people are working on your system? Five? Ten? Fifty? A hundred? A thousand? If there are more than 500 people working on your application, platform, suite of applications, or whatever it is, then I think you’re safe to close this blog post and move on. Your problems are not the ones we’re discussing here. But, if you have less than 100 engineers working on your application, then stick around and let’s chat for a while. If you’re in the middle, then it’s all going to be contextual, but stick around to see if you find something useful here.
+
+I’ve spent most of my career working for businesses on the smaller side of things. I’ve done a good bit of consulting in larger companies, but most of the companies (or at least the divisions)  I’ve worked in had less than 100 software engineers total. These types of engineering organizations usually have a similar focus: creating reliable and stable systems that deliver value for the business – all with tight engineering resources.
+
+The problems I’ve dealt with are not at the scale of Google, Facebook, or Uber. To some it might seem like I therefore don’t know what I’m doing, but personally, I see it as an asset. The people I know who work in those kinds of organizations are smart, but they aren’t magicians.
+
+Working within a huge engineering environment means problem-solving at a large scale with a nearly unfathomable amount of engineering resources. They generally have access to a huge suite of internal tools and libraries to lean on that allow them to write software at scale. The more I talk to people coming from backgrounds in huge engineering environments, the more I realize how hard it is for these folks to relate to teams of five, 10, or even 50 engineers at a startup or small-to-medium-sized business.
+
+Advice Is Contextual
+At such a large scale, it makes sense that communication and coordination are by far some of the biggest challenges. The need to reduce dependencies between teams, or to allow an application to scale to millions of requests per second, is totally worth the significant engineering overhead required at such a large scale.
+
+But the advice I often hear dispensed to small or medium-sized teams sounds like:
+
+You need to re-platform to a more modern software stack.
+You should use a more scalable data store.
+Could your data engineering team switch to Kafka?
+You should re-architect into a series of Microservices.
+You need to rewrite into Go/Rust/<insert highly scalable language here>.
+These small to mid-size teams are usually finding it hard just to keep up with feature requests and support, let alone consider an entire application rewrite. Is this advice ever appropriate? Sure, in some narrow situations. But time and again, this is what small business and startups tell me they’ve heard from a mentor, advisor, or consultant.
+
+Does any of this sound familiar?
+It can feel daunting when you’re dealing with a small team and a large-ish application. You feel the strain of coordinating feature releases, the slowdown in velocity as the system complexity grows, and you start to read a bunch of articles about how breaking your application into a bunch of tiny pieces will help you reduce complexity, do more frequent deployments, and in general just make your life easier.
+
+So you decide to take a good portion of your team of 20 engineers and a handful of contractors and spend the next two years re-engineering your application, breaking your system apart, and building out a suite of a few dozen Microservices, and maybe some micro-frontends as well. You launch the newly built application and realize that indeed you are seeing more frequent deploys. The individual codebases within each microservice are small, and easier to reason about. Small updates and bug fixes are able to be patched, tested, and pushed out more quickly. You think to yourself, “This is wonderful! This will surely help the velocity of my development teams!”
+
+Challenges Arise
+But over the next few months you start to notice some challenges.
+
+Coordination
+Every time you need to make a larger change, you find yourself needing to update a number of services, and coordinate a release across them. When you bring this up with peers, they keep saying “You did it wrong. Your services should be logically separate.” Logically separate sounds great, but you’ve split your system into a bunch of small pieces, so there are a lot of dependencies between those pieces. Some people you have talked to have said that if you have a bunch of dependencies between your services then you’re not splitting them on the right boundaries, but you’re not sure how you could have split them differently, other than to greatly reduce the number of Microservices.
+
+Data Consistency
+You also start to notice some new data consistency problems cropping up. It looks like some of the operations in the application that used to be handled inside a single operation are now split across a few different services, and one of the services had some failing writes. Again, your peers tell you that you’re doing it wrong, but splitting up a separate inventory service from your ordering service seemed right in line with the spirit of Microservices. You tell yourself, “I guess we’re going to need to start designing multi-phase commits across all of these operations, or we’ll need to build out tools to ensure data consistency.” Again, this feels like it is going to add some significant engineering complexity and overhead.
+
+Performance Challenges
+Performance problems also start to creep in – there are a few pages in the application that are now hitting a half-dozen services to render their pages and the pages take forever to load. It looks like you’ll need to implement an internal caching layer for some of those services so that the pages render faster. A simple caching layer won’t be a huge ordeal, but just one more layer to add.
+
+Distributed Tracing
+Over time you also start to notice that the time your team is logging to certain bugs has increased dramatically. When you approach the team about it, they report that it can be hard to determine where certain issues are occurring in the system. And when they do find them, it can be hard to recreate because getting multiple services into the same state on an engineer’s machine can be a huge challenge. You make a mental note that you’ll need to put a plan together for providing better system level traceability so you can see requests as they move through the whole system. One more thing to add to the list.
+
+Duplication
+It’s taking longer now to design and build certain larger features. They require multiple different services to implement disparate functionality, and coordinate changes in different datastores. You find yourself duplicating logic for some business operations in different services, which despite your best effort to keep each service logically separate, there is no way to do this completely. This brings a different set of risks to the table, because that business logic now needs to be kept consistent across services. Does that mean creating shared services? Manually keeping that logic in sync? Sigh.
+
+Security Surface
+Another critical CVE? Thank goodness you spent the time to introduce tools into the builds that allow you to tell which service is being affected, because patching all of these services is hard enough. It would be a Herculean task to manually audit every one of these services. Still, deploying two dozen services due to a CVE release is a pain you hadn’t really accounted for.
+
+Reporting Challenges
+Some of the queries you used to run against your data store were greatly complicated by splitting your data into multiple data stores. So hired some consultants to come in and help you build out a dedicated data warehouse and set up an ETL process to get it into a form that your team could easily start reporting on again. This setup has some advantages, and it was something you had anticipated, but now you have to maintain the ETL process every time you make significant schema changes. Just one more thing to throw on the pile.
+
+Stability
+And finally, you’re starting to have stability issues. One of your services has been a little flaky, and it is causing other parts of the system to hang when accessing it. So instead of errors getting thrown, you’re now just seeing requests silently backup in the system until it becomes unresponsive. You know your team didn’t spend enough time making sure that they had good fault tolerance between services, so you realize you probably need to make some of the interactions asynchronous, which will add even more engineering overhead.
+
+It’s so frustrating because your team did a ton of research and tried to follow all of the accepted patterns for a good microservice implementation, but the overhead that came along with the shift doesn’t seem to be worth it. Yes, it’s easier to work on and deploy individual services, but the system as a whole feels so much more complex. Some of the pain points you’re feeling could be alleviated with additional engineering and some better patterns, but that’s contrary to your initial goals – you were supposed to be increasing velocity and doing more with less, not increasing the engineering overhead of your system. Perhaps you were looking for a silver bullet and made some naive decisions.
+
+Think About What Problems You’re Having
+Maybe you’ve experienced some of these pains and this hits close to home, or maybe you moved to Microservices and it was a huge improvement for your team. There are a lot of environments where it is necessary to split out a bunch of services, but it all depends on the problems you’ve having:
+
+Is your pain a result of the struggle to effectively coordinate the changes being made to a single monolithic application by multiple teams? Is the pain you’re feeling unable to be solved by other strategies such as trunk based development? You probably need to split it up, create some services, and consider where Microservices make sense.
+
+Are you feeling a ton of pain because your enormous multi-million-lines-of-code monolith requires a few sacrifices to the gods and takes several days to deploy? You need to split it up and carve out some services.
+
+Does your application have a ton of unrelated functionality all jumbled together into one system? You might need some services, or maybe just smaller applications.
+
+Does your team of 30 engineers seem mired in complexity, have low velocity, and putting the blame on monolithic applications? You probably need to focus first on a better monolith, then look at moving to some services or a set of smaller applications.
+
+As Simon Brown once said “If you can’t build a well-structured monolith, what makes you think Microservices is the answer?”
+
+Shifting The Complexity, Not Removing It
+By adopting Microservices or micro-frontends, you’re shifting the complexity, not removing it. In some places the shift is worth it, but if your system isn’t large enough, your teams aren’t numerous enough, and the problems you’re facing aren’t coming from coordinating huge numbers of developers, then splitting your application up into lots of tiny pieces will likely create more headaches than it eliminates.
+
+I’m not saying your small team shouldn’t break things out into reasonably sized services, or that you shouldn’t split up those few applications that have way too much functionality. But for years now I’ve seen too many people push the idea that breaking your system into lots and lots of small pieces will magically solve all of your problems.
+
+You need to clearly understand the challenges that your system is facing, and then make decisions based on whether the added complexity of building distributed systems is going to be offset by the increased velocity of the team as a whole. If you have evidence the tradeoff will be worth it, then carve out services in sizes that make sense based on your business domain and your teams. Just be sure you pay a lot of attention to Microservice best practices, or you’ll end up building a distributed monolith which will bring the worst of all worlds.
+
+Keep in mind as well that this article has also ignored the complexity of moving from a monolith to a set of Microservices, which cannot be understated. This is a process that should be taken with great care, and should be done incrementally.
+
+Sometimes These Challenges Are Necessary
+I know that many of you will read the hypothetical I wrote above and say “clearly they did it wrong.” And sure, there were likely many things they did wrong. Every system implementation has a number of wrong choices. But the biggest mistakes they made had nothing to do with their microservice implementation. The biggest mistake they made was implementing dozens of Microservices in an environment with only 20 engineers.
+
+If you’re thinking, “Implementing lots of Microservices on a team with 20 engineers is crazy!” then I agree with you. But this is happening *all over the place*. Microservices have become this generation’s software panacea, and it’s one that some organizations are starting to look at with a more critical eye:
+
+One Team at Uber is Moving from Microservices to Macroservices.
+
+Segment: Goodbye Microservices
+
+Istio as an Example of When Not to Do Microservices
+
+To Kill a Microservice
+
+These are just a few examples where companies have decided that the overhead isn’t for them, and while I don’t think it signals an industry shift, it is a sign that there isn’t a single architectural pattern to rule them all.
+
+Examine Critically, Act Carefully
+All I ask is that you critically examine the tradeoffs. Think about whether your team will benefit, and then start with small experiments. Split off some services, and see how it goes. Work through the challenges, and move forward when it makes sense. Rinse and repeat. I know that might not jibe with the move-super-fast-and-change-everything mentality of the technology industry these days, but you’ll be happy you took a measured approach.

@@ -1,0 +1,50 @@
+Developers Rail Against JavaScript ‘Merchants of Complexity’
+When both Pieter Levels and Alex Russell convincingly argue against using complex JavaScript frameworks, maybe frontend devs should listen.
+Aug 28th, 2024 12:00pm by Richard MacManus
+Featued image for: Developers Rail Against JavaScript ‘Merchants of Complexity’
+Image via Unsplash+.
+The rebelling against JavaScript frameworks continues. In the latest Lex Fridman interview, AI app developer Pieter Levels explained that he builds all his apps with vanilla HTML, PHP, a bit of JavaScript via jQuery, and SQLite. No fancy JavaScript frameworks, no modern programming languages, no Wasm.
+
+“I’m seeing a revival now,” said Levels, regarding PHP. “People are getting sick of frameworks. All the JavaScript frameworks are so… what do you call it, like [un]wieldy. It takes so much work to just maintain this code, and then it updates to a new version, you need to change everything. PHP just stays the same and works.”
+
+Levels lists seven different startups on his X profile, and on one of his websites he offers the advice, “Launch early and multiple times.” He’s a go-getter, in other words, and prefers to build quickly and fast — which means eschewing complex web frameworks.
+
+Other prominent developers chimed in on social media to echo Levels’ take.
+
+“The merchants of complexity will try to convince you that you can’t do anything yourself these days,” wrote David Heinemeier Hansson (DHH), the creator of Ruby on Rails. “You can’t do auth, you can’t do scale, you can’t run a database, you can’t connect a computer to the internet. You’re a helpless peon who should just buy their wares. No. Reject.”
+
+Some even voiced regrets over their JavaScript migrations of old.
+
+“Migrating my main site off PHP in 2010 was one of my worst career mistakes,” wrote Marc Grabanski, founder and CEO of the web development training company Frontend Masters. “Back then I had a vanilla PHP website with over one million uniques per month, and migrating to ever newer languages and frameworks killed all momentum and eventually killed the site.” He added as clarification that his point wasn’t about PHP. “It’s that if you have a project that works with straightforward code, don’t over engineer it by chasing what’s hot. Keep it simple and protect your momentum on the project at all costs.”
+
+TRENDING STORIES
+Is React Now a Full Stack Framework? And Other Dev News
+Developers Rail Against JavaScript ‘Merchants of Complexity’
+After a Decade of React, Is Frontend a Post-React World Now?
+Google Angular Lead Sees Convergence in JavaScript Frameworks
+What’s Next for Flutter After Layoffs Hit Google Team
+The ‘keep it simple’ mantra is, of course, far from new in the computing sphere. Steve Jobs once said the following in a 1998 interview:
+
+“Simple can be harder than complex: you have to work hard to get your thinking clean to make it simple. But it’s worth it in the end because once you get there, you can move mountains.”
+
+The Other End of the Sophistication Scale
+What’s really interesting here is that the simplicity philosophy is making a comeback not only in the “hustle culture” startup scene that Pieter Levels personifies, but also in the professional software engineering circles of web development.
+
+I can’t think of two more different developers than Pieter Levels, PHP advocate and startup-er-upper, and Alex Russell, a Microsoft browser engineer and one of the most respected voices in web development. But despite their differences in outlook, they are both currently railing against complex web frameworks.
+
+In a recent series of blog posts, Russell launched a one-man “investigation into JavaScript-first frontend culture and how it broke US public services.” The cons of using a lot of JavaScript in a public service website was starkly illustrated by Russell in an examination of BenefitsCal, which he describes as “the state of California’s recently developed portal for families that need to access SNAP benefits (née “food stamps”).”
+
+Using web performance tools like WebPageTest.org and Google’s Core Web Vitals, Russell showed that BenefitsCal is bloated with JS and loads extremely slowly:
+
+“The first problem is that this site relies on 25 megabytes of JavaScript (uncompressed, 17.4 MB on over the wire) and loads all of it before presenting any content to users. This would be unusably slow for many, even if served well. Users on connections worse than the P75 baseline emulated here experience excruciating wait times. This much script also increases the likelihood of tab crashes on low-end devices.”
+
+In part 4 of the series, Russell offers some solutions. Among other things, he recommends reading the UK’s progressive enhancement standard. It’s a part of the “service manual” of the UK government’s official website, gov.uk. The page Russell links to begins:
+
+“Progressive enhancement is a way of building websites and applications. It’s based on the idea that you should start by making your page work with just HTML, before adding anything else like Cascading Style Sheets (CSS) and JavaScript.”
+
+Just Say No to JS Frameworks
+Admittedly, there’s a big difference between dashing off a quick web app using PHP and jQuery, and implementing a web standards-compliant web application using the progressive enhancement philosophy. The former is mainly concerned with enabling fast development and a “minimum viable product” — most likely for users with expensive devices like iPhones — that can be launched as soon as possible. The latter is mainly concerned with setting a solid foundation for future development, and for as wide a user base as possible (which in practice means even those without iPhones).
+
+But either way, JavaScript frameworks are anathema to what they’re trying to achieve. Pieter Levels simply avoids them while creating his many apps, while Alex Russell is fighting the good fight and trying to convince public service websites to adopt better practices.
+
+Perhaps the tide is finally turning against complex web frameworks.

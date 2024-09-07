@@ -1,0 +1,230 @@
+Frak Lopez
+
+https://fraklopez.com/noodlings/2024-08-25-i-will-fail-your-technicals/
+
+I will f(l)ail at your tech interviews, here's why you should care
+Aug 25, 2024
+It’s a given that interviews are a means to validate candidates for a role. Therefore, technical interviews are presumably intended to validate for technical roles.
+
+The problem as I see it is technical interviews often create a false signal. While they can potentially provide perspective on technical proficiency, I think they more often create false negatives.
+
+I believe this will matter to you because you are likely filtering out candidates which may fit your needs better. Candidates which match the actual role and day to day of the job. Not only that but you are likely wasting more resources (time and people) doing it.
+
+I’m not the only one that thinks this, apparently NC State University in conjunction with Microsoft also had a similar perspective a few years ago: Tech sector job interviews assess anxiety, not software skills.
+
+In this post, I will attempt to break down my perspective on technical interviews (techs). What I see to be their real value and application. By the end of this, I hope you will know why as a Hiring Manager I’ve pushed back on using them and what I prefer to do instead.
+
+General Admission
+I suck at technical interviews. There, I admit it.
+
+First things first, some context about me. I have been a software engineer for a little over 17 years now. Every org I’ve worked at, I’ve crafted and led principal level/scope projects. In general though, my technical efforts focus on cross team, Staff level contributions.
+
+It’s important to know, I’ve also been a hiring manager and successfully led rounds to hire junior, medior, senior, and principal roles.
+
+Note: I have not worked at the largest of orgs. My Staff/Principal level work is all relative to the org where those efforts were applied. That is to say, I recognize the scope and impact of a Staff eng at an 800 person company vs. a 10k is quite different. Still, I believe the general statements herein remain true regardless because ultimately it’s not the tool that’s a problem, it’s how it is applied.
+
+You can ask any team I’ve been on or lead, any engineer I’ve worked with, or any leader I’ve worked under. They will all say I’m way more technical than I describe myself. (Then they will likely give me grief about my impostor syndrome 😰)
+
+So, if I suck so bad at technical interviews, then have I just duped every single org and every single person I’ve worked with?
+
+Very unlikely.
+
+Well, why do I perform so poorly at technical interviews? Sure, I have anxiety, but that doesn’t explain just how much I bomb during those techs.
+
+And before you jump to thinking I am just being hard on myself. When I say I perform poorly, I don’t mean my execution was just shy of perfect. No, I mean I go from basic mistakes, low confidence articulation, all the way to completely bricking. I.e. I just stop being able to move forward, apologize profusely, and sweat. I sweat a lot. 🥵
+
+How is that possible? How does it make sense that at every job I’ve been at, leaders and peers have all said I excel at my job. Why do I perform so poorly at interviews and yet consistently get promoted?
+
+Let’s dig in to see if we can’t answer that.
+
+Performance (Par|An)alysis
+It seems to me this abysmal performance is due to 2 related reasons. One of which you are more likely to care about.
+
+The first and less important reason is my skills aren’t squarely technical. I am not the type of person that solves problems for the sake of solving them. I solve problems for my team, our customers (internal or external), and/or the org.
+
+In order to do the work I do, I gather context, understanding, and insight into the problem to be solved.
+
+Most of those large projects I’ve taken up over the years stem from an insight I was able to come to once I understood the constraints of the org, the technology, and the team backing it all.
+
+Sure I used x technology or y algorithms and even z data structures to solve them. But they were incidental. I have never had to, nor heard of, a do or die moment where there was a need to implement a prefix trie and an O(n) search solution within 30 minutes of being presented with a problem.
+
+What I have had to do over and over and over is:
+
+Navigate org pressures, relationships, and team dynamics
+Doggedly chase and tackle hard to repro bugs
+Benchmark/solve performance & scale issues
+Work with product, design, team engineers, and other teams to deliver
+Leverage resources to gain understanding and insights
+Communicate asynchronously via comms channels, documentation, & code to avoid siloing
+Support, mentor, and lead
+Raise issues, advocate to resolve them, and ensure planning to tackle
+As you can see, my ability to deliver impact isn’t based solely on pure technical knowledge. Algorithms, data structures, and scalable architecture are just some of the tools and patterns we use to get the job done.
+
+As such, I’ve gone into each company knowing little of the problem space and then quickly becoming a subject matter expert in some area or another. Each time I’ve used little of what I knew from the previous company because each space was different and nuanced.
+
+Still my years of experience and abilities should enable me to handle some easy technicals, right?
+
+Well, yes and no. Let’s talk about the second issue to help expand on why it’s not so straightforward.
+
+Challenging (Inter)Views
+The most prevalent types of technical interviews are:
+
+Coding Assessment (aka leetcode) Effectively functional trivia. Candidates are presented a functional challenge and they must work through writing an ideal solution. This is a live coding challenge.
+Application challenge
+Similar to coding assessment, however these challenges are more stylistic in nature. The challenge is to build a simple application or component. This can be done as a live coding challenge or take home.
+System Design
+The fuzziest of them all. Here candidates are given a prompt to talk through how they might build and design some popular service, application, or component at a high level. Oftentimes they will need to generate some diagrams etc on a whiteboard (digital or otherwise).
+Important callout is that a lot of orgs will emphasize that the final answer is not the focus. Instead the way the candidate works and communicates is what is really being evaluated.
+
+While that’s nice and all, it’s pretty clear the majority of interviewers will knock a candidate for a failure to complete. What’s worse is when the problem presented is, at its core, a problem you haven’t encountered, it creates an issue that can derail momentum and ruin an interview.
+
+Some might argue a good candidate will have perseverance and push past because that’s what they will need in their day to day. In theory, I agree, perseverance and a general plucky attitude is a necessity in engineering. This is not the way to validate it.
+
+I could see this level of trial by fire making sense if perhaps your org is one where engineers are under constant pressure and a culture of perform or die. If not, then consider the difference between answering trivia questions with your friends and then trying to answer those same questions competing against contestants on a live TV game show. Oh, and the prize for the game show is your job. 🤨
+
+This is exactly where my anxiety starts to go haywire. I might know the answers but they are not going to come forth so easily in this type of environment. Think of those videos where game show contestants say the dumbest things when the clock is ticking away at them. That’s me. I will often implement a bad solution only to recognize it the minute the interview is over. 🤦
+
+There is another aspect to consider as well. What about the difference between candidates who have encountered the trivia problem and those who haven’t? If the point isn’t to finish the task and you just want to assess their problem solving, wouldn’t you still naturally rate the person that breezes through it over the person that has to clunk through it solving it? This means this will be biased towards someone who HAPPENS to have dealt with this same problem (or memorized it). Worse it likely doesn’t yield qualitative data about the candidate in relation to the job.
+
+As mentioned before though, anxiety and experience (or lack thereof) isn’t the complete answer for why I perform the way I do.
+
+A faint signal in the distance!
+So let’s get into what signal orgs can get from these interviews.
+
+In my opinion, very little as applied.
+
+A quick search online will show a large number of books, videos, paid courses, etc for tackling these types of interviews. They all encourage people to train for months grinding puzzles and memorizing solutions. This has become akin to preparing for college exams and the like. Which means there is a strong likelihood these types of interviews will actually favor a certain type of candidate by default.
+
+Now, if folks are doing this, memorizing these things, then is that so bad? Well, no. Not in and of itself. Knowledge is great! Never say no to know(ing). 🫢
+
+However, the point of the interviews is to validate candidates for the job. The job that they will be doing and expected to deliver on, not on some minute, edge case part of the job.
+
+Note: I oftentimes wonder if this is why orgs end up with overly complicated systems when a simpler one could have sufficed. If candidates making it through the door are highly incentivized to mainly look at these fully at scale systems, then perhaps they are more likely to implement complexity without questioning its necessity or whether the teams/orgs can actually support those systems.
+
+I’ve read of and have experience with companies which give prep material for their interviews. Wait, what? Shouldn’t years of experience be enough of a prep? Am I getting prepped for the job or the interview itself? Why do I need special prepping… for an interview? Maybe, just maybe this is a sign we might be assessing the wrong things? 🤔
+
+Before going further, I want to debunk a core idea which companies raise behind these interviews. The idea that any of these types of interviews are real world/simulate the job.
+
+Virtual World
+In a real world scenario, most if not all of these things are true:
+
+I have some idea who I’m connecting/interacting with and how they communicate.
+I have some knowledge of the problem space, how we got here, and why we are solving this.
+It is unlikely this is the first time hearing of this issue.
+I know the team and/or technologies which will likely support the solution.
+I know the broader org goals and direction that might affect choices.
+I have safety to ideate, iterate, and draft solutions.
+Most importantly, what tasks are people working on that they are expected to solve in 30-40 minutes (accounting for intros and setup)? Typo changes? Perhaps doing an RCA for the following code:
+
+should_crash_system = True
+if should_crash_system:
+  crash_system()
+In the real world, engineers have time to noodle on a problem, work thorugh it, and then refine. It’s not too unlike writing. You create a clunky outline, trim and refine some drafts, then polish before submitting. Engineers are usually sharing a refined version, not the first “make it work” outline. The exception would be pairing or duck sessions where it becomes more of a group effort.
+
+Interview environments do not allow for that space, time, or let’s be real, safety.
+
+Similarly, high level considerations or the types of elements that get brought up in System Designs always have more space and time.
+
+Yes there are times where you go into a leadership meeting and you have to answer on the spot a new request. I have been in plenty of those meetings with Directors, VPs, and even the C suite. Never have I had to give a plan or anything more than a yes/no possibility, broad timeline (X months) or complexity estimate (t-shirt size), and maybe a rough expectation on team resources (x engineers). We’re talking, 5 minutes of back and forth max.
+
+Similarly, in scoping/planning session with product and design, you might block loose times but then carve out space to properly explore and plan. So in the end you say something like “Yeah, I think we can do that in a sprint or 2 with 2 engineers. Let’s get a spike ticket on the board to explore options, refine resources and timeline”.
+
+Maybe at certain orgs people are getting requests like: hey can you design a system which took 15 years to reach its current implementation, created by one of the most capable companies in our industry, and make sure it accounts for all the problems they solved or will need to solve. Oh yeah, gonna need the design in 50, no 49 minutes.
+
+Okay, with that out of the way, back to breaking down the different types of interviews.
+
+Different Loops and Hoops
+Coding Assessments
+As mentioned before, engineers aren’t butting up against DSA problems so regularly they have them memorized. It’s not too often you need to have them ready to go at a moment’s notice. Most capable engineers understand the concepts, the pros and cons, but don’t really retain most of the actual syntax or structure itself. I.e. they could tell you about a structure but they’d likely look up how to implement it.
+
+It’s possible your role does encounter this regularly. Therefore, this type of challenge is good if the role you are looking to fill is one where algorithms and data structures are crucial knowledge. Likely a key member of a team that is dealing with deep performance concerns building some complex engine or massive scale solution. A role where the candidate will be actually implementing, creating, and delving into data structures/algorithms on a regular basis (50%+?). If true though, then you’ll likely want to do more of a suite of tests, not just the one.
+
+The other place these types of interviews could be used is for recent grads (college or boot camps) and intern/junior/low-medior positions. This is because there is little else to go off of. These roles expect little in the way of experience and so some validation of knowledge should be applied.
+
+Application Challenges
+The problem with application challenges is they often start off as blank slates. Engineers generally aren’t spending their day standing up projects wholecloth. Also, for some, it’s a bit hard to engage on a problem that is of little value. Engineers are often excited about solving a problem, or about delivering for some end party (team/org/users/etc). Here though, both interviewer and interviewee know this is throwaway work. It’s like the worst hackathon setup ever!
+
+Still, there is a place for such interviews. These application challenges are probably good if you are looking to hire engineers for prototyping/R&D type projects. A role that will require engineers to stand up projects regularly and get them from 0 to 1. Important to clarify I don’t mean a startup. A startup will likely stand up an application once, not every other sprint or regularly enough you need to concern yourself with gating for it.
+
+Another potential for application challenges would be a dev shop. Again, a situation where candidates are expected to build projects from scratch on a regular basis. Even then, having run a dev shop myself, I know ideally engineers are using some kind of starting template.
+
+System Design
+System design interviews are interesting. Mainly because I think this is an attempt to address some of the failings of the other problems. They set up a more conceptual space and deal more head on with communication, ideation, and problem solving.
+
+However, effectively we are talking about architecting systems. Like with so many other points thus far, there is nothing wrong with everyone having some architectural skills. But, the fact that pretty much every interview loop now seems to have a system design round of some kind or another, are we really expecting EVERYONE to be an architect? Beyond that, most system design prompts deal with full stack, at scale concerns. Don’t get me wrong, I want even medior engineers thinking about how their changes can impact a system’s performance, stability, scale, and long term extensibility. However, based on this interviewing trend, are we now saying every member on the team is expected to drive full stack architectural issues so regularly we need to gate on it?
+
+In my mind, these types of interviews should be applied to higher level engineering roles. Those roles which expect to be engaging with these concerns regularly. Some orgs have a defined architect role. Perfect! Others roll that into the Principal role. Sounds good too! Staff engineers are ideal candidates as well for this concern given that cross team efforts need to consider a broader system.
+
+I’d even go so far to say that Senior roles could have this interview type applied to them. However, it should not be a major factor in their consideration. Why? Because if you are implementing high level systems at scale, it’s pretty safe to say you are now above a Senior role.
+
+I’m sure that last point will probably raise some eyebrows. Hear me out.
+
+Remember first that we are talking about interviews. Also, remember that I can look up how Y company has built a large scale system. I can memorize that idea and repeat it back to you. This is true of any graduate or anyone who just completed exams.
+
+That is, just because a med school graduate knows what a procedure is, doesn’t make them a doctor. They still need hands-on experience. They still need to deal with real world scenarios.
+
+Or would you argue that a graduate who can ace an exam is ready to be a Principal engineer? Perhaps the other way, if an L7 at a major technology org doesn’t remember the second parameter of a map function, would you argue they aren’t technically capable?
+
+The truth
+I think it goes without saying but outside of entry level positions, memorized knowledge is trivial. Higher level engineers know they can easily look this stuff up, and so they forget it because they do look it up. What you get with higher level engineers is a lot of intangibles. You get things like: what NOT to do, or what would be great to do but why that won’t work for THIS context. You also get a lot of, nah, you’re not going to need that.
+
+Basically, the concept on how to build something like microservices is relatively easy because the information is readily available. The real challenge, however, lies in the day-to-day details of implementing them—such as writing readable code, ensuring extensibility, and creating isolated functionality. Moreover, it takes considerable wisdom to assess whether such systems are the right solution for a given context, including the organization’s needs, the technologies at hand, and the team involved (ask me how I know 😉).
+
+The real problem I see with Technical Interviews is this:
+Technical interviews are used and weighted as if only the technical portion of the job matters. Also too many people misrepresent these interviews as “real world” when they are very far from it.
+
+My issue isn’t with technical interviews themselves, it’s how they are applied. A candidate is put through 7 rounds, of which 2 or 3 will be technicals. Those technicals often focus on minor parts of the job, misrepresent working conditions, generate needless stress, favor certain types of candidates and/or random luck of exposure. And yet, those technicals will still be a majority weight on a candidate’s evaluation.
+
+A candidate might ace all the previous interviews but then face a technical interview where they encounter a challenge they’ve never seen before. After stumbling and sweating profusely, they arrive at a working but suboptimal solution. In a normal work environment, they would refine the solution before submitting it, but in this context, their performance and solution will be weighed against those of other candidates. No doubt, some candidates will quickly and effectively generate an ideal solution. These candidates are likely to be considered a “better fit”, regardless of their performance in the earlier interviews.
+
+Again, maybe this is fine. Maybe this is the need or requirement for the role. Perhaps pure, on-the-fly technical performance is paramount for the position you’re hiring for. If that’s the case, then there’s little wrong here.
+
+However, I believe most roles don’t actually have these requirements. If that’s true, then these interviews aren’t providing the value organizations think they are. Especially when placing such a high emphasis on this criteria comes at the expense of other valuable qualities a candidate might possess.
+
+It’s already problematic how much company resources are consumed by these interviews. Worse, consider that for every hire, there are plenty of candidates who get filtered out, meaning organizations are taking extra time from people who likely have little to spare.
+
+So, what can you do instead?
+
+For me, I know the type of impact I’ve had at orgs. I also know there have only been a couple of times where I made it past technical interviews by luck or the kindness of my interviewers.
+
+Funny story: I was at the last technical interview for a role working with NodeJS. After introductions, the interviewer noted they were a GoLang developer and thus there wasn’t much he could assess me on. I made a comment about liking the band shirt he had on and we ended up finishing the hour talking about music. I got the job and ended up having a large impact at that org 🤣
+
+Knowing this, it’s why I push against them whenever I have a say in the matter.
+
+Understand these interviews have come about because it’s supposedly harder to “fake” results. I don’t believe that’s quite true. For those with time, patience and a good memory, it’s not hard to fake this at all.
+
+Personally, I find you get a better signal from conversational or STAR (i.e. cliched “tell me about a time… ”) style interviews. Those interviews aren’t as well regarded because candidates can prepare beforehand for such questions. Which as we know is impossible with the more contemporary technical interviews. 🙄
+
+Still, these types of interviews can be incredibly insightful if you have an interviewer who has a wide breadth of knowledge. I’ve seen interviewers ask deep questions about the choices made and if they were aware of x or what might have happened if y.
+
+More importantly though, conversational interviews tend to go more broadly into soft skills. They start as a conversation, get to technical details, then meander into broader soft concerns. Weird, it almost sounds like I’m talking about how being an engineer works. 😲
+
+This is why I think project deep dives are also a good option. This is where a candidate talks about a project they did and is ready to answer technical questions about it. Both of these can yield some of the same results you might get from a System Design assuming the interviewer is engaged.
+
+Note: A callout I want to make is the idea of candidates actually preparing a full on presentation. Given the industry turmoil, layoffs etc, people are likely to be looking for a job without a current paycheck. Consider that perhaps this isn’t the only role they are applying for and also consider they may not have tons of time to create a presentation. Ideally use a prompt like “talk about a project…” or “share a project where…” as opposed to “present a project”.
+
+For me I see interviews through the same lens as any other engineering solution. I consider the pros and cons of the tools at my disposal and apply them accordingly to achieve an optimal solution for the given context.
+
+In plain terms, if I need to optimize for architects, I will interview for that. If what matters for the role is pure technical talent, then I will ramp up the technical aspects of an interview and weight accordingly.
+
+More often than not, I use conversational style interviews to determine fit. Temperament, attitude, aptitude, communication, working style, team mentality, and flexibility are the traits hardest to train. Thus, I gate heavily on those. The technical parts? Well, I can teach most folks to code. 😉
+
+What does that look like? All roles are 3-4 rounds.
+
+Hiring Manager - Broad understanding of what the candidate has, focuses on, and how they might fit into the team
+Team panel - How do they work, more specificity on technologies and day to day execution.
+Role specific -
+Junior: “Easy” coding challenge which candidates should all be able to complete.
+Medior: Candidate is given mock project and asked to add feature X.
+OR Candidate is presented with a mock feature being submitted for approval which they should critique.
+Senior: - Deep dive/project presentation
+Staff: - System Design or Deep dive/presentation
+Principal: - System Design
+Auxillary - This is often an interview from an adjacent team to give an “external” less biased perspective.
+This slot can also be used for an addition role specific interview often for Staff+
+What about me?
+I know I’m bad at technical interviews.
+
+However, I also know I’m good at my job. I know I will bring valuable support to my team and organization, collaborate effectively with other teams to address broader issues, and work closely with product, design, and leadership to ensure alignment. I will drive focus, very likely craft, own, and deliver large initiatives. I will clean up messes, and if history proves true, I will improve performance. I know I will drop into pretty much any codebase and with a very short ramp up, create impact. I know I will deliver value.
+
+I also know I will continue to flail and very likely outright fail technical interviews. While I hope by now you understand why this shouldn’t matter, for now, I know it does… technically.
