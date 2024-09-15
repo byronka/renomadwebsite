@@ -1,15 +1,21 @@
 <!--#include virtual="header.html" -->
+<style>
+	cite {
+	    display: block;
+	    margin-top: 20px;
+	}
+</style>
 <div class="entry">
 	<p class="content-header">
-		New Guide to Contributions for Minum
+		First anniversary of Minum v1
 	<p>
-	<div class="date">September 8, 2024</div>
+	<div class="date">September 15, 2024</div>
 
 <p class="content-body">
 I keep reading essays (see notes below) how simplicity should be favored over
 complexity.  That microservices, Kubernetes, and even the use of separate
 frontend applications (rather than using server-side rendering) are overkill
-for most projects.  I agree - I think it is best to avoid undue complexity, to
+for most projects.  I do think it is best to avoid undue complexity, to
 keep things simple, given what I believe to be the best way to start.
 </p>
 
@@ -42,7 +48,7 @@ become the table stakes in the programming industry.  Each paragraph is a link
 back to its source text.
 </p>
 
-<blockquote cite="https://renegadeotter.com/2023/09/10/death-by-a-thousand-microservices.html" class="excerpt">
+<blockquote>
 <a href="https://renegadeotter.com/2023/09/10/death-by-a-thousand-microservices.html" style="text-decoration: none; color: inherit;">
 	The audit revealed an interesting pattern, where many startups
 	experienced a sort of collective imposter syndrome while building
@@ -53,9 +59,10 @@ back to its source text.
 	instance - what are we doing wrong?”. The answer is almost always
 	“nothing”.
 </a>
+<cite>https://renegadeotter.com/2023/09/10/death-by-a-thousand-microservices.html</cite>
 </blockquote>
 
-<blockquote cite="https://mcfunley.com/choose-boring-technology">
+<blockquote>
 <a href="https://mcfunley.com/choose-boring-technology" style="text-decoration: none; color: inherit;">
 	It can be amazing how far a small set of technology choices
 	can go. The answer to this question in practice is almost
@@ -65,33 +72,32 @@ back to its source text.
 	you’ve got now, you are probably just not thinking creatively
 	enough.
 </a>
+<cite>https://mcfunley.com/choose-boring-technology</cite>
 </blockquote>
 
-<blockquote cite="https://www.teamten.com/lawrence/writings/java-for-everything.html">
+<blockquote>
 <a href="https://www.teamten.com/lawrence/writings/java-for-everything.html" style="text-decoration: none; color: inherit;">
 	StackOverflow uses ASP.NET. So you can complain all day about
 	public static void main, but have fun setting up 500 servers.
 	The downsides of dynamic languages are real, expensive, and
 	permanent.
 </a>
+<cite>https://www.teamten.com/lawrence/writings/java-for-everything.html</cite>
 </blockquote>
 
-<blockquote cite="https://riak.com/posts/technical/microservices-please-dont/">
+<blockquote>
 <a href="https://riak.com/posts/technical/microservices-please-dont/" style="text-decoration: none; color: inherit;">
-	Additionally, it also makes writing tests more difficult, as to write
-	a proper set of integrations tests means understanding all of the
-	different services a given interaction might invoke, capturing all of
-	the possible error cases, etc etc. There is even more time spent on
-	simply understanding the system, which could better be spent
-	continuing to develop it. While I would never tell any engineer that
-	time spent understanding a system is time wasted, I would definitely
-	warn people away from prematurely adding these levels of complexity
+	There is even more time spent on simply understanding the
+	system, which could better be spent continuing to develop it.
+	While I would never tell any engineer that time spent
+	understanding a system is time wasted, I would definitely warn
+	people away from prematurely adding these levels of complexity
 	until they know they need it.
 </a>
+<cite>https://riak.com/posts/technical/microservices-please-dont/</cite>
 </blockquote>
 
-
-<blockquote cite="https://www.timr.co/server-side-rendering-is-a-thiel-truth/">
+<blockquote>
 <a href="https://www.timr.co/server-side-rendering-is-a-thiel-truth/" style="text-decoration: none; color: inherit;">
 	People newer to the industry might never have built a server-side
 	rendered app, so it's not an open question for them. As a result, for
@@ -101,10 +107,10 @@ back to its source text.
 	I think they're wrong: server-side rendering is more often the better
 	choice.
 </a>
+<cite>https://www.timr.co/server-side-rendering-is-a-thiel-truth/</cite>
 </blockquote>
 
-
-<blockquote cite="https://www.simplethread.com/gasp-you-might-not-need-microservices/">
+<blockquote>
 <a href="https://www.simplethread.com/gasp-you-might-not-need-microservices/" style="text-decoration: none; color: inherit;">
 	By adopting Microservices or micro-frontends, you’re shifting the
 	complexity, not removing it. In some places the shift is worth it, but
@@ -113,10 +119,10 @@ back to its source text.
 	numbers of developers, then splitting your application up into lots of
 	tiny pieces will likely create more headaches than it eliminates.
 </a>
+<cite>https://www.simplethread.com/gasp-you-might-not-need-microservices/</cite>
 </blockquote>
 
-
-<blockquote cite="https://web.archive.org/web/20170228054121/http://richardwellum.com/2017/02/simplify-then-add-lightness/">
+<blockquote>
 <a href="https://web.archive.org/web/20170228054121/http://richardwellum.com/2017/02/simplify-then-add-lightness/" style="text-decoration: none; color: inherit;">
 	Simple designs for a racing car offer a huge advantage over
 	complicated rivals, because they are easier to maintain. A complicated
@@ -125,32 +131,20 @@ back to its source text.
 	to anyone working in software engineering, and yet as a whole we keep
 	producing over-complicated solutions. 
 </a>
+<cite>https://web.archive.org/web/20170228054121/http://richardwellum.com/2017/02/simplify-then-add-lightness/</cite>
 </blockquote>
 
-<blockquote cite="https://thenewstack.io/developers-rail-against-javascript-merchants-of-complexity/">
-<a href="https://thenewstack.io/developers-rail-against-javascript-merchants-of-complexity/" style="text-decoration: none; color: inherit;">
-	“I’m seeing a revival now,” said Levels, regarding PHP. “People are
-	getting sick of frameworks. All the JavaScript frameworks are so… what
-	do you call it, like [un]wieldy. It takes so much work to just
-	maintain this code, and then it updates to a new version, you need to
-	change everything. PHP just stays the same and works.”
-</a>
-</blockquote>
-
-
-<blockquote cite="https://martinfowler.com/bliki/MonolithFirst.html">
+<blockquote>
 <a href="https://martinfowler.com/bliki/MonolithFirst.html" style="text-decoration: none; color: inherit;">
-	Microservices are a useful architecture, but even their
-	advocates say that using them incurs a significant
-	MicroservicePremium, which means they are only useful with
-	more complex systems. This premium, essentially the cost of
-	managing a suite of services, will slow down a team, favoring
-	a monolith for simpler applications. This leads to a powerful
-	argument for a monolith-first strategy, where you should build
-	a new application as a monolith initially, even if you think
-	it's likely that it will benefit from a microservices
-	architecture later on.
+	This premium, essentially the cost of managing a suite of
+	services, will slow down a team, favoring a monolith for
+	simpler applications. This leads to a powerful argument for a
+	monolith-first strategy, where you should build a new
+	application as a monolith initially, even if you think it's
+	likely that it will benefit from a microservices architecture
+	later on.
 </a>
+<cite>https://martinfowler.com/bliki/MonolithFirst.html</cite>
 </blockquote>
 
 <!--#include virtual="footer.html" -->
