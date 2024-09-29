@@ -1,0 +1,69 @@
+<!--#include virtual="header.html" -->
+<div class="entry">
+	<p class="content-header">
+		Stacktrace comparison	
+	<p>
+	<div class="date">September 29, 2024</div>
+
+	<p class="content-body">
+	This compares the stacktraces of Minum and Spring.  I have
+	highlighted different sections by package.  Note the relative
+	simplicity from Minum.
+	</p>
+
+	<p class="content-body">
+	In Minum's stacktrace, there are three sections.  From top to
+	bottom, they are: the business code (1 line), then the Minum
+	framework (6 lines), and finally the base Java code (3 lines).
+	</p>
+
+	<p class="content-body">
+	In comparison, in Spring, there are 10 sections.  From top to
+	bottom, they are: the business code (1 line), then a Spring
+	"CrashController" (1 line), then some Java reflection code (2
+	lines), then 10 lines of Spring framework code, then a single
+	line of Jakarta's code for servlets, then back to Spring for
+	one line, then back to the servlet for a line.  Then around 30
+	lines of Tomcat code, with some Spring Framework middleware
+	(aka filters) sprinkled liberally, then the Coyote processor
+	package, then back to Tomcat for 5 lines, and finally a single
+	line of base Java.
+	</p>
+
+	<p class="content-body">
+	Which all shows that understanding the mechanics in Spring is
+	going to require magnitudes greater research and effort than Minum.
+	</p>
+
+	<h4>
+		Minum vs. Spring stacktraces
+	</h4>
+	<img alt="a graphic comparison of the stacktraces of Minum versus Spring" style="height: initial; width: 100%" src="../files/stacktrace_comparison.jpg" >
+
+	<h4>
+		Causing the exception in Spring
+	</h4>
+
+	<p class="content-body">
+	To cause the exception in Spring, I started the Spring
+	Petclinic application and clicked on the Error link.  The
+	stacktrace appears as formatted text in the logs.
+	</p>
+	<img alt="a view of the button in Spring Petclinic that will cause an exception to be thrown" style="height: initial; width: 100%; box-shadow: 9px 9px 14px black; border: 1px solid grey" src="../files/spring_petclinic_button_to_trigger_exception.jpg" >
+
+	<h4>
+		Causing the exception in Minum
+	</h4>
+	<p class="content-body">
+	To cause the exception for Minum, I ran <pre>make run_sampledomain</pre> on the command line in the root
+	directory, and then requested a URL with a path of
+	<em>throwexception</em>. The stacktrace appears as a single
+	log line, with formatting escape codes like \n.  These values
+	can be replaced to see the original
+	formatting, and tools like Intellij have an "Analyze Stack
+	Trace" feature with a "Normalize" function that can
+	automatically replace these values with formatting.
+	</p>
+	<img alt="A view of the endpoint used for causing an exception in the Minum framework" style="height: initial; width: 100%; box-shadow: 9px 9px 14px black;  border: 1px solid grey" src="../files/minum_endpoint_to_throw_exception.jpg" >
+</div>
+<!--#include virtual="footer.html" -->
