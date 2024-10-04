@@ -132,9 +132,13 @@ print (re.match("^[^.]+", (sys.argv[1][::-1])).group(0))[::-1]
   <p class="content-body">
   To make videos smaller using ffmpeg, this command line will do the
   trick.  It uses lib264, which has good video compression, and makes the 
-  video smaller but doesn't ruin its aspect ratio.
+  video smaller but doesn't ruin its aspect ratio. Following that is a line
+  which keeps the aspect ratio but sets the width (letting the height vary)
+  and trimming the start and end.
   </p>
   <pre><code>ffmpeg -i INPUT_FILE -c:v libx264 -s 320x240 -preset veryfast OUTPUT_FILE.mp4</code></pre>
+
+  <pre><code>ffmpeg -ss 00:01:00 -to 00:02:00 -i INPUT_FILE -c:v libx264 -vf "scale=640:-1" -preset veryfast OUTPUT_FILE.mp4</code></pre>
 
   <p class="content-body">
   To create tiny-sized thumbnails, where the priority is smallest size with just
