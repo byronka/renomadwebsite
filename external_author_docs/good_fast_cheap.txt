@@ -1,0 +1,186 @@
+January 2025
+
+Good, Fast, Cheap: Pick 3 or Get None
+The usual saying is a bit different:
+
+Good, fast, cheap — pick two.
+
+Engineering is is a game of compromises: we can’t have it all, if we optimise for something, something else got to give. We programmers often like to think of ourselves as engineers (some of us actually are), and one way to project the associated gravitas is to act jaded: there’s no free lunch, pick your battles, and accept that software cannot be good and cheap and delivered quickly — something’s got to give.
+
+This is naive cynicism. Too pessimistic in a way, thinking you can’t have it all; but too optimistic in another way, thinking you have a choice. You don’t. The only way to quickly deliver cheap software is to make it good. If you don’t focus on quality, you will pay dearly to deliver crap software late.
+
+Not in the short term of course: the corners you cut won’t come back to haunt you, and you can sacrifice performance or maintainability to reduce costs. Long term though, neglecting either can easily start a downward spiral to the infamous Big Ball of Mud. Even performance: you need your tests to run fast enough, or you’ll be tempted to run them less often, or worse, write fewer of them. Bugs will creep up, and people will become increasingly wary of fixing poor code. Conversely, your program needs to run fast enough for its users, and fixing performance problems late is likely to require significant rework, or ugly hacks.
+
+Once we’re committed to quality, there’s not much trade-off between time to delivery and and total cost of ownership. With good boundaries between modules (a requirement for quality), we can scale some and keep communication overheads minimal. Bigger teams cost more per month, but they also deliver faster, so it mostly balances out. That is, as long as the team isn’t too big. Past a certain point, miscommunications and duplicated work don’t just increase costs, they destroy quality as well, and again we lose everything.
+
+Now, one does not magically achieve quality. There’s a method to this, which could be boiled down to two main tricks: simple code, and good tests.
+
+Simple code
+(For what I mean by “simple”, read John Ousterhout’s A Philosophy of Software Design, or watch one of his talks).
+
+The first step to simple code is to want simple code to begin with. Not everybody does, often because of misguided assumptions about flexibility. But simpler code makes thing better across the board: it’s easier to optimise, easier to test & correct, and faster to write & maintain.
+
+This is less obvious than I make sound. See, the simplest solution to a problem is rarely the first one that comes to mind. In the short term it’s this solution, not the simplest, that is cheapest to implement. Not long ago, I did try to rush the obvious route in the name of expediency. It worked, but it slowed down development in a matter of weeks. In a team of two where I was making all the calls.
+
+To get closer to the simplest solution, John Ousterhout recommends, you should design it twice. Try a couple different solutions, see which is simplest. Which by the way may help you think of another, even simpler solution.
+
+Good tests
+The most important lesson I got working on Monocypher was the power of good tests. Obviously something as critical as cryptography requires bug-free software, but good tests have another benefit: they speed up development. A good test suite, that runs fast and catches all the bugs, makes it very easy to fearlessly refactor code. This helps me keep my code simple even as I add new features.
+
+I can’t spend all my time writing tests however, even for cryptography. My last assignment for instance had me implement a protocol in a single week. I couldn’t afford more than a day on tests, and yet I had to catch all the bugs. How does one write excellent tests in little time?
+
+The trick here is property based tests: give a crapload of inputs to whatever you need testing, and check that all the outputs satisfy whatever properties they need to satisfy. With that approach, a single testing routine can generate millions of tests, including edge cases.
+
+Let’s take an easy example, and try to test this function:
+
+void sort(int *data, size_t size);
+We could manually test various inputs and check the output, but that would take forever, and good luck thinking of all the possible edge cases. We need to step back. What properties a sorting function must have, to be considered “correct”? Here’s a non-exhaustive list:
+
+The output list is sorted.
+The output list has the same size as the input list.
+All elements in the output list are in the input list.
+All elements in the input list are in the output list.
+…
+Once you have your properties, you can generate your test cases (usually with a deterministic RNG so bugs are easily reproduced), and see if they hold:
+
+int test_sort_2(void)
+{
+    int data[1000];
+    for (size_t size = 0; size < 1000; size++) {
+        for (size_t i = 0; i < size; i++) {
+            data[i] = random_int();
+        }
+        sort(data, size);
+        for (size_t i = 1; i < size; i++) {
+            if (data[i] < data[i-1]) {
+                return -1;  // Data is not sorted.
+            }
+        }
+    }
+    return 0;  // All good!
+}
+This test is obviously far from complete: it only tests whether the output list is sorted, without even comparing it to the input. A sort() function that just fills the buffer with zeroes would still pass. We could also discuss input generation: only one input per length, no already sorted input…
+
+But you get the idea: generate lots of inputs, make sure they hit various edge cases, and check the outputs satisfy various properties. Granted, this approach is more complex than naive unit tests. It is also orders of magnitude more efficient.
+
+Quality is an uphill battle
+Though simple code and good tests are cheap in the long term, they significantly slow down the start of any project, and quite visibly so. Promises of speed up are always a couple weeks ahead, and actual return on investment can take even longer.
+
+Worse, every new addition to a project requires more investment: design it twice, write the tests… Every step of the way one could cut corners and temporarily speed things up. We can’t just make the right choice at the start, we’re condemned to constant temptation.
+
+But go explain to your boss who just saw a working prototype, that you need a couple more days to design an alternate implementation, that may or may not be included in the final product. That you still need a couple more automated tests just to make sure. That you’ll take this slow approach now and forever, pinkie promise that’s how we’ll ship sooner.
+
+I have met very few bosses who trusted me with such a sales pitch. Most don’t want simple, they want done, and will ignore the implications of a poor initial design or a lack of tests. So unless I have cause to believe my boss understands those things, I just decide such menial considerations are below their pay grade, and tell them I am not done yet.
+
+Except of course when expediency is the right call. Sometimes deadlines are just that tight.
+
+The performance XOR simplicity fallacy
+The idea that reasonable performance is a requirement for good, cheap software is counter-intuitive. We tend to think that on the contrary, performance requires extra effort that has to be diverted away from quality or cost reduction.
+
+From this derives a common straw-man, that when someone talks about performance they’re all about hyper-optimisation. That they will sacrifice maintainability for a few CPU cycles. That they think stuff like productivity or even correctness can go f — I mean take a hike.
+
+That is not the case at all.
+
+Okay, great, you don’t care about how long it takes. But you know what, people who don’t care about how long it takes is also the reason why I have to wait 30 seconds for Word to boot, for instance.
+
+But you know, whatever, that’s your constraint. I mean, I don’t think that’s orthogonal to what we do. We worry about our resources. We have to get shit out, we have to build this stuff on time, we worry about that.
+
+What we focus on though is the most valuable thing that we can do. We focus on understanding the actual constraints of the problem, where can we actually spend the time to make it valuable, ultimately for our player, or for whoever your user is — that’s where we want to bring the value. And performance matters a lot to us.
+
+But I would say, in any context, for me personally, if I was to be dropped into the business software development model, I don’t think my mindset would change very much, because performance matters to users as well, in whatever they’re doing.
+
+That’s my view.
+
+Mike Acton, Data-Oriented Design and C++
+
+Note this key sentence:
+
+We have to get shit out, we have to build this stuff on time, we worry about that.
+
+Even though Mike Acton just spent over an hour explaining how much performance most of our industry is leaving on the table, even though he is insisting that performance matters, his first priority is to ship.
+
+Just because someone says performance is underrated, doesn’t mean they’re all about that. Other quality related aspects matter just as much to them, especially at scale:
+
+Say if even somebody is — I don’t know let’s pick something boring, like somebody writes a word processing program — that they think is cool or something, they want everybody to use it because it’s their program.
+
+But, it’s kinda slow, and frustrating to use a little bit — not completely frustrating, just good enough for people to try and use it, but then it messes things up a little bit, then it crashes once in a while, and it inserts a little bit of garbage into your document — in rare cases, right?
+
+Okay that happens to one out of a hundred people. If ten million people use it, which is quite probable in a successful project these days, then a hundred thousand people had a bad time.
+
+And there’s actually a weird economics there: if by spending 10 hours of your time you could save a typical person using software one minute of bad experience, then at some level of usage that number just dwarfs your hours of time, and it becomes an ethical failing not to do that work.
+
+Jonathan Blow on Success and Ethics in Software Development
+
+There are worse things for users than merely having to wait for software. Ultimately though, most of the little issues we have with software can be quantified in terms of time lost. And when you start to have a non-trivial amount of users, this quickly adds up.
+
+Say for instance you have a measly 10K users, and a common operation of your software is slower than it could be, and on average causes your users to waste one second per day. That’s a total of 2 hours and 45 minutes lost per day. Even if the fix required a whole work day, we would break even in less than three.
+
+Now imagine an IDE used by millions of developers, taking more than 10 seconds to boot. Or better yet, your compiler taking forever:
+
+I’ve seen many people not care about things like this, and having personally raised the issue of incremental compile times many times in many different contexts, and there’s always a decent chunk of people who will convince me that it’s fine, that their build takes 20-30 seconds or longer and that they’re still being productive.
+
+At the risk of angering some, I can only attribute this to lack of experience with better tooling, or simply their game not having reached a stage where they actually need to iterate quickly. Or at the very least, I feels like some people [don’t] realise how much more polish could their games have if their compile times were 0.5s instead of 30s.
+
+LogLog Games, Leaving Rust gamedev after 3 years
+
+I suspect part of the reason we so often don’t respect our users’ time, is because we don’t even respect our own. If you think it is acceptable for an incremental build to take over 10 seconds, why would you even care that the software you ship takes 10 seconds to boot?
+
+I can hear the protests already: you’re solving complicated problems that require complicated solutions with tons of complicated code, so slow compilation times for you and slow boot times for your users are just the cost of doing business.
+
+To those I ask: do you have any idea how fast computers actually are? Decent compilers these days can compile at least 100 thousand lines per second, per thread. How much code are you compiling that even your incremental debug builds require several seconds? An NVMe drive can read gigabytes per second. How much data does your software have to load before reaching a usable state, that could possibly justify taking several seconds to boot?
+
+If we actually knew how fast our computers really were, as users we would be much less tolerant of slow software. As developers, we would realise that many performance problems we either accept or route around could actually be fixed.
+
+You’d think fixing a performance problem necessarily involves optimisations that makes it more complex. Quite often though, the exact opposite happens:
+
+So, we’re at a point now where the detail level is probably 16 times higher, we’re not getting this kind of janky up-resing of the world and popping stuff going on.
+
+We’ve got more features in the system, it does exactly what the artists need and it’s 1800 times faster than the old system was in its worst case scenario.
+
+And it’s about half the code of the old case, so much easier to maintain with less code. The code is simple, we know where the data is, it’s not scattered all over the place. It’s not a bunch of virtual function calls that you have to figure what they do on random objects, it’s a very simple to read system.
+
+Jason Booth, Practical Optimizations
+
+Let that sink in for a moment: after this optimisation, Jason Booth got:
+
+Much higher detail levels
+Less janky popping
+More features
+1800x speedup
+50% less code
+Better result, more features, faster, and less code? You would think this is some kind of miracle; either the guy is a genius, or he cherry picked his example. Still this happens more often than you’d think:
+
+But what if you are working on a system that needs to be fast? How should performance considerations affect the design process? This chapter discusses how to achieve high performance without sacrificing clean design. The most important idea is still simplicity: not only does simplicity improve a system’s design, but it usually makes systems faster.
+
+John Ousterhout, A Philosophy of Software Design.
+
+Mark Ousterhout’s words: simplicity usually makes systems faster. Not sometimes, not often, usually. Even better, going out of our way to make a system faster doesn’t necessarily make it more complex. Later in the same chapter he says:
+
+Once you have a general sense for what is expensive and what is cheap, you can use that information to choose cheap operations whenever possible. In many cases, a more efficient approach will be just as simple as a slower approach.
+
+Even when it’s not, starting from a simpler system makes it easier to inspect and modify, both of which are crucial when you need to improve its performance.
+
+Performance and simplicity are not mutually exclusive. More often than not, we either get both or neither.
+
+What if speed is paramount?
+Even if you don’t care about simplicity, and know up front that speed is your number one priority, the most likely way to get there is still to start simple. Understand your problem, devise a simple solution, then work your way up the performance ladder:
+
+Understand your problem: Specifically, your data. To the extent computers can help you solve your problem, at some point you will have to read, transform, and write data. You need to understand what that data is like: how much of it there is, how frequently it needs to be processed, by what hardware, what are the common cases.
+
+Devise a simple solution: This step is deceptively difficult. It’s easy to think of the first solution that comes to mind as the simplest, but as I’ve mentioned, it rarely is. Don’t hesitate to try and compare a couple designs. You’ll find that very often, your simplest design will be good enough by default.
+
+Fix your memory access patterns: think of your memory locality, favour arrays over pointer-heavy data structures, overall make good use of your CPU’s cache hierarchy. Now to be honest, this step is often best fused with step (2), lest you’re forced into a complete redesign.
+
+That redesign is not as expensive as you might fear however: a good step (2) will leave you with not only a better understanding of your problem, but also a solution that should be fairly easy to modify thanks to its original simplicity.
+
+Optimise your hotspots: This is the point where performance awareness is not enough, and we start to actually optimise things. Note that this step is really possible only if the previous ones were followed. Complicated messes with poor memory access patterns, such as pointers & virtual calls everywhere, tend to be uniformly slow, with no real hotspot you can optimise.
+
+If your memory access patterns are any good however, you’ll probably have a couple bottlenecks ripe for optimisation. In most cases this is where you bring the SIMD hammer, though if your problem is network bandwidth you may need to compress your data instead.
+
+Now we’re trading “cheap” for “fast”. Now complexity rises, and the iron triangle starts to make sense again. Fortunately for us though, that complexity is likely to stay neatly contained behind the simple module boundaries you designed in step (2). We’re still in good shape.
+
+Scale: if despite all your efforts steps (1) to (4) were not enough, you’ll likely need, as a last resort, to use multiple threads or even multiple machines. And yeah, I do concede at this point that we’ve reached a hard trade-off between simplicity and speed. What can I say…
+
+Hard problems are hard.
+
+Mike Acton, Data-Oriented Design and C++
