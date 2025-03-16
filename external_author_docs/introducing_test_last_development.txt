@@ -1,0 +1,63 @@
+Introducing Test-Last Development (TLD)
+Facepalm_Picard_Gopher copy.png
+Tests are great, but let's not get carried away. The over-enthusiastic proponents of Test-Driven Development (TDD) would have you believe that we should write our tests first, before the code they test. That's ridiculous! How could you even do that?
+
+Don't make me think
+The TDD myth says that writing tests first helps you to design clean, usable APIs and decouple behaviour from implementation. That sounds wonderful, of course, but what if you haven't drunk the Kool-Aid? Writing tests first is hard, and I don't like to do hard things. Who does?
+
+If I were to implement some feature by writing a test for it first, I'd have to have a very clear idea of exactly how the feature should behave. I'd need to have chosen a suitable name for it, worked out what parameters it should take, and what it should return. And when I came to write the function in question, I'd find that most of the hard work had been done up front, and the tough design decisions taken already, leaving me only the task of writing some relatively trivial code to make the test pass.
+
+Real programmers don't design stuff
+But what fun is that? Any idiot could implement a behaviour that's already designed and specified in detail by a clear, readable set of tests. I got into programming because I like a challenge, and there's no greater challenge than trying to write a function while simultaneously trying to work out what it should do.
+
+I propose, therefore, a radical new software development methodology. Introducing your next best practice: "Test-Last Development" (TLD).
+
+Introducing TLD
+How does it work? It's simple. And that's the point: you can keep on banging out code the exact same way you did before, but now it has a name and a three-letter acronym (TLA), so it doesn't sound like you're just doing whatever.
+
+The TLD workflow for a project goes like this:
+
+Mash keys until you have a bunch of code that does something.
+Ship it.
+Grudgingly agree that it might be good to have some tests, but say you're too busy to write them now.
+Collect your bonus for shipping ahead of schedule.
+GOTO 1.
+You won't even need to write tests anyway
+In extreme circumstances, you may be put under pressure to write tests nevertheless (for example, when the customer reports that the software doesn't work at all, and sues your company for millions of dollars). Here is a handy list of excuses you can deploy:
+
+I can't write tests for this, because...
+
+...I no longer remember how the code works or what it does.
+...it's incredibly difficult to test this code, because it wasn't designed with testing in mind.
+...it's difficult to write mocks in Go, and mocking is the only way I know how to test things with external dependencies.
+...there are hundreds of high-priority bugs that need to be fixed first, which arose because of the lack of tests.
+...testing is a job for junior developers, and I've been here for decades, because I can't be fired, because no one understands the code except me, and even I don't understand it.
+Fortunately, however, this sort of pressure is rare, especially from management. Since managers tend to look only at features (or, occasionally, bugs), rather than the code itself, they have no real concept of how terrible a state things are really in. Keep it that way.
+
+Management will love you
+If a manager starts asking awkward questions, like why it's taking several weeks to add even the smallest new feature, just say something technical-sounding they don't understand. "The memory frobulizer is pass-by-garbage, and we use pointer crapulation. Hence the slowdown." I guarantee they won't be back.
+
+In general, though, you can count on management support for the TLD strategy. It has the following business-friendly advantages:
+
+It makes you look busy, because you're always having to fix something or other
+You ship deliverables much more quickly than those TDD idiots in the other team. Sure, they don't actually work, but there's no reason that should reflect badly on you. They worked on your laptop. Ops problem now.
+The resulting sales look good for the bottom line this quarter. Okay, the corresponding returns and lawsuits don't make next quarter look great, but that's next quarter's problem. Fortunately, most business people never look further ahead than this quarter.
+The all-purpose test excuse list
+If you find yourself absolutely required to write tests, by some unlucky mischance (maybe the engineering lead went to some conference and actually stayed awake through the keynote), all is not lost. You can still apply the standard TLD delaying tactics:
+
+We still haven't finished writing the tests because...
+
+...refactoring the code to make it testable is dangerous, because of the lack of tests, so we're having to go incredibly slowly.
+...the first test we wrote immediately uncovered a serious bug, and management didn't like the way that hurt velocity, so they told us to quit it.
+...it's boring, and you can't ask highly-paid software engineers to do boring work. Don't you realise these people are the princes of the Earth?
+Reaching 100% ass coverage
+If all else fails, there's an emergency-break-glass remedy you can turn to. Just use one of those automated test generators (yes, they really exist). They take your current codebase and generate a comprehensive suite of tests for it, with no typing or thinking required. Of course, this assumes that the code works right now, but why wouldn't you assume that? After all, you've been running it in production with no tests for years.
+
+This also has the amusing side effect that if, by chance, someone actually does find and fix a bug in the code, it will immediately break your autogenerated tests! You can then say "See? Doesn't that just prove how useless tests are? Why are we wasting our time like this?"
+
+Smart guys test last
+The TDD hype is over. It's time to adopt a radical new software development paradigm: one that will disrupt the complacent, overfed testocracy. Sure, there'll be pushback against Test-Last Development from the self-styled thought leaders on Reddit and Hacker News. You know, all those losers who bang on about "software as craft" and "quality". Don't listen to them, folks: TLD is easier, and easier is always better.
+
+After all, we know what we're doing.
+
+Don't we?
