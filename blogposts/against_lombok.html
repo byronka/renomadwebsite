@@ -1,0 +1,74 @@
+<!--#include virtual="header.html" -->
+<div class="entry">
+	<p class="content-header">
+		Against Lombok
+	<p>
+		<div class="date">May 31, 2025</div>
+
+	<p class="content-body">
+	There are two small but definite reasons why I dislike Lombok:
+	</p>
+
+	<ul>
+		<li>Hidden code doesn't provide me any benefits.</li>
+		<li>Having to be aware of implicit behavior surprises.</li>
+	</ul>
+
+	<p class="content-body">
+	In the programming industry, it often seems like people gets
+	sold on an idea but forget the reasons later. Then the idea
+	ends up persisting on momentum.  I think that on the whole,
+	Lombok is a net detriment.  Not a huge one, but sufficiently a
+	drawback that I would never choose it on my own.
+	</p>
+
+	<p class="content-body">
+	The two reasons why are listed at the top.  Let me explain my
+	viewpoint.
+	</p>
+
+	<p class="content-body">
+	Why would hiding code with annotations be a net positive?
+	Well-written code provides clarity, opportunities for
+	documentation, and is expected to be there.  For it to be
+	missing? I don't know, it seems like the premise is somehow
+	implied to be that hidden code is an intrinsic good.  It
+	doesn't compute with me.
+	</p>
+
+	<p class="content-body">
+	Now, I can imagine a more persuasive argument; that the
+	benefit is to avoid *typing* the code in the first place.
+	But, countering that, most serious programming editors will
+	generate the code you need, obviating that argument.
+	</p>
+
+	<p class="content-body">
+	Now on to the second point - implicit behavior surprises.  Did you know
+	that the Lombok-generated constructor, which isn't visible, will
+	arrange its parameters based on the order of properties in the class?
+	That's just one of a bunch of surprising behaviors that a Lombok user
+	must be aware of.  I just don't see the value.
+	</p>
+
+	<p class="content-body"> 
+	I like things plain and obvious, and choosing Lombok is a vote for
+	magic surprising behaviors.  No thanks. If I have any choice in the
+	matter, I won't have Lombok anywhere in my code.
+	</p>
+
+	<p class="content-body">
+	There are other drawbacks: Conflicts with other annotation
+	processors.  Having yet another dependency.  Being slowed down
+	from adopting the latest Java versions.  Relying on a tool
+	whose paradigm conflicts with Java's. Code navigability may be
+	harmed.  Requires extra configuration of IDE's.
+	</p>
+
+	<p class="content-body">
+	Here is another author describing his complaints about Lombok,
+	with some overlaps on mine:
+	<a href="https://www.danvega.dev/blog/2024/11/11/no-lombok">https://www.danvega.dev/blog/2024/11/11/no-lombok</a>
+	</p>
+
+<!--#include virtual="footer.html" -->
