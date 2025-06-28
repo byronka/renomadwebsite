@@ -1,0 +1,105 @@
+The Rise of Marketing Speak
+Why everyone on the internet sounds like a used car salesman
+Sustainable Views
+Jun 06, 2025
+Ever notice how everyone on the internet is trying to rope you into buying or clicking something nowadays? It didn’t use to be like that. Why did it become that way and where is it all going?
+
+===
+
+To attempt an answer, first let me define a framework:
+
+Value Creation - Creating goods/services that add value to the consumer of the good/service
+
+Value Capture - The created value is split between creator and consumer. Value that is captured by the creator is profit. Creators can choose to pocket the profit or reinvest it into more value creation or more value capture.
+
+Value Distribution - Sometimes, value capture dynamics leads to undesirable outcomes, so distribution intervention is needed. Governing entities control the distribution of value through taxes, and policy. Taxes extract value from one area to another. Policy curbs value capture dynamics deemed unhealthy (think anti-monopoly laws).
+
+===
+
+In this vocabulary, the “original internet” was a place for value creation with little value capture. People spent a lot of time putting up websites, knowledge, articles, images, etc that create value. But they didn’t capture much of the value created.
+
+Take Wikipedia for example - the value created by Wikipedia is immense, but the value captured by Wikimedia is just a tiny fraction.
+
+Imagine being the first quality recipe sharing site on the internet. You have helped lift up millions of families from bad food to good food! Society, as a whole, has improved drastically through your efforts.
+
+But that doesn’t pay your bills.
+
+So, you set up a donation link. Some value is captured, but not much. You add ads. More value is captured. You start a premium subscriber section. You start a culinary school. You sell a cookware line. You open a store. You sell merch.
+
+You go from value creator to value capturer.
+
+Well, that’s a good thing, right? You now have more money to spend on further value creation.
+
+Right??
+
+===
+
+Well, there’s a trap. Its possible to capture value without creating value. And it’s often the dominant strategy.
+
+As an example, consider the sock marketplace. Let’s design a cheap sock that is comfortable, sturdy, and lasts for 10 years before needing to be replaced. This design creates value for consumers (value creation) through being cheap and reliable.
+
+But there are designs that better capture value from consumers. Let’s instead design a sock that intentionally frays and wears out after 6 months. It looks and feels identical to the perfect sock we designed above, but consumers have to replace it more often, meaning they purchase this sock 19 times more than the perfect sock.
+
+In this scenario, the creators use that extra captured value for marketing, branding, stores, and supply chain dominance to out-compete and crowd out the first sock. Eventually, the first sock gets pressured out of the market.
+
+You can argue that the second sock adds no additional value to society. It produces waste, both in the landfill sense and in the sense that the extra 19 purchases do not add value whatsoever to the consumer. They are just a transfer of value from the consumer to the sock creator. In fact, Econ 101 argues exactly this. There are conditions where markets promote waste. Monopolies get the spotlight but plenty of other behaviors are designed capture value rather than create. This is (supposed to be) why regulatory bodies exist.
+
+Anyways, here’s the thing about value capture vs value creation: value capture allows you to reinvest the value captured; value creation does not. So as a general rule of thumb (and in most market conditions), those who focus on value capture are eventually going to win out over those who focus on value creation.
+
+===
+
+In the early days of the internet, there were a plethora of value creators who wrote or built websites for the sake of value creation. But nowadays pure value creators seem to be temporary existences - tadpoles waiting to evolve into their final influencer form.
+
+Several major factors cause this. One is the greater accessibility of value capture tools - google ads, subscription engines, youtube sponsors, influencer marketplaces, patreon, are all plug and play solutions to help value creators capture value. But a more fundamental factor is the belief that value creation by itself is stupid; that without value capture, why spend the effort?
+
+In the early 90s, the open source movement was in full swing. To be clear, open source is not against value capture (although some purists may argue it is). But rather, open source championed the benefits of value creation without the prevailing value capture tool of its day - copyright and ownership limitations.
+
+I personally think the leaders of the open source movement had a strong intuitive understanding of economics. They knew that unleashing code to the world was going to create an immense amount of value, and that closed source, private codebases was a rate limiter to the amount of value created. Open source was a waterfall of value creation to the closed source’s garden hose.
+
+One consequence of the open source movement was this wonderful idealogy that captured people’s hearts—value creation is valuable for its own sake. Many people held the belief that creating value and giving it back to the world (without any value capture) was the right thing to do.
+
+Nowadays, it sounds insane and you are insane if you think that way. Why not make a salary off of your work? Why not pay off your house and student loans? Why not get 7% return on your assets? Why not guarantee yourself a safety net and retire early? Why not get yourself a private jet and fancy parties, vacation 12 times a year, and eat at the best restaurants in the world? Why not dictate the direction of the strongest nation in the world and move world policy according to your whims?
+
+Especially because it is so visible and seemingly within reach, wealth and the experiences of the ultra-wealthy has never been more attractive.
+
+===
+
+Bill Gates pledged to give $200 billion within the next 20 years, mostly to Afria. This is a charitable act. It is also an example of value distribution. Value distribution is when entities go against market dynamics to regulate / determine where the value goes.
+
+Crucially, Bill Gates also said that he wants to use up the entire fortune by year 20. So, no, he will not have $300 billion 20 years later. Instead, it will be mostly gone.
+
+To those who ascribe to value capture pragmatism, $200 billion can grow to $2 trillion (or more) in 20 years. So why take that position and throw it away? Why not make 15-20% interest on that $200b and invest that $30-40b yearly in perpetuity, instead of spending the entirety of it? Wouldn’t that be more prudent?
+
+Why not take the value of the software that you write for yourself? Why build software and give it to others for free?
+
+Different scenarios, same question.
+
+And the answer lies in the title of this article. The pragmatism of value capture leads to an internet of marketers. The anti-pragmatism of no value capture leads to a internet of value.
+
+Put another way, if value capture has won the hearts and minds of people, then societal norms shift. It becomes the norm to sell something, to promote something, to be sold something, to be turned into a customer. People become subscribers, consumers or ad revenue. Public spaces become places to market, promote, and solicit. In a world where value capture is god, marketing speak is the daily prayer, and return on investment is the answer to prayer. All capital is tied up into a 7-20% return on investment instead of towards things that actually matter, because why not get perpetual ROI machine?
+
+===
+
+In eras of abundance and wealth, three things happen. The first is that people create many wonderful things that improve the lives of others. The second is that wealth gets concentrated to the upper class who eventually dictate the flow of wealth (mostly, to themselves). And the third is revolution. So, actually, revolution is also a value distribution.
+
+In terms of the internet, it is no longer a public space of value creation. It has already transformed into a place of commerce. From the ads of google, to the media feeds of IG, to the sponsors of Youtube. So, as a captured audience of these spaces, why let the corporations own the benefits of solicitation? Why not just directly solicit yourself? If you create value and don’t capture it, some other value capture service will.
+
+That’s the unfortunate reality of the internet today. So either join in. Master marketing speak. Solicit to others. Be part of the problem because at least that makes money.
+
+Or get off it completely.
+
+===
+
+As a netizen since early childhood, two factors are converging to make me feel like I need to get off the internet. The first is the fact that the internet worships value capture. The second is that dead internet theory is becoming a reality a lot faster than I imagined (it’s pretty much here).
+
+So, my personal revolution is to get off the internet and try to do value creation in places that will remain free of value capture. And yes, that means not making money from things I create.
+
+===
+
+This whole article isn’t really to convince you to give out stuff for free. Rather it’s to convince myself that value creation without value capture is very much worth doing. Even if future me doesn’t make a penny from it, it’s absolutely worth it.
+
+I think that’s what my current self needs to hear.
+
+To those who have seen the era of the internet where people created without value capture, I challenge you with a question: would you rather live in that world, or would you rather live in the world of today?
+
+And if you haven’t seen it yet or grown up in it, then someone needs to give you a taste.
