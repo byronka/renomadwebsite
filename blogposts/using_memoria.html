@@ -14,6 +14,35 @@
 <body>
 <h1>Memoria user manual</h1>
 <h2>
+	What is this application?
+</h2>
+<p>
+Memoria is a web application, written in Java, that provides a
+family-tree scrapbook capability.  Users may add text, pictures and videos
+to profiles of persons, and link those persons together through their
+family relationships.
+</p>
+<p>
+The application is designed to allow the general public to see some parts,
+and for those with the family password to see more. It is also
+possible for some users to be "administrators", which gives them the
+privilege to edit information.  All other users, even those with the
+family password, are not able to make any changes to data - only
+administrators.  It is expected there would only be a very small
+number of administrators, and they must be trustworthy - they have
+full control over data in the system.
+</p>
+<p>
+Here is the homepage.  When a user first hits the site, this is what
+they see.  They are shown a short list of "interesting" people - those
+with pictures, relations to others, and text descriptions.  There is a
+search field which allows fuzzy search by name. Users who are
+non-authenticated to the family password (in other words, the general
+public) will only see deceased individuals.  Living persons'
+information is hidden.
+</p>
+<img width="600" src="../files/memoria_user_manual_pics/home_page.jpg" alt="A view of the Memoria project home page">
+<h2>
 	Starting the application
 </h2>
 <p>
@@ -34,8 +63,7 @@ System is ready after 3704 milliseconds.  Access at http://localhost:8080 or htt
 It is now ready to access in a web browser (see
 <a href="http://localhost:8080/">http://localhost:8080/</a>). 
 </p>
-<img width=500px" src="../files/memoria_user_manual_pics/memoria_empty.jpg" alt="A
-view of the Memoria project upon first starting up with no data">
+<img width="500" src="../files/memoria_user_manual_pics/memoria_empty.jpg" alt="A view of the Memoria project upon first starting up with no data">
 <p>
 If you would like to build a jar, that may be done by running
 <code>make jar</code> on the command line.  The file location will be
@@ -51,7 +79,8 @@ If this is the first time you are starting and there is no
 defaults.  
 </p>
 <p>
-Also, if it does not already exist, a database directory will be created at "db"
+Also, if it does not already exist, a database directory will be
+created at "db".
 </p>
 <blockquote>
 	One absolutely essential directory is the template directory
@@ -70,6 +99,23 @@ administrator.  When the system first starts, an initial "admin" user
 is created, and their password is stored in the working directory as
 "admin_password"
 </p>
+<p>
+The URL to login as an administrator does not have any links from the
+homepage, in order to make links to the authentication system
+less discoverable for automated scripts.  The login page is at the
+"/login" endpoint.
+</p>
+<p>
+Here is what page looks like:
+</p>
+<img width="600" src="../files/memoria_user_manual_pics/admin_login.jpg" alt="a view of the authentication page for administrators to Memoria">
+<p>
+In contrast, there is a login link for family members in the top right
+on all pages, where the user enters the shared password (set by you in
+the "memoria.config" configuration file).  Here is what that looks
+like:
+</p>
+<img width="600" src="../files/memoria_user_manual_pics/family_login.jpg" alt="a view of the family authentication page">
 
 
 </body>
