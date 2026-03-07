@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<head>
+	<title>Memoria user manual</title>
+<style>
+.logs {
+	background: black;
+	color: white;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 5px;
+}
+</style>
+</head>
+<body>
+<h1>Memoria user manual</h1>
+<h2>
+	Starting the application
+</h2>
+<p>
+If you are starting the application from the command line in the
+source code directory (downloaded from
+<a href="https://github.com/byronka/memoria_project">https://github.com/byronka/memoria_project</a>):
+</p>
+<pre>
+$ make run
+</pre>
+<p>
+You will see logs, and then this line indicates the system is ready:
+</p>
+<pre class="logs">
+System is ready after 3704 milliseconds.  Access at http://localhost:8080 or https://localhost:8443
+</pre>
+<p>
+It is now ready to access in a web browser (see
+<a href="http://localhost:8080/">http://localhost:8080/</a>). 
+</p>
+<img width=500px" src="../files/memoria_user_manual_pics/memoria_empty.jpg" alt="A
+view of the Memoria project upon first starting up with no data">
+<p>
+If you would like to build a jar, that may be done by running
+<code>make jar</code> on the command line.  The file location will be
+printed in the terminal.
+</p>
+<p>
+Starting the application is done by running <code>make runjar</code>
+</p>
+<p>
+If this is the first time you are starting and there is no
+<code>memoria.config</code> file in the same directory as the jar, and no
+<code>minum.config</code>, complaints will be output about using
+defaults.  
+</p>
+<p>
+Also, if it does not already exist, a database directory will be created at "db"
+</p>
+<blockquote>
+	One absolutely essential directory is the template directory
+	and the static files directory.  Without these, basic
+	functionality will be unavailable.  See that the following
+	values are configured properly: STATIC_FILES_DIRECTORY
+	in minum.config and TEMPLATE_DIRECTORY in memoria.config
+</blockquote>
+
+<h2>
+	Authenticating as an administrator
+</h2>
+<p>
+In order to add data, you will need to authenticate as an
+administrator.  When the system first starts, an initial "admin" user
+is created, and their password is stored in the working directory as
+"admin_password"
+</p>
+
+
+</body>
+</html>
