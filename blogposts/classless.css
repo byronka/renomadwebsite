@@ -719,26 +719,6 @@ article:hover, section:hover, aside:hover {
     outline-offset: 2px;
 }
 
-/* Glass effect for special elements */
-.glass {
-    background: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: var(--body-color);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-:root[color-scheme="dark"] .glass {
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-
-/* Add a specific text shadow for better readability in light mode */
-:root:not([color-scheme="dark"]) .glass {
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-}
-
 /* Responsive adjustments */
 @media (max-width: 768px) {
     html {
@@ -812,89 +792,5 @@ article:hover, section:hover, aside:hover {
     article, section, aside, img, pre, blockquote, table {
         box-shadow: none;
     }
-}
-
-/* Transitions */
-body, a, button, input, select, textarea, th, td, code, pre, blockquote, article, section, aside {
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Color scheme toggle animation */
-@keyframes colorSchemeTransition {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-}
-/* Progress Bar */
-progress {
-    appearance: none;
-    width: 100%;
-    height: 1rem;
-    border: none;
-    border-radius: var(--border-radius-full);
-    background-color: var(--border-color);
-    overflow: hidden;
-}
-
-progress::-webkit-progress-bar {
-    background-color: var(--border-color);
-}
-
-progress::-webkit-progress-value {
-    background-color: var(--progress-color);
-    transition: width 0.3s ease;
-}
-
-progress::-moz-progress-bar {
-    background-color: var(--progress-color);
-    transition: width 0.3s ease;
-}
-
-/* Loading Animation for Progress Bar */
-@keyframes moveStripe {
-    0% { background-position: 200% 0; }
-    100% { background-position: 0 0; }
-}
-
-progress:indeterminate {
-    background-image: linear-gradient(
-            to right,
-            var(--border-color) 0%,
-            var(--border-color) 25%,
-            var(--progress-color) 25%,
-            var(--progress-color) 75%,
-            var(--border-color) 75%,
-            var(--border-color) 100%
-    );
-    background-size: 200% 100%;
-    animation: moveStripe 2s linear infinite;
-}
-
-progress:indeterminate::-moz-progress-bar {
-    background-image: linear-gradient(
-            to right,
-            var(--border-color) 0%,
-            var(--border-color) 25%,
-            var(--progress-color) 25%,
-            var(--progress-color) 75%,
-            var(--border-color) 75%,
-            var(--border-color) 100%
-    );
-    background-size: 200% 100%;
-    animation: moveStripe 2s linear infinite;
-}
-
-/* Webkit specific styles for indeterminate progress */
-progress:indeterminate::-webkit-progress-bar {
-    background-image: linear-gradient(
-            to right,
-            var(--border-color) 0%,
-            var(--border-color) 25%,
-            var(--progress-color) 25%,
-            var(--progress-color) 75%,
-            var(--border-color) 75%,
-            var(--border-color) 100%
-    );
-    background-size: 200% 100%;
-    animation: moveStripe 2s linear infinite;
 }
 
