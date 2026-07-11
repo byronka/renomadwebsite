@@ -26,72 +26,194 @@ pre {
 </style>
 </head>
 <body>
+<img loading="lazy" width=250 style="float: right; margin-left: 15px;"
+height=239 src="../files/memoria_user_manual_pics/home_page.jpg"
+alt="The home page">
+
 <h1>Memoria user manual</h1>
+
 <h2>
 	What is this application?
 </h2>
 <p>
-Memoria is a web application, written in Java, that provides a
-family-tree scrapbook capability.  Users may add text, pictures and videos
-to profiles of persons, and link those persons together through their
-family relationships.
+	Memoria is a family-tree scrapbook website, written in Java.  Users may
+	add text, pictures and videos to profiles of family members, and link
+	those persons together through their family relationships.
 </p>
+
+<p>
+Visit an example site: <a href="https://inmra.com/">here</a>
+</p>
+
 <h2>
 	Features
 </h2>
-<h3>
+
+<ul style="column-count: 2; column-gap: 20px; list-style-position: inside;">
+<li>
 	Easily and quickly create entries for your family tree
-</h3>
-
-<img loading="lazy" width="362" height="221" style="border: 1px solid black;" src="../files/memoria_user_manual_pics/creating_user_adding_name.jpg" alt="On the create user page, adding a name for the new person">
-
-<h3>
+</li>
+<li>
 	Easily search your family by name
-</h3>
-<h3>
+</li>
+<li>
 	Generate lists of close relatives, ancestors, and descendants
-</h3>
-<h3>
+</li>
+<li>
 	Find familial relationship between any two members
-</h3>
-<h3>
+</li>
+<li>
 	Keep information on living relatives private
-</h3>
-<h3>
-	Create stories for relatives
-</h3>
-<h3>
+</li>
+<li>
+	Create stories for relatives of any length, with customizable formatting
+</li>
+<li>
 	Make your family tree web-searchable
-</h3>
-<h3>
-	Add videos and images
-</h3>
-<h3>
+</li>
+<li>
+	Add videos and images of any size
+</li>
+<li>
 	Create printable ancestry and descendants records
-</h3>
-<h3>
+</li>
+<li>
 	Collaborate with other family members
-</h3>
-<h3>
+</li>
+<li>
 	Audit and version tracking
-</h3>
-<h3>
+</li>
+<li>
 	Secure
-</h3>
-<h3>
+</li>
+<li>
 	Fast and lean
-</h3>
-<h3>
+</li>
+<li>
 	Highly customizable
-</h3>
-<h3>
+</li>
+<li>
 	Show recent birthdays and memorial anniversaries
-</h3>
-
+</li>
+</ul>
 
 <h2>
-	Starting the application
+	Basic administration
 </h2>
+<h3>
+	Authentication
+</h3>
+<p>
+In order to administer the system, you must be authenticated. The
+first time Memoria is run, it will create a file in its directory
+called "admin_password" with a randomly-generated string, like
+"Gb0KCtK5skSwP7ju3nuD".  That is the password for the administrator.
+To login, click the "Admin login" link in the top right and enter
+these credentials:
+</p>
+<p>
+Username: admin<br>
+Password: (enter the text from the file as mentioned)
+</p>
+
+<img loading="lazy" width=250 height=239
+src="../files/memoria_user_manual_pics/admin_login.jpg" alt="Logging
+in as admin">
+
+<h3>
+	Adding a person
+</h3>
+
+<img style="float: left; margin-right: 15px;" loading="lazy" width=300
+height=238
+src="../files/memoria_user_manual_pics/click_create_new_person.jpg"
+alt="click create new person">
+
+<p>
+One of the most basic functions is adding family members to the
+database. Once you are authenticated as an administrator, there will
+be a menu button in the top left of the page. Click that and select
+"Create New Person".
+</p>
+
+
+<img style="float: right; margin-left: 15px;" loading="lazy" width=296
+height=516
+src="../files/memoria_user_manual_pics/creating_a_new_person.jpg"
+alt="Creating a new person">
+<p>
+On the subsequent page, there are several fields, but only one is
+required - the Name field.  Enter something there, which will cause
+the Save button to become enabled. Clicking save will send your data
+to the server for storage.  It is easy to edit later, so no worries if
+you make any mistakes, or need to delete it.
+</p>
+<p>
+Each family member entry stands on its own as a document.  Although
+the system keeps track of relationships between members, it is
+designed to allow editing any member without constraints.
+</p>
+<p>
+For example, later on we will talk about setting relationships between
+persons, and if someone has a relationship to a family member that was
+deleted, it will show up with a warning, but continue to work.  But
+let's not get ahead of ourselves.
+</p>
+<p>
+After clicking save, the data is now stored in the database on the
+web server, and we can click the "View" button to see the rendered
+view.  Go ahead and try that now.
+</p>
+
+<img style="float: clear;" loading="lazy" width=500 height=216
+src="../files/memoria_user_manual_pics/viewing_person.jpg"
+alt="Viewing a person">
+
+<h3>
+  Delete a person
+</h3>
+<p>
+To delete a person, open their edit page.  You can do this by
+searching for them, viewing their page and clicking the Edit icon at
+the top, or by going to the burger menu, then List all Persons,
+finding the person, then clicking Edit.  
+</p>
+<p>
+Once there, the Delete button is at the bottom. Click that, and a page
+will open up warning about what will take place. If you click the
+Delete button on this second page it will take action.  After this is
+done, that person's page will no longer appear, and any existing links
+to that person from other persons will show as "MISSING"
+</p>
+
+<h3>
+  Add a relation to a person
+</h3>
+<p>
+Relations are added on the Edit page, in the "Relationships" section
+at the top.
+</p>
+<p>
+If there is a person already existing to connect, enter their name in
+the appropriate field.  While doing so, a dropdown will appear and you
+must select that person.  The button at the right will change from
+"Connect new person" to "Connect existing person".  If that was not
+the right person, click the Reset button.
+</p>
+<p>
+Alternately, if you want to add a relation and create that person at
+the same time (which is a serious time saver), just enter the name and
+click "Connect new person", ignoring the dropdown if it appears. You
+will then be shown a page indicating how to connect this person, and
+you will have two options.  In the "Simple" case, it will just add a
+two-way relationship between the two persons.  In the "Complete" case,
+it will add the new person to all other immediate family.  In either
+case, all the connections to be made will display.  Check carefully to
+ensure.  We will talk about removing relations elsewhere.
+</p>
+
+
+<h2>Starting the application</h2>
 <p>
 If you are starting the application from the command line in the
 source code directory (downloaded from
@@ -136,103 +258,6 @@ created at "db".
 	values are configured properly: STATIC_FILES_DIRECTORY
 	in minum.config and TEMPLATE_DIRECTORY in memoria.config
 </blockquote>
-
-<h2>
-	Authenticating as an administrator
-</h2>
-<p>
-In order to add data, you will need to authenticate as an
-administrator.  When the system first starts, an initial "admin" user
-is created, and their password is stored in the working directory as
-"admin_password"
-</p>
-<p>
-The URL to login as an administrator does not have any links from the
-homepage, in order to make links to the authentication system
-less discoverable for automated scripts.  The login page is at the
-"/login" endpoint.
-</p>
-<p>
-Here is what page looks like:
-</p>
-<img loading="lazy" width="600" src="../files/memoria_user_manual_pics/admin_login.jpg" alt="a view of the authentication page for administrators to Memoria">
-<p>
-In contrast, there is a login link for family members in the top right
-on all pages, where the user enters the shared password (set by you in
-the "memoria.config" configuration file).  Here is what that looks
-like:
-</p>
-<img loading="lazy" width="600" src="../files/memoria_user_manual_pics/family_login.jpg" alt="a view of the family authentication page">
-
-<h2>
-  How to add a person
-</h2>
-<p>
-In the top left, there is a burger menu.  Click that and select
-the "Create New Person" link.  Then on the subsequent page, enter
-the new person's name, which is the only mandatory field.  You may
-enter more information if desired, but it is always possible to come
-back for further editing.  Also note that the system will not check
-for duplicate names, and in fact there are often duplicated names in a
-family tree.
-</p>
-<p>
-Once you are done here, click Save at the bottom. Once that is done,
-the page will reload but will now have the ability to add
-relationships (such as Sibling, Parents, etc). We will see more about
-that later.
-</p>
-
-<h2>
-  How to delete a person
-</h2>
-<p>
-To delete a person, open their edit page.  You can do this by
-searching for them, viewing their page and clicking the Edit icon at
-the top, or by going to the burger menu, then List all Persons,
-finding the person, then clicking Edit.  
-</p>
-<p>
-Once there, the Delete button is at the bottom. Click that, and a page
-will open up warning about what will take place. If you click the
-Delete button on this second page it will take action.  After this is
-done, that person's page will no longer appear, and any existing links
-to that person from other persons will show as "MISSING"
-</p>
-
-<h2>
-  How to add a relation to a person
-</h2>
-<p>
-Relations are added on the Edit page, in the "Relationships" section
-at the top.
-</p>
-<p>
-If there is a person already existing to connect, enter their name in
-the appropriate field.  While doing so, a dropdown will appear and you
-must select that person.  The button at the right will change from
-"Connect new person" to "Connect existing person".  If that was not
-the right person, click the Reset button.
-</p>
-<p>
-Alternately, if you want to add a relation and create that person at
-the same time (which is a serious time saver), just enter the name and
-click "Connect new person", ignoring the dropdown if it appears. You
-will then be shown a page indicating how to connect this person, and
-you will have two options.  In the "Simple" case, it will just add a
-two-way relationship between the two persons.  In the "Complete" case,
-it will add the new person to all other immediate family.  In either
-case, all the connections to be made will display.  Check carefully to
-ensure.  We will talk about removing relations elsewhere.
-</p>
-
-<h2>
-  How to remove a relation from a person
-</h2>
-
-
-
-
 
 </body>
 </html>
