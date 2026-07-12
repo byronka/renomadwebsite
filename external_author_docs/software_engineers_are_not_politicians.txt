@@ -1,0 +1,70 @@
+https://alexwennerberg.com/blog/2025-11-28-engineering.html
+
+Software engineers are not politicians
+2025-11-28
+
+432 Park Avenue
+If you live in or have been to New York City, you may recognize 432 Park Avenue.
+
+
+Wikimedia
+This is the second-tallest building in the city by roof height. It cost over $1 billion to build, and is famous for being an eyesore that exists solely as an asset for wealthy investors who don't even live in it to park cash in. On top of this, uniquely, it is also a complete engineering disaster. The problems with 432 Park Avenue are too numerous to list, but I want to focus on a few highlighted by New York Times reporting:
+
+The exterior of the building, which opened in 2015, is pockmarked and gouged, riddled with hundreds of cracks that suggest the slender structure is being overtaxed by wind and rain, according to independent engineering experts, construction reports and court filings. If the problems are not addressed, probably with a nine-figure renovation, the building could eventually become uninhabitable or endanger pedestrians below.
+The core of the issue is the nature of the concrete used in the building's facade. In order to get the exterior white color the developers wanted, they had to compromise on materials. According to court filings, engineer on the project Silvian Marcus pointed out these issues:
+
+"Hold the pour until they have a valid mix," Mr. Marcus wrote to Mr. Mena and developers. "Otherwise we will have future problems very painful to be solved and substantial project delays." [...]
+
+"You are not being at all helpful!" Bill Unger, a senior member of 432 Park's development team, shot back in an email.
+
+"Honestly, I prefer to disappoint today rather than installing something that even the manufacturer has doubts that will work," Mr. Marcus replied.
+
+According to engineers interviewed by the New York Times, Mr. Marcus was correct:
+
+If this cycle of stress continues, the consequences could be huge, according to engineering experts.
+"Chunks of concrete will fall off, and windows will start loosening up," said Mr. Bongiorno, the structural engineer, who echoed concerns of other independent engineers contacted by The Times. "You can't take the elevators, mechanical systems start to fail, pipe joints start to break and you get water leaks all over the place.
+"The building just becomes uninhabitable," he said, noting that the tower has yet to experience sustained, hurricane force winds.
+Details of problems with this case will probably continue to come out, but this much seems to be clear:
+
+Silvian Marcus, an engineer hired on the project, specifically raised concerns about the composition of the concrete facade.
+These concerns were overridden by the developers ("You're not being at all helpful!")
+As a result, the building faces unsafe conditions and hundreds of millions of dollars in repairs.
+Software Engineering
+Silvian Marcus has forty years of experience, more than the entire length of the existence of the World Wide Web. Software engineering, especially on networked systems, is a new field, and we're still figuring out how to do things. Trillions spent and big software projects are still failing. Even highly seasoned professionals disagree strongly on what "good" software engineering looks like.
+
+But that doesn't mean that we shouldn't take our roles seriously as engineers. The internet is everywhere, and the nature of the software systems that we use matter. At least on the web, software issues rarely directly result in people's lives being at risk, but software is such a big part of our lives that it is worth taking seriously. A prerequisite for taking engineering seriously is taking engineers seriously. Most of the software industry lacks the formal credential system of, say, structural engineering, but we should still aspire to a degree of professionalism and critical reflection of other engineering fields.
+
+In practice, software engineers find themselves in organizations where their pursuits may be stymied by systems characterized primarily by ossified internal bureaucracy. Engineers at a certain level of seniority tend to become focused less on building great software, and more on navigating a sprawling organization involving pleasing various stakeholders.
+
+Sean Goedecke, a Staff Engineer at GitHub writes intelligently about navigating these systems. He is extremely perceptive in how the dynamic at large tech companies tends to operate. Specifically:
+
+It is simply a fact that software engineers are tools in the political game being played at large companies
+This conception of engineering tends to rub people, including me, the wrong way. I have no doubt that his advice is quite effective for navigating the upper levels of an organization dedicated to producing a large, mature software product. But what is lost is any sort of conception of value. Is it too naive to say that engineers are more than "tools in a political game," they are specialized professionals whose role is to apply their expertise towards solving meaningful problems?
+
+Delivering Value
+There is a difference between making money and delivering value. Value is economic value, but it is also social value, a tangible good or service that contributes to the world in some way, that people want and like. In a successful firm, there is no contradiction here: the business creates something valuable, and in exchange, they get enough money to cover their costs, plus a little profit. Around this product, they erect an organization dedicated to producing and improving the thing that generated that value.
+
+One example of this is Bandcamp, a company which, before it was gutted by a series of acquisitions, had a simple statement of value: support independent music by creating a platform for artists to sell their work. It was an essential platform that enabled independent artists to support themselves and led to a whole generation of musicians that wouldn't have taken off otherwise. At the same time, it was a business that covered its costs and made a bit of profit. A win all around.
+
+It is this value that is the basis of capitalism. Capitalists cannot merely create money out of purely money (this is usury, or rent, not capitalism), they need an actual thing to buy and sell, a thing that fulfills human wants or needs in some way that people are willing to pay for.
+
+American capitalism seems to have forgotten this, that in order to make money, you actually have to do valuable things. And in order to do valuable things, you need to create organizations capable of making valuable things, and, in the case of engineering, cultivate a culture of individuals within that organization who are creative and highly skilled. Instead, another impulse has come to dominate, that of making money. This is the idea known as "shareholder primacy," that the only reason a company exists is to make as much money as possible for its shareholders. If a company's leadership decided it would be more profitable to liquidate all their assets and buy cryptocurrency, for example, then they should.
+
+The irony is that this kind of thinking destroys a company's ability to actually make money. If a company is openly nihilistic, this lack of genuine values infiltrates the entire organization. People's behavior shifts away from any sort of material goal and towards political jockeying. The company becomes entirely ruled by its own bureaucracy and starts to eat itself in order to survive. For Boeing, for example, this meant releasing unsafe planes that led to the death of hundreds of people, and kneecapping its own ability to innovate. Across the Atlantic, Airbus, essentially a European state-owned enterprise, has eaten Boeing's lunch (up 140 percent over the last five years, versus Boeing's -10 percent).
+
+At the risk of being dramatic, this idea of shareholder primacy has, over the last forty years, pretty much completely destroyed American society. The irony of neoliberalism, the ideology and system associated with this idea, as David Harvey writes in A Brief History of Neoliberalism, is that all of this so-called pro-business reform has been disastrous for actual economic productivity. It turns out that the mediated, directed capitalism which characterized FDR's New Deal and the state capitalism of post-war, pre-neoliberal America, were far more effective than contemporary finance-driven neoliberalism. A capitalist system that takes its own values seriously (i.e., Milton Friedman's "Greed is Good") will end up destroying itself, because capitalism, conceived of merely as the accumulation of capital, is a fundamentally nihilistic system. It is only when the market is cultivated towards some end that it can actually succeed.
+
+Valuable Engineers
+In the case of 432 Park Avenue, it seems completely obvious that the engineer did the right thing: he leveraged his expertise, brought up serious concerns, and the organization continued anyway. But politically, this engineer was operating terribly! He was placing the success of the project and values like "safety" above the direction of those who hired him.
+
+Goedecke argues that to operate well in a big tech company, you should do what your manager wants. I obviously don't think he would disagree with my assessment of the case of 432 Park Avenue, but I think that an engineer being put in a position to advocate on behalf of a company against their superiors is far more common than not. Cory Doctorow accurately describes enshittification as characteristic of most large software companies. Platforms are tending to undermine stability and their core value proposition in favor of chasing smaller and smaller new returns. They are laying off essential employees capable of maintaining these systems and under-investing in platform stability. This dynamic is extremely common as software platforms age and decay, and engineers are uniquely positioned to help resist it, to save a company from itself.
+
+Advocating for the product on an engineering side as an engineer is not only the right thing to do, it is your job! It's why they are paying you as a highly specialized professional. If you think that your connection to the product gives you some knowledge and expertise that those above you in the management chain don't have, it is your responsibility to speak up about it. You may or may not be rewarded for this, but at the very least, you are doing your job properly and standing up for your dignity as an engineer. After all, you're getting paid to do engineering, you're not getting paid to make people happy. A healthy organization should value pushback, criticism, and feedback from engineering. 432 Park Avenue's development is precisely an example of an unhealthy culture, the kind of culture that we must avoid if we are going to do good work or run an effective organization.
+
+Management may decide that engineers' voices don't matter and override them, but the idea that engineers should begin with a self-conception of doing what their manager tells them to is, to me, very bleak. It may be a good way to operate smoothly within a bureaucratic organization, and of course, one must often make compromises and take direction, but it is a bad way to do good work. If an organization is encouraging engineers to behave primarily as political actors, it is an organization that misunderstands the reason they hired engineers in the first place.
+
+All of this, of course, requires values. It requires that an organization is led by people who prioritize delivering a great product and cultivating a successful team in pursuit of that product. More critically, it requires real commitment on behalf of leadership: taking real accountability for layoffs, flattening their compensation structure, listening to feedback from below, and so on. It requires leaders have a genuine vision of what their company ought to be and why it exists. Beyond a certain scale, this kind of company is rare, maybe nonexistent. But I am also not so anti-capitalist to say that "win-win-win" businesses do not or cannot exist at all. Mostly, what I'm saying, is that such businesses in many cases fight an uphill battle in an economy set up against them, which privileges large players over new incumbents, and which seeks to consolidate and liquidate firms whose goals are modest and bounded.
+
+Interestingly, that story may be changing. The tide is turning against big tech; figures like Lina Khan are specifically targeting tech monopolies, and anti-monopoly policy is becoming increasingly popular across the political spectrum. In a more regulated and diverse market, smaller companies may be able to thrive. These companies will require new leaders, ones with genuine commitments to producing something other than merely shareholder value, a commitment to a new digital infrastructure that prizes and supports its users.
+
+Successful organizations will also require highly competent engineers who have a skill set beyond the narrow set of cloud technologies used at large tech companies. Engineers should take their own skills seriously, study broadly and widely. I worry that bureaucratic software organizations produce bureaucratic engineers, whose strongest abilities become writing documents and pleasing stakeholders, hobbling together code in a narrow part of a large system, rather than building effective software. In a society that relies on software without effective engineers, what will happen to our digital infrastructure? We've seen cracks this year, as layoffs and instability have arguably led to major outages in big platforms, how architectural decisions made a decade ago are coming up against the reality of maintaining long-term software. Will we have the people who can fix these systems, who prize engineering excellence? Or have we created a system in which the only people materially rewarded are good politicians? If we have, this is something to resist, not to cynically operate in, and certainly not to celebrate.
