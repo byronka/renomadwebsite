@@ -1,0 +1,39 @@
+https://lewiscampbell.tech/blog/260607.html
+
+7 Jun 2026
+The User Doesn't Care - But you should
+Throughout my career, I've heard the same cliche repeated again and again. Here's some examples from the wild:
+
+"Customers don’t care about your testing at all. They care that the product works."
+"Users Don’t Care About Your Tech Stack"
+"First you must accept that engineering elegance != market value."
+"Users don’t care whether the code was written by AI or by hand, or which framework you used. They care that the product works."1
+They all have differences, but they're variations on the same theme. The grizzled pragmatist is telling us all how the world really works. He's showing us a cold, hard truth we're all just too idealistic or short-sighted to see. "Why are you bothering with that? The customer won't care".
+
+The key issue here is it's all a bunch of horseshit. Consider the same kind of cliche, adapted for other fields:
+
+Road users don't care if the bridge has had its final inspection or not. They care that it holds up their car.
+Passengers don't care whether the pilot is drunk or not. They care that the plane arrives on time.
+Office workers don't care if the skyscraper's foundation is stable or not. They care about making money.
+All superficially true. All ignoring the obvious downstream effects. Because of course it's absolutely right that customers do not care at all about the intrinsic properties of computer code. But then there are the downstream effects:
+
+Performance
+Presence of bugs
+How long it takes to fix bugs
+How long it takes to add features
+The worse your code is, the harder - and slower - it is to resolve these issues.
+
+Of course if you're an AirBnB, OpenAI, or Meta you can absolutely steamroll over these concerns through your incredible market capture, massive VC backing, and questionable legality. You are a company like that, right?
+
+The Persistence of Folk Wisdom
+It's profoundly facile to think that only first order effects matter. Yet this is an incredibly popular folk belief in software. Why?
+
+Many people have a tendency to discount or downplay things they themselves are not good at. If one recognises their inability to produce good code, why not adopt a view of software where not only does that not matter, it's actually the people with the ability that are the real problem? They're the ones holding us back with things the customer doesn't even care about! Let me ship bro.
+
+So I think partly it's an ego defence mechanism. It lets one avoid one's own shortcomings, and instead externalise it onto others. What are you reading books for, nerd?
+
+We Live in a Society
+Any serious software effort is a mixture of different concerns, and different perspectives. From tech sales to tech stack, from user experience to unique identifiers. And all of it contributes to success - or failure.
+
+Footnotes
+Lobste.rs mods: please don't tag this as "vibecoding" because this article now contains the word "AI" ↩
