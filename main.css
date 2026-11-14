@@ -1,5 +1,8 @@
 img {
-  height: 200px;
+    max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 img#pic {
@@ -38,7 +41,7 @@ body {
     text-align: center;
 }
 
-.content-header {
+h1, h2, h3, h4, h5, .content-header {
     font-family: sans-serif;
     font-weight: 700;
 }
@@ -56,7 +59,7 @@ pre {
   overflow-y: auto;
 }
 
-.content-body {
+p, .content-body {
     line-height: 1.2em;
 }
 
@@ -74,7 +77,8 @@ pre {
     border:  double gray;
     max-width: 900px;
     min-width: 300px;
-    background-color: white;
+    color: #c0bcbc;
+    background: #282626;
 }
 
 li.menu_item {
